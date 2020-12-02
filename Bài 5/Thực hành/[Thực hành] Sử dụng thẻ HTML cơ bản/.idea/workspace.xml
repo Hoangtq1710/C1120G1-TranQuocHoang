@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9942b58a-6246-46a6-9ee9-7d74d4aa1d85" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Bài tập/[Bài tập] Tạo danh sách/[Bài tập] Tạo danh sách.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bài tập/[Bài tập] Tạo danh sách/[Bài tập] Tạo danh sách.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,7 +23,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Bài tập/[Bài tập] Tạo danh sách/[Bài tập] Tạo danh sách.html" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/C1120g1_Tran_Quoc_Hoang/index.html" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -35,7 +35,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606888336788</updated>
-      <workItem from="1606888338250" duration="1252000" />
+      <workItem from="1606888338250" duration="3222000" />
     </task>
     <servers />
   </component>
@@ -43,9 +43,9 @@
     <option name="version" value="2" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1606888640003">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1606890014290">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1606888640003" />
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1606890014290" />
   </component>
 </project>

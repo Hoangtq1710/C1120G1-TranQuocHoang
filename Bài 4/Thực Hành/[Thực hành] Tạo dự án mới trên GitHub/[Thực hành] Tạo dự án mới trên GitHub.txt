@@ -4,4 +4,4 @@ Lệnh git add để đưa file đã tạo vào chỉ mục của Git
 Lệnh git commit -m "Commit" dùng để lưu lại các thay đổi
 Lệnh git push để đẩy các thay đổi ở Local Repository lên trên Remote Repository
 
-https://github.com/Hoangtq1710/C1120G1-TranQuocHoang
+https://github.com/Hoangtq1710/GitProject

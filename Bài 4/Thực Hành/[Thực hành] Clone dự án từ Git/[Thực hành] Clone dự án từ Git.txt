@@ -1,4 +1,0 @@
-* Mô t? cú pháp : $ git clone https://github.com/codegym-vn/wf-hello.git :
-		Nhân b?n repository wf-hello ? trang web có link ? trên v? th? m?c ?ang ??ng.
-
-Ý ngh?a c?a clone : t?o m?t b?n sao repo và l?u v? máy local, repo này là b?n c?p nh?t m?i nh?t v? công vi?c chung mà m?i ng??i ?ã push lên git.

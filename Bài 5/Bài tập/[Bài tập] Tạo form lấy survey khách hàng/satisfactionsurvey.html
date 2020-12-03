@@ -29,17 +29,25 @@
             text-align: left;
         }
 
-
+        .table_a td{
+            border: none;
+        }
+        .table_a tr{
+            border: none;
+        }
     </style>
 </head>
-<body>
+<body style="font-family: serif">
     <div>
-        <form action="" method="get">
+        <form action="satisfactionsurvey.html" method="get">
+
+<!--            Đây là header-->
             <div class="header">
-                <h4>Market Research Survey</h4>
-                <p>Please take a few moments to complete this satisfation survey.</p>
+                <h2>Market Research Survey</h2>
+                <p>Please take a few moments to complete this satisfaction survey.</p>
             </div>
 
+<!--                Đây là Age-->
             <div class="information">
                 <p class="question">What is your age range?</p>
                 <select name="" >
@@ -50,6 +58,7 @@
                 </select>
             </div>
 
+<!--                Đây là Income-->
             <div class="information">
                 <p class="question">What is your yearly income range?</p>
                 <select name="" >
@@ -60,21 +69,25 @@
                 </select>
             </div>
 
+<!--                Đây là Gender-->
             <div class="information">
-                <p>Gender Identify</p>
+                <p class="">Gender Identify</p>
                 <input type="radio" id="male" name="gender" value="male">Male<br>
                 <input type="radio" id="female" name="gender" value="female">Female<br>
                 <input type="radio" id="nonbinary" name="gender" value="nonbinary">Nonbinary<br>
                 <input type="radio" id="other" name="gender" value="other">Other<br>
+                <input type="text"><br>
             </div>
 
+<!--                Đây là Product-->
             <div class="information">
                 <p>Which of the following products have your purchased in the last 2 months. Please check all that apply.</p>
-                <label><input name="product1" value="product1" type="checkbox"/> Product 1</label> <br/>
-                <label><input name="product2" value="product2" type="checkbox"/> Product 2</label> <br/>
-                <label><input name="product3" value="product3" type="checkbox"/> Product 3</label> <br/>
+                <label><input name="product" value="product1" type="checkbox"/> Product 1</label> <br/>
+                <label><input name="product" value="product2" type="checkbox"/> Product 2</label> <br/>
+                <label><input name="product" value="product3" type="checkbox"/> Product 3</label> <br/>
             </div>
 
+<!--                Đây là Often-->
             <div class="information">
                 <p>How often would you use our new product?</p>
                 <input type="radio" id="daily" name="often" value="daily">Daily<br>
@@ -82,16 +95,32 @@
                 <input type="radio" id="monthly" name="often" value="monthly">Monthly<br>
             </div>
 
+<!--                Đây là payout-->
             <div class="information">
                 <p>What would you pay for the new product?</p>
-                <span> $ <input type="text" height="22px" width="73px">Dollars . <input type="text" height="22px" width="16px">Cents</span>
+                <table style="border: none" cellspacing="0" cellpadding="0" class="table_a">
+                    <tr style="background-color: white">
+                        <td>$</td>
+                        <td><input type="text" style="width: 50px"></td>
+                        <td> . </td>
+                        <td><input type="text" style="width: 30px;"></td>
+                    </tr>
+                    <tr style="text-align: left">
+                        <td></td>
+                        <td>Dollars</td>
+                        <td></td>
+                        <td>Cents</td>
+                    </tr>
+                </table>
             </div>
 
+<!--                Đây là feature-->
             <div class="information">
                 <p>What features would you like to see in the new product.</p>
                 <textarea name="" id="" cols="150" rows="10" ></textarea>
             </div>
 
+<!--                Đây là statements-->
             <div class="information">
                 <p>Please rate your level of agreement with the following statements.</p>
                 <table class="table">
@@ -100,7 +129,7 @@
                         <td>Disagree</td>
                         <td>Agree</td>
                         <td>Stronly Agree</td>
-                    </th><br>
+                    </th>
 
                     <tr>
                         <td class="statement">Our products are priced fairly.</td>
@@ -108,7 +137,7 @@
                         <td><input type="radio"><br>2</td>
                         <td><input type="radio"><br>3</td>
                         <td><input type="radio"><br>4</td>
-                    </tr><br>
+                    </tr>
 
                     <tr>
                         <td class="statement">Our products are high quality.</td>
@@ -116,7 +145,7 @@
                         <td><input type="radio"><br>2</td>
                         <td><input type="radio"><br>3</td>
                         <td><input type="radio"><br>4</td>
-                    </tr><br>
+                    </tr>
 
                     <tr>
                         <td class="statement">You would recommend our product to a friend or coworker.</td>
@@ -124,11 +153,12 @@
                         <td><input type="radio"><br>2</td>
                         <td><input type="radio"><br>3</td>
                         <td><input type="radio"><br>4</td>
-                    </tr><br>
-                    
+                    </tr>
+
                 </table>
             </div>
 
+<!--                Đây là footer-->
             <div class="submit">
                 <input type="submit" value="Submit">
             </div>

@@ -4,87 +4,77 @@
     <meta charset="UTF-8">
     <title>Your Hobbies</title>
     <style>
-
-        .background-1 {
-            background-color: aquamarine;
-            width: 500px;
-            height: 400px;
-        }
-
-        .background-2 {
-            background-color: white;
-            width: 480px;
-            height: 380px;
-            margin-top: 10px;
-            margin-left: 10px;
-
-        }
-
         .header {
+            text-transform: uppercase;
             background-color: #FF4C00;
             color: white;
-            text-transform: uppercase;
-            height: 30px;
-
+            height: 20px;
             text-align: center;
-            font-size: 15px;
         }
-        .left {
-            color: blue;
-            float: left;
-            width: 80px;
-        }
-
-        .right {
-            float: left;
-
-        }
-
-        .checkbox {
-            color: orange;
-            border: solid white;
-            border-width: 0 3px 3px 0;
-            width: 200px;
-
-        }
-
     </style>
 </head>
 <body style="font-family: 'Times New Roman'">
 
-        <div class="background-1">
-            <div class="background-2">
-                <form action="yourhobby.html" method="get">
+                <form action="yourhobby.html" method="get" style="width: 500px ; height: 400px; background-color: azure">
 
-                <p class="header">sở thích của bạn</p><br>
+                    <p class="header">sở thích của bạn</p>
 
-                <p><span class="left">Họ và tên</span>
-                    <input class="right" type="text" name="fullname" width="200px">
-                </p><br>
+                    <table>
+                        <tr>
+                            <td>Họ và tên</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type="text"></td>
+                        </tr>
+                        <tr>
+                            <td>Sở thích</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <td><label for=""><input type="checkbox" name="sport" value="">Thể thao</label></td>
+                                        <td><label for=""><input type="checkbox" name="music" value="">Âm nhạc</label></td>
+                                        <td><label for=""><input type="checkbox" name="readbook" value="">Đọc sách</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for=""><input type="checkbox" name="surfing" value="">Lướt web</label></td>
+                                        <td><label for=""><input type="checkbox" name="game" value="">Chơi game</label></td>
+                                        <td><label for=""><input type="checkbox" name="cinema" value="">Điện ảnh</label></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for=""><input type="checkbox" name="travel" value="">Du lịch</label></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
 
-                <p><span class="left"">Email</span>
-                    <input class="right" type="text" name="email" width="120px">
-                </p><br>
-
-                <p><span class="left">Sở thích</span>
-
-                    <div class="checkbox">
-                        <label><input type="checkbox" name="hobby" value="">Thể thao</label>
-                        <label><input type="checkbox" name="hobby" value="">Âm nhạc</label>
-                        <label><input type="checkbox" name="hobby" value="">Đọc sách</label><br>
-                        <label><input type="checkbox" name="hobby" value="">Lướt web</label>
-                        <label><input type="checkbox" name="hobby" value="">Chơi game</label>
-                        <label><input type="checkbox" name="hobby" value="">Điện ảnh</label><br>
-                        <label><input type="checkbox" name="hobby" value="">Du lịch</label>
-                    </div>
-
-                </p><br>
-
-                <input class="right" type="submit" name="submit" value="Gửi thông tin">
-                <input class="right" type="reset" value="Nhập lại">
+                    <input class="right" type="submit" name="submit" value="Gửi thông tin">
+                    <input class="right" type="reset" value="Nhập lại">
 
             </form>
-        </div>
-    </div>
+
+<!--                <p>Họ và tên</span>-->
+<!--                    <input class="right" type="text" name="fullname" width="200px">-->
+<!--                </p>-->
+
+<!--                <p><span class="left"">Email</span>-->
+<!--                    <input class="right" type="text" name="email" width="120px">-->
+<!--                </p>-->
+
+<!--                <p>>Sở thích</span>-->
+
+<!--                <div class="checkbox">-->
+<!--                    <label><input type="checkbox" name="hobby" value="">Thể thao</label>-->
+<!--                    <label><input type="checkbox" name="hobby" value="">Âm nhạc</label>-->
+<!--                    <label><input type="checkbox" name="hobby" value="">Đọc sách</label><br>-->
+<!--                    <label><input type="checkbox" name="hobby" value="">Lướt web</label>-->
+<!--                    <label><input type="checkbox" name="hobby" value="">Chơi game</label>-->
+<!--                    <label><input type="checkbox" name="hobby" value="">Điện ảnh</label><br>-->
+<!--                    <label><input type="checkbox" name="hobby" value="">Du lịch</label>-->
+<!--                </div>-->
+
+<!--                </p>-->
 </body>
 </html>

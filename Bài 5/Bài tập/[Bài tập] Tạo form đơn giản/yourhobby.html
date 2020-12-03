@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Your Hobbies</title>
     <style>
+        .body {
+            font-family:"Times New Roman";
+        }
         .header {
             text-transform: uppercase;
             background-color: #FF4C00;
@@ -11,25 +14,36 @@
             height: 20px;
             text-align: center;
         }
+        .form {
+            width: 500px ;
+            height: 400px;
+            background-color: azure;
+        }
+        label {
+            color: orange;
+        }
+        .a {
+            color: #1831B1;
+        }
     </style>
 </head>
-<body style="font-family: 'Times New Roman'">
+<body class="body">
 
-                <form action="yourhobby.html" method="get" style="width: 500px ; height: 400px; background-color: azure">
+                <form action="yourhobby.html" method="get" class="form">
 
                     <p class="header">sở thích của bạn</p>
 
                     <table>
                         <tr>
-                            <td>Họ và tên</td>
+                            <td><label class="a">Họ và tên</label></td>
                             <td><input type="text"></td>
                         </tr>
                         <tr>
-                            <td>Email</td>
+                            <td><label class="a">Email</label></td>
                             <td><input type="text"></td>
                         </tr>
                         <tr>
-                            <td>Sở thích</td>
+                            <td><label class="a">Sở thích</label></td>
                             <td>
                                 <table>
                                     <tr>
@@ -48,33 +62,18 @@
                                 </table>
                             </td>
                         </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <input class="right" type="submit" name="submit" value="Gửi thông tin">
+                                <input class="right" type="reset" value="Nhập lại">
+                            </td>
+                        </tr>
                     </table>
 
-                    <input class="right" type="submit" name="submit" value="Gửi thông tin">
-                    <input class="right" type="reset" value="Nhập lại">
+
 
             </form>
 
-<!--                <p>Họ và tên</span>-->
-<!--                    <input class="right" type="text" name="fullname" width="200px">-->
-<!--                </p>-->
-
-<!--                <p><span class="left"">Email</span>-->
-<!--                    <input class="right" type="text" name="email" width="120px">-->
-<!--                </p>-->
-
-<!--                <p>>Sở thích</span>-->
-
-<!--                <div class="checkbox">-->
-<!--                    <label><input type="checkbox" name="hobby" value="">Thể thao</label>-->
-<!--                    <label><input type="checkbox" name="hobby" value="">Âm nhạc</label>-->
-<!--                    <label><input type="checkbox" name="hobby" value="">Đọc sách</label><br>-->
-<!--                    <label><input type="checkbox" name="hobby" value="">Lướt web</label>-->
-<!--                    <label><input type="checkbox" name="hobby" value="">Chơi game</label>-->
-<!--                    <label><input type="checkbox" name="hobby" value="">Điện ảnh</label><br>-->
-<!--                    <label><input type="checkbox" name="hobby" value="">Du lịch</label>-->
-<!--                </div>-->
-
-<!--                </p>-->
 </body>
 </html>

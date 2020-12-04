@@ -1,0 +1,68 @@
+.main-page {
+    border: 2px solid red;
+}
+.header {
+    height: 160px;
+    width: 100%;
+}
+.header .title-left {
+    float: left;
+    width: 88%;
+}
+.header .title-left .normal-header {
+    height: 65px;
+    background-color: red;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 10px;
+    border: 1px solid red;
+    line-height: 65px;
+}
+.header .title-left .main-header {
+    height: 81px;
+    line-height: 81px;
+    background-color: bisque;
+    color: red;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    border: 2px solid red;
+    border-left: none;
+}
+.header .img-right {
+
+    overflow: hidden;
+    border : none;
+    margin-right: 7px;
+    float: right;
+}
+.img-right img {
+    width: 148px;
+    height: 160px;
+
+}
+.content {
+    height: 256px;
+
+}
+.content .left-content {
+    text-align: left;
+    float: left;
+    width: 655px;
+    border-right: 2px solid red;
+
+}
+.content .sale-rule {
+    color: red;
+    font-weight: bold;
+    font-size: 18px;
+}
+.content .right-content {
+    text-align: left;
+    float: right;
+    padding-left: 0px;
+    width: 655px;
+
+}

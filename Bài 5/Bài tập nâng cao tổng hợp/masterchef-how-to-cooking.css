@@ -1,0 +1,210 @@
+.main-page {
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+.header {
+    height: 57px;
+    background-color: #272D33;
+    padding-left: 80px;
+}
+.header a {
+    border-bottom: 1px solid transparent;
+}
+ul {
+    list-style-type: none;
+    margin: 50px 0 0 0;
+    padding: 0;
+    overflow: hidden;
+}
+li {
+    float: left;
+    padding-left: 10px;
+}
+.drop-down a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 17px;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111111;
+    border-bottom: 4px solid red;
+    color: #F37423;
+}
+.drop-down a:hover {
+    background-color: #272D33;
+}
+.drop-down:hover .drop-down-content {
+    display: block;
+}
+ul .button {
+    background-color: #272D33;
+    color: white;
+    border: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 17px;
+    text-decoration: none;
+
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .content {
+    padding-top: 60px;
+}
+.introduce {
+    height: 450px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.introduce .left-introduce {
+    height: 420px;
+    float: left;
+}
+.left-introduce img {
+    width: 560px;
+    height: 404px;
+    margin-left: 50px;
+}
+.introduce .right-introduce {
+    float: right;
+    height: 420px;
+    width: 600px;
+    margin-right: 50px;
+}
+.right-introduce .introduce-content {
+    text-align: left;
+}
+.right-introduce #course {
+    text-transform: uppercase;
+    font-size: 40px;
+    color: #F37423;
+}
+.right-introduce #become-chef {
+    font-size: 28px;
+    color: #F37423;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.right-introduce label #strong-word {
+    color: #F37423;
+}
+.introduce .registry-button {
+    width: 280px;
+    height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 13px;
+    background-color: #EE7B30;
+    border: none;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    transition: all 1s;
+    cursor: pointer;
+    margin: 5px;
+}
+.introduce .registry-button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.75s;
+}
+.registry-button span:after {
+    content: '\00bb';
+    position: relative;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+.registry-button:hover span {
+    padding-right: 25px;
+    transition: all 0.75s;
+}
+.registry-button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.content {
+    background-color: #282D33;
+}
+.content #title-content {
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 100px;
+    color: #EE6C30;
+}
+.content p {
+    height: 90px;
+}
+
+.content td {
+    width: 360px;
+    height: 360px;
+    color: white;
+    padding: 10px;;
+}
+td p {
+    margin-top: 5px;
+}
+td img {
+    /*cursor: pointer;*/
+    /*background-position: center;*/
+    /*background-size: cover;*/
+    /*overflow: hidden;*/
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+td:hover img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+td .title-td {
+    background-color: #FF8F4C;
+    height: 100px;
+    position: absolute;
+}
+td label #main-title-td {
+    color: white;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.content img {
+    width: 360px;
+    height: 285px;
+    padding-bottom: 5px;
+}
+/*.content .course-content {*/
+/*    width: 360px;*/
+/*    height: 285px;*/
+/*    padding-bottom: 5px;*/
+/*}*/
+.schedule {
+
+}
+.chef-staff {
+
+}
+.footer {
+
+}
+#strong-word {
+    color: #F37423;
+    font-weight: bold;
+}

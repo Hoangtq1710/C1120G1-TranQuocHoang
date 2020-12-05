@@ -41,6 +41,16 @@
         span {
             color: red;
         }
+        input {
+            margin-left: 5px;
+        }
+        textarea {
+            margin-left: 5px;
+        }
+        select {
+            margin-left: 5px;
+        }
+
     </style>
 </head>
 <body>
@@ -72,12 +82,12 @@
                 <tr>
                     <td><label for="">Chọn tour</label></td>
                     <td><select name="tour" id="">
-                        <option value="">Buôn Mê Thuột - Gia Lai - Kontum</option>
-                        <option value="">Huế - Đà Nẵng - Hội An</option>
-                        <option value="">Hà Nội - Hạ long - Ninh Bình</option>
-                        <option value="">Quy Nhơn - Phú Yên - Nha Trang</option>
-                        <option value="">Đà Nẵng - Tam Kỳ - Núi Thành</option>
-                        <option value="">Bất cứ đâu miễn là có vợ bên cạnh <3</option>
+                            <option value="">Buôn Mê Thuột - Gia Lai - Kontum</option>
+                            <option value="">Huế - Đà Nẵng - Hội An</option>
+                            <option value="">Hà Nội - Hạ long - Ninh Bình</option>
+                            <option value="">Quy Nhơn - Phú Yên - Nha Trang</option>
+                            <option value="">Đà Nẵng - Tam Kỳ - Núi Thành</option>
+                            <option value="">Bất cứ đâu miễn là có vợ bên cạnh <3</option>
                     </select></td>
                 </tr>
 <!--                6-->
@@ -110,7 +120,7 @@
 <!--                9-->
                 <tr>
                     <td colspan="2" style="text-align: center">
-                        <input type="submit" name="agree" value="Đồng ý" onclick="successfulRegistrybytext()">
+                        <input type="submit" name="agree" value="Đồng ý" onclick="successfulRegistryalert()">
                         <input type="reset" name="reset" value="Reset">
                     </td>
                 </tr>
@@ -118,7 +128,7 @@
         </form>
     </center>
     <script>
-        function successfulRegistrybytext() {
+        function successfulRegistryalert() {
             alert('Bạn đã đăng ký thành công !!!');
         }
     </script>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Travel Registration</title>
+    <style>
+        h1  {
+            color: #0000FF;
+        }
+        label {
+            color: #27669B;
+            margin-left: 3px;
+        }
+        table {
+            width: 550px;
+            height: 400px;
+            background-color: #FFFBC3;
+            font-size: 17px;
+            border-collapse: collapse;
+        }
+        .main-form {
+            width: 640px;
+            height: 550px;
+            background-color: #E8FFF3;
+        }
+        td {
+            border: 1px solid blue;
+        }
+        fieldset {
+            display: inline-block;
+            border: 2px solid #D61B06;
+        }
+        legend {
+            color: #C46200;
+            font-style: italic;
+        }
+        textarea {
+            font-family: "Courier New" , sans-serif;
+            font-size: 16px;
+        }
+        span {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <form action="travel-registration.html" method="get" name="main-form" class="main-form">
+            <br><h1>Đăng ký du lịch</h1>
+            <table>
+<!--                1-->
+                <tr>
+                    <td><label for="">Họ và tên (<span>*</span></label>) </td>
+                    <td><input type="text" name="fullname" required style="width: 340px"></td>
+                </tr>
+<!--                2-->
+                <tr>
+                    <td><label for="">Địa chỉ (<span>*</span></label>) </td>
+                    <td><input type="text" name="address" required style="width: 230px;"></td>
+                </tr>
+<!--                3-->
+                <tr>
+                    <td><label for="">Điện thoại (<span>*</span></label>) </td>
+                    <td><input type="text" name="phone" required></td>
+                </tr>
+<!--                4-->
+                <tr>
+                    <td><label for="">Khách Việt Nam</label></td>
+                    <td><input type="checkbox" name="vietnamese" checked></td>
+                </tr>
+<!--                5-->
+                <tr>
+                    <td><label for="">Chọn tour</label></td>
+                    <td><select name="tour" id="">
+                        <option value="">Buôn Mê Thuột - Gia Lai - Kontum</option>
+                        <option value="">Huế - Đà Nẵng - Hội An</option>
+                        <option value="">Hà Nội - Hạ long - Ninh Bình</option>
+                        <option value="">Quy Nhơn - Phú Yên - Nha Trang</option>
+                        <option value="">Đà Nẵng - Tam Kỳ - Núi Thành</option>
+                        <option value="">Bất cứ đâu miễn là có vợ bên cạnh <3</option>
+                    </select></td>
+                </tr>
+<!--                6-->
+                <tr>
+                    <td><label for="">Phương tiện</label></td>
+                    <td>
+                        <input type="radio" name="vehicle"><label for=""> Máy bay</label>
+                        <input type="radio" name="vehicle" checked><label for=""> Ô tô</label>
+                    </td>
+                </tr>
+<!--                7-->
+                <tr>
+                    <td colspan="2">
+                        <center>
+                            <fieldset style="width: 350px;">
+                                <legend>Số lượng đoàn khách</legend>
+                                <label for="">Người lớn</label>
+                                <input type="number" min="0" name="adultcount" id="fadultcount" style="width: 70px;">
+                                <label for="">Trẻ em</label>
+                                <input type="number" min="0" name="childcount" id="fchildcount" style="width: 70px;">
+                            </fieldset>
+                        </center>
+                    </td>
+                </tr>
+<!--                8-->
+                <tr>
+                    <td><label for="">Ghi chú thêm</label></td>
+                    <td><textarea name="textarea" id="note" cols="30" rows="3"></textarea></td>
+                </tr>
+<!--                9-->
+                <tr>
+                    <td colspan="2" style="text-align: center">
+                        <input type="submit" name="agree" value="Đồng ý" onclick="successfulRegistrybytext()">
+                        <input type="reset" name="reset" value="Reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </center>
+    <script>
+        function successfulRegistrybytext() {
+            alert('Bạn đã đăng ký thành công !!!');
+        }
+    </script>
+</body>
+</html>

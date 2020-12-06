@@ -94,10 +94,10 @@ ul .button {
     font-weight: bold;
     text-transform: uppercase;
 }
-.right-introduce label #strong-word {
+.right-introduce label .strong-word {
     color: #F37423;
 }
-.introduce .registry-button {
+.main-page .registry-button {
     width: 280px;
     height: 60px;
     text-align: center;
@@ -114,7 +114,7 @@ ul .button {
     cursor: pointer;
     margin: 5px;
 }
-.introduce .registry-button span {
+.main-page .registry-button span {
     cursor: pointer;
     display: inline-block;
     position: relative;
@@ -196,15 +196,105 @@ td label #main-title-td {
 /*    padding-bottom: 5px;*/
 /*}*/
 .schedule {
-
+    float: left;
+    width: 100%;
+    background-color: white;
+}
+.schedule .title-schedule {
+    text-transform: uppercase;
+    font-size: 28px;
+    color: #F37423;
+    font-weight: bold;
+}
+.schedule table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+.schedule .table-schedule th {
+    font-weight: bold;
+    color: white;
+    background-color: #27669B;
+}
+.schedule .table-schedule td, th {
+    height: 40px;
+    border: 2px solid #DDDDDD;
+    text-align: center;
+}
+.schedule .time-and-table {
+    margin-left: 90px;
+    margin-right: 90px;
+}
+.schedule .schedule-button {
+    text-align: center;
+}
+.schedule-button button {
+    width: 250px;
+    height: 44px;
+    border: 3px solid black;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    background-color: #FBC53B;
 }
 .chef-staff {
-
+    background-color: #272D33;
+    color: white;
+}
+.chef-staff .chef-staff-title {
+    text-align: center;
+}
+.chef-staff-title label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+.chef-staff .master-chef-staff {
+    margin-top: 30px;
+}
+.chef-staff .master-chef-staff td {
+    width: 366px;
+    height: 244px;
+    border: 1px solid black;
+}
+.chef-staff .master-chef-staff td .infront-div {
+    /*Cần set vị trí cho infront-div label nằm ở góc dưới bên trái có height là 100px*/
+    height: 100px;
+}
+.chef-staff .master-chef-staff .td-background-image {
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.td-background-image:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
 }
 .footer {
 
 }
-#strong-word {
+.strong-word {
     color: #F37423;
     font-weight: bold;
+}
+#td-1 {
+    background-image: url("image/mr-doan-minh-tam.jpg");
+}
+#td-2 {
+    background-image: url("image/mr-quach-thien-tuong.jpg");
+}
+#td-3 {
+    background-image: url("image/mr-nguyen-thanh-vu.jpg");
+}
+#td-4 {
+    background-image: url("image/mr-tran-phan-hung.jpg");
+}
+#td-5 {
+    background-image: url("image/mr-luu-minh-dung.jpg");
+}
+#td-6 {
+    background-image: url("image/mr-tang-quoc-vinh.jpg");
 }

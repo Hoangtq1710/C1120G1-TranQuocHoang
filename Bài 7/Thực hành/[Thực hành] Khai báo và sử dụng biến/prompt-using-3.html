@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cách sử dụng hàm Prompt()</title>
+</head>
+<body>
+    <p>Thực hành sử dụng hàm Prompt() bằng cách nhập 2 số a, b và kiểm tra xem a có phải là bội số của b hay không?</p>
+    <button onclick="checking()">Start</button>
+    <script>
+        function checking() {
+            let a = prompt("Nhập số a");
+            let b = prompt("Nhập số b");
+
+            if (a % b === 0) {
+                document.write('a là bội số của b');
+            } else
+                document.write('a không là bội số của b');
+            document.write('<br>' + 'Cám ơn bạn!');
+        }
+    </script>
+</body>
+</html>

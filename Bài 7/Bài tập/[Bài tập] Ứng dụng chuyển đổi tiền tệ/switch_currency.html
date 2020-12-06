@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi tiền tệ</title>
+    <link rel="stylesheet" href="switch_currency.css">
+</head>
+<body>
+    <center>
+        <label>Chương trình quy đổi tiền tệ</label>
+        <table>
+            <tr>
+                <th style="width: 220px;">Amount</th>
+                <th style="width: 150px;">From Currency</th>
+                <th style="width: 150px;">To Currency</th>
+                <th style="width: 150px;">Press</th>
+                <th style="width: 200px;">Result</th>
+            </tr>
+            <tr>
+                <td>
+                    <input name="amount" id="amount" type="number">
+                </td>
+                <td>
+                    <select name="from_currency" id="from_cur">
+                        <option value="" id="1">VND</option>
+                        <option value="" id="2">USD</option>
+                        <option value="" id="3">EUR</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="to_currency" id="to_cur">
+                        <option value="" id="4">VND</option>
+                        <option value="" id="5">USD</option>
+                        <option value="" id="6">EUR</option>
+                    </select>
+                </td>
+                <td>
+                    <button name="convert" onclick="convert()">Convert</button>
+                </td>
+                <td>
+<!--                    Ô này dùng để nhập kết quả sau khi chuyển đổi-->
+                    <p>
+
+                    </p>
+                </td>
+            </tr>
+
+        </table>
+    </center>
+    <script src="switch_currency.js"></script>
+</body>
+</html>

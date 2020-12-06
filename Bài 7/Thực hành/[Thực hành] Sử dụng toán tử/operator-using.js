@@ -7,7 +7,7 @@ function rectangle_area() {
     let height = parseInt(inputHeight);
 
     let area = width * height;
-
+    let c =width+height+"8";
 
     document.write('Enter width :');
     document.write('<br>');
@@ -18,6 +18,8 @@ function rectangle_area() {
     document.write('<br>');
     document.write(height);
     document.write('<br>');
+
+    document.write(c);
 
     document.write('The area is ' + area);
 }

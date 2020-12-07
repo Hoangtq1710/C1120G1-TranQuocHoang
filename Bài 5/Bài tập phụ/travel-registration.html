@@ -3,55 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Travel Registration</title>
-    <style>
-        h1  {
-            color: #0000FF;
-        }
-        label {
-            color: #27669B;
-            margin-left: 3px;
-        }
-        table {
-            width: 550px;
-            height: 400px;
-            background-color: #FFFBC3;
-            font-size: 17px;
-            border-collapse: collapse;
-        }
-        .main-form {
-            width: 640px;
-            height: 550px;
-            background-color: #E8FFF3;
-        }
-        td {
-            border: 1px solid blue;
-        }
-        fieldset {
-            display: inline-block;
-            border: 2px solid #D61B06;
-        }
-        legend {
-            color: #C46200;
-            font-style: italic;
-        }
-        textarea {
-            font-family: "Courier New" , sans-serif;
-            font-size: 16px;
-        }
-        span {
-            color: red;
-        }
-        input {
-            margin-left: 5px;
-        }
-        textarea {
-            margin-left: 5px;
-        }
-        select {
-            margin-left: 5px;
-        }
-
-    </style>
+    <link rel="stylesheet" href="css/travel-registration.css">
 </head>
 <body>
     <center>
@@ -100,16 +52,14 @@
                 </tr>
 <!--                7-->
                 <tr>
-                    <td colspan="2">
-                        <center>
-                            <fieldset style="width: 350px;">
-                                <legend>Số lượng đoàn khách</legend>
-                                <label for="">Người lớn</label>
-                                <input type="number" min="0" name="adultcount" id="fadultcount" style="width: 70px;">
-                                <label for="">Trẻ em</label>
-                                <input type="number" min="0" name="childcount" id="fchildcount" style="width: 70px;">
-                            </fieldset>
-                        </center>
+                    <td colspan="2" class="fieldset-legend">
+                        <fieldset style="width: 350px;">
+                            <legend>Số lượng đoàn khách</legend>
+                            <label for="">Người lớn</label>
+                            <input type="number" min="0" name="adultcount" id="fadultcount" style="width: 70px;">
+                            <label for="">Trẻ em</label>
+                            <input type="number" min="0" name="childcount" id="fchildcount" style="width: 70px;">
+                        </fieldset>
                     </td>
                 </tr>
 <!--                8-->

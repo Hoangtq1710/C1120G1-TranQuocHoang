@@ -1,0 +1,53 @@
+
+h1  {
+    color: #0000FF;
+}
+label {
+    color: #27669B;
+    margin-left: 3px;
+}
+table {
+    width: 550px;
+    height: 400px;
+    background-color: #FFFBC3;
+    font-size: 17px;
+    border-collapse: collapse;
+}
+.main-form {
+    width: 640px;
+    height: 550px;
+    background-color: #E8FFF3;
+}
+td {
+    border: 1px solid blue;
+}
+fieldset {
+    display: inline-block;
+    border: 2px solid #D61B06;
+}
+td fieldset {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-right: 50px;
+    margin-left: 50px;
+}
+legend {
+    color: #C46200;
+    font-style: italic;
+}
+textarea {
+    font-family: "Courier New" , sans-serif;
+    font-size: 16px;
+}
+span {
+    color: red;
+}
+input {
+    margin-left: 5px;
+}
+textarea {
+    margin-left: 5px;
+}
+select {
+    margin-left: 5px;
+}

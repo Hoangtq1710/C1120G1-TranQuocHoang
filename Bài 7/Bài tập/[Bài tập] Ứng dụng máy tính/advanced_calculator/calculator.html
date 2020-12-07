@@ -7,52 +7,96 @@
 </head>
 <body>
     <center>
-        <p>My Calculator</p>
-        <table>
-<!--            Hiện màn hình máy tính để hiển thị dữ liệu-->
-            <tr>
-                <td rowspan="4">
-                    <input type="text">
-                </td>
-            </tr>
-<!--            Dòng thứ 2 bao gồm (, ), %, AC-reset    -->
-            <tr>
-                <td>(</td>
-                <td>)</td>
-                <td>%</td>
-                <td>AC</td>
-            </tr>
-<!--            Dòng thứ 3 bao gồm 7, 8, 9, /   -->
-            <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>/</td>
-            </tr>
-<!--            Dòng thứ 4 bao gồm 4, 5, 6, *   -->
-            <tr>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-                <td>*</td>
-            </tr>
-<!--            Dòng thứ 5 bao gồm 1, 2, 3, +   -->
-            <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>+</td>
-            </tr>
-<!--            Dòng thứ 6 bao gồm 0, ., =, +   -->
-            <tr>
-                <td>0</td>
-                <td>.</td>
-                <td>=</td>
-                <td>+</td>
-            </tr>
-        </table>
+        <form>
+            <p>My Calculator</p>
+            <table>
+                <!--            Hiện màn hình máy tính để hiển thị dữ liệu-->
+                <tr style="height: 60px">
+                    <td colspan="4">
+                        <input type="text" id="result" disabled>
+                    </td>
+                </tr>
+                <!--            Dòng thứ 2 bao gồm (, ), %, AC-reset    -->
+                <tr>
+                    <td>
+                        <input type="button" value="&#40;" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="&#41;" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="%" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="AC" onclick="result.value=' '">
+<!--                        Ô DEL dùng để xoá lần lượt từng phần tử trên màn hình-->
+<!--                        <input type="button" value="AC" onclick="result.value=result.value.substr(0,result.value.length-1)">-->
+                    </td>
+                </tr>
+                <!--            Dòng thứ 3 bao gồm 7, 8, 9, /   -->
+                <tr>
+                    <td>
+                        <input type="button" value="7" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="8" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="9" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="/" onclick="result.value+=this.value">
+                    </td>
+                </tr>
+                <!--            Dòng thứ 4 bao gồm 4, 5, 6, *   -->
+                <tr>
+                    <td>
+                        <input type="button" value="4" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="5" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="6" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="*" onclick="result.value+=this.value">
+                    </td>
+                </tr>
+                <!--            Dòng thứ 5 bao gồm 1, 2, 3, -   -->
+                <tr>
+                    <td>
+                        <input type="button" value="1" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="2" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="3" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="-" onclick="result.value+=this.value">
+                    </td>
+                </tr>
+                <!--            Dòng thứ 6 bao gồm 0, ., =, +   -->
+                <tr>
+                    <td>
+                        <input type="button" value="0" onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="." onclick="result.value+=this.value">
+                    </td>
+                    <td>
+                        <input type="button" value="=" onclick="result.value=eval(result.value)">
+                    </td>
+                    <td>
+                        <input type="button" value="+" onclick="result.value+=this.value">
+                    </td>
+                </tr>
+            </table>
+        </form>
     </center>
-    <script src=""></script>
+    <script src="calculator.js"></script>
 
 </body>
 </html>

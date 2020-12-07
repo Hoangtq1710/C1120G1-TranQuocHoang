@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <style>
+        button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="first">
+    <input type="text" id="second">
+    <br>
+
+    <button onclick="addition()">Addition(+)</button>
+    <button onclick="subtraction()">Subtraction(-)</button>
+    <button onclick="multiplication()">Multiplication(X)</button>
+    <button onclick="division()">Division(/)</button>
+    <br>
+
+    <p>Result = <span id="result"></span></p>
+
+    <script>
+        let inputa = document.getElementById("first");
+        let inputb = document.getElementById("second");
+        let result;
+
+        function addition() {
+            let a = parseFloat(inputa.value);
+            let b = parseFloat(inputb.value);
+            result = a + b;
+            document.getElementById("result").innerText = result;
+        }
+        function subtraction() {
+            let a = parseFloat(inputa.value);
+            let b = parseFloat(inputb.value);
+            result = a - b;
+            document.getElementById("result").innerText = result;
+        }
+        function multiplication() {
+            let a = parseFloat(inputa.value);
+            let b = parseFloat(inputb.value);
+            result = a * b;
+            document.getElementById("result").innerText = result;
+        }
+        function division() {
+            let a = parseFloat(inputa.value);
+            let b = parseFloat(inputb.value);
+            result = (a / b).toFixed(2);
+            document.getElementById("result").innerText = result;
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checking positive negative number using Switch case</title>
+</head>
+<body>
+<script>
+    let number = parseInt(prompt('Please enter the number you wanna check:', "0"));
+
+    let check = Math.abs(number)/number;
+    switch (check) {
+        case 1: alert("That's a positive number");
+            break;
+        case -1: alert("That's a negative number");
+            break;
+        default: alert("That's 0");
+            break;
+    }
+</script>
+</body>
+</html>

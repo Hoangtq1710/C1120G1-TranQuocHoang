@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checking Browser</title>
+</head>
+<body>
+    <script>
+        let input_browser = prompt('Trình duyệt của bạn đang dùng là gì?');
+        browser = input_browser.toUpperCase();
+        switch (browser) {
+            case 'EDGE': alert("You've got the Edge");
+                    break;
+            case 'FIREFOX':
+            case 'SAFARI':
+            case 'CHROME':
+            case 'OPERA':
+            case 'COCCOC':
+                alert('Okay we support these browsers too');
+                    break;
+            default : alert('Opps, we hope your browser look well');
+                    break;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số ngày trong tháng</title>
+</head>
+<body>
+    <form action="">
+        <input type="number" id="input_month" min="1" max="12">
+        <input type="button" value="Tính số ngày" onclick="checking_month()">
+        <p id="result"></p>
+    </form>
+    <script>
+        function checking_month() {
+
+            let month = document.getElementById("input_month").value;
+            console.log(month);
+
+            // switch (month) {
+            //     case 1:
+            //     case 3:
+            //     case 5:
+            //     case 7:
+            //     case 8:
+            //     case 10:
+            //     case 12:    document.getElementById("result").innerText = "Tháng " + month + " có 31 ngày";
+            //         break;
+            //     case 2:     document.getElementById("result").innerText = "Tháng " + month + " có 28 hoặc 29 ngày";
+            //         break;
+            //     default:    document.getElementById("result").innerText = "Tháng " + month + " có 30 ngày";
+            //         break;
+            //
+            // }
+        }
+    </script>
+</body>
+</html>

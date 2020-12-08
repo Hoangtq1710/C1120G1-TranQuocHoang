@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Move the image to right</title>
+    <style>
+        img {
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+<img src="img/right_img.jpg" alt="" id="MyImage">
+<p>Click to move the picture to the right 10px</p>
+<input type="button" value="Click" onclick="moveRight()">
+    <script>
+        let imgObj = null;
+        imgObj = document.getElementById("MyImage");
+
+        function init() {
+            imgObj = document.getElementById('MyImage');
+            imgObj.style.position = 'relative';
+            imgObj.style.left = '0px';
+        }
+        function moveRight() {
+            imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>

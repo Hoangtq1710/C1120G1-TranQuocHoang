@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your BMI Index</title>
+</head>
+<body>
+    <script>
+        let height = parseFloat(prompt('Nhập chiều cao của bạn (m):'));
+        let weight = parseFloat(prompt('Nhập cân nặng của bạn (kg):'));
+
+        bmi = weight / (height^2);
+
+        if (bmi < 18.5) {
+            alert('Bạn đang thiếu cân');
+        } else if (bmi < 25) {
+            alert('Bình thường');
+        } else if (bmi < 30) {
+            alert('Bạn đang thừa cân');
+        } else
+            alert('Bạn đang béo phì, hãy ăn kiêng và tập gym');
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+.table_1 p {
+    text-transform: uppercase;
+    font-size: 30px;
+    color: #27669B;
+}
+.table_1 table {
+    width: 650px;
+    height: 480px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-color: #D4FDD6;
+    margin-bottom: 20px;
+    border: 2px solid #27669B;
+    border-collapse: collapse;
+
+}
+.table_1 label {
+    margin-left: 10px;
+    color: blue;
+}
+.table_1 td {
+    border: 2px solid #27669B;
+    padding-left: 18px;
+}
+.table_1 textarea {
+    font-family: "Arial", sans-serif;
+    font-size: 14px;
+}
+.table_1 td fieldset {
+    margin-left: 21.25%;
+    margin-right: 26%;
+    border: 2px solid #EE7B30;
+    border-radius: 6px 0 6px 0;
+}
+.table_1 td fieldset input {
+    width: 60px;
+}
+.table_1 legend {
+    color: #FF4C00;
+    font-style: italic;
+}
+.table_1 #address {
+    height: 100%;
+}
+
+
+.table_2 table {
+    width: 650px;
+    height: 480px;
+    background-color: #FFFDA9;
+    border: 2px solid #27669B;
+    border-collapse: collapse;
+}
+.table_2 p {
+    text-transform: uppercase;
+    font-size: 25px;
+    color: #C46200;
+}
+.table_2 tr{
+    border: 2px solid #27669B;
+}
+.table_2 td {
+    border: 2px solid #27669B;
+    padding-left: 20px;
+}
+.table_2 label {
+    margin-left: 20px;
+    color: teal;
+}
+.table_2 input {
+    margin-top: 20px;
+}
+#money {
+    background-color: #DDDDDD;
+}
+#money td label, #payout {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: bold;
+    color: red;
+}

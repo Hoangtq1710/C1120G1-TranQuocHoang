@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp hạng dựa vào Doanh số bán ra</title>
+</head>
+<body>
+<script>
+    let sale = parseInt(prompt('Tháng này bạn đã bán được bao nhiêu sản phẩm?','0'));
+    let percent, salary ;
+
+    if (sale < 200) {
+        percent = 0;
+        salary = (sale * percent * 3000 + 5000000).toFixed(0) ;
+        alert('Bạn chưa đạt đủ mức yêu cầu để hưởng hoa hồng! Hãy cố lên!'+ ' Số tiền mà bạn nhận được là : ' + salary + ' VND');
+    } else if (sale < 1000) {
+        percent = 0.06;
+        salary = (sale * percent * 3000 + 5000000).toFixed(0) ;
+        alert('Tháng này bạn được hưởng thêm 5% doanh số!' + ' Số tiền mà bạn nhận được là : ' + salary + ' VND');
+    } else if (sale < 5000) {
+        percent = 0.1;
+        salary = (sale * percent * 3000 + 5000000).toFixed(0) ;
+        alert('Bạn đã làm việc chăm chỉ! Tháng này hưởng thêm 10% doanh số!' + ' Số tiền mà bạn nhận được là : ' + salary + ' VND');
+    } else if (sale < 15000) {
+        percent = 0.14;
+        salary = (sale * percent * 3000 + 5000000).toFixed(0) ;
+        alert('Bạn đã làm việc rất tốt. 20% doanh số tháng này là thưởng thêm cho bạn!' + ' Số tiền mà bạn nhận được là : ' + salary + ' VND');
+    } else {
+        percent = 0.19;
+        salary = (sale * percent * 3000 + 5000000).toFixed(0) ;
+        alert('Ở mây zing , gút chóp. Thêm 30% doanh số <3!' + ' Số tiền mà bạn nhận được là : ' + salary + ' VND');
+    }
+
+
+</script>
+</body>
+</html>

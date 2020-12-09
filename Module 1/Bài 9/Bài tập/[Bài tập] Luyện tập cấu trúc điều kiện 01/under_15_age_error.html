@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checking your age</title>
+</head>
+<body>
+    <label>Day of birth</label>
+    <label><input type="date" id="this_date"></label>
+    <input type="button" onclick="checking()" value="Checking">
+    <script>
+        function checking() {
+            let this_day;
+            new Date(this_day) = this_day;
+            let day_of_birth = new Date(document.getElementById("this_date").value);
+            let a = document.write(this_day);
+            let b =document.write(day_of_birth);
+            c = a - b
+            document.write(c);
+
+            // let age = (((this_day - day_of_birth))/31536000).toFixed(0);
+            //
+            // document.write(age);
+            // if(age < 15) {
+            //     alert("You're not qualified to get into 10 grade");
+            // } else {
+            //     alert("Welcome to 10");
+            // }
+        }
+    </script>
+</body>
+</html>

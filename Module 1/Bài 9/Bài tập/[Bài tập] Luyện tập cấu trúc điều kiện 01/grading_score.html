@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xếp hạng điểm của HS</title>
+</head>
+<body>
+<script>
+    let kiemtra = parseFloat(prompt('Nhập điểm bài kiểm tra: '));
+    let giuaky = parseFloat(prompt('Nhập điểm bài giữa kỳ: '));
+    let cuoiky = parseFloat(prompt('Nhập điểm bài cuối kỳ: '));
+
+    score = ((kiemtra * 0.1) + (giuaky * 0.3) + (cuoiky * 0.6));
+
+    if (score < 4) {
+        alert('Bạn đã bị điểm F! Hãy học lại!');
+    } else if (score < 5.6) {
+        alert('Bạn đã đạt điểm D!');
+    } else if (score < 7) {
+        alert('Bạn đã đạt điểm C!');
+    } else if (score < 8.5) {
+        alert('Bạn đã đạt điểm B!');
+    } else {
+        alert('Bạn đã đạt điểm A! Ờ mây zing. Gút chóp em! from Binz with luv!');
+    }
+
+
+</script>
+</body>
+</html>

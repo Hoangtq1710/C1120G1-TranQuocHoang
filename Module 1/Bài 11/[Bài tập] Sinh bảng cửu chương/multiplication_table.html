@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng Cửu Chương</title>
+</head>
+<body>
+<script>
+    let i = 1, k = 2, print;
+    print = "<p style='color: teal;font-size: 40px; font-weight: bold;'>"+"BẢNG CỬU CHƯƠNG"+"</p>";
+    print = print + "<table style='border-collapse: collapse; width: 900px;'>";
+
+    while (i <= 9) {
+        print = print + '<tr>';
+        while (k <= 9) {
+            print = print +'<td style="padding-left: 15px;border: 2px solid darkcyan; background-color: azure; color:saddlebrown">'+k+' '+'x'+' '+i+' '+'='+' '+i*k+'</td>';
+            k++;
+        }
+        print = print + '</tr>';
+        k = 2;
+        i++;
+    }
+    print = print +'</table>';
+    document.write(print);
+</script>
+</body>
+</html>

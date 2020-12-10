@@ -5,12 +5,13 @@
     <title>In bảng 100</title>
 </head>
 <body>
+<style>.test{background-color:#D4FDD6}</style>
 <script>
     let print, i, j;
-    print = "<table border='1' width='300' cellspacing='0' cellpadding='3'>";
+    print = "<table border='1' style='border: 1px solid #D61B06'  width='300' cellspacing='0' cellpadding='3'>";
     i = j = 1;
     while (i <= 10) {
-        print = print + "<tr>";
+        print = print + "<tr class='test'>";
         while (j <= 10) {
             print = print + "<td>" + i * j + "</td>";
             j++;

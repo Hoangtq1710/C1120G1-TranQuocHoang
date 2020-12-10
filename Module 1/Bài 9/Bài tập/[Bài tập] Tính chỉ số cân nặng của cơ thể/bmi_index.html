@@ -9,7 +9,7 @@
         let height = parseFloat(prompt('Nhập chiều cao của bạn (m):'));
         let weight = parseFloat(prompt('Nhập cân nặng của bạn (kg):'));
 
-        bmi = weight / (height^2);
+        bmi = weight / (height * height);
 
         if (bmi < 18.5) {
             alert('Bạn đang thiếu cân');

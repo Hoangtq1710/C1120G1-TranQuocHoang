@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Phương trình bậc 2</title>
+</head>
+<body>
+<script>
+    // b^2 =4 * a * c;
+    // x = -b/2*a
+    // x1 = (-b - can delata)/2*a;
+    // x2 = (-b + can delata)/2*a;
+    let a = parseFloat(prompt('Nhập a =','0'));
+    let b = parseFloat(prompt('Nhập b =','0'));
+    let c = parseFloat(prompt('Nhập c =','0'));
+
+    let delta = ((b*b) - 4 * a * c);
+    let x = -b / (2*a);
+    let x1 = (-b - ( Math.sqrt(delta) / (2*a)  ));
+    let x2 = (-b + ( Math.sqrt(delta) / (2*a)  ));
+
+    if (delta < 0) {
+        alert('Phương trình vô nghiệm!');
+    } else if (delta == 0) {
+        alert("Phương trình có 1 nghiệm duy nhất x = " + x);
+    } else {
+        alert("Phương trình có 2 nghiệm : x1 = "+ x1.toFixed(2) + "  x2 = " +x2.toFixed(2));
+    }
+</script>
+</body>
+</html>

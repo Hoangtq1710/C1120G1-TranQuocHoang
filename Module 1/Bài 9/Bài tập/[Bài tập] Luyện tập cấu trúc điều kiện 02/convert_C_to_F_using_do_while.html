@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi nhiệt độ từ C sang F</title>
+</head>
+<body>
+<script>
+    let c, f;
+    do {
+        c = parseFloat(prompt('Nhập °C cần đổi:', '0'));
+         f = (9 * c) / 5 + 32;
+    } while (f < -459.67)
+
+    alert(c + " °C = " + f + " °F");
+</script>
+</body>
+</html>

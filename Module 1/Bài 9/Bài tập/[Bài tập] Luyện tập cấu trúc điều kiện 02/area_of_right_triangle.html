@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình tam giác vuông khi biết độ dài 2 cạnh kề</title>
+</head>
+<body>
+<script>
+    let a, b, S;
+    do {
+        a = parseFloat(prompt("Nhập cạnh thứ nhất :"));
+        b = parseFloat(prompt("Nhập cạnh thứ hai :"));
+    } while ((a<=0) || (b<=0))
+
+    S = (0.5 * a * b).toFixed(2);
+    alert("Diện tích của hình tam giác vuông có 2 cạnh lần lượt : " + a + " và " + b +" là " + S);
+</script>
+</body>
+</html>

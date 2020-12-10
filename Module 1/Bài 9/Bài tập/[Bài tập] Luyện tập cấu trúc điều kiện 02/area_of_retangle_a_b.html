@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình chữ nhật khi biết độ dài 2 cạnh</title>
+</head>
+<body>
+<script>
+    let a, b, S;
+    do {
+        a = parseFloat(prompt("Nhập cạnh thứ nhất :"));
+        b = parseFloat(prompt("Nhập cạnh thứ hai :"));
+    } while ((a<=0) || (b<=0))
+
+    S = (a * b).toFixed(2);
+    alert("Diện tích của hình chữ nhật có cạnh thứ nhất : " + a + " và cạnh thứ hai : " + b +" là " + S);
+</script>
+</body>
+</html>

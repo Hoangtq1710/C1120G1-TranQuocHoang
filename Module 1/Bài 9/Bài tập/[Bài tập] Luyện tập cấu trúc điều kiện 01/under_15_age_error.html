@@ -5,27 +5,47 @@
     <title>Checking your age</title>
 </head>
 <body>
-    <label>Day of birth</label>
-    <label><input type="date" id="this_date"></label>
-    <input type="button" onclick="checking()" value="Checking">
+    <center>
+        <label>DAY OF BIRTH</label>
+        <label><input type="date" id="day_of_birth"></label>
+        <input type="button" onclick="checking()" value="Checking">
+    </center>
     <script>
         function checking() {
-            let this_day;
-            new Date(this_day) = this_day;
-            let day_of_birth = new Date(document.getElementById("this_date").value);
-            let a = document.write(this_day);
-            let b =document.write(day_of_birth);
-            c = a - b
-            document.write(c);
 
-            // let age = (((this_day - day_of_birth))/31536000).toFixed(0);
-            //
-            // document.write(age);
-            // if(age < 15) {
-            //     alert("You're not qualified to get into 10 grade");
-            // } else {
-            //     alert("Welcome to 10");
-            // }
+            // Khởi tạo 4 biến
+            // today: nhận giá trị ngày giờ hiện tại theo định dạng X: Mon Mar 03 2003 07:00:00 GMT+0700 (Indochina Time)
+            // input_dob : nhận giá trị ngày giờ được nhập vào bởi người dùng theo định dạng mm/đd/yyyy
+            // dob : nhận giá trí ngày giờ theo định dang X lấy dữ liệu từ input_dob
+            // today.getFullYear() :  để lấy được năm của năm hiện tại
+            // dob.getFullYear() : để lấy được năm của ngày tháng năm sinh
+            // tạo biến year nhận giá trị chênh lệch
+            // nếu tháng hiện tại lớn hơn tháng sinh (có nghĩa là đã qua ngày sinh nhật) thì số năm chệnh lệch = tuổi
+            // nếu tháng bằng thì so sánh ngày với nhau, ngày >= ngày sinh (có nghĩa là đã qua ngày sinh nhật) thì số năm chênh lệch = tuổi
+            //nếu ngày nhỏ hơn tức là vẫn chưa qua ngày sinh nhật thì tuổi = số năm chệnh lệch trừ đi 1
+            // so sánh tuổi với 15
+            // nếu tuổi nhỏ hơn 15 thì in ra thông báo bạn chưa đủ điều kiện
+            // nếu đủ tuổi thì in ra chuỗi Welcome
+
+            let today, dob, age;
+            let input_dob = document.getElementById("day_of_birth").value;
+            today = new Date();
+            dob = new Date(input_dob);
+
+            let year = today.getFullYear() - dob.getFullYear();
+            if (today.getMonth() > dob.getMonth()) {
+                age = year;
+            } else if (today.getMonth() == dob.getMonth()) {
+                if (today.getDate() >= dob.getDate()) {
+                    age = year;
+                } else age = year - 1;
+            }
+
+            if(age < 15) {
+                alert("You are not old enough to enter 10th grade");
+            } else {
+                alert("Welcome to 10");
+            }
         }
     </script>
 </body>

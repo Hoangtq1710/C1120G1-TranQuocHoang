@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi từ mét sang feet</title>
+</head>
+<body>
+<script>
+    let meter, feet;
+
+    do {
+        meter = parseFloat(prompt("Nhập số mét mà bạn muốn đổi sang feet :", '0'));
+    } while (meter < 0)
+
+    feet = (meter * 3.2808).toFixed(4);
+    alert(meter + " mét = " + feet + " feet");
+</script>
+</body>
+</html>

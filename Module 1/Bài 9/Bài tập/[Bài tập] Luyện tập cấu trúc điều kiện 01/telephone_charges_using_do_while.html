@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cước điện thoại cho hộ gia đình</title>
+</head>
+<body>
+<!--Viết chương trình để tính cước điện thoại bàn cho một hộ gia đình với các thông số như sau:-->
+
+<!--Phí thuê bao bắt buộc là 25 nghìn.-->
+<!--600 đồng cho mỗi phút gọi của 50 phút đầu tiên.-->
+<!--400 đồng cho mỗi phút gọi của 150 phút tiếp theo.-->
+<!--200 đồng cho bất kỳ mỗi phút nào sau 200 phút đầu tiên.-->
+
+
+<script>
+    let charges, minutes;
+    do {
+        minutes = parseInt(prompt('Nhập số phút gọi của bạn trong tháng này"','0'));
+    } while (minutes < 0)
+
+
+    if ((minutes >= 0) && (minutes <= 50)) {
+        charges = 25000 + 600 * minutes;
+        alert("Tiền cước điện thoại tháng này của bạn là: " +charges+ " VND");
+    } else if ((minutes > 50) && (minutes <= 200)) {
+        charges = 25000 + 600 * 50 + 400 * (minutes - 50);
+        alert("Tiền cước điện thoại tháng này của bạn là: " +charges+ " VND");
+    } else {
+        charges = 25000 + 600 * 50 + 400 * 150 + 200 * (minutes - 200);
+        alert("Tiền cước điện thoại tháng này của bạn là: " +charges+ " VND");
+    }
+
+</script>
+</body>
+</html>

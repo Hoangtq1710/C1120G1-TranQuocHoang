@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính diện tích hình vuông cạnh a</title>
+</head>
+<body>
+<script>
+    let a, S;
+    do {
+        a = parseFloat(prompt("Nhập chiều dài cạnh a :", '0'));
+    } while (a <= 0)
+
+    S = (a * a).toFixed(2);
+    alert("Diện tích của hình vuông có cạnh " + a + " là " + S);
+</script>
+</body>
+</html>

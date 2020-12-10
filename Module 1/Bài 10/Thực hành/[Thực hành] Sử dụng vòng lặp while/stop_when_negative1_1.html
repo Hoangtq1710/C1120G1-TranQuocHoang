@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In tổng dãy số</title>
+</head>
+<body>
+<script>
+    let number, sum = 0;
+    let flag = true;
+    while (flag == true) {
+        do {
+            number = parseInt(prompt("Nhập 1 số, dừng khi nhập -1"));
+            sum = sum + number;
+        } while (number != -1)
+        flag = false;
+    }
+    document.write(sum+1);
+
+
+
+
+    // while (flag == true)
+    //      {
+    //          do {
+    //              number = parseInt(prompt("Nhập 1 số :", '0'));
+    //          } while (number < 0)
+    //
+    //         if (number == -1) {
+    //             flag = false;
+    //         } else {
+    //             for (let i = 0; i <= number; i++) {
+    //                 document.getElementById("display_number").innerText = i ;
+    //                 sum += i;
+    //             }
+    //         }
+    //          document.getElementById("display_sum").innerText = (sum);
+    //          flag = false;
+    //     }
+
+</script>
+</body>
+</html>

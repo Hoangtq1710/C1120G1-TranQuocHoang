@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bảng giá giá điện</title>
+</head>
+<body>
+<script>
+    let electric, bill;
+    do {
+        electric = parseInt(prompt("Tháng này bạn đã sử dụng bao nhiêu chữ điện?",'0'));
+    } while (electric < 0)
+
+    if (electric < 50) {
+        bill = electric * 1549;
+    } else if (electric < 100) {
+        bill = 50 * 1549 + (electric - 50) * 1858;
+    } else if (electric < 200) {
+        bill = 50 * 1549 + 50 * 1858 + (electric - 100) * 2340;
+    } else if (electric < 400) {
+        bill = 50 * 1549 + 50 * 1858 + 100 * 2340 + (electric - 200) * 2715;
+    } else {
+        bill = 50 * 1549 + 50 * 1858 + 100 * 2340 + 200 * 2715 + (electric -400) * 3000;
+    }
+    alert("Tiền điện của bạn tháng này là: " + bill +" VND");
+</script>
+</body>
+</html>

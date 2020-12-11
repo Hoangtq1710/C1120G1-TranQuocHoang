@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature Advice</title>
+</head>
+<body>
+<script>
+    let flag = true;
+    let temperature;
+    do {
+        temperature = parseFloat(prompt("Nhập nhiệt độ bất kỳ: ",'0'));
+        if ((temperature > 20) && (temperature < 100)) {
+            alert("Nhiệt độ OK");
+            flag = false;
+        } else if (temperature < 20) {
+            alert("Hãy tăng nhiệt độ lên!!!");
+        } else {
+            alert("Hãy giảm nhiệt độ xuống!!!");
+        }
+    } while (flag === true);
+
+
+
+</script>
+</body>
+</html>

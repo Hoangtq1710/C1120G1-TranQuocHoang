@@ -17,21 +17,22 @@
 <script>
     let k, count = 0, prime = 2;
     do {
-        k = parseInt(prompt("Bạn muốn in ra bao nhiêu số nguyên tố đầu tiên?",'1'));
+        k = parseInt(prompt("Bạn muốn in ra bao nhiêu số nguyên tố đầu tiên?", '1'));
     } while (k < 1)
 
-    while (count <= k) {
-
-        for (let i = 2; i <= prime; i++) {
-            if ((prime % i) != 0) {
-                prime++;
-            } else {
-                count++;
-                document.write(prime +' ');
-                prime++;
+    while (count < k) {                    //count=0, k=10
+        let count_prime = 0;                   //countprime=0
+        for (let i = 1; i <= prime; i++) {      //i<
+            if (prime % i === 0) {
+                count_prime++;
             }
 
         }
+        if (count_prime === 2) {
+            document.write(prime+' ');
+            count++
+        }
+        prime++;
 
     }
 

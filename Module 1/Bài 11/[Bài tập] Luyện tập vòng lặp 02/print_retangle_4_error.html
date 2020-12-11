@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In ra hình chữ nhật bằng *</title>
+</head>
+<body>
+<script>
+    let i = 10, k = 12, j;
+    j = i - 2;
+    let print = "";
+    for (let l = 1; l <= i; l++) {
+        print += "* ";
+    }
+    print += "<br>";
+    for (let o = 2; o <= (k-1); o++) {
+        print += "* ";
+        for (let p = j; p > 0; p--) {
+            print += " "; //in ra i - 2 lần dấu cách????????????
+        }
+        print += "*"+"<br>";
+    }
+    for (let v = 1; v <= i ; v++) {
+        print += "* ";
+    }
+
+    document.write(print);
+</script>
+</body>
+</html>

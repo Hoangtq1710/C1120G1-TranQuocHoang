@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let N;
+    do {
+        N = parseInt(prompt("Bạn muốn in ra bao nhiêu số đầu tiên trong dãy Fibonacci?",'0'));
+    } while (N < 0);
+
+    let count = 0, i = 0, k = 1, a;
+    document.write("Chuỗi "+ N +" số Fibonacci đầu tiên :"+"<br>");
+    while (count < N) {
+        a = i + k;
+        i = k;
+        k = a;
+        document.write(a+' ');
+        count++;
+    }
+</script>
+</body>
+</html>

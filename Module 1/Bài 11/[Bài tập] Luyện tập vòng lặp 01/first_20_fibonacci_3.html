@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In ra 20 số Fibonacci đầu tiên</title>
+</head>
+<body>
+
+<!--đầu tiên : dãy fibonacci bắt đầu với 2 số đầu tiên là  0 và 1, gán i = 0, k = 1;-->
+<!--tạo biến a dùng để in giá trị (i + k) ra màn hình, gán a = i + k;-->
+<!--biến i sẽ nhận giá trị hiện tại của k tức là vị trí của i sẽ nhảy đến vị trí hiện tại của k;-->
+<!--k sẽ nhận giá trị hiện tại của a, để k nhảy đến giá trị tiếp theo trong dãy Fibonacci;-->
+<!--in ra biến a sau đó tăng biến đếm count lên 1,khi count = 19 thì dừng, bởi vì khởi tạo biến count = 0, từ 0 đến 19 sẽ có 20 số-->
+
+
+<script>
+    let count = 0, i = 0, k = 1, a;
+    document.write("Chuỗi 20 số Fibonacci đầu tiên :"+"<br>");
+    while (count < 20) {
+        a = i + k;
+        i = k;
+        k = a;
+        document.write(a+' ');
+        count++;
+    }
+</script>
+</body>
+</html>

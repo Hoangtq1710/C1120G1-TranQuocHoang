@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thông báo khi đếm tới 99</title>
+</head>
+<body>
+<script>
+    let flag = true;
+        do {
+            for (let i = 1; i <= 100; i++) {
+                switch (i) {
+                    case 99: {
+                        document.write("Chúng tôi đã đếm đến 99 ");
+
+                        flag = false;
+                    }
+                        break;
+                    default: document.write(i+' ');
+                        break;
+                }
+            }
+        } while (flag === true)
+
+</script>
+</body>
+</html>

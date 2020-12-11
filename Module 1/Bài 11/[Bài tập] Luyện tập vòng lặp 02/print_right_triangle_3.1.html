@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In ra hình tam giác bằng * 3.1</title>
+</head>
+<body>
+<!--đầu tiên là : khởi tạo biến i : in ra số dấu *, tức là * chạy từ 1 đến 5-->
+<!--i = 1; có nghĩa là lần đầu tiên sẽ in ra 1 *-->
+<!--tạo biến j : số lần in ra dấu cách-->
+<!--trong 1 vòng lặp for1 : i chạy từ 1 đến 5-->
+<!--tại mỗi dòng sẽ in ra i dấu * bằng cách là tạo 1 vòng lặp for biến l sẽ in từ 1 đến i dấu *-->
+<!--gán giá trị của j cho 5 - i, tức là số khoảng cách phải in trong dòng đó, bởi vì số dấu * + số khoảng cách luôn luôn bằng 5-->
+<!--j sẽ chạy từ (5 - i) đến 0, (tức là dòng cuối cùng có 0 dấu khoảng cách)-->
+<!--mỗi lần sẽ in ra (5 - i) số khoảng cách-->
+<!--kết thúc mỗi i, thì sẽ xuống dòng bằng cách là in ra thẻ br ở cuối mỗi vòng lặp của i-->
+
+
+<script>
+    let i = 1;
+    for (i; i <= 5; i++) {
+        for (let l=1; l <= i; l++) {
+            document.write("*");
+        }
+        let j = 5 - i;
+        for (j; j > 0; j-- ) {
+            document.write(' ');
+        }
+        document.write("<br>");
+    }
+
+</script>
+</body>
+</html>

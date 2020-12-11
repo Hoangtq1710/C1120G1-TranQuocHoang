@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tổng của 30 số chia hết cho 7 đầu tiên</title>
+</head>
+<body>
+<script>
+    let total, number;
+    do {
+       total = parseInt(prompt("Bạn muốn in ra tổng của bao nhiêu số?",'0'));
+    } while (total < 0)
+
+    do {
+        number = parseInt(prompt("Bạn muốn chia hết cho mấy?",'0'));
+    } while (number < 0)
+
+    let sum = 0, count = 0, a = 0;
+    while (count < total){
+        if (a % number === 0) {
+            count++;
+            sum = sum + a;
+        }
+        a++;
+    }
+    document.write("Tổng của "+ total +" số chia hết cho "+ number +" đầu tiên là: "+ sum);
+
+</script>
+</body>
+</html>

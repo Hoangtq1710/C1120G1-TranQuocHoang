@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>In ra hình trái tim Pixel nâng cao</title>
+</head>
+<body>
+<script>
+    let print = "";
+    let space = "&ensp;&ensp;" ;
+    let content = "&ensp;";
+    let td = "<td style='background-color: #BE181A; color: white; text-align: center'>";
+    let short_td = td+content+"</td>" ;
+    let cell_space = "<td>"+space+"</td>";
+
+    print += "<center>";
+    print += "<table style='width: 480px; height: 480px; border: 0px solid #27669B; padding-top: 70px' cellspacing='6' >";
+    // dòng 1
+    print += "<tr>";
+    for (let i = 1; i <= 2; i++) {
+        print += cell_space;
+    }
+    for (let i = 1; i <= 3 ; i++) {
+        print += short_td;
+    }
+    for (let i = 1; i <= 3; i++) {
+        print += cell_space;
+    }
+    for (let i = 1; i <= 3 ; i++) {
+        print += short_td;
+    }
+    for (let i = 1; i <= 2 ; i++) {
+        print += cell_space;
+    }
+    print += "</tr>";
+
+
+    //dòng 2
+    print += "<tr>";
+    for (let i = 1; i <= 2 ; i++) {
+        print += cell_space;
+        for (let k = 1; k <= 5 ; k++) {
+            print += short_td;
+        }
+    }
+    print += cell_space;
+    print += "</tr>";
+
+
+    //dòng 3, 4, 5
+    for (let i = 1; i <= 3; i++) {
+        print += "<tr>";
+        for (let k = 1; k <= 13; k++) {
+            print += short_td;
+        }
+        print += "</tr>";
+    }
+
+
+    //dòng 6 -> 11
+    let a = 1, b = 11, c = 1;
+    for (let total = 1; total <= 6; total++) {
+        print += "<tr>";
+        for (let i = 1; i <= a; i++) {
+            print += cell_space;
+        }
+        for (let k = 1; k <= b; k++) {
+            print += short_td;
+        }
+        for (let l = 1; l <= c; l++) {
+            print += cell_space;
+        }
+        print += "</tr>";
+        a += 1;
+        c += 1;
+        b -= 2;
+    }
+
+    print += "</table>";
+    print += "</center>";
+
+    document.write(print);
+
+
+</script>
+</body>
+</html>

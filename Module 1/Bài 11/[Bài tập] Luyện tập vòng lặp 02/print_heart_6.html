@@ -5,6 +5,71 @@
     <title>In ra hình trái tim</title>
 </head>
 <body>
+<script>
+    let space = "&ensp;&ensp;" ;
+    let arterisks = "oo";
+    // dòng 1 
+    for (let i = 1; i <= 2; i++) {
+        document.write(space);
+    }
+    for (let i = 1; i <= 3 ; i++) {
+        document.write(arterisks);
+    }
+    for (let i = 1; i <= 3 ; i++) {
+        document.write(space);
+    }
+    for (let i = 1; i <= 3 ; i++) {
+        document.write(arterisks);
+    }
+    for (let i = 1; i <= 2 ; i++) {
+        document.write(space);
+    }
+    document.write("<br>");
+    //dòng 2
+    for (let i = 1; i <= 1; i++) {
+        document.write(space);
+    }
+    for (let i = 1; i <= 5 ; i++) {
+        document.write(arterisks);
+    }
+    for (let i = 1; i <= 1 ; i++) {
+        document.write(space);
+    }
+    for (let i = 1; i <= 5 ; i++) {
+        document.write(arterisks);
+    }
+    for (let i = 1; i <= 1 ; i++) {
+        document.write(space);
+    }
+    document.write("<br>");
+    //dòng 3, 4, 5
+    for (let k = 1; k <= 3 ; k++) {
+        for (let i = 1; i <= 13 ; i++) {
+            document.write(arterisks);
+        }
+        document.write("<br>");
+    }
+    //dòng 6 -> 11
+    let a = 1, b = 11, c = 1;
+    for (let total = 1; total <= 6; total++) {
+        for (let i = 1; i <= a ; i++) {
+            document.write(space);
+        }
+        for (let k = 1; k <= b ; k++) {
+            document.write(arterisks);
+        }
+        for (let l = 1; l <= c ; l++) {
+            document.write(space);
+        }
+        document.write("<br>");
 
+        a += 1;
+        c += 1;
+        b -= 2;
+    }
+
+
+
+</script>
 </body>
 </html>

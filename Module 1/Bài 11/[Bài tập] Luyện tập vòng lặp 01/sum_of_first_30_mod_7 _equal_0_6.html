@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tổng của 30 số chia hết cho 7 đầu tiên</title>
+    <title>Tổng của n số đầu tiên chia hết cho x</title>
 </head>
 <body>
 <script>
@@ -15,7 +15,7 @@
         number = parseInt(prompt("Bạn muốn chia hết cho mấy?",'0'));
     } while (number < 0)
 
-    let sum = 0, count = 0, a = 0;
+    let sum = 0, count = 0, a = 1;
     while (count < total){
         if (a % number === 0) {
             count++;

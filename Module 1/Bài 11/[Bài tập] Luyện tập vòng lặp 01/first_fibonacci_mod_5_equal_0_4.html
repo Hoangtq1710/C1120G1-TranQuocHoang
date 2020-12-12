@@ -10,15 +10,13 @@
     do {
         number = parseInt(prompt("Bạn muốn hiển thị số đầu tiên trong dãy Fibonacci chia hết cho mấy?",'1'));
     } while (number < 0)
-    let flag  = true;
-    while (flag === true) {
+    while (true) {
         a = i + k;
         i = k;
         k = a;
         if ((a % number) === 0) {
             document.write("Số đầu tiên trong dãy Fibonacci chia hết cho "+number+" là: "+a);
-            flag = false;
-            // break;
+            break;
         }
     }
 </script>

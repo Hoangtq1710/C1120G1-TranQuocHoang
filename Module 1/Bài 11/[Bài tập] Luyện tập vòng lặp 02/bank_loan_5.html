@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính tiền vay ngân hàng</title>
+</head>
+<body>
+<!--Tính tiền lãi của ngân hàng khi đi vay số tiền amount, lãi suất r%/ tháng sau n tháng-->
+<script>
+    let amount, r, n;
+    let rate_new = 1;
+
+    do {
+        amount = parseFloat(prompt("Nhập số tiền mà bạn muốn vay (VND): ",'0'));
+    } while (amount < 0)
+    do {
+        n = parseFloat(prompt("Nhập số tháng mà bạn muốn vay: ",'0'));
+    } while (n < 0)
+
+    if (n <= 6) {
+        r = 0.06/12;
+    } else if (n <= 12) {
+        r = 0.08/12;
+    } else if (n <= 24) {
+        r =  0.105/12;
+    } else if (n <= 48) {
+        r = 0.12/12;
+    } else {
+        r = 0.125/12;
+    }
+
+    for (let i = 1; i <= n; i++) {
+        rate_new = (rate_new * (1 + r));
+    }
+
+    alert("Số tiền cả vốn lẫn lãi mà bạn phải trả sau "+ n +" tháng" + " là: " + (amount*rate_new).toFixed(0) + " VND")
+</script>
+</body>
+</html>

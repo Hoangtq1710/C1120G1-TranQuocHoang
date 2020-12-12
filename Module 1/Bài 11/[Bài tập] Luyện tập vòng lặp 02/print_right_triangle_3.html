@@ -15,6 +15,10 @@
 <!--mỗi lần sẽ in ra (5 - i) số khoảng cách-->
 <!--kết thúc mỗi i, thì sẽ xuống dòng bằng cách là in ra thẻ br ở cuối mỗi vòng lặp của i-->
 
+<!--&nbsp; và &ensp; là những mã dùng để in ra khoảng trống không thể bị phá vỡ, non-breaking-space-->
+<!--mã &ensp; bằng 2 khoảng trống bình thường-->
+<!--mã &nbsp; bằng 1 khoảng trống bình thường-->
+
 
 <script>
     let i = 1;
@@ -26,6 +30,51 @@
         for (j; j > 0; j-- ) {
             document.write(' ');
         }
+        document.write("<br>");
+    }
+
+    document.write("<br>");
+
+    for (let i = 5; i > 0; i--) {
+        for (let l=1; l <= i; l++) {
+            document.write("*");
+        }
+        let j = 5 - i;
+        for (j; j < i; j++ ) {
+            document.write(' ');
+        }
+        document.write("<br>");
+    }
+
+
+    document.write("<br>");
+    document.write("<br>");
+
+
+    for (let i = 1; i <= 5; i++) {
+        let j = 5 - i;
+        for (j; j > 0; j-- ) {
+            document.write('&ensp;');
+        }
+        for (let l=1; l <= i; l++) {
+            document.write("*");
+        }
+        document.write("<br>");
+    }
+
+
+
+    document.write("<br>");
+
+    for (let i = 5; i > 0; i--) {
+        let j = 0;
+        for (j; j < 5 - i; j++ ) {
+            document.write("&ensp;");
+        }
+        for (let l=1; l <= i; l++) {
+            document.write("*");
+        }
+
         document.write("<br>");
     }
 

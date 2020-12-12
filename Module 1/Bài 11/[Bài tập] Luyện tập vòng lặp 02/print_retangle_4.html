@@ -6,22 +6,22 @@
 </head>
 <body>
 <script>
-    let i = 10, k = 12, j;
+    let i = 20, k = 7, j;
     j = i - 2;
     let print = "";
     for (let l = 1; l <= i; l++) {
-        print += "* ";
+        print += "*";
     }
     print += "<br>";
     for (let o = 2; o <= (k-1); o++) {
-        print += "* ";
+        print += "*";
         for (let p = j; p > 0; p--) {
-            print += " "; //in ra i - 2 lần dấu cách????????????
+            print += "&ensp;";
         }
         print += "*"+"<br>";
     }
     for (let v = 1; v <= i ; v++) {
-        print += "* ";
+        print += "*";
     }
 
     document.write(print);

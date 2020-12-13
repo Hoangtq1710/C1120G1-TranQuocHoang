@@ -5,36 +5,207 @@
     <title>Tính tiền vay ngân hàng</title>
 </head>
 <body>
-<!--Tính tiền lãi của0 ngân hàng khi đi vay số tiền amount, lãi s
-...................uất r%/ tháng sau n tháng-->
+<!--Tính tiền lãi ngân hàng khi đi vay số tiền Amount, lãi suất rate%/năm sau n tháng-->
+<!--Đầu tiên, chia làm 2 trường hợp:-->
+<!--1. người dùng cần vay tín chấp (không cần thế chấp tài sản, thời gian vay vốn ngắn, lãi suất cao)-->
+<!--2. người dùng cần vay thế chấp (cần thế chấp tài sản, thời gian vay dài, lãi suất thấp và giảm dần)-->
+
+<!--Đầu tiên sẽ hỏi người dùng muốn vay bao nhiêu tiền?-->
+<!--số tiền có thể cho vay tối đa = 80% số tiền mà người dùng muốn vay, hơn 80% sẽ được coi là nợ xấu-->
+
+<!--TH2: Sẽ yêu cầu thêm người dùng cho biết lương hằng tháng-->
+<!--Dựa vào lương sẽ tính ra thời gian nên vay của người dùng-->
+<!--theo công thức salary * months * pay_percent (about 55%) = Amount * 80%-->
+<!--trong đó:-->
+<!--salary là lương hàng tháng-->
+<!--months là số tháng nên vay-->
+<!--pay_percent là tỉ lệ % dùng để trả nợ hàng tháng tức là bằng 55% lương-->
+<!--Amount là khoảng tiền muốn vay-->
+<!--gán biến realAmount =  Amount * 80%-->
+
+<!--số năm tối đa có thể vay là : 9 năm (tương đương 8.8%/năm)-->
+
+<!--sau khi có thời gian nên vay thì sẽ dựa vào số tháng mà chia ra hạn mức trả lãi-->
+
+<!--Quy định lãi suất sẽ là rate%/năm (8,8%) trong 18 tháng đầu tiên và giảm mỗi 1 % trong 3 năm kế tiếp và dừng lại ở 5%/năm đến khi hết nợ-->
+<!--tiền lãi nợ mỗi tháng phải trả trong 18 tháng đầu sẽ là debt_per_month_18 = 0; : debt_per_month_18 = (realAmount - debt_per_month_18)* rate/12;-->
+<!--số tiền phải trả hằng tháng trong 18 tháng đầu sẽ là pay_per_month_18 =  (55%) pay_percent% * salary + debt_per_month_18;-->
+
+
+
+<!--Số tiền gốc phải trả còn lại sau 18 tháng sẽ là: debt_after_18 = realAmount - (18 * 55% * salary);-->
+<!--tiền lãi nợ mỗi tháng phải trả từ tháng 19 đến tháng 30 sẽ là debt_per_month_1930 = 0; : debt_per_month_30 = (debt_after_18 - debt_per_month_30)* (rate-1)/12;-->
+
+<!--Số tiền gốc phải trả còn lại sau 30 tháng sẽ là: debt_after_30 = realAmount - (30 * 55% * salary);-->
+<!--tiền lãi nợ mỗi tháng phải trả từ tháng 31 đến tháng 42 sẽ là debt_per_month_3142 = 0; : debt_per_month_42 = (debt_after_30 - debt_per_month_42)* (rate-1)/12;-->
+
+<!--Số tiền gốc phải trả còn lại sau 42 tháng sẽ là: debt_after_42 = realAmount - (42 * 55% * salary);-->
+<!--tiền lãi nợ mỗi tháng phải trả từ tháng 43 đến tháng 54 sẽ là debt_per_month_4354 = 0; : debt_per_month_54 = (debt_after_42 - debt_per_month_54)* (rate-1)/12;-->
+
+<!--tương tự đến khi nào 1 trong các điều kiện :-->
+<!--dept_after-18 <= 0;-->
+<!--dept_after-30 <= 0;-->
+<!--dept_after-42 <= 0;-->
+<!--...-->
+<!-- nếu 1 trong những điều kiện này đúng thì dừng chương trình và xuất ra:-->
+<!--Số tiền mà người dùng có thể vay : ...-->
+<!--Lương hàng tháng của người đó : ...-->
+<!--Số tháng khuyến nghị nên vay : ...-->
+
+<!--Số tiền lãi mỗi tháng phải trả trong 18 tháng đầu tiên : ...-->
+<!--Số tiền lãi mỗi tháng phải trả từ tháng 18 đến tháng nằm trong điều kiện dừng của chương trình-->
+
+
+
+
+
 <script>
-    let amount, r, n;
-    let rate_new = 1;
+    const pay_percent = 0.55, rate = 8.8; //55%
+    let amount, salary;
+
+
 
     do {
-        amount = parseFloat(prompt("Nhập số tiền mà bạn muốn vay (VND): ",'0'));
+        amount = parseFloat(prompt("Nhập số tiền mà bạn muốn vay (VND): ",'1000000'));
     } while (amount < 0)
+    let flag = true;
     do {
-        n = parseFloat(prompt("Nhập số tháng mà bạn muốn vay: ",'0'));
-    } while (n < 0)
+        salary = parseFloat(prompt("Nhập lương hằng tháng của bạn: ",'1000000'));
+        if (salary <= 3000000) {
+            alert("Bạn chưa đủ điều kiện để vay!!!");
+            flag = true;
+        } else {
+            flag = false;
+        }
+    } while (flag === true)
+                                   // số tiền tối đa có thể vay = 80%
+    let realAmount = amount * 0.8;
+    let months = (realAmount/(pay_percent*salary)).toFixed(0);     //số tháng ước tính cần vay trên giấy tờ
 
-    if (n <= 6) {
-        r = 0.06/12;
-    } else if (n <= 12) {
-        r = 0.08/12;
-    } else if (n <= 24) {
-        r =  0.105/12;
-    } else if (n <= 48) {
-        r = 0.12/12;
+
+    document.write("Số tháng mà bạn cần vay là : "+months+"<br>");
+
+
+
+    let debt_per_month = 0, pay_per_month = 0;
+
+    
+
+
+    if (months < 18) {
+        debt_per_month = (realAmount*rate/1200);
+        pay_per_month = (pay_percent*salary + debt_per_month);
+
+        //in ra số tiền phải đóng từ tháng 1 đến months (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 1 đến tháng "+ months+" mà bạn phải trả là : " +debt_per_month+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 1 đến tháng "+ months+ " là : "+ pay_per_month+" VND<br><br>");
+
+    } else if (months < 30) {
+        debt_after_18 = realAmount - 18*pay_percent*salary;
+        debt_per_month_18 = (debt_after_18* rate/1200);
+        pay_per_month_18 =  (pay_percent * salary + debt_per_month_18);
+
+        // in ra số tiền phải đóng từ tháng 1 đến tháng 18 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 1 đến tháng 18 mà bạn phải trả là : " +debt_per_month_18+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 1 đến tháng 18 là : "+ pay_per_month_18+" VND<br><br>");
+
+        //in ra số tiền phải đóng từ tháng 18 đến months (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 19 đến tháng "+ months +" mà bạn phải trả là : " +((realAmount - debt_after_18)*7.8/1200)+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 19 đến tháng "+ months +" là : "+ pay_per_month_18+" VND<br>");
+    } else if (months < 42) {
+
+        debt_after_30 = realAmount - 30*pay_percent*salary;
+        debt_per_month_30 = debt_after_30*6.8/1200; // từ tháng 31 trở đi đến tháng 42 rate sẽ là 6.8%/năm
+        pay_per_month_30 = debt_per_month_30 + pay_percent*salary;
+
+        // in ra số tiền phải đóng từ tháng 1 đến tháng 18 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 1 đến tháng 18 mà bạn phải trả là : " +debt_per_month+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 1 đến tháng 18 là : "+ pay_per_month+" VND<br>");
+
+        // in ra số tiền phải đóng từ tháng 19 đến tháng 30 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 19 đến tháng 30 mà bạn phải trả là : " +debt_per_month_18+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 19 đến tháng 30 là : "+ pay_per_month_18+" VND<br>");
+
+        //in ra số tiền phải đóng từ tháng 31 đến months (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 31 đến tháng "+ months +" mà bạn phải trả là : " +((realAmount - debt_after_30)*6.8/1200)+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 31 đến tháng "+ months +" là : "+ pay_per_month_30+" VND<br>");
+    } else if (months < 54) {
+
+        debt_after_42 = realAmount - 42*pay_percent*salary;
+        debt_per_month_42 = debt_after_42*5.8/1200;
+        pay_per_month_42 = debt_per_month_42 + pay_percent*salary;
+
+        // in ra số tiền phải đóng từ tháng 1 đến tháng 18 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 1 đến tháng 18 mà bạn phải trả là : " +debt_per_month+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 1 đến tháng 18 là : "+ pay_per_month+" VND<br>");
+
+        // in ra số tiền phải đóng từ tháng 19 đến tháng 30 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 19 đến tháng 30 mà bạn phải trả là : " +debt_per_month_18+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 19 đến tháng 30 là : "+ pay_per_month_18+" VND<br>");
+
+        //in ra số tiền phải đóng từ tháng 31 đến 42 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 31 đến tháng 42 mà bạn phải trả là : " +((realAmount - debt_after_42)*5.8/1200)+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 31 đến tháng 42 là : "+ pay_per_month_42+" VND<br>");
+
+        //in ra số tiền phải đóng từ tháng 43 đến months (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 43 đến tháng "+ months +" mà bạn phải trả là : " +((realAmount - debt_after_42)*5.8/1200)+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 43 đến tháng "+ months +" là : "+ pay_per_month_42+" VND<br>");
+
     } else {
-        r = 0.125/12;
+        debt_after_54 = realAmount - 54*pay_percent*salary;
+        debt_per_month_54 = debt_after_54*5/1200;
+        pay_per_month_54 = debt_per_month_54 + pay_percent*salary;
+
+        // in ra số tiền phải đóng từ tháng 1 đến tháng 18 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 1 đến tháng 18 mà bạn phải trả là : " +debt_per_month+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 1 đến tháng 18 là : "+ pay_per_month+" VND<br>");
+
+        // in ra số tiền phải đóng từ tháng 19 đến tháng 30 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 19 đến tháng 30 mà bạn phải trả là : " +debt_per_month_18+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 19 đến tháng 30 là : "+ pay_per_month_18+" VND<br>");
+
+        //in ra số tiền phải đóng từ tháng 31 đến tháng 42 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 31 đến tháng 42 mà bạn phải trả là : " +((realAmount - debt_after_30)*5.8/1200)+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 31 đến tháng 42 là : "+ pay_per_month_30+" VND<br>");
+
+        //in ra số tiền phải đóng từ tháng 43 đến tháng 54 (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 43 đến tháng 54 mà bạn phải trả là : " +((realAmount - debt_after_42)*5/1200)+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 43 đến tháng 54 là : "+ pay_per_month_42+" VND<br>");
+
+        //in ra số tiền phải đóng từ tháng 54 đến months (tiền lãi nợ hàng tháng + tiền phải trả hằng tháng)
+
+        document.write("Số tiền lãi nợ mỗi tháng từ tháng 54 đến tháng "+ months +" mà bạn phải trả là : " +((realAmount - debt_after_54)*5.8/1200)+" VND<br>");
+        document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 54 đến tháng "+ months +" là : "+ pay_per_month_54+" VND<br>");
     }
 
-    for (let i = 1; i <= n; i++) {
-        rate_new = (rate_new * (1 + r));
-    }
 
-    alert("Số tiền cả vốn lẫn lãi mà bạn phải trả sau "+ n +" tháng" + " là: " + (amount*rate_new).toFixed(0) + " VND")
+    // 200.000.000 and 12.000.000
+
+
+    // 400.000.000 and 15.000.000
+
+    // let debt_per_month_30 = 0;
+    // if (months > 30) {
+    //     debt_per_month_30 = ((realAmount - debt_per_month_30)* rate/1200);
+    //     pay_per_month_30 =  (pay_percent * salary + debt_per_month_30);
+    //     document.write("Số tiền lãi nợ mỗi tháng từ tháng 30 đến tháng "+ months +" mà bạn phải trả là : " +debt_per_month_30.toFixed(0)+" VND<br>");
+    //     document.write("Số tiền hằng tháng mà bạn phải đóng từ tháng 30 đến tháng "+ months +" là : "+ pay_per_month_30.toFixed(0)+" VND<br>")
+    // }
+
 </script>
 </body>
 </html>

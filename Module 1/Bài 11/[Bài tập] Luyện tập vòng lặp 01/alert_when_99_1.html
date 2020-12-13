@@ -7,20 +7,17 @@
 <body>
 <script>
     let flag = true;
-        do {
+        while (flag === true) {
             for (let i = 1; i <= 100; i++) {
-                switch (i) {
-                    case 99: {
-                        document.write("Chúng tôi đã đếm đến 99 ");
-
-                        flag = false;
-                    }
-                        break;
-                    default: document.write(i+' ');
-                        break;
+                if (i === 99) {
+                    document.write("Chúng tôi đã đếm đến 99 ");
+                    flag = false;
+                    break;
+                } else {
+                    document.write(i+' ');
                 }
             }
-        } while (flag === true)
+        }
 
 </script>
 </body>

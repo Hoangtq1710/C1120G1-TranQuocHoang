@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking Textarea on Typing</title>
+    <style>
+        h1 {
+            color: mediumblue;
+        }
+        textarea {
+            font-family: "Courier New", sans-serif;
+            font-size: 24px;
+            color: #27669B;
+            font-weight: bold;
+            border: 2px solid teal;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <h1>Type Anything Slowly</h1>
+    <textarea name="" id="show" cols="50" rows="12"></textarea>
+</center>
+<script>
+    let permanent = ["T","H","I","S"," ","I","S"," ","A"," ","S","A","D"," ","D","A","Y"]
+
+    let input = document.getElementById("show").value;
+    let count_permanent = permanent.length;
+
+    let count_input = input.length;
+    do {
+
+        input = document.getElementById("show").value;
+        for (let i = 0; i < input.length; i++) {
+            if (input[i] !== permanent[i]) {
+                input[i] = permanent[i];
+
+                document.getElementById("show").value = input[i];
+
+                // document.getElementById("show").value += permanent[i];
+            }
+        }
+    } while (count_input < count_permanent);
+</script>
+</body>
+</html>

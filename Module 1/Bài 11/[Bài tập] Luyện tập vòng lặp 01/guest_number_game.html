@@ -7,7 +7,7 @@
 <body>
 <input type="button" value="Chơi" onclick="play()">
 <script>
-    let count = 0;
+    let count = 1;
 function play() {
 
     let a, b;
@@ -23,7 +23,6 @@ function play() {
     // Math.floor(Math.random() * (b-a+1) + a; // bắt đầu từ 3 đến 7;
     let random_number = Math.floor(Math.random() * (b-a+1) + a);
 
-
     do {
         let input_number = parseInt(prompt("Bạn đoán là số mấy?"));
 
@@ -37,7 +36,7 @@ function play() {
         }
         count++;
     } while (count <= 3)
-    if (count === 3) {
+    if (count > 3) {
         alert("Bạn đã hết lượt chơi!!!Nhấn chơi để bắt đầu lại!");
     }
 

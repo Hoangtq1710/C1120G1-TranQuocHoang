@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm giá trị lớn nhất trong mảng</title>
+</head>
+<body>
+<script>
+    let numbers = [-2,5,4,6,7,2,14,23,15,4,-3,4,7];
+    let max = numbers[0];
+    let index = 0;
+
+    for (let i = 0; i < numbers.length ; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+            index = i;
+        }
+    }
+    alert("Phần tử lớn nhất trong mảng là : " +max);
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thực hành thao tác với mảng</title>
+</head>
+<body>
+    <input type="text" id="element">
+    <input type="button" value="Add" onclick="add()">
+    <input type="button" value="Display" onclick="display_array()">
+    <br>
+    <p id="display"></p>
+<script>
+    let a = Array();
+    let k = 0;
+
+    function add() {
+
+            a[k] = document.getElementById("element").value;
+            alert("Element: " + a[k]+" Added in index: "+k);
+            k++;
+            document.getElementById("element").value = "";
+
+    }
+
+    function display_array() {
+        let hr = "<hr>";
+        for (let i = 0; i < a.length ; i++) {
+            hr += "Element " + i + " = " + a[i] + "<br/>";
+        }
+        document.getElementById("display").innerHTML = hr;
+    }
+</script>
+</body>
+</html>

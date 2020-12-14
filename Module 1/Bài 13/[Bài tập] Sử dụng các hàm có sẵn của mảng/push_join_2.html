@@ -14,7 +14,6 @@
         a[i] = parseInt(prompt("Phần tử thứ "+i));
     }
     // document.write(a);
-
     for (let i = 0; i < a.length ; i++) {
         if ((a[i] % 2) === 0 && (a[i+1] % 2 === 0)) {
             a.splice(i+1,0,"-");

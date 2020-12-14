@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng đoán số</title>
+</head>
+<body>
+<input type="button" value="Chơi" onclick="play()">
+<script>
+    let count = 0;
+function play() {
+
+    let a, b;
+   do {
+       do {
+           a = parseInt(prompt("Bạn muốn in ra 1 số trong khoảng nào? Bắt đầu từ: "));
+       } while (a < 0);
+       do {
+           b = parseInt(prompt("Kết thúc ở?"));
+       } while (b < 0);
+   } while (a > b);
+
+    // Math.floor(Math.random() * (b-a+1) + a; // bắt đầu từ 3 đến 7;
+    let random_number = Math.floor(Math.random() * (b-a+1) + a);
+
+
+    do {
+        let input_number = parseInt(prompt("Bạn đoán là số mấy?"));
+
+        if (input_number === random_number) {
+            alert("Chúc mừng!! Bạn đã chọn chính xác rồi!");
+            break;
+        } else if (input_number < random_number) {
+            alert("Bạn đã chọn thấp hơn rồi");
+        } else {
+            alert("Bạn đã chọn cao hơn rồi");
+        }
+        count++;
+    } while (count <= 3)
+    if (count === 3) {
+        alert("Bạn đã hết lượt chơi!!!Nhấn chơi để bắt đầu lại!");
+    }
+
+
+
+   }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary EN-VN</title>
+</head>
+<body>
+    <label><input type="text" id="en"></label>
+    <input type="button" value="Search" onclick="search()">
+    <p id="vn"></p>
+<script>
+    let en =    ["button","value" , "check",
+                "text" ,"pay" ,"ring", "master",
+                "search", "key", "finger", "light",
+                "screen","up", "down", "left", "right"];
+    let vn =    ["nút", "giá trị", "kiểm tra", "kí tự",
+                "chi trả", "chiếc nhẫn", "bậc thầy", "tìm kiếm",
+                "chìa khoá", "ngón tay", "ánh sáng", "màn hình",
+                "lên", "xuống", "trái", "phải"];
+
+    function search() {
+        let check_en = document.getElementById("en").value;
+        if (en.indexOf(check_en) !== -1) {
+            document.getElementById("vn").innerText = check_en+" có nghĩa là "+vn[en.indexOf(check_en)];
+        } else {
+            document.getElementById("vn").innerText = "Opps! We didn't find it out!";
+        }
+    }
+</script>
+</body>
+</html>

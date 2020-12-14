@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chèn dấu gạch ngang</title>
+</head>
+<body>
+<!--Viết một chương trình nhận một số nhập vào và chèn dấu (-) giữa 2  số chẵn.
+ Ví dụ nếu bạn nhập vào 025468 thì kết quả của chương trình sẽ là 0-254-6-8.-->
+<script>
+    let a = [];
+    let input = parseInt(prompt("Nhập số phần từ của mảng: "));
+    for (let i = 0; i < input; i++) {
+        a[i] = parseInt(prompt("Phần tử thứ "+i));
+    }
+    // document.write(a);
+
+    for (let i = 0; i < a.length ; i++) {
+        if ((a[i] % 2) === 0 && (a[i+1] % 2 === 0)) {
+            a.splice(i+1,0,"-");
+        }
+    }
+    a = a.join("")
+    document.write(a);
+</script>
+</body>
+</html>

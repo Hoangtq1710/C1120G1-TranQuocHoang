@@ -7,7 +7,7 @@
 <body>
 <script>
     let i = 20, k = 7, j;
-    j = i - 2;
+    j = i - 2; //biến số khoảng trống
     let print = "";
     for (let l = 1; l <= i; l++) {
         print += "*";
@@ -15,7 +15,7 @@
     print += "<br>";
     for (let o = 2; o <= (k-1); o++) {
         print += "*";
-        for (let p = j; p > 0; p--) {
+        for (let p = 1; p <= j ; p++) {
             print += "&ensp;";
         }
         print += "*"+"<br>";

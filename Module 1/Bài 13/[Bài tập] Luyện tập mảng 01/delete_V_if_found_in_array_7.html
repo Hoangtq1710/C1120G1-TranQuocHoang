@@ -18,7 +18,7 @@
     }
     element = parseInt(prompt("Nhập số nguyên V của bạn :"));
 
-    document.write("Mảng a trước khi xoá : "+a.join(" ")+"<br>");
+    document.write("Mảng a trước khi xoá : "+a+"<br>");
 
     // let index = a.indexOf(element);
     //
@@ -31,6 +31,22 @@
     //     document.write("Phần tử V"+" : "+element+" không nằm trong mảng!<br>");
     // }
 
+    let index = a.indexOf(element);
+    if (index !== -1) {
+        for (let i = 0; i < number; i++) {
+            if (i === index) {
+                a[number] = 0;
+                for (let j = i; j <= number; j++) {
+                    a[j] = a[j+1];
+                }
+            }
+        }
+        a.pop(); // lấy phần tử cuối cùng trong mảng ra, tức là clean mảng về đúng yêu cầu
+        document.write("Phần tử V"+" : "+element+" nằm trong mảng!<br>");
+    } else {
+        document.write("Phần tử V"+" : "+element+" không nằm trong mảng!<br>");
+    }
+    document.write("Mảng a sau khi xoá : "+a+"<br>");
 
 </script>
 </body>

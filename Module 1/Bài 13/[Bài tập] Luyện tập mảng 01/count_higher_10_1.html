@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số nguyên trong dãy lớn hơn hoặc bằng 10</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let b = [];
+    let number = a.length;
+    let count = 0;
+    do {
+        number = parseInt(prompt("Mảng số nguyên bao gồm bao nhiêu phần tử?"));
+    } while (number <= 0)
+
+    for (let i = 0; i < number; i++) {
+        a[i] = parseInt(prompt("Nhập phần tử thứ : "+ i));
+    }
+    document.write("Mảng a : "+a.join(" ")+"<br>");
+    for (let i = 0; i < number; i++) {
+        if (a[i] >= 10) {
+            count++;
+            b[i] = a[i];
+        }
+    }
+    document.write("Mảng b : "+b.join(" ")+"<br>");
+</script>
+</body>
+</html>

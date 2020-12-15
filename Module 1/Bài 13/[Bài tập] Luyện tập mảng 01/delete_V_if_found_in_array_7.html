@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xoá V nếu nằm trong array</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let number = 0;
+    let element;
+    do {
+        number = parseInt(prompt("Bạn muốn có bao nhiêu phần tử trong mảng?"));
+    } while (number <= 0);
+
+    for (let i = 0; i < number; i++) {
+        a[i] = parseInt(prompt("Phần tử thứ : "+i));
+    }
+    element = parseInt(prompt("Nhập số nguyên V của bạn :"));
+
+    document.write("Mảng a trước khi xoá : "+a.join(" ")+"<br>");
+
+    // let index = a.indexOf(element);
+    //
+    // if (index !== -1) {
+    //     document.write("Phần tử V"+" : "+element+" nằm trong mảng!<br>");
+    //     a[index] = 0;
+    //     a.splice(index,1,"");
+    //     document.write("Mảng a sau khi xoá : "+a.join(" ")+"<br>");
+    // } else {
+    //     document.write("Phần tử V"+" : "+element+" không nằm trong mảng!<br>");
+    // }
+
+
+</script>
+</body>
+</html>

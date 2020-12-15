@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược 1 mảng số nguyên</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let number = a.length;
+    do {
+        number = parseInt(prompt("Mảng bao gồm bao nhiêu phần tử?"));
+    } while (number < 0);
+
+    for (let i = 0; i < number; i++) {
+        a[i] = parseInt(prompt("Phần tử thứ : "+i));
+    }
+    document.write("Mảng a : "+ a.join(" ")+"<br>");
+    b = a.reverse();
+    document.write("Mảng b : "+ b.join(" ")+"<br>");
+</script>
+</body>
+</html>

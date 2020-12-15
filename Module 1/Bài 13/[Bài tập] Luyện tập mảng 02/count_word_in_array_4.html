@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số từ trong mảng</title>
+</head>
+<body>
+
+<script>
+    //trim()
+    let a = prompt("Nhập chuỗi kí tự mà bạn muốn đếm số từ");
+    let number = a.trim().length; // cắt bỏ khoảng trống 2 đầu của chuỗi ký tự a
+    let count = 0; //đếm số dấu cách hợp lệ
+    document.write(a+"<br>");
+
+    for (let i = 0; i < number; i++) {
+        if (a[i] === " ") {
+            if (a[i+1] !== " ") {
+                count++;
+            }
+        }
+    }
+    document.write("Số từ trong chuỗi là : "+(count+1));
+</script>
+</body>
+</html>

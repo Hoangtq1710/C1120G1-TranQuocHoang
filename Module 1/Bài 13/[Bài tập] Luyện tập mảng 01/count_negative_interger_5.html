@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số nguyên âm trong 1 mảng</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let number = a.length;
+    do {
+        number = parseInt(prompt("Bạn muốn mảng có bao nhiêu phần tử?",'0'));
+    } while (number < 0);
+
+    for (let i = 0; i < number; i++) {
+        a[i] = parseInt(prompt("Phần tử thứ : "+i));
+    }
+    document.write(a.join(" ")+"<br>");
+
+    let count = 0;
+    let b = [];
+    for (let i = 0; i < number; i++) {
+        if (a[i] < 0) {
+            count++;
+            b[i] = a[i];
+        }
+    }
+
+    document.write("Trong mảng có "+ count+" số nguyên âm "+"<br>")
+    document.write(b.join(" "));
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra V có nằm trong array hay không</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let number = 0;
+    let element;
+
+    do {
+        number = parseInt(prompt("Bạn muốn có bao nhiêu phần tử trong mảng?"));
+    } while (number <= 0);
+
+    for (let i = 0; i < number; i++) {
+        a[i] = parseInt(prompt("Phần tử thứ : "+i));
+    }
+    element = parseInt(prompt("Nhập số nguyên V của bạn :"));
+
+    document.write("Mảng a : "+a+"<br>");
+
+    let index = a.indexOf(element);
+    if (index !== -1) {
+        document.write("Phần tử V"+" : "+element+" nằm trong mảng!<br>");
+        document.write("Vị trí của phần tử V "+element+" là : "+index);
+    } else {
+        document.write("Phần tử V"+" : "+element+" không nằm trong mảng!<br>");
+    }
+
+</script>
+</body>
+</html>

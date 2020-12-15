@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính giá trị trung bình các số trong dãy số nguyên</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let number = a.length;
+    do {
+        number = parseInt(prompt("Mảng số nguyên bao gồm bao nhiêu phần tử?"));
+    } while (number < 0);
+
+    for (let i = 0; i < number; i++) {
+        a[i] = parseInt(prompt("Phần tử thứ : "+ i));
+    }
+    document.write(a.join(" ")+"<br>");
+    let max = a[1];
+    let sum = 0;
+    for (let i = 0; i < number; i++) {
+        sum += a[i];
+        if (a[i] > max) {
+            max = a[i];
+        }
+    }
+
+    let index = a.indexOf(max);
+    document.write("Phần tử lớn nhất trong mảng là : "+max+" tại vị trí thứ "+index);
+
+    document.write("<br>Giá trị trung bình của các số trong dãy là : "+(sum/number).toFixed(2));
+
+</script>
+</body>
+</html>

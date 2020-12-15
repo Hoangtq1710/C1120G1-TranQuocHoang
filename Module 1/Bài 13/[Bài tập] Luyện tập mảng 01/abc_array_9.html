@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nối mảng a và b vào mảng c</title>
+</head>
+<body>
+<script>
+
+        // Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b.
+        // Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên.
+        // Chương trình sẽ lưu các phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.
+
+    let a = [];
+    let b = [];
+    let c = [];
+    let a_number = a.length;
+    let b_number = b.length;
+
+
+    do {
+        a_number = parseInt(prompt("Nhập số phần tử của mảng a:"));
+    } while (a_number <0);
+    for (let i = 0; i < a_number; i++) {
+        a[i] = prompt("Phần tử thứ : "+i+" của mảng a : ");
+    }
+
+    do {
+        b_number = parseInt(prompt("Nhập số phần tử của mảng b:"));
+    } while (b_number <0);
+
+    for (let i = 0; i < b_number; i++) {
+        b[i] = prompt("Phần tử thứ : "+i+" của mảng b : ");
+    }
+
+    document.write("Chuỗi a sau khi nối : "+a.join("")+"<br>");
+    document.write("Chuỗi b sau khi nối : "+b.join("")+"<br>");
+    c = a.concat(b);
+    document.write("Chuỗi c sau khi nối : "+c.join("")+"<br>");
+
+
+</script>
+</body>
+</html>

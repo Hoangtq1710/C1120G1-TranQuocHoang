@@ -16,15 +16,16 @@
 
     let a = prompt("Nhập chuỗi mà bạn muốn chuyển đổi hoa thường:");
     let b = [];
+    document.write("Chuỗi a trước : "+a+"<br>");
         for (let i = 0; i < a.length; i++) {
-            if (a[i] === a[i].toUpperCase()) {
-               b[i] = a[i].toLowerCase();
+            if (a[i] === a[i].toUpperCase()) { //kiểm tra a[i] có phải là kí tự in hoa hay k
+               b[i] = a[i].toLowerCase();   // nếu đúng thì in thường nó ra lưu vô b[i]
             } else {
-                b[i] = a[i].toUpperCase();
+                b[i] = a[i].toUpperCase();  // nếu sai, tức a[i] k phải kí tự in hoa, thì in hoa nó lên rồi gán vô b[i]
             }
         }
         b = b.join("");
-    document.write(b);
+    document.write("Chuỗi a sau : "+b);
 </script>
 </body>
 </html>

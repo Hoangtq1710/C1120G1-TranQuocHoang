@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    Viết một chương trình để in các ký tự trong một mảng theo thứ tự đảo ngược.-->
+<!--    Ví dụ, nếu một mảng chứa các ký tự  [ 'c', 's', 'c', '2', '6', '1' ] sau khi thực hiện đảo ngược sẽ là "162csc"-->
+</head>
+<body>
+<script>
+    let a = [];
+    let number;
+    do {
+        number = parseInt(prompt("Nhập số kí tự trong mảng"),'0');
+    } while (number <= 0);
+
+    for (let i = 0; i < number; i++) {
+        a[i] = prompt("Phần tử thứ : "+i);
+    }
+    document.write(a.join("")+"<br><br>");
+    a = a.reverse();
+    document.write(a.join(""));
+
+</script>
+</body>
+</html>

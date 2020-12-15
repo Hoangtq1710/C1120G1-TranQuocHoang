@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tìm dâu gạch ngang trong chuỗi kí tự nhập vào</title>
+</head>
+<body>
+<script>
+    let a = prompt("Nhập chuỗi kí tự : ");
+    let b = [];
+    document.write("Chuỗi mà bạn đã nhập : "+a+"<br>");
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] === "-") {
+            b[i] = "_";
+        } else {
+            b[i] = a[i];
+        }
+    }
+    document.write("Chuỗi a sau khi thay đổi : "+b.join(""));
+</script>
+</body>
+</html>

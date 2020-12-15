@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm kí tự nguyên âm trong chuỗi</title>
+</head>
+<body>
+<!--Viết chương trình đếm số nguyên âm trong một chuỗi-->
+<script>
+    let a = prompt("Please enter the string you wanna count the vowel character :");
+    let count = 0;
+    document.write("Your string is : "+a+"<br>");
+    for (let i = 0; i < a.length; i++) {
+        if ((a[i] === "e") || (a[i] === "u") || (a[i] === "o") || (a[i] === "a") || (a[i] === "i")) {
+            count++;
+        }
+    }
+    document.write("The number of vowel characters in your string is : "+count);
+</script>
+</body>
+</html>

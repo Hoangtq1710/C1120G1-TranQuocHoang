@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sắp xếp mảng số nguyên theo thứ tự giảm dần</title>
+</head>
+<body>
+<script>
+        // Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+        // Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+
+    let a = [];
+    let number = a.length;
+
+    do {
+        number = parseInt(prompt("Mảng số nguyên của bạn có bao nhiêu phần tử?"));
+    } while (number <= 0);
+
+    for (let i = 0; i < number; i++) {
+            a[i] = parseInt(prompt("Phần tử thứ : "+i));
+        }
+
+    document.write("Mảng a trước khi sắp xếp : "+a.join(" ")+"<br>");
+    b = a.sort(function (c,d) {
+        return d - c;
+    });
+    document.write("Mảng a sau khi sắp xếp : "+b.join(" ")+"<br>");
+
+</script>
+</body>
+</html>

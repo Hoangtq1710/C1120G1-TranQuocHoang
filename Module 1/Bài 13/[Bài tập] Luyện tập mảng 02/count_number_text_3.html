@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đếm số kí tự số trong mảng</title>
+</head>
+<body>
+<!--Viết một chương trình khai báo một mảng ký tự và kích thước của mảng. Chương trình này đếm số ký tự số trong mảng-->
+<script>
+    let a = [];
+    let b = [0,1,2,3,4,5,6,7,8,9];
+    let number = a.length;
+    do {
+        number = parseInt(prompt("Nhập số kí tự của mảng"));
+    } while (number < 0);
+
+    for (let i = 0; i < number; i++) {
+        a[i] = prompt("Phần tử thứ : "+i);
+    }
+    document.write(a.join(" ")+"<br>");
+    let count = 0;
+    for (let i = 0; i < number; i++) {
+        for (let j = 0; j < b.length; j++) {
+            if (a[i] == b[j]) {
+                count++;
+            }
+        }
+    }
+
+    document.write("Trong mảng a có "+count+" kí tự số!");
+</script>
+</body>
+</html>

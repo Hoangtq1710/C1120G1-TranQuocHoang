@@ -1,8 +1,8 @@
 
 // let uncut_name = prompt("Nhap ten cua ban");
-// document.write(cut_space(uncut_name));
+// document.write(formatString(uncut_name));
 
-function cut_space(uncutString) {
+function formatString(uncutString) {
     let trimString = uncutString.trim();
     let a = [];
     let b = [];
@@ -17,6 +17,10 @@ function cut_space(uncutString) {
             i--;
         }
         a[i] = b[i];
+    }
+
+    for (let i = 0; i < a.length; i++) {
+        a[i] = a[i].toLowerCase();
     }
 
     for (let i = 0; i < a.length; i++) {

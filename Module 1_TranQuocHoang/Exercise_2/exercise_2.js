@@ -151,11 +151,11 @@ while (flag) {
                         "1. Customer Name : " + full_name + "\n" +
                         "\n"
                     );
-                    full_name = cut_space(edit_fullname);
+                    full_name = formatString(edit_fullname);
                     show_alert_infor();
                     break;
 
-                case "2": //edit id *****error*****
+                case "2": //edit id
                     do {
                         edit_id = prompt("New ID : \n\n" +
                             "\n" +
@@ -167,7 +167,7 @@ while (flag) {
                     id_number = edit_id;
                     show_alert_infor();
                     break;
-                case "3": //edit dob *****error*****
+                case "3": //edit dob
                     do {
                         edit_dob = prompt("New Day Of Birth (YYYY-MM-DD) : \n\n" +
                             "\n" +
@@ -197,7 +197,7 @@ while (flag) {
                         "5. Address : " + address + "\n" +
                         "\n"
                     );
-                    address = edit_address;
+                    address = formatString(edit_address);
                     show_alert_infor();
                     break;
                 case "6": //edit province

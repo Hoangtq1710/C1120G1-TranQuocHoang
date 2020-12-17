@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm tính giai thừa của 1 số nguyên</title>
+</head>
+<body>
+<script>
+    let number;
+    do {
+        number = parseInt(prompt("Nhập vào 1 số mà bạn muốn tính giai thừa : "));
+    } while (number < 0);
+    document.write("Giai thừa của "+number+" là : "+factorial(number));
+
+    function factorial(number) {
+        let result = 1;
+        for (let i = 1; i <= number; i++) {
+            result *= i;
+        }
+        return result;
+    }
+</script>
+</body>
+</html>

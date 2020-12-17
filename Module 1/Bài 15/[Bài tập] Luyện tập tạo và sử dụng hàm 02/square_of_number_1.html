@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính bình phương của 1 số</title>
+</head>
+<body>
+<script>
+    let input_square;
+    do {
+        input_square= parseInt(prompt("Nhập 1 số : "));
+    } while (input_square < 0);
+    squareNumber(input_square);
+
+    function squareNumber(number) {
+        return alert("Bình phương của "+number+" là : "+(number * number));
+    }
+</script>
+</body>
+</html>

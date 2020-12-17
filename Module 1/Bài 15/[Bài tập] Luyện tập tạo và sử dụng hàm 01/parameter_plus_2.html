@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm cộng 1</title>
+</head>
+<body>
+<script>
+    let a;
+    do {
+        a = parseInt(prompt("Nhập số mà bạn muốn tăng 1 : "));
+    } while (a*0 !== 0)
+    document.write(plus1toParameter(a));
+    function plus1toParameter(parameter) {
+        return ("Tham số sau khi tăng : "+(parameter+1));
+    }
+</script>
+</body>
+</html>

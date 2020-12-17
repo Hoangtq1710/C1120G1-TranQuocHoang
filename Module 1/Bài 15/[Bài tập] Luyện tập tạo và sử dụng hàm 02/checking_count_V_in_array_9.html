@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra và đếm V trong mảng</title>
+</head>
+<body>
+<script>
+    let input_string = prompt("Nhập chuỗi kí tự của bạn : ");
+    let V = prompt("Nhập kí tự mà bạn muốn kiểm tra : ");
+    document.write("Số lần của "+"&Prime;"+V+"&Prime;"+" xuất hiện : "+checkingV(input_string,V));
+
+    function checkingV(array,element) {
+
+        let count = 0;
+        for (let i = 0; i < array.length; i++) {
+            if (element === array[i]) {
+                count++;
+            }
+        }
+        if (array.indexOf(element) === -1) {
+            return -1;
+        }
+        return count;
+    }
+
+</script>
+</body>
+</html>

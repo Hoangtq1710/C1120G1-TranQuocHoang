@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyển đổi giữa feet và meters</title>
+    <style>
+        table, p {
+            font-family: "Courier New", sans-serif;
+            border-collapse: collapse;
+            width: 500px;
+        }
+        p {
+            font-size: 40px;
+            color: darkcyan;
+            font-weight: bold;
+        }
+        td {
+            border: 2px solid teal;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <table>
+            <p>CONVERT</p>
+            <tr>
+                <td>Feet</td>
+                <td>Meters</td>
+                <td>Meters</td>
+                <td>Feet</td>
+            </tr>
+            <tr>
+                <td><input type="number" min="0" id="fromFeet" oninput="feetToMeters()" onchange="feetToMeters()"></td>
+                <td style="width: 60px"><span id="toMeters"></span></td>
+                <td><input type="number" min="0" id="fromMeters" oninput="metersToFeet()" onchange="metersToFeet()"></td>
+                <td style="width: 60px"><span id="toFeet"></span></td>
+            </tr>
+        </table>
+    </center>
+    <script>
+
+        function feetToMeters(feet) {
+            let meters = 0;
+            feet = parseFloat(document.getElementById("fromFeet").value);
+            meters = 0.305 * feet;
+            document.getElementById("toMeters").innerHTML = (meters).toFixed(3);
+        }
+        function metersToFeet(meters) {
+            let feet = 0;
+            meters = parseFloat(document.getElementById("fromMeters").value);
+            feet = 3.279 * meters;
+            document.getElementById("toFeet").innerHTML = (feet).toFixed(3);
+        }
+    </script>
+</body>
+</html>

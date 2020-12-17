@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star and Constellation</title>
+</head>
+<body>
+<script>
+    let input_star = prompt("Nhập tên ngôi sao mà bạn muốn tìm : ");
+
+    checkingStar(input_star);
+
+    function checkingStar(star) {
+        let stars = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let constellations = ["UrsaMinor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major","Leo"];
+
+        for (let i = 0; i < stars.length; i++) {
+            if (star === stars[i]) {
+                return alert(constellations[i]);
+            }
+        }
+    }
+</script>
+</body>
+</html>

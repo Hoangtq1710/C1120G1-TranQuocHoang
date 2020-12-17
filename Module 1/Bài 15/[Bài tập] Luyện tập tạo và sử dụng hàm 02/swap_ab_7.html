@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đổi chỗ 2 số nguyên a b</title>
+</head>
+<body>
+<script>
+    let a,b;
+    do {
+        a = parseInt(prompt("Nhập số a : "));
+    } while ((a*0 !== 0));
+    do {
+        b = parseInt(prompt("Nhập số b : "));
+    } while ((b*0 !== 0));
+
+    swap(a,b);
+
+    function swap(a,b) {
+        let mid;
+        mid = a;
+        a = b;
+        b = mid;
+        return alert("a = "+a+" và b = "+b);
+    }
+</script>
+</body>
+</html>

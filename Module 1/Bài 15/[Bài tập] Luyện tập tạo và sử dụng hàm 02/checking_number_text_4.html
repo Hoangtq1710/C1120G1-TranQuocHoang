@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra kí tự số</title>
+</head>
+<body>
+<script>
+    let input;
+    input = prompt("Nhập kí tự mà bạn muốn kiểm tra : ");
+    alert(checkingNumberText(input));
+
+    function checkingNumberText(input) {
+        if ((input*0) === 0) {
+            return true;
+        }
+        return false;
+    }
+</script>
+</body>
+</html>

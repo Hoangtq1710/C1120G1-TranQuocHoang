@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giá trị nhỏ nhất của 3 số nguyên</title>
+</head>
+<body>
+<script>
+    let a ,b, c;
+    a = parseInt(prompt("Nhập a : "));
+    b = parseInt(prompt("Nhập b : "));
+    c = parseInt(prompt("Nhập c : "));
+
+    document.write("Số nhỏ nhất trong 3 số "+a+" "+b+" "+c+" là : "+minOfabc(a,b,c));
+
+    function minOfabc(a,b,c) {
+        if ((a < b) && (a < c)) {
+            return a;
+        } else if ((b < c) && (b < a)) {
+            return b;
+        } else {
+            return c;
+        }
+    }
+</script>
+</body>
+</html>

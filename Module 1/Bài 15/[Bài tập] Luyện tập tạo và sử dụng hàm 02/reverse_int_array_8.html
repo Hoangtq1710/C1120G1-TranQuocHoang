@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đảo ngược mảng số nguyên</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let number;
+    do {
+        number = parseInt(prompt("Mảng bao gồm bao nhiêu phần tử?"));
+    } while ((number*0 !== 0) && (number < 0));
+    for (let i = 0; i < number; i++) {
+        do {
+            a[i] = parseInt(prompt("Phần tử thứ : "+i));
+        } while (a[i]*0 !== 0);
+    }
+    document.write(reverseArray(a).join(" "));
+
+    function reverseArray(array) {
+        let reverseArray = array.reverse();
+        return reverseArray;
+    }
+</script>
+</body>
+</html>

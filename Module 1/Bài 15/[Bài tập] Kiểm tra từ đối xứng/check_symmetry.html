@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng hàm kiểm tra tính đối xứng</title>
+</head>
+<body>
+<script>
+    let symmetryString = prompt("Nhập chuỗi mà bạn muốn kiểm tra : ");
+    checkingSymmetry(symmetryString);
+
+    function checkingSymmetry(string) { // hàm kiểm tra tính đối xứng của string nhập vào
+
+        function reverseString(str) { // hàm đảo ngược chuỗi string
+            return str.split("").reverse().join("");
+        }
+
+        if ((string.length % 2) === 1) {
+            let middle_number = (string.length - 1)/2;
+            let before_middle = string.slice(0,middle_number);
+            let after_middle = string.slice((middle_number+1),string.length);
+
+            if (before_middle === reverseString(after_middle)) {
+                alert("Dung");
+                return true;
+            }
+            alert("Sai");
+            return  false;
+        } else {
+            let middle_number = string.length/2;
+            let before_middle = string.slice(0,middle_number);
+            let after_middle = string.slice(middle_number,string.length);
+
+            if (before_middle === reverseString(after_middle)) {
+                alert("Dung");
+                return true;
+            }
+            alert("Sai");
+            return  false;
+        }
+    }
+
+</script>
+</body>
+</html>

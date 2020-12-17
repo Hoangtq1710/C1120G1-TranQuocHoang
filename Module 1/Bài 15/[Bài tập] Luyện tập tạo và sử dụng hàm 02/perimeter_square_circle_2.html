@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính chu vi và diện tích hình tròn</title>
+</head>
+<body>
+<script>
+    const pi = 3.14;
+    let radius;
+    do {
+        radius = parseFloat(prompt("Nhập bán kính"));
+    } while (radius < 0);
+
+    document.write("Diện tích hình tròn có bán kính "+radius+" là : "+squareCircle(radius));
+    document.write("<br>");
+    document.write("Chu vi hình tròn có bán kính "+radius+" là : "+perimeterCircle(radius));
+
+
+    function squareCircle(radius) {
+        square = pi * radius * radius;
+        return square.toFixed(2);
+    }
+    function perimeterCircle(radius) {
+        perimeter = 2 * pi * radius;
+        return perimeter.toFixed(2);
+    }
+</script>
+</body>
+</html>

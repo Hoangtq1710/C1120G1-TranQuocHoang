@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hàm trả về sum nếu a < b </title>
+</head>
+<body>
+<script>
+    let first = parseInt(prompt("Nhập số a : "));
+    let second = parseInt(prompt("Nhập số b : "));
+
+    document.write(sumBelow(first,second));
+
+    function sumBelow(a,b) {
+        if (a > b) {
+            alert("Số "+a+" đang lớn hơn số "+b);
+        }
+        return (a+b);
+    }
+</script>
+</body>
+</html>

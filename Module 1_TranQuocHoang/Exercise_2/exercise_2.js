@@ -21,7 +21,7 @@ let edit_email;
 let edit_address;
 let edit_province;
 let edit_vip;
-let edit_discount;
+// let edit_discount;
 let edit_adult;
 let edit_child;
 let edit_rentdays;
@@ -53,15 +53,20 @@ if (rent_days <= 4) {
 }
 
 switch (province) {
-    case "Đà Nẵng": discount_by_province = 20;
+    case "Đà Nẵng":
+        discount_by_province = 20;
         break;
-    case "Huế": discount_by_province = 10;
+    case "Huế":
+        discount_by_province = 10;
         break;
-    case "Quảng Nam": discount_by_province = 5;
+    case "Quảng Nam":
+        discount_by_province = 5;
         break;
-    default: discount_by_province = 0;
+    default:
+        discount_by_province = 0;
         break;
 }
+
 
 switch (vip) {
     case "Diamond": discount_by_vip = 15;
@@ -109,7 +114,7 @@ function edit_information_customer() {
         "5. Address : " + address + "\n" +
         "6. Province : " + province + "\n" +
         "7. VIP : " + vip + "\n" +
-        "8. Discount: " + discount +" $"+ "\n" +
+        // "8. Discount: " + discount +" $"+ "\n" +
         "9. Adult amount : " + adult + "\n" +
         "10. Child amount : " + child + "\n" +
         "11. Rent days : " + rent_days + "\n" +
@@ -118,8 +123,11 @@ function edit_information_customer() {
         "\n"
     );
 }
-discount = (discount_by_vip + discount_by_day_amount + discount_by_province); //tổng số tiền discount
+
 let flag = true;
+let flag_checking_email = true;
+let flag_checking_dob = true;
+let flag_checking_id = true;
 // Hiện menu, luôn hiện menu
 while (flag) {
     menu = prompt("Menu" + "\n" +
@@ -143,39 +151,43 @@ while (flag) {
                         "1. Customer Name : " + full_name + "\n" +
                         "\n"
                     );
-                    full_name = edit_fullname;
+                    full_name = cut_space(edit_fullname);
                     show_alert_infor();
                     break;
 
-                case "2": //edit id
-                    edit_id = prompt("New ID : \n\n" +
-                        "\n" +
-                        "2. Customer Identify : " + id_number + "\n" +
-                        "\n"
-                    );
+                case "2": //edit id *****error*****
+                    do {
+                        edit_id = prompt("New ID : \n\n" +
+                            "\n" +
+                            "2. Customer Identify : " + id_number + "\n" +
+                            "\n"
+                        );
+                        flag_checking_id = checking_id_format(edit_id);
+                    } while (flag_checking_id === false);
                     id_number = edit_id;
                     show_alert_infor();
                     break;
-
-                case "3": //edit dob
-                    edit_dob = prompt("New ID : \n\n" +
-                        "\n" +
-                        "3. Day Of Birth : " + day_of_birth + "\n" +
-                        "\n"
-                    );
+                case "3": //edit dob *****error*****
+                    do {
+                        edit_dob = prompt("New Day Of Birth (YYYY-MM-DD) : \n\n" +
+                            "\n" +
+                            "3. Day Of Birth : " + day_of_birth + "\n" +
+                            "\n"
+                        );
+                        flag_checking_dob = checking_dob_format(edit_dob);
+                    } while (flag_checking_dob === false)
                     day_of_birth = edit_dob;
                     show_alert_infor();
                     break;
-                case "4": //edit email
+                case "4": //edit email *****error*****
                     do {
                         edit_email = prompt("New Email : (abc@abc.abc) \n\n" +
                             "\n" +
                             "4. Customer Email : " + email + "\n" +
                             "\n"
                         );
-                        checking_email_format(edit_email);
-                    } while (true);
-
+                        flag_checking_email = checking_email_format(edit_email);
+                    } while (flag_checking_email === false);
                     email = edit_email;
                     show_alert_infor();
                     break;
@@ -206,39 +218,45 @@ while (flag) {
                     vip = edit_vip;
                     show_alert_infor();
                     break;
-                case "8": //edit discount
-                    edit_discount = prompt("New Discount : \n\n" +
-                        "\n" +
-                        "8. Discount: " + discount + " $" + "\n" +
-                        "\n"
-                    );
-                    discount = edit_discount;
-                    show_alert_infor();
-                    break;
+                // case "8": //edit discount
+                //     edit_discount = prompt("New Discount : \n\n" +
+                //         "\n" +
+                //         "8. Discount: " + discount + " $" + "\n" +
+                //         "\n"
+                //     );
+                //     discount = edit_discount;
+                //     show_alert_infor();
+                //     break;
                 case "9": //edit adult
-                    edit_adult = prompt("New Adult : \n\n" +
-                        "\n" +
-                        "9. Adult amount : " + adult + "\n" +
-                        "\n"
-                    );
+                    do {
+                        edit_adult = prompt("New Adult : \n\n" +
+                            "\n" +
+                            "9. Adult amount : " + adult + "\n" +
+                            "\n"
+                        );
+                    } while (checking_positive_number(edit_adult) === false);
                     adult = edit_adult;
                     show_alert_infor();
                     break;
                 case "10": //edit child
-                    edit_child = prompt("New Child : \n\n" +
-                        "\n" +
-                        "10. Child amount : " + child + "\n" +
-                        "\n"
-                    );
+                    do {
+                        edit_child = prompt("New Child : \n\n" +
+                            "\n" +
+                            "10. Child amount : " + child + "\n" +
+                            "\n"
+                        );
+                    } while (checking_positive_number(edit_child) === false);
                     child = edit_child;
                     show_alert_infor();
                     break;
                 case "11": //edit rentdays
-                    edit_rentdays = prompt("New Rent Days : \n\n" +
-                        "\n" +
-                        "11. Rent days : " + rent_days + "\n" +
-                        "\n"
-                    );
+                    do {
+                        edit_rentdays = prompt("New Rent Days : \n\n" +
+                            "\n" +
+                            "11. Rent days : " + rent_days + "\n" +
+                            "\n"
+                        );
+                    } while (checking_positive_number(edit_rentdays) === false);
                     rent_days = edit_rentdays;
                     show_alert_infor();
                     break;
@@ -275,6 +293,6 @@ while (flag) {
             alert("Please enter the option of the menu!!!");
             break;
     }
-
+    discount = (discount_by_vip + discount_by_day_amount + discount_by_province); //tổng số tiền discount
     payout = rent_days * sv - discount;
 }

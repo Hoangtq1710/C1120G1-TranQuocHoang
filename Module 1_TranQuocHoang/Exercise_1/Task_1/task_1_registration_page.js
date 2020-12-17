@@ -41,7 +41,6 @@ function confirm() {
         case "Room (100$/day)": sv = 100;
         break;
     }
-
     payout = (sv * rent_days * (1 - discount/100)).toFixed(2);
 
     document.getElementById("payout").innerText = payout + " $";

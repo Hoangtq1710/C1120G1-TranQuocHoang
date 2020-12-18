@@ -215,7 +215,7 @@ while (flag) {
                         "7. VIP : " + vip + "\n" +
                         "\n"
                     );
-                    vip = edit_vip;
+                    vip = formatString(edit_vip);
                     show_alert_infor();
                     break;
                 // case "8": //edit discount
@@ -266,7 +266,7 @@ while (flag) {
                         "12. Service : " + service + "\n" +
                         "\n"
                     );
-                    service = edit_service;
+                    service = formatString(edit_service);
                     show_alert_infor();
                     break;
                 case "13": //edit room type

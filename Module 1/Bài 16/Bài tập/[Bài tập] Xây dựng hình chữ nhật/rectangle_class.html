@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp hình chữ nhật</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="150" style="border:1px solid darkred;"></canvas>
+<script>
+    class Rectangle {
+        constructor(wide, long) {
+            this.wide = wide;
+            this.long = long;
+        }
+        setWide(wide){
+            this.wide = wide;
+        }
+        setLong(long){
+            this.long = long;
+        }
+        getWide(){
+            return this.wide;
+        }
+        getLong(){
+            return this.long;
+        }
+        getArea(){
+            return (this.wide * this.long);
+        }
+        getPerimeter(){
+            return ((this.wide + this.long) * 2);
+        }
+    }
+
+    let rectangle = new Rectangle(10, 12);
+
+    rectangle.setWide(50);
+    rectangle.setLong(100);
+
+    let wide = rectangle.getWide();
+    let long = rectangle.getLong();
+    let perimeter = rectangle.getPerimeter();
+    let area = rectangle.getArea();
+
+    let c = document.getElementById("myCanvas");
+    let ctx = c.getContext("2d");
+    ctx.beginPath();
+    ctx.rect(60, 10, wide, long);
+    ctx.strokeStyle = "teal";
+    ctx.stroke();
+
+    document.write("<br>Hình chữ nhật có chiều rộng "+wide+" và chiều dài "+long+" có diện tích là : "+area+" và chu vi là : "+perimeter);
+
+</script>
+</body>
+</html>

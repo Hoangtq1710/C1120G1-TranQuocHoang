@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp Circle</title>
+</head>
+<body>
+<script>
+    class Circle {
+        constructor(radius) {
+            this.radius = radius;
+        }
+        getRadius(){
+            return this.radius;
+        }
+        getArea(){
+            return (Math.PI*this.radius*this.radius).toFixed(3);
+        }
+    }
+
+    let circle = new Circle(8);
+
+    let radius = circle.getRadius();
+    let area = circle.getArea();
+
+    document.write("Diện tích của hình tròn có bán kính "+radius+" là : "+area);
+</script>
+</body>
+</html>

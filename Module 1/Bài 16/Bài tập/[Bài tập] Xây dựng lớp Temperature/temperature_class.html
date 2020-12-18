@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Xây dựng lớp Temperature</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(cDegree) {
+            this.cDegree = cDegree;
+        }
+        setCDegree(cDegree){
+            this.cDegree = cDegree;
+        }
+        convertToF(){
+            return (this.cDegree*1.8+32);
+        }
+        convertToKelvin(){
+            return (this.cDegree+273.15);
+        }
+    }
+
+    let temperature = new Temperature();
+    temperature.setCDegree(25);
+
+    let cDegree_toF = temperature.convertToF();
+    let cDegree_toK = temperature.convertToKelvin();
+
+    document.write(temperature.cDegree+" °C = "+cDegree_toF+" °F<br>");
+    document.write(temperature.cDegree+" °C = "+cDegree_toK+" °K<br>");
+</script>
+</body>
+</html>

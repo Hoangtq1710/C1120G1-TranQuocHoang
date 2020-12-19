@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Checking and count a character in array</title>
+</head>
+<body>
+<script>
+    function FindKyTu(sTring, characters) { //đặt tên hàm sai cách, tên biến sTring cũng sai
+        let count = 0;
+        // for (let i = 0; j < sTring.length; i++) { // sao ở đây lại là j < sTring.length???
+        //     if (sTring[i] === characters) {
+        //         count++;
+        //     } else {
+        //         count = "-1";    // gán count bằng kí tự -1 là sai, mỗi lần k tìm thấy nó sẽ gán count nhận giá trị là kí tự -1
+        //     }                    // mà count được khởi tạo giá trị = 0; tức là số, thì k thể nhận giá trị của 1 kí tự 
+        // }
+
+        for (let i = 0; i < sTring.length; i++) {
+            if (sTring[i] === characters) { // nếu tìm thấy thì tăng biến đếm count lên 1
+                count++;
+            }
+        }
+        if (sTring.indexOf(characters) === -1) { //nếu như không tìm thấy thì trả về -1. A nên xem lại chỗ hàm indexOf
+            return -1;
+        }
+        return count;   // trả về count chính bằng số lần xuất hiện của kí tự cần tìm
+    }
+    let sTring1 = prompt("Nhap vao chuoi ky tu: ");
+    let characters1 = prompt("Nhap vao ky tu can kiem tra: ");
+    disPlay1 = FindKyTu(sTring1, characters1);
+    alert(disPlay1);
+</script>
+</body>
+</html>

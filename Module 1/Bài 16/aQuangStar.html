@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finding Star</title>
+</head>
+
+<body onload="FindStar(inPut)"> <!--k phải FindStar(Star1) mà phải là FindStar(chuỗi mà a nhập vào) tức là FindStar(inPut) -->
+<script>
+    let inPut = prompt("Nhập 1 ngôi sao : ");
+    let Star1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let Star2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa", "Major", "Leo"]; // này là chòm sao Constellation
+    let index = Star1.indexOf(inPut);
+    function FindStar(string) {
+        for (let i = 0; i < Star1.length; i ++) { // mảng cần tìm là mảng Star1 chứ k phải string, string chỉ đem so sánh giá trị trong mảng Star1 thôi
+            // string[i];
+            // if ((index !== -1) && (string === Star1)) { // 2 cái điều kiện này e chưa hiểu (chỉ số index khác -1 thì là có tìm thấy chuỗi string rồi) (điều kiện string === Star1 ??? e k hiểu cái này)
+            //     index = Star2[i];
+            //     alert(inPut + "nam trong mang Star1" + " va no thuoc chom: " + Star2[i]);
+            // } else {
+            //     alert("Khong tim thay ngoi sao can tim: ");
+            // }
+
+            if (string === Star1[i]) { // nếu tìm thấy chuỗi string trong Star1
+                return document.write("Chòm sao tương ứng của ngôi sao "+string+" là "+Star2[i]); // thì in ra chòm sao tương ứng và kết thúc hàm bằng lệnh return
+            }
+        }
+        return document.write("Không tìm thấy chòm sao mà bạn cần tìm!");
+    }
+</script>
+</body>
+</html>

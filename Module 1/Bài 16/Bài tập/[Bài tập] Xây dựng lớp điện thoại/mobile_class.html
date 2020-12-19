@@ -6,10 +6,150 @@
 </head>
 <body>
 <script>
+
     class Mobile {
-        constructor() {
+        constructor(power, battery, name) {
+            this.power = power.toString();
+            this.battery = parseInt(battery);
+            this.name = name.toString();
         }
+        setPower(power){
+            this.power = power.toString();
+        }
+        getPower(){
+            return this.power;
+        }
+        phoneState(){
+            if (this.getPower() === "on"){
+                return true;
+            }
+            return false;
+        }
+        setBattery(inputBattery){
+            let battery = parseInt(inputBattery);
+            if((battery > 0) && (battery <= 100)) {
+                this.battery = battery;
+            }
+        }
+        getBattery(){
+            if (this.battery <= 0){
+                if (this.battery < 0){
+                    this.battery = 0;
+                }
+                return alert(this.battery+" % battery left"+"\nYou need to charge your phone immediately!!!");
+            }
+            return this.battery;
+        }
+        displayBattery(){
+            return document.write("Your battery percent is "+this.getBattery()+" %<br>");
+        }
+        chargeBattery(){
+            if ((this.getBattery()) >= 0 && (this.getBattery() < 100)) {
+                let leftBattery = 100 - this.getBattery();
+                this.displayBattery();
+                document.write("Your phone is charging ...<br>");
+                document.write("Your phone will be fully charging in "+leftBattery+" minutes.<br>");
+
+                for (let i = this.getBattery(); i <= 100; i++) {
+                    if (i === 100) {
+                        document.write("Charging is done!<br>");
+                        break;
+                    }
+                    this.battery++;
+                }
+            } else if (this.getBattery() === 100) {
+                return alert("Your phone is full of charge!");
+            }
+        }
+        createMessage(){    //tạo tin nhắn mới
+            if (this.phoneState()){
+                this.battery--;
+                this.textMessage = prompt("Message Content :");
+                this.getBattery();
+                return this.textMessage;
+            }
+        }
+        savedMessage(){     //gọi tới hàm này để xem tin nhắn đã tạo ở trên
+            if (this.phoneState()){
+                this.battery--;
+                this.getBattery();
+                return document.write("The message you typed was : "+this.textMessage+"<br>");
+            }
+        }
+        sendMessage(content,to){
+            if (this.phoneState()){
+                this.battery--;
+                content = this.textMessage;
+                // to = this.name;
+                this.storageSentMessage.push(content);
+                this.getBattery();
+            }
+        }
+        receiveMessage(content, from){
+            if (this.phoneState()){
+                this.battery--;
+                this.textMessage = content;
+                // from = this.name;
+                this.storageInboxMessage.push(content);
+                this.getBattery();
+                return document.write("You have received 1 message from "+from+" with content is :<br>"+content+"<br><br>");
+            }
+        }
+        storageSentMessage = new Array();
+
+        storageInboxMessage = new Array();
+
+        getSentMessage(){
+            if (this.phoneState()){
+                this.getBattery();
+                return document.write("Sent message of "+this.name+" : "+this.storageSentMessage+"<br>");
+            }
+        }
+        getInboxMessage(){
+            if (this.phoneState()){
+                this.getBattery();
+                return document.write("Inbox of "+this.name+" : "+this.storageInboxMessage+"<br>");
+            }
+        }
+
     }
+
+    let nokia = new Mobile("off",70, "nokia");
+    let iphone = new Mobile("off", 62, "iphone");
+    nokia.setPower("on");
+    iphone.setPower("on");
+    // nokia.chargeBattery();
+
+    let nokia_text = nokia.createMessage();
+    nokia.savedMessage();
+    nokia.sendMessage(nokia_text, iphone.name);
+    iphone.receiveMessage(nokia_text, nokia.name);
+
+    let nokia_text_2 = nokia.createMessage();
+    nokia.savedMessage();
+    nokia.sendMessage(nokia_text_2, iphone.name);
+    iphone.receiveMessage(nokia_text_2, nokia.name);
+
+    let nokia_text_3 = nokia.createMessage();
+    nokia.savedMessage();
+    nokia.sendMessage(nokia_text_3, iphone.name);
+    iphone.receiveMessage(nokia_text_3, nokia.name);
+
+    let iphone_text = iphone.createMessage();
+    iphone.savedMessage();
+    iphone.sendMessage(iphone_text, nokia.name);
+    nokia.receiveMessage(iphone_text, iphone.name);
+
+    nokia.getSentMessage();
+    nokia.getInboxMessage();
+
+    iphone.getSentMessage();
+    iphone.getInboxMessage();
+
+    nokia.displayBattery();
+    iphone.displayBattery();
+
+
 </script>
 </body>
 </html>

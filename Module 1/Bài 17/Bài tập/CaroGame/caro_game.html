@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choi Caro</title>
+    <style>
+        table {
+            margin-top: 20px;
+
+            width: 500px;
+            height: 400px;
+            position: absolute;
+            border-collapse: collapse;
+        }
+        td {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #27669B;
+            background-color: #D4FDD6;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="play" value="Chơi">
+<script>
+    class Cell {
+        constructor(x, y, value) {
+            this.x = x;
+            this.y = y;
+            this.value = value;
+        }
+        printCell(){
+            return "O";
+        }
+    }
+    let cell = new Cell();
+let print = "";
+print += "<table>";
+for (let i = 0; i < 20; i++) {
+    print += "<tr>";
+    for (let j = 0; j < 20; j++) {
+        print += "<td onclick='cell.printCell()'></td>";
+    }
+    print += "</tr>";
+}
+
+
+document.write(print);
+
+</script>
+</body>
+</html>

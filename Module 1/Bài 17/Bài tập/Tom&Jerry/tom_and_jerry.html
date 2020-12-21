@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tom & Jerry</title>
+</head>
+<body>
+<script>
+    class Animal {
+        constructor(name, weight, speed) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+        }
+    }
+    class Rat extends Animal{
+        constructor(name, weight, speed, status) {
+            super(name, weight, speed);
+            this.status = status;
+        }
+        growl(){
+            document.write("Chit chit"+"<br>");
+        }
+        getStatus(){
+            if (this.status === "live") {
+                return true;
+            }
+            return  false;
+        }
+    }
+    class Cat extends Animal {
+        constructor(name, weight, speed) {
+            super(name, weight, speed);
+        }
+        growl(){
+            document.write("Meow Meow"+"<br>");
+        }
+        catchRat(rat){
+            if (this.speed > rat.speed) {
+                document.write(rat.name + " is caught by "+ this.name+"<br>");
+                this.eatRat(rat);
+            } else {
+                document.write(rat.name+" is too fast! "+this.name+" too slow!"+"<br>");
+            }
+        }
+        eatRat(rat){
+            if (rat.getStatus()) {
+                this.weight += rat.weight;
+                document.write(this.name+"'s weight is "+this.weight+" now."+"<br>");
+            } else {
+                document.write(rat.name+" is dead<br>");
+            }
+        }
+    }
+
+    let tom = new Cat("Tom", 4, 20);
+    let jerry = new Rat("Jerry", 1, 15, "live");
+    tom.growl();
+    jerry.growl();
+    tom.catchRat(jerry);
+</script>
+</body>
+</html>

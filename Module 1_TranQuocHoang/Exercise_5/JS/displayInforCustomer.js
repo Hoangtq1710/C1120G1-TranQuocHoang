@@ -6,7 +6,7 @@ function displayOne(i) {
                 "5. Address : " + arrListCustomer[i][4] + "\n" +
                 "6. Province : " + arrListCustomer[i][5] + "\n" +
                 "7. VIP : " + arrListCustomer[i][6] + "\n" +
-                "8. Discount: " + 555555 +" $"+ "\n" +
+                "8. Discount: " + 25 +" $"+ "\n" +
                 "9. Adult amount : " + arrListCustomer[i][7] + "\n" +
                 "10. Child amount : " + arrListCustomer[i][8] + "\n" +
                 "11. Rent days : " + arrListCustomer[i][9] + "\n" +

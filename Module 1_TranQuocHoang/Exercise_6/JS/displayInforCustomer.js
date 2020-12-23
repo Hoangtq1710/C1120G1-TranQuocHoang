@@ -11,7 +11,9 @@ function displayOne(i) {
                 "10. Child amount : " + arrListCustomer[i][9] + "\n" +
                 "11. Rent days : " + arrListCustomer[i][10] + "\n" +
                 "12. Service : " + arrListCustomer[i][11] + "\n" +
-                "13. Room type : " + arrListCustomer[i][12] + "\n";
+                "13. Room type : " + arrListCustomer[i][12] + "\n"
+                // "14. Payout : " + arrListCustomer[i][13] + " $\n";
+    ;
     return print;
 }
 function displayInforCustomer() {

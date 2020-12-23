@@ -1,6 +1,7 @@
 let menu;
 let arrListCustomer = [];
 let index;
+let pickNumber;
 
 function addFirst() {
     alert("Please choose 1 to add Customer first!");

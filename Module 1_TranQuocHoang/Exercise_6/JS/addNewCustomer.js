@@ -12,6 +12,7 @@ function addNewCustomer() {
     let input_rentdays;
     let input_service;
     let input_roomtype;
+    let payout;
 
     let arrInforCustomer = [];
     let customer = new Customer();
@@ -81,6 +82,8 @@ function addNewCustomer() {
     input_roomtype = formatString(prompt("Which room type do you wanna hire?\n"));
     customer.setRoomType(input_roomtype);
     arrInforCustomer.push(customer.getRoomType());
+
+    arrInforCustomer.push(customer.payout());
     alert("You've added a new Customer successfully!\n");
     arrListCustomer[arrListCustomer.length] = arrInforCustomer;
 }

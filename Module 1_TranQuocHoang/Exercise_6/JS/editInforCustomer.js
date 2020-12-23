@@ -109,6 +109,8 @@ function edit() {
                     "\n")
                     );
                 } while (checking_positive_number(edit_discount) || (edit_discount < 5) || (edit_discount > 70));
+                arrListCustomer[index][7] = edit_discount;
+                break;
             case "9": //edit adult
                 do {
                     edit_adult = prompt("New Adult : \n\n" +

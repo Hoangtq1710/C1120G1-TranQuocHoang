@@ -1,20 +1,13 @@
 function displayTotalPay() {
-    let pickNumber;
-    let displayName = [];
+    let printDisplay = "";
+    printDisplay += "Please choose the number of Customer (1 - " + arrListCustomer.length + ") : \n";
     for (let i = 0; i < arrListCustomer.length; i++) {
-        displayName[i] = arrListCustomer[i][0];
+        printDisplay += (i+1) + ". " + arrListCustomer[i][0] + " \n";
     }
-    let print = "";
-    print += "Please enter the customer name : \n";
-    for (let i = 0; i < arrListCustomer.length; i++) {
-        print += i+". "+arrListCustomer[i][0]+" \n";
-    }
-    pickNumber = prompt(print);
-    // switch (pickNumber) {
-    //     case parseInt(pickNumber) :
-    //        
-    // }
-}
-function display() {
-
+    do {
+        pickNumber = parseInt(prompt(printDisplay));
+    } while ((pickNumber < 0) || (pickNumber > arrListCustomer.length) || ((pickNumber*0) !== 0));
+    let money = arrListCustomer[pickNumber-1][13];
+    let nameCus = arrListCustomer[pickNumber-1][0];
+    alert("Customer "+nameCus+" have to pay "+money+" $");
 }

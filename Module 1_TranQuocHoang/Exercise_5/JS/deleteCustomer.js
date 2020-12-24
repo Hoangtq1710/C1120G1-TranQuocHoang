@@ -1,16 +1,16 @@
 function deleteCustomer() {
-    let flag_deleteID = true;
-    let input_delete_id = prompt("Enter the ID of Customer you wanna delete :");
+    let flagDeleteID = true;
+    let inputDeleteId = prompt("Enter the ID of Customer you wanna delete :");
 
     for (let i = 0; i < arrListCustomer.length; i++) {
         for (let j = 0; j < arrListCustomer[i].length; j++) {
-            if (input_delete_id === arrListCustomer[i][1]) {
+            if (inputDeleteId === arrListCustomer[i][1]) {
                 index = i;
-                flag_deleteID = false;
+                flagDeleteID = false;
             }
         }
     }
-    if (flag_deleteID === false) {
+    if (flagDeleteID === false) {
         arrListCustomer.splice(index,1);
         alert("Done!");
     } else {

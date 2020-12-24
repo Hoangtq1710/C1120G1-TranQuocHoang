@@ -2,18 +2,18 @@ let menu;
 let arrListCustomer = [];
 let index;
 
-let full_name;
-let id_number;
-let day_of_birth;
+let fullName;
+let idNumber;
+let dayOfBirth;
 let email;
 let address;
 let province;
 let vip;
 let adult;
 let child;
-let rent_days;
+let rentDays;
 let service;
-let room_type;
+let roomType;
 
 function addFirst() {
     alert("Please choose 1 to add Customer first!");

@@ -1,5 +1,5 @@
 function displayOne(i) {
-    let print = "1. Customer Name : " + arrListCustomer[i][0] + "\n" +
+    return "1. Customer Name : " + arrListCustomer[i][0] + "\n" +
                 "2. Customer Identify : " + arrListCustomer[i][1] + "\n" +
                 "3. Day Of Birth : " + arrListCustomer[i][2] + "\n" +
                 "4. Customer Email : " + arrListCustomer[i][3] + "\n" +
@@ -14,7 +14,6 @@ function displayOne(i) {
                 "13. Room type : " + arrListCustomer[i][12] + "\n"
                 // "14. Payout : " + arrListCustomer[i][13] + " $\n";
     ;
-    return print;
 }
 function displayInforCustomer() {
     for (let i = 0; i < arrListCustomer.length; i++) {

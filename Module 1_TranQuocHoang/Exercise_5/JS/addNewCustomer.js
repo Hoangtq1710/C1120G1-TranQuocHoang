@@ -1,17 +1,17 @@
 function addNewCustomer() {
     let arrInforCustomer = [];
-    full_name = formatString(prompt("New Customer Name : \n"));
-    arrInforCustomer.push(full_name);
+    fullName = formatString(prompt("New Customer Name : \n"));
+    arrInforCustomer.push(fullName);
 
     do {
-        id_number = prompt("New Customer ID (XXXXXXXXX) : \n");
-    } while (checking_id_format(id_number) === false);
-    arrInforCustomer.push(id_number);
+        idNumber = prompt("New Customer ID (XXXXXXXXX) : \n");
+    } while (checking_id_format(idNumber) === false);
+    arrInforCustomer.push(idNumber);
 
     do {
-        day_of_birth = prompt("New Day Of Birth (YYYY-MM-DD) : \n");
-    } while (checking_dob_format(day_of_birth) === false);
-    arrInforCustomer.push(day_of_birth);
+        dayOfBirth = prompt("New Day Of Birth (YYYY-MM-DD) : \n");
+    } while (checking_dob_format(dayOfBirth) === false);
+    arrInforCustomer.push(dayOfBirth);
 
     do {
         email = prompt("New Email : (abc@abc.abc) \n");
@@ -38,15 +38,15 @@ function addNewCustomer() {
     arrInforCustomer.push(child);
 
     do {
-        rent_days = prompt("How many days you wanna rent? \n");
-    } while (checking_positive_number(rent_days) === false);
-    arrInforCustomer.push(rent_days);
+        rentDays = prompt("How many days you wanna rent? \n");
+    } while (checking_positive_number(rentDays) === false);
+    arrInforCustomer.push(rentDays);
 
     service = formatString(prompt("Which service do you wanna hire?\n"));
     arrInforCustomer.push(service);
 
-    room_type = formatString(prompt("Which room type do you wanna hire?\n"));
-    arrInforCustomer.push(room_type);
+    roomType = formatString(prompt("Which room type do you wanna hire?\n"));
+    arrInforCustomer.push(roomType);
     alert("You've added a new Customer successfully!\n");
     arrListCustomer[arrListCustomer.length] = arrInforCustomer;
 }

@@ -1,16 +1,17 @@
 function editInforCustomer() {
-    let flag_id =  true;
-    let input_id = prompt("Enter the ID of Customer you wanna edit Information :");
+    let flagId =  true;
+    let inputId = prompt("Enter the ID of Customer you wanna edit Information :");
 
     for (let i = 0; i < arrListCustomer.length; i++) {
         for (let j = 0; j < arrListCustomer[i].length; j++) {
-            if (input_id === arrListCustomer[i][1]) {
+            if (inputId === arrListCustomer[i][1]) {
                 index = i;
-                flag_id = false;
+                flagId = false;
             }
         }
-        if (flag_id === false) {
+        if (flagId === false) {
             edit();
+            break;
         }
     }
 }

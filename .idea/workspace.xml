@@ -19,38 +19,34 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6369dd3-b2be-4ef9-ad2b-9b55dc8516cc" name="Default Changelist" comment="">
+    <list default="true" id="97ee073a-e290-4b49-b114-fc9f0726fbc9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Module_2.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/C1120G1-TranQuocHoang.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng hình chữ nhật/rectangle_class.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng hình chữ nhật/rectangle_class.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng lớp Temperature/temperature_class.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng lớp Temperature/temperature_class.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng lớp điện thoại/mobile_class.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng lớp điện thoại/mobile_class.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Bài 16/Thực hành/[Thực hành] Funny circles/funny_circles.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 16/Thực hành/[Thực hành] Funny circles/funny_circles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1/Bài 17/Bài tập/SwitchButton_ElectricLamp/switchlamp.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 17/Bài tập/SwitchButton_ElectricLamp/switchlamp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_5/JS/deleteCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_5/JS/deleteCustomer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_6/JS/deleteCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_6/JS/deleteCustomer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HackerRank.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/HackerRank.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/isPrimeAdvance.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/isPrimeAdvance.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExportToHTMLSettings">
-    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/../C1120G1-TranQuocHoang\exportToHTML" />
-  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="JavaScript File" />
-        <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1lBJKAWMqw6TXJjKHQpJyrJ5nL7" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectId" id="1mPC4U5IpVYFeacD0t3iaB5iWLM" />
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -58,102 +54,105 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_6/task_2/JS" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_6\task_2\JS" />
-      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_6" />
-      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_5\JS" />
-      <recent name="D:\C1120G1-TranQuocHoang\Module 1\Bài 16\Bài tập\[Bài tập] Xây dựng lớp điện thoại" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_6\task_2" />
-      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_6" />
-      <recent name="D:\C1120G1-TranQuocHoang\Module 1\Bài 15\[Bài tập] Hàm kiểm tra số nguyên tố" />
-      <recent name="D:\C1120G1-TranQuocHoang\Bài 5\Bài tập phụ\css" />
+      <recent name="D:\C1120G1-TranQuocHoang\Module 1" />
     </key>
+  </component>
+  <component name="RunManager" selected="Application.CountingDayInMonth">
+    <configuration name="AreaRectangle" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Session_1.Practice.AreaRectangle" />
+      <module name="Module_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Session_1.Practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CheckingLeapYear" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Session_1.Practice.CheckingLeapYear" />
+      <module name="Module_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Session_1.Practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CountingDayInMonth" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Session_1.Practice.CountingDayInMonth" />
+      <module name="Module_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Session_1.Practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LinearEquationResolver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Session_1.Practice.LinearEquationResolver" />
+      <module name="Module_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Session_1.Practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Variable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Session_1.Practice.Variable" />
+      <module name="Module_2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Session_1.Practice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.CountingDayInMonth" />
+        <item itemvalue="Application.AreaRectangle" />
+        <item itemvalue="Application.CheckingLeapYear" />
+        <item itemvalue="Application.LinearEquationResolver" />
+        <item itemvalue="Application.Variable" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="a6369dd3-b2be-4ef9-ad2b-9b55dc8516cc" name="Default Changelist" comment="" />
-      <created>1607064485231</created>
+      <changelist id="97ee073a-e290-4b49-b114-fc9f0726fbc9" name="Default Changelist" comment="" />
+      <created>1609385647546</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1607064485231</updated>
-      <workItem from="1607064517378" duration="3990000" />
-      <workItem from="1607070605098" duration="2744000" />
-      <workItem from="1607101235696" duration="10870000" />
-      <workItem from="1607149821829" duration="11762000" />
-      <workItem from="1607162294994" duration="3326000" />
-      <workItem from="1607180637423" duration="20984000" />
-      <workItem from="1607229734878" duration="1788000" />
-      <workItem from="1607235790992" duration="11656000" />
-      <workItem from="1607265460744" duration="12246000" />
-      <workItem from="1607304492046" duration="21046000" />
-      <workItem from="1607345513402" duration="11164000" />
-      <workItem from="1607390266209" duration="14469000" />
-      <workItem from="1607418704076" duration="3941000" />
-      <workItem from="1607431511994" duration="21971000" />
-      <workItem from="1607476720530" duration="19787000" />
-      <workItem from="1607512356975" duration="1909000" />
-      <workItem from="1607517740544" duration="8671000" />
-      <workItem from="1607562918146" duration="22557000" />
-      <workItem from="1607608827172" duration="12157000" />
-      <workItem from="1607649213734" duration="25825000" />
-      <workItem from="1607700472073" duration="7728000" />
-      <workItem from="1607754197065" duration="1548000" />
-      <workItem from="1607756309132" duration="3571000" />
-      <workItem from="1607767923013" duration="25902000" />
-      <workItem from="1607845531298" duration="1766000" />
-      <workItem from="1607860929382" duration="1945000" />
-      <workItem from="1607867266611" duration="4143000" />
-      <workItem from="1607873627191" duration="981000" />
-      <workItem from="1607908584855" duration="22946000" />
-      <workItem from="1607944901380" duration="128000" />
-      <workItem from="1607949197093" duration="15192000" />
-      <workItem from="1607994929689" duration="26591000" />
-      <workItem from="1608042014329" duration="778000" />
-      <workItem from="1608044503059" duration="4869000" />
-      <workItem from="1608080663444" duration="7504000" />
-      <workItem from="1608097415225" duration="16128000" />
-      <workItem from="1608146424977" duration="42183000" />
-      <workItem from="1608208623487" duration="8165000" />
-      <workItem from="1608254303610" duration="15345000" />
-      <workItem from="1608306356875" duration="4095000" />
-      <workItem from="1608342951390" duration="12148000" />
-      <workItem from="1608356374612" duration="8313000" />
-      <workItem from="1608385598057" duration="9645000" />
-      <workItem from="1608470942931" duration="3512000" />
-      <workItem from="1608513629141" duration="25500000" />
-      <workItem from="1608559414541" duration="516000" />
-      <workItem from="1608599341853" duration="25608000" />
-      <workItem from="1608653996252" duration="815000" />
-      <workItem from="1608685232282" duration="21203000" />
-      <workItem from="1608734109870" duration="6527000" />
-      <workItem from="1608771933056" duration="22424000" />
-      <workItem from="1609002490512" duration="1696000" />
-      <workItem from="1609117815867" duration="12864000" />
-      <workItem from="1609168710083" duration="2775000" />
-      <workItem from="1609217090023" duration="10588000" />
-      <workItem from="1609291297962" duration="14728000" />
+      <updated>1609385647546</updated>
+      <workItem from="1609385651059" duration="3803000" />
     </task>
     <servers />
   </component>
@@ -170,44 +169,31 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="598" y="306" key="#Chrome_Settings" timestamp="1607256907828">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1609390549899">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="598" y="306" key="#Chrome_Settings/0.0.1366.738@0.0.1366.738" timestamp="1607256907828" />
-    <state x="309" y="47" key="#Inspections" timestamp="1607068142372">
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1609390549899" />
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom" timestamp="1609390581831">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="309" y="47" key="#Inspections/0.0.1366.738@0.0.1366.738" timestamp="1607068142372" />
-    <state x="273" y="66" width="725" height="432" key="#Notifications" timestamp="1608146803594">
+    <state width="1323" height="223" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1609390581831" />
+    <state width="1323" height="223" key="GridCell.Tab.0.center" timestamp="1609390581831">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="273" y="66" width="725" height="432" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1608146803594" />
-    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607484291860">
+    <state width="1323" height="223" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1609390581831" />
+    <state width="1323" height="223" key="GridCell.Tab.0.left" timestamp="1609390581831">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607484291860" />
-    <state x="595" y="144" key="FileChooserDialogImpl" timestamp="1607666448984">
+    <state width="1323" height="223" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1609390581831" />
+    <state width="1323" height="223" key="GridCell.Tab.0.right" timestamp="1609390581831">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="595" y="144" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1607666448984" />
-    <state x="353" y="0" width="916" height="719" key="SettingsEditor" timestamp="1608794376111">
+    <state width="1323" height="223" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1609390581831" />
+    <state x="65" y="0" key="new project wizard" timestamp="1609390579228">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="353" y="0" width="916" height="719" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1608794376111" />
-    <state x="611" y="230" width="611" height="282" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1607683819082">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="611" y="230" width="611" height="282" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1366.738@0.0.1366.738" timestamp="1607683819082" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1608779926368">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1608779926368" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1608792718098">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1608792718098" />
+    <state x="65" y="0" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1609390579228" />
   </component>
 </project>

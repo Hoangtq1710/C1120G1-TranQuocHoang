@@ -1,4 +1,4 @@
-package Session_1.Exercise;
+package session_1.exercise;
 
 import java.util.Scanner;
 

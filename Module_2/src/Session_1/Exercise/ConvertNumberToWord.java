@@ -50,7 +50,7 @@ public class ConvertNumberToWord {
             int unit = n - dozen*10;
             String out = Dozen(dozen)+" "+Unit(unit);
             System.out.println(out);
-        } else {
+        } else if (n < 1000) {
             int hundred = n/100;
             int dozen = (n - hundred *100) /10;
             int unit = (n - hundred*100 - dozen*10);
@@ -61,6 +61,8 @@ public class ConvertNumberToWord {
                 out = Unit(hundred)+" hundred";
             }
             System.out.println(out);
+        } else {
+            System.out.println("Out of Ability");
         }
     }
     public static String Unit(int unit){

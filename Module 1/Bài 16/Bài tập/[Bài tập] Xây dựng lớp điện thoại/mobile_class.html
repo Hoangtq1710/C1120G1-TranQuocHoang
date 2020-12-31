@@ -41,7 +41,7 @@
             return this.battery;
         }
         displayBattery(){
-            return document.write("Your battery percent is "+this.getBattery()+" %<br>");
+            return document.write(this.name+" battery percent is "+this.getBattery()+" %<br>");
         }
         chargeBattery(){
             if ((this.getBattery()) >= 0 && (this.getBattery() < 100)) {
@@ -64,7 +64,7 @@
         createMessage(){    //tạo tin nhắn mới
             if (this.phoneState()){
                 this.battery--;
-                this.textMessage = prompt("Message Content :");
+                this.textMessage = prompt(this.name+" message Content :");
                 this.getBattery();
                 return this.textMessage;
             }
@@ -114,8 +114,8 @@
 
     }
 
-    let nokia = new Mobile("off",70, "nokia");
-    let iphone = new Mobile("off", 62, "iphone");
+    let nokia = new Mobile("off",60, "Nokia");
+    let iphone = new Mobile("off", 45, "Iphone");
     nokia.setPower("on");
     iphone.setPower("on");
     // nokia.chargeBattery();
@@ -125,15 +125,15 @@
     nokia.sendMessage(nokia_text, iphone.name);
     iphone.receiveMessage(nokia_text, nokia.name);
 
-    let nokia_text_2 = nokia.createMessage();
-    nokia.savedMessage();
-    nokia.sendMessage(nokia_text_2, iphone.name);
-    iphone.receiveMessage(nokia_text_2, nokia.name);
-
-    let nokia_text_3 = nokia.createMessage();
-    nokia.savedMessage();
-    nokia.sendMessage(nokia_text_3, iphone.name);
-    iphone.receiveMessage(nokia_text_3, nokia.name);
+    // let nokia_text_2 = nokia.createMessage();
+    // nokia.savedMessage();
+    // nokia.sendMessage(nokia_text_2, iphone.name);
+    // iphone.receiveMessage(nokia_text_2, nokia.name);
+    //
+    // let nokia_text_3 = nokia.createMessage();
+    // nokia.savedMessage();
+    // nokia.sendMessage(nokia_text_3, iphone.name);
+    // iphone.receiveMessage(nokia_text_3, nokia.name);
 
     let iphone_text = iphone.createMessage();
     iphone.savedMessage();

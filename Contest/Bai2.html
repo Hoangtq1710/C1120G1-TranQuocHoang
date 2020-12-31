@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<body>
+<script>
+    function isPalindrome(str) {
+        let check = true;
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] !== str[str.length - 1 - i]) {
+                check = false;
+                break;
+            }
+        }
+        if (check) {
+            alert("Chuỗi ["+ str + "] là chuỗi đối xứng");
+        } else
+            alert("Chuỗi ["+ str + "] là chuỗi không đối xứng");
+    }
+    let string = prompt("Nhập vào một chuỗi kí tự");
+    isPalindrome(string);
+</script>
+</body>
+</html>

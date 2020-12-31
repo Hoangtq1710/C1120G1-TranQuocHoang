@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HackerRank</title>
+</head>
+<body>
+<script>
+    // function birthdayCakeCandles(candles) {
+    //     let max = candles[0];
+    //     let count = 0;
+    //     for (let i = 0; i < candles.length; i++) {
+    //         if (candles[i] > max){
+    //             max = candles[i];
+    //         }
+    //     }
+    //     for (let i = 0; i < candles.length; i++) {
+    //         if (candles[i] === max ){
+    //             count++;
+    //         }
+    //     }
+    //     return count;
+    // }
+    // let a = [7,8,4,5,9,6,2,8];
+    // document.write(birthdayCakeCandles(a));
+
+    // function beautifulBinaryString(b) {
+    //     let a = [];
+    //     let count = 0;
+    //     for (let i = 0; i < b.length; i++) {
+    //         a[i] = b[i];
+    //     }
+    //     for (let i = 2; i < a.length ; i++) {
+    //         let index;
+    //         let flag = true;
+    //         if ((a[i-2] === "0") && (a[i-1] === "1") && (a[i] === "0")) {
+    //             index = i;
+    //             count++;
+    //             a[i] = "1";
+    //         }
+    //     }
+    //     return count;
+    // }
+    // let b = "010010010010010010010";
+    // document.write(beautifulBinaryString(b));
+
+    // function stringConstruction(s) {
+    //     let arrayCheck = [];
+    //     let dollar = 0;
+    //     for (let i = 0; i < s.length; i++) {
+    //         if (arrayCheck.indexOf(s[i]) === -1) {
+    //             dollar++;
+    //             arrayCheck.push(s[i]);
+    //         }
+    //     }
+    //     return dollar;
+    // }
+    // let str = "abcdeab";
+    // document.write(stringConstruction(str));
+
+    // function utopianTree(n) {
+    //     let height = 0;
+    //     for (let i = 0; i <= n; i++) {
+    //         if (i % 2 === 0) {
+    //             height++;
+    //         } else {
+    //             height *= 2;
+    //         }
+    //     }
+    //     return height;
+    // }
+    // document.write(utopianTree(4));
+
+    // function angryProfessor(k, a) {
+    //     let count = 0;
+    //     for (let i = 0; i < a.length; i++) {
+    //         if (a[i] <= 0) {
+    //             count++;
+    //         }
+    //     }
+    //     if (count < k) {
+    //         return "YES";
+    //     } else {
+    //         return "NO";
+    //     }
+    // }
+    // let a = [-1,-3,4,2];
+    // let k = 3;
+    // document.write(angryProfessor(k, a) +"<br>");
+    // let b = [0, -1, 2 ,1];
+    // let l = 2;
+    // document.write(angryProfessor(l, b));
+
+    // function getMoneySpent(keyboards, drives, b) { CHUA RA
+    //     let sum = [];
+    //     let array = [];
+    //     for (let i = 0; i < keyboards.length; i++) {
+    //         for (let j = 0; j < drives.length; j++) {
+    //             sum[i+j] =  keyboards[i]+drives[j];
+    //             for (let k = 0; k < b.length; k++) {
+    //                 if (sum[i+j] < b[k]) {
+    //                     array.push(sum[i+j]);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     array.sort(function (a,b) {
+    //         return a - b;
+    //     });
+    //     for (let i = 0; i < b.length; i++) {
+    //         for (let j = 0; j < array.length; j++) {
+    //             if (array[j] > b[i]) {
+    //                 return array[j-1];
+    //             }
+    //         }
+    //     }
+    //     return -1;
+    // }
+    // let b = 60;
+    // let kb = [40,50,60];
+    // let dr = [5,8,12];
+    // document.write(getMoneySpent(kb,dr,b));
+
+    // function pickingNumbers(a) { CHUA RA
+    //     let array = [];
+    //     let count = 0;
+    //     array.sort(function (a,b) {
+    //         return a - b;
+    //     })
+    //     for (let i = 0; i < a.length; i++) {
+    //         if ((Math.abs(a[i+1] - a[i]) === 0) || (Math.abs(a[i+1] - a[i]) === 1)) {
+    //             count++;
+    //         } else {
+    //             array.push(count);
+    //             count = 0;
+    //         }
+    //     }
+    //     let max = array[0];
+    //     for (let i = 0; i < array.length; i++) {
+    //         if (max < array[i]) {
+    //             max = array[i];
+    //         }
+    //     }
+    //     return max+1;
+    // }
+    // let a = [1,1,2,2,4,4,5,5,5];
+    // document.write(pickingNumbers(a));
+
+    // function findDigits(n) { CHUA RA
+    //     let str = n.toString();
+    //     let b = str.split("");
+    //     let count = 0;
+    //     for (let i = 0; i < b.length; i++) {
+    //         if (n % b[i] === 0) {
+    //             count++;
+    //         }
+    //     }
+    //     return count;
+    // }
+    // let n = 2012;
+    // document.write(findDigits(n));
+</script>
+</body>
+</html>

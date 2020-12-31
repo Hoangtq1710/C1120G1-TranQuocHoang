@@ -13,6 +13,7 @@ function deleteCustomer() {
     if (flag_deleteID === false) {
         arrListCustomer.splice(index,1);
         alert("Done!");
+        displayInforCustomer();
     } else {
         alert("Wrong ID!! Please check again!");
     }

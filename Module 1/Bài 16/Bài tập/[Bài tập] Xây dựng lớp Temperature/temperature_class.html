@@ -23,9 +23,12 @@
 
     let temperature = new Temperature();
     temperature.setCDegree(25);
+    temperature.setCDegree(65);
 
     let cDegree_toF = temperature.convertToF();
     let cDegree_toK = temperature.convertToKelvin();
+
+    temperature.setCDegree(78);
 
     document.write(temperature.cDegree+" °C = "+cDegree_toF+" °F<br>");
     document.write(temperature.cDegree+" °C = "+cDegree_toK+" °K<br>");

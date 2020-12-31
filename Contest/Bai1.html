@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 1</title>
+</head>
+<body>
+<script>
+    let number;
+    let arr = [];
+    do {
+        number = parseInt(prompt("Nhập số phần tử của mảng (n <= 20): "));
+    } while ((number <= 0) || (number > 20) || (isNaN(number)));
+    for (let i = 0; i < number; i++) {
+        arr[i] = prompt("Phần tử thứ "+i);
+    }
+    for (let i = 0; i < arr.length; i++) {
+        let count = 1;
+        for (let j = i+1; j < arr.length; j++) {
+            if (arr[i] === arr[j]) {
+                count++;
+                arr.splice(j,1);
+            }
+        }
+        document.write(arr[i]+" : "+count+"<br>");
+    }
+</script>
+</body>
+</html>

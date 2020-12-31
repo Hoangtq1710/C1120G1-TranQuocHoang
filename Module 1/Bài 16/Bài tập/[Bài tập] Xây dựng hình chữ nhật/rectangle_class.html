@@ -34,8 +34,8 @@
 
     let rectangle = new Rectangle(10, 12);
 
-    rectangle.setWide(50);
-    rectangle.setLong(100);
+    rectangle.setWide(70);
+    rectangle.setLong(80);
 
     let wide = rectangle.getWide();
     let long = rectangle.getLong();
@@ -48,6 +48,8 @@
     ctx.rect(60, 10, wide, long);
     ctx.strokeStyle = "teal";
     ctx.stroke();
+    ctx.fillStyle = "yellow";
+    ctx.fill();
 
     document.write("<br>Hình chữ nhật có chiều rộng "+wide+" và chiều dài "+long+" có diện tích là : "+area+" và chu vi là : "+perimeter);
 

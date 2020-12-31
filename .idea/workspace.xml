@@ -19,7 +19,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6369dd3-b2be-4ef9-ad2b-9b55dc8516cc" name="Default Changelist" comment="" />
+    <list default="true" id="a6369dd3-b2be-4ef9-ad2b-9b55dc8516cc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng hình chữ nhật/rectangle_class.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng hình chữ nhật/rectangle_class.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng lớp Temperature/temperature_class.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng lớp Temperature/temperature_class.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng lớp điện thoại/mobile_class.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 16/Bài tập/[Bài tập] Xây dựng lớp điện thoại/mobile_class.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Bài 16/Thực hành/[Thực hành] Funny circles/funny_circles.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 16/Thực hành/[Thực hành] Funny circles/funny_circles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1/Bài 17/Bài tập/SwitchButton_ElectricLamp/switchlamp.html" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1/Bài 17/Bài tập/SwitchButton_ElectricLamp/switchlamp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_5/JS/deleteCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_5/JS/deleteCustomer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_6/JS/deleteCustomer.js" beforeDir="false" afterPath="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_6/JS/deleteCustomer.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,9 +40,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -41,7 +50,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1lBJKAWMqw6TXJjKHQpJyrJ5nL7" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -60,13 +69,22 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/c11g-javascript-variable-datatype-operator/c11g-javascript-variable-datatype-operator/ex/quang.html" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Module 1_TranQuocHoang/Exercise_6/task_2/JS" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.web.browsers" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_6\task_2\JS" />
+      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_6" />
+      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_5\JS" />
+      <recent name="D:\C1120G1-TranQuocHoang\Module 1\Bài 16\Bài tập\[Bài tập] Xây dựng lớp điện thoại" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_6\task_2" />
+      <recent name="D:\C1120G1-TranQuocHoang\Module 1_TranQuocHoang\Exercise_6" />
+      <recent name="D:\C1120G1-TranQuocHoang\Module 1\Bài 15\[Bài tập] Hàm kiểm tra số nguyên tố" />
       <recent name="D:\C1120G1-TranQuocHoang\Bài 5\Bài tập phụ\css" />
     </key>
   </component>
@@ -93,7 +111,49 @@
       <workItem from="1607345513402" duration="11164000" />
       <workItem from="1607390266209" duration="14469000" />
       <workItem from="1607418704076" duration="3941000" />
-      <workItem from="1607431511994" duration="21783000" />
+      <workItem from="1607431511994" duration="21971000" />
+      <workItem from="1607476720530" duration="19787000" />
+      <workItem from="1607512356975" duration="1909000" />
+      <workItem from="1607517740544" duration="8671000" />
+      <workItem from="1607562918146" duration="22557000" />
+      <workItem from="1607608827172" duration="12157000" />
+      <workItem from="1607649213734" duration="25825000" />
+      <workItem from="1607700472073" duration="7728000" />
+      <workItem from="1607754197065" duration="1548000" />
+      <workItem from="1607756309132" duration="3571000" />
+      <workItem from="1607767923013" duration="25902000" />
+      <workItem from="1607845531298" duration="1766000" />
+      <workItem from="1607860929382" duration="1945000" />
+      <workItem from="1607867266611" duration="4143000" />
+      <workItem from="1607873627191" duration="981000" />
+      <workItem from="1607908584855" duration="22946000" />
+      <workItem from="1607944901380" duration="128000" />
+      <workItem from="1607949197093" duration="15192000" />
+      <workItem from="1607994929689" duration="26591000" />
+      <workItem from="1608042014329" duration="778000" />
+      <workItem from="1608044503059" duration="4869000" />
+      <workItem from="1608080663444" duration="7504000" />
+      <workItem from="1608097415225" duration="16128000" />
+      <workItem from="1608146424977" duration="42183000" />
+      <workItem from="1608208623487" duration="8165000" />
+      <workItem from="1608254303610" duration="15345000" />
+      <workItem from="1608306356875" duration="4095000" />
+      <workItem from="1608342951390" duration="12148000" />
+      <workItem from="1608356374612" duration="8313000" />
+      <workItem from="1608385598057" duration="9645000" />
+      <workItem from="1608470942931" duration="3512000" />
+      <workItem from="1608513629141" duration="25500000" />
+      <workItem from="1608559414541" duration="516000" />
+      <workItem from="1608599341853" duration="25608000" />
+      <workItem from="1608653996252" duration="815000" />
+      <workItem from="1608685232282" duration="21203000" />
+      <workItem from="1608734109870" duration="6527000" />
+      <workItem from="1608771933056" duration="22424000" />
+      <workItem from="1609002490512" duration="1696000" />
+      <workItem from="1609117815867" duration="12864000" />
+      <workItem from="1609168710083" duration="2775000" />
+      <workItem from="1609217090023" duration="10588000" />
+      <workItem from="1609291297962" duration="14728000" />
     </task>
     <servers />
   </component>
@@ -121,21 +181,33 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="309" y="47" key="#Inspections/0.0.1366.738@0.0.1366.738" timestamp="1607068142372" />
-    <state x="595" y="144" key="FileChooserDialogImpl" timestamp="1607334245260">
+    <state x="273" y="66" width="725" height="432" key="#Notifications" timestamp="1608146803594">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="595" y="144" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1607334245260" />
-    <state x="339" y="1" key="SettingsEditor" timestamp="1607256912374">
+    <state x="273" y="66" width="725" height="432" key="#Notifications/0.0.1366.738@0.0.1366.738" timestamp="1608146803594" />
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1607484291860">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="1" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1607256912374" />
-    <state x="339" y="165" key="run.anything.popup" timestamp="1607415595774">
+    <state x="413" y="115" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.738@0.0.1366.738" timestamp="1607484291860" />
+    <state x="595" y="144" key="FileChooserDialogImpl" timestamp="1607666448984">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1607415595774" />
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1607274201694">
+    <state x="595" y="144" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1607666448984" />
+    <state x="353" y="0" width="916" height="719" key="SettingsEditor" timestamp="1608794376111">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1607274201694" />
+    <state x="353" y="0" width="916" height="719" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1608794376111" />
+    <state x="611" y="230" width="611" height="282" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1607683819082">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="611" y="230" width="611" height="282" key="org.intellij.images.editor.actions.BackgroundImageDialog/0.0.1366.738@0.0.1366.738" timestamp="1607683819082" />
+    <state x="339" y="165" key="run.anything.popup" timestamp="1608779926368">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="339" y="165" key="run.anything.popup/0.0.1366.738@0.0.1366.738" timestamp="1608779926368" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1608792718098">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1608792718098" />
   </component>
 </project>

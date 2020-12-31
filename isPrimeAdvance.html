@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // function marsExploration(s) {
+    //     let str3;
+    //     let count = 0;
+    //     for (let i = 0; i < s.length; i+=3) {
+    //         str3 = s.substr(i,3);
+    //         if ((str3[0]) !== "S") {
+    //             count++;
+    //         }
+    //         if ((str3[1]) !== "O") {
+    //             count++;
+    //         }
+    //         if ((str3[2]) !== "S") {
+    //             count++;
+    //         }
+    //     }
+    // return count;
+    // }
+    // let s = "SOSSOTSORSOS";
+    // document.write(marsExploration(s));
+
+    // function gemstones(arr) {
+    //     let count = 0;
+    //     for (let i = 0; i < arr.length; i++) {
+    //         for (let j = 0; j < arr[i].length; j++) {
+    //
+    //         }
+    //     }
+    //     return count;
+    // }
+    // let a = ["abcd","abd","adbe"];
+    // document.write(gemstones(a));
+
+    function isPrime(number) {
+        let count = 0;
+        for (let i = 1; i <= number; i++) {
+            if (number % i === 0) {
+                count++;
+            }
+        }
+        if (count === 2) {
+            return true;
+        }
+    }
+
+    function mainIsPrime50() {
+        let n;
+        let a = [];
+        do {
+            n = prompt("Nhập số phần tử của mảng (n < 50)");
+        } while ((n < 0) || (n > 50) || (isNaN(n))); // những trường hợp nhập sai : nhập n > 0 hoặc n > 50 hoặc nhập n không phải là 1 số
+
+        for (let i = 0; i < n; i++) {
+            do {
+                a[i] = parseInt(prompt("Phần tử thứ "+i));
+            } while ((a[i] < 0) || (isNaN(a[i]))); // nhập sai : nhập phần tử a[i] < 0 hoặc a[i] không phải số
+        }
+
+        for (let i = 0; i < a.length; i++) {
+            if (isPrime(a[i])) {
+                document.write(a[i]+" ");
+            }
+        }
+    }
+
+    // function quadraticEquation(a,b,c) {
+    //     let delta = ((b*b) - 4 * a * c);
+    //     let x = -b / (2*a);
+    //     let x1 = (-b - ( Math.sqrt(delta) / (2*a)  ));
+    //     let x2 = (-b + ( Math.sqrt(delta) / (2*a)  ));
+    //
+    //     if (delta < 0) {
+    //         alert('Phương trình vô nghiệm!');
+    //     } else if (delta === 0) {
+    //         alert("Phương trình có 1 nghiệm duy nhất x = " + x);
+    //     } else {
+    //         alert("Phương trình có 2 nghiệm : x1 = "+ x1.toFixed(2) + "  x2 = " +x2.toFixed(2));
+    //     }
+    // }
+
+    // function triangleCondition(a,b,c) {
+    //     if ((a > 0) && (b > 0) && (c > 0) && ((a+b) > c) && ((b+c) > a) && ((a+c) > b)) {
+    //         alert(a +' '+ b +' '+ c +" là 3 cạnh của 1 tam giác! ");
+    //         return true;
+    //     } else {
+    //         alert(a +' '+ b +' '+ c +" không là 3 cạnh của 1 tam giác! ");
+    //         return false;
+    //     }
+    // }
+
+    // function print20FirstFibonacci() {
+    //     let count = 0, i = 0, k = 1, a;
+    //     document.write("Chuỗi 20 số Fibonacci đầu tiên :"+"<br>");
+    //     while (count < 20) {
+    //         a = i + k;
+    //         i = k;
+    //         k = a;
+    //         document.write(a+' ');
+    //         count++;
+    //     }
+    // }
+
+    // function sumOfNNumberModuloKEqual0() {
+    //     let total, number;
+    //     do {
+    //         total = parseInt(prompt("Bạn muốn in ra tổng của bao nhiêu số?",'0'));
+    //     } while (total < 0)
+    //
+    //     do {
+    //         number = parseInt(prompt("Bạn muốn chia hết cho mấy?",'0'));
+    //     } while (number < 0)
+    //
+    //     let sum = 0, count = 0, a = 1;
+    //     while (count < total){
+    //         if (a % number === 0) {
+    //             count++;
+    //             sum = sum + a;
+    //         }
+    //         a++;
+    //     }
+    //     document.write("Tổng của "+ total +" số chia hết cho "+ number +" đầu tiên là: "+ sum);
+    // }
+
+
+</script>
+</body>
+</html>

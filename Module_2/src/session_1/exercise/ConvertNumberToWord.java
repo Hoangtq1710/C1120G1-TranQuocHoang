@@ -13,52 +13,25 @@ public class ConvertNumberToWord {
             System.out.println(Unit(n));
         } else if (n < 20) {
             int teen = n % 10;
-            switch (teen) {
-                case 0:
-                    System.out.println("ten");
-                    break;
-                case 1:
-                    System.out.println("eleven");
-                    break;
-                case 2:
-                    System.out.println("twelve");
-                    break;
-                case 3:
-                    System.out.println("thirteen");
-                    break;
-                case 4:
-                    System.out.println("fourteen");
-                    break;
-                case 5:
-                    System.out.println("fifteen");
-                    break;
-                case 6:
-                    System.out.println("sixteen");
-                    break;
-                case 7:
-                    System.out.println("seventeen");
-                    break;
-                case 8:
-                    System.out.println("eighteen");
-                    break;
-                case 9:
-                    System.out.println("nineteen");
-                    break;
-            }
-        } else if (n < 100){
-            int dozen = n/10;
-            int unit = n - dozen*10;
-            String out = Dozen(dozen)+" "+Unit(unit);
+            System.out.println(Teen(teen));
+        } else if (n < 100) {
+            int dozen = n / 10;
+            int unit = n - dozen * 10;
+            String out = Dozen(dozen) + " " + Unit(unit);
             System.out.println(out);
         } else if (n < 1000) {
-            int hundred = n/100;
-            int dozen = (n - hundred *100) /10;
-            int unit = (n - hundred*100 - dozen*10);
+            int hundred = n / 100;
+            int dozen = (n - hundred * 100) / 10;
+            int unit = (n - hundred * 100 - dozen * 10);
             String out;
             if (n % 100 != 0) {
-                out = Unit(hundred)+" hundred and "+Dozen(dozen)+" "+Unit(unit);
+                if (dozen != 1) {
+                    out = Unit(hundred) + " hundred and " + Dozen(dozen) + " " + Unit(unit);
+                } else {
+                    out = Unit(hundred) + " hundred and " + Teen(unit);
+                }
             } else {
-                out = Unit(hundred)+" hundred";
+                out = Unit(hundred) + " hundred";
             }
             System.out.println(out);
         } else {
@@ -131,4 +104,40 @@ public class ConvertNumberToWord {
         }
         return d;
     }
-}
+    public static String Teen(int teen) {
+        String tn = "";
+        switch (teen) {
+            case 0:
+                tn += "ten";
+                break;
+            case 1:
+                tn = "eleven";
+                break;
+            case 2:
+                tn += "twelve";
+                break;
+            case 3:
+                tn += "thirteen";
+                break;
+            case 4:
+                tn += "fourteen";
+                break;
+            case 5:
+                tn += "fifteen";
+                break;
+            case 6:
+                tn += "sixteen";
+                break;
+            case 7:
+                tn += "seventeen";
+                break;
+            case 8:
+                tn += "eighteen";
+                break;
+            case 9:
+                tn += "nineteen";
+                break;
+        }
+        return tn;
+    }
+    }

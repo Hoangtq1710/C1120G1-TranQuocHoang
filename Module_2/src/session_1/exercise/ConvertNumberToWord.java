@@ -6,10 +6,16 @@ public class ConvertNumberToWord {
     public static void main(String[] args) {
         System.out.println("Convert Number To Word");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter a number : ");
-        int n = scanner.nextInt();
 
-        if ((n >= 0) && (n < 10)) {
+        int n;
+        do {
+            System.out.println("Enter a number : ");
+            n = scanner.nextInt();
+            if (n < 0) {
+                System.out.println("Do not enter a negative number!");
+            }
+        } while (n < 0);
+        if (n < 10) {
             System.out.println(Unit(n));
         } else if (n < 20) {
             int teen = n % 10;
@@ -26,16 +32,22 @@ public class ConvertNumberToWord {
             String out;
             if (n % 100 != 0) {
                 if (dozen != 1) {
-                    out = Unit(hundred) + " hundred and " + Dozen(dozen) + " " + Unit(unit);
+                    if (dozen == 0){
+                        out = Unit(hundred) + " hundred and " + Unit(unit); //502
+                    } else if (unit != 0){
+                        out = Unit(hundred) + " hundred and " + Dozen(dozen) + " " + Unit(unit); //561
+                    } else {
+                        out = Unit(hundred) + " hundred and " + Dozen(dozen); // 250
+                    }
                 } else {
-                    out = Unit(hundred) + " hundred and " + Teen(unit);
+                    out = Unit(hundred) + " hundred and " + Teen(unit); // 414
                 }
             } else {
-                out = Unit(hundred) + " hundred";
+                out = Unit(hundred) + " hundred"; // 600
             }
             System.out.println(out);
         } else {
-            System.out.println("Out of Ability");
+            System.out.println("Out of Ability"); // > 1000
         }
     }
     public static String Unit(int unit){

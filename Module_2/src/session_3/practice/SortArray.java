@@ -1,7 +1,5 @@
 package session_3.practice;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 
 public class SortArray {
@@ -11,7 +9,7 @@ public class SortArray {
         System.out.println("\n");
         System.out.println(Arrays.toString(decreasingSortArray(a)));
     }
-    public static void ascendingSortArray(int @NotNull [] array){
+    public static void ascendingSortArray(int [] array){
         for (int i = 0; i < array.length -1; i++) {
             for (int j = i+1; j < array.length; j++) {
                 if (array[i] > array[j]) {
@@ -25,7 +23,7 @@ public class SortArray {
             System.out.print(value + " ");
         }
     }
-    public static int[] decreasingSortArray(int @NotNull [] array){
+    public static int[] decreasingSortArray(int [] array){
         for (int i = 0; i < array.length -1; i++) {
             for (int j = i+1; j < array.length; j++) {
                 if (array[i] < array[j]) {

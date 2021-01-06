@@ -8,6 +8,7 @@ public class InsertElementInArray {
         Scanner scanner = new Scanner(System.in);
         int size;
         int[] array;
+        int[] result;
         int insert;
         int index;
 
@@ -15,14 +16,16 @@ public class InsertElementInArray {
         do {
             size = scanner.nextInt();
             if ((size <= 0) || (size > 50)) {
-                System.out.print("Invalid size. Enter again!\n");
+                System.out.println("Invalid size. Enter again!");
             }
         } while ((size <= 0) || (size > 50));
 
-        array = new int[size +1];
+        array = new int[size];
+        result = new int[size +1];
+        result[size] = 0;
 
         for (int i = 0; i < size; i++) {
-            System.out.println("Element "+i+" :");
+            System.out.print("Element "+i+" :");
             array[i] = scanner.nextInt();
         }
         System.out.println("Enter the Element you wanna insert :");
@@ -36,21 +39,23 @@ public class InsertElementInArray {
         } while ((index < 0) || (index >= size));
 
         System.out.print("Array :");
-        for (int i = 0; i < array.length -1; i++) {
-            System.out.print(" "+array[i]);
+        for (int item : array) {
+            System.out.print(" " + item);
         }
         System.out.println("\n");
 
         for (int i = 0; i < array.length; i++) {
+            result[i] = array[i];
             if (i == index) {
-                for (int j = array.length -1; j > i ; j--) {
-                    array[j] = array[j-1];
+                for (int j = array.length; j > i ; j--) {
+                    result[j] = array[j-1];
                 }
-                array[i] = insert;
+                result[index] = insert;
+                break;
             }
         }
-        System.out.print("Array :");
-        for(int value : array) {
+        System.out.print("Result :");
+        for(int value : result) {
             System.out.print(" "+value);
         }
         System.out.println("\n");

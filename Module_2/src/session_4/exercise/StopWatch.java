@@ -1,6 +1,5 @@
 package session_4.exercise;
 
-
 public class StopWatch {
     private long startTime;
     private long stopTime;
@@ -27,6 +26,7 @@ public class StopWatch {
 
     public static void main(String[] args) {
         StopWatch stopWatch = new StopWatch();
+
         stopWatch.start();
         System.out.println("Start Time : "+ stopWatch.getStartTime());
         for (int i = 0; i < 50000; i++) {

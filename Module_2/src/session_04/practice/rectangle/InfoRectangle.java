@@ -1,4 +1,4 @@
-package session_4.practice.rectangle;
+package session_04.practice.rectangle;
 
 import java.util.Scanner;
 

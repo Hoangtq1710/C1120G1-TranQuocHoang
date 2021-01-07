@@ -1,4 +1,4 @@
-package session_4.practice.rectangle;
+package session_04.practice.rectangle;
 
 public class Rectangle {
     private double width;

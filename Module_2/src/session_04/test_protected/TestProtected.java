@@ -1,4 +1,4 @@
-package session_4.test_protected;
+package session_04.test_protected;
 
 import session_05.exercise.access_modifier.Circle;
 

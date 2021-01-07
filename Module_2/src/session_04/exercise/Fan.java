@@ -1,4 +1,4 @@
-package session_4.exercise;
+package session_04.exercise;
 
 public class Fan {
     private int speed = 1;

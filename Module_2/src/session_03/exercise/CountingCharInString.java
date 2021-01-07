@@ -1,4 +1,4 @@
-package session_3.exercise;
+package session_03.exercise;
 import java.util.Scanner;
 
 public class CountingCharInString {

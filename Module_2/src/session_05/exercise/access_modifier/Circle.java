@@ -1,8 +1,8 @@
 package session_05.exercise.access_modifier;
 
 public class Circle {
-    private double radius = 1.0;
-    private String color = "red";
+    protected double radius = 1.0;
+    protected String color = "red";
 
     public Circle() {
     }

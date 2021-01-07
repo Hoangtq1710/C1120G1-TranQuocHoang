@@ -1,4 +1,4 @@
-package session_2.practice;
+package session_02.practice;
 
 import java.text.NumberFormat;
 import java.util.Locale;

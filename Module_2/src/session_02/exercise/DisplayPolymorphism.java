@@ -1,8 +1,8 @@
-package session_2.exercise;
+package session_02.exercise;
 
 import java.util.Scanner;
 
-import static session_2.practice.DesignMenu.Rectangle;
+import static session_02.practice.DesignMenu.Rectangle;
 
 public class DisplayPolymorphism {
     public static void main(String[] args) {

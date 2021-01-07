@@ -1,6 +1,6 @@
-package session_2.exercise;
+package session_02.exercise;
 
-import static session_2.exercise.First20Prime.isPrime;
+import static session_02.exercise.First20Prime.isPrime;
 
 public class Under100Prime {
     public static void main(String[] args) {

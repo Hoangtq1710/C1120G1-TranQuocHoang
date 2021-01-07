@@ -6,7 +6,7 @@ public class PrintingPrimeUnderN {
     public static void printPrime(int number){
         System.out.print("Prime under "+number+" : ");
         for (int i = 2; i < number; i++) {
-            if (FactorAnalysis.isPrime(i)) {
+            if (FactorAnalysis_4.isPrime(i)) {
                 System.out.print(i+" ");
             }
         }

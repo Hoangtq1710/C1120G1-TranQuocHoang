@@ -8,7 +8,7 @@ public class PrintingFirstNPrime {
         int count = 0;
         int i  = 2;
         while (count < number){
-            if (FactorAnalysis.isPrime(i)){
+            if (FactorAnalysis_4.isPrime(i)){
                 System.out.print(" "+i);
                 count++;
             }

@@ -1,4 +1,4 @@
-package session_1.practice;
+package session_01.practice;
 
 import  java.util.Date;
 public class SystemTime {

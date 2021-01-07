@@ -2,7 +2,7 @@ package ExtraExer;
 
 import java.util.Scanner;
 //phân tích số nguyên thành tích các số nguyên tố
-public class FactorAnalysis {
+public class FactorAnalysis_4 {
     public static String factorAnalysis(int number){
         String result = number+" = ";
         int i = 2;
@@ -43,6 +43,6 @@ public class FactorAnalysis {
                 System.out.println("Number must be positive");
             }
         } while (number < 1);
-        System.out.println(FactorAnalysis.factorAnalysis(number));
+        System.out.println(FactorAnalysis_4.factorAnalysis(number));
     }
 }

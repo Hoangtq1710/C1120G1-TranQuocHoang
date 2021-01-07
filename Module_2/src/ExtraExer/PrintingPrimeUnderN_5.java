@@ -2,7 +2,7 @@ package ExtraExer;
 
 import java.util.Scanner;
 //in ra các số nguyên tố nhỏ hơn number
-public class PrintingPrimeUnderN {
+public class PrintingPrimeUnderN_5 {
     public static void printPrime(int number){
         System.out.print("Prime under "+number+" : ");
         for (int i = 2; i < number; i++) {

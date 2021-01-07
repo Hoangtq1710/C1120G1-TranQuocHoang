@@ -2,7 +2,7 @@ package ExtraExer;
 
 import java.util.Scanner;
 //in ra tổng các kí tự số có trong 1 số nguyên
-public class SumDigitInteger {
+public class SumDigitInteger_3 {
     public static Integer SumDigit(long number) {
         String str;
         int[] array;
@@ -32,6 +32,6 @@ public class SumDigitInteger {
                 System.out.println("Please enter the positive number");
             }
         } while (number < 1);
-        System.out.println("Sum of digits integer number is "+SumDigitInteger.SumDigit(number));
+        System.out.println("Sum of digits integer number is "+ SumDigitInteger_3.SumDigit(number));
     }
 }

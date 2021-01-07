@@ -3,7 +3,7 @@ package ExtraExer;
 import java.util.Scanner;
 
 //in ra N số nguyên tố đầu tiên
-public class PrintingFirstNPrime {
+public class PrintingFirstNPrime_6 {
     public static void printingFirstNPrime(int number){
         int count = 0;
         int i  = 2;

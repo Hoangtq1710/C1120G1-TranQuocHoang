@@ -2,7 +2,7 @@ package ExtraExer;
 
 import java.util.Scanner;
 //đổi 1 số thuộc hệ cơ số 10 thành 1 số thuộc hệ cơ số n (2-36)
-public class RadixConversion {
+public class RadixConversion_2 {
     public static long radix(int n, int radix){
         int[] array;
         int count = 0;
@@ -40,7 +40,7 @@ public class RadixConversion {
             System.out.println("Enter radix(1 < radix <= 36) : ");
             radix = scanner.nextInt();
         } while ((radix < 2) || (radix > 36));
-        result = RadixConversion.radix(n, radix);
+        result = RadixConversion_2.radix(n, radix);
         System.out.println(n+"(10) = "+result+"("+radix+")" );
     }
 }

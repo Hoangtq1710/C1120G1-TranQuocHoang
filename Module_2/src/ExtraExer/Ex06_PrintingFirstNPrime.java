@@ -3,12 +3,12 @@ package ExtraExer;
 import java.util.Scanner;
 
 //in ra N số nguyên tố đầu tiên
-public class PrintingFirstNPrime_6 {
+public class Ex06_PrintingFirstNPrime {
     public static void printingFirstNPrime(int number){
         int count = 0;
         int i  = 2;
         while (count < number){
-            if (FactorAnalysis_4.isPrime(i)){
+            if (Ex04_FactorAnalysis.isPrime(i)){
                 System.out.print(" "+i);
                 count++;
             }

@@ -1,7 +1,7 @@
 package ExtraExer;
 import java.util.Scanner;
 //Tim UCLN cua 2 so a,b
-public class FindingUCLN_1 {
+public class Ex01_FindingUCLN {
     public static Integer UCLN(int a, int b){
         while (a != b) {
             if (a > b) {
@@ -32,7 +32,7 @@ public class FindingUCLN_1 {
                 System.out.println("Please enter a positive number");
             }
         } while (b < 1);
-        System.out.println("Greatest Common Factor of "+a+" and "+b+" is : "+ FindingUCLN_1.UCLN(a,b));
-        System.out.println("Least Common Multiple of "+a+" and "+b+" is : "+(a*b)/ FindingUCLN_1.UCLN(a,b));
+        System.out.println("Greatest Common Factor of "+a+" and "+b+" is : "+ Ex01_FindingUCLN.UCLN(a,b));
+        System.out.println("Least Common Multiple of "+a+" and "+b+" is : "+(a*b)/ Ex01_FindingUCLN.UCLN(a,b));
     }
 }

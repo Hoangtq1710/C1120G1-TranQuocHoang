@@ -2,7 +2,7 @@ package ExtraExer;
 
 import java.util.Scanner;
 
-public class FindingFibonacciN_7 {
+public class Ex07_FindingFibonacciN {
     public static Integer findingFiboN(int number){
         int a = 0;
         int b = 1;

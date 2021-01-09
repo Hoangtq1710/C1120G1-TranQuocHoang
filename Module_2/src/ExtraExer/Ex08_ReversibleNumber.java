@@ -2,7 +2,7 @@ package ExtraExer;
 
 import java.util.Scanner;
 
-public class ReversibleNumber_8 {
+public class Ex08_ReversibleNumber {
     public static boolean checkReversible(int number){
         String str = Integer.toString(number);
 

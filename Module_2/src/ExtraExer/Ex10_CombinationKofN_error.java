@@ -2,7 +2,7 @@ package ExtraExer;
 
 import java.util.Scanner;
 
-public class CombinationKofN_10 {
+public class Ex10_CombinationKofN_error {
     public static void combineKofN(int n, int k){
         int[] arrayN = new int[n];
         int[] arrayK = new int[k];

@@ -2,7 +2,7 @@ package ExtraExer;
 
 import java.util.Scanner;
 
-public class BinaryString_9 {
+public class Ex09_BinaryString {
     static int size;
     public static void binaryString(int number){
         int[] array;

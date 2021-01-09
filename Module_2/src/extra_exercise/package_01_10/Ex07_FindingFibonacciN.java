@@ -1,4 +1,4 @@
-package ExtraExer;
+package extra_exercise.package_01_10;
 
 import java.util.Scanner;
 
@@ -6,7 +6,7 @@ public class Ex07_FindingFibonacciN {
     public static Integer findingFiboN(int number){
         int a = 0;
         int b = 1;
-        int c = 0;
+        int c;
         int count = 0;
 
         while (true){

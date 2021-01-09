@@ -1,4 +1,4 @@
-package ExtraExer;
+package extra_exercise.package_11_20;
 
 import java.util.Scanner;
 

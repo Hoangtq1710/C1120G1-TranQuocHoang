@@ -1,4 +1,4 @@
-package ExtraExer;
+package extra_exercise.package_01_10;
 
 import java.util.Scanner;
 //phân tích số nguyên thành tích các số nguyên tố

@@ -1,4 +1,4 @@
-package ExtraExer;
+package extra_exercise.package_01_10;
 
 import java.util.Scanner;
 //in ra tổng các kí tự số có trong 1 số nguyên

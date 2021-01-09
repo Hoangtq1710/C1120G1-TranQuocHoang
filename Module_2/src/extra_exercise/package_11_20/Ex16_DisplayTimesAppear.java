@@ -1,16 +1,15 @@
-package ExtraExer;
+package extra_exercise.package_11_20;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Ex15_DisplayTwiceElement {
+public class Ex16_DisplayTimesAppear {
     public static void main(String[] args) {
-        System.out.println("Display Element Which Appear Twice");
+        System.out.println("Display Times Appear of Element");
         Scanner scanner = new Scanner(System.in);
         int[] array;
-        int size;
         int[] sub;
-
+        int size;
         System.out.print("Enter the size : ");
         do {
             size = scanner.nextInt();
@@ -19,16 +18,14 @@ public class Ex15_DisplayTwiceElement {
             }
         } while (size <= 0);
         array = new int[size];
-        sub = new int[size];
-        Arrays.fill(sub, -1);
-
         for (int i = 0; i < size; i++) {
             do {
                 System.out.print("Array["+i+"] : ");
                 array[i] = scanner.nextInt();
             } while (array[i] < 0);
         }
-        for (int i = 0; i < array.length; i++) {
+        sub = new int[size];
+        Arrays.fill(sub, -1);for (int i = 0; i < array.length; i++) {
             int count = 0;
             for (int value : sub) {
                 if (array[i] == value) {
@@ -39,7 +36,8 @@ public class Ex15_DisplayTwiceElement {
                 sub[i] = array[i];
             }
         }
-        System.out.print("List of elements display twice is");
+
+        System.out.println("List of display times is : ");
         for(int item : sub) {
             int count = 0;
             for(int value : array) {
@@ -47,8 +45,8 @@ public class Ex15_DisplayTwiceElement {
                     count++;
                 }
             }
-            if (item != -1 && count == 2){
-                System.out.print(" "+item);
+            if (item != -1){
+                System.out.println(item+" : "+count);
             }
         }
     }

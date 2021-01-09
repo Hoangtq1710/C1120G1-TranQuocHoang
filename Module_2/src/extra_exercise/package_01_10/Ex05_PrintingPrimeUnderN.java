@@ -1,4 +1,4 @@
-package ExtraExer;
+package extra_exercise.package_01_10;
 
 import java.util.Scanner;
 //in ra các số nguyên tố nhỏ hơn number

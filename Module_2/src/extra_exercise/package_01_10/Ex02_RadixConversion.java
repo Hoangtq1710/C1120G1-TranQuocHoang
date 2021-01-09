@@ -1,4 +1,4 @@
-package ExtraExer;
+package extra_exercise.package_01_10;
 
 import java.util.Scanner;
 //đổi 1 số thuộc hệ cơ số 10 thành 1 số thuộc hệ cơ số n (2-36)

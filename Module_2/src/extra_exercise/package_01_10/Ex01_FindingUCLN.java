@@ -1,4 +1,4 @@
-package ExtraExer;
+package extra_exercise.package_01_10;
 import java.util.Scanner;
 //Tim UCLN cua 2 so a,b
 public class Ex01_FindingUCLN {

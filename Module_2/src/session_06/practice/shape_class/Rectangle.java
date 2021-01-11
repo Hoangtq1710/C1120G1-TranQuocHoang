@@ -1,6 +1,6 @@
 package session_06.practice.shape_class;
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
     protected double width;
     protected double length;
 
@@ -35,10 +35,12 @@ public class Rectangle extends Shape{
     public void setLength(double length) {
         this.length = length;
     }
-    public double getArea(){
+
+    public double getArea() {
         return this.width * this.length;
     }
-    public double getPerimeter(){
+
+    public double getPerimeter() {
         return (this.width + this.length) * 2;
     }
 
@@ -47,6 +49,7 @@ public class Rectangle extends Shape{
         return "A Rectangle with" +
                 " width = " + width +
                 " length = " + length +
-                " , which is a subclass of "+super.toString();
+                " Area : " + this.getArea() +
+                " , which is a subclass of " + super.toString();
     }
 }

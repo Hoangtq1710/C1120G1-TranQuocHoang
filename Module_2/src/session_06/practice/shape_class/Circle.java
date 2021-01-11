@@ -1,6 +1,6 @@
 package session_06.practice.shape_class;
 
-public class Circle extends Shape{
+public class Circle extends Shape {
     double radius;
     public Circle() {
         this.radius = 1.0;
@@ -37,6 +37,7 @@ public class Circle extends Shape{
     public String toString() {
         return "A Circle with " +
                 "radius = " + radius +
+                " Area : "+this.getArea()+
                 " , which is a subclass of "+super.toString();
     }
 }

@@ -1,17 +1,19 @@
 package session_06.practice.shape_class;
 
-public class Square extends Rectangle{
+public class Square extends Rectangle {
     public Square() {
         this.width = 1.0;
         this.length = 1.0;
     }
 
     public Square(double size) {
-        super(size,size);
+        super(size, size);
     }
-    public Square(String color, boolean filled, double size){
+
+    public Square(String color, boolean filled, double size) {
         super(color, filled, size, size);
     }
+
     public double getSide() {
         return getWidth();
     }
@@ -19,6 +21,10 @@ public class Square extends Rectangle{
     public void setSide(double side) {
         setWidth(side);
         setLength(side);
+    }
+
+    public double getArea() {
+        return Math.floor((this.width * this.length) * 100) / 100;
     }
 
     @Override
@@ -33,7 +39,8 @@ public class Square extends Rectangle{
 
     @Override
     public String toString() {
-        return "A Square with side = " + getSide()+
-                " which is a subclass of "+ super.toString();
+        return "A Square with side = " + getSide() +
+                " Area : "+getArea()+
+                " which is a subclass of " + super.toString();
     }
 }

@@ -52,14 +52,9 @@ public class Ex24_Matrix {
         }
     }
     public static void sortColumnAscending(int[][] matrix){
-        int column = 0;
+
         int row = matrix.length;
-        for (int[] item : matrix) {
-            for (int j = 0; j < item.length; j++) {
-                column++;
-            }
-            break;
-        }
+        int column = matrix[0].length;
         int[][] sub = new int[column][row];
         System.out.println("Matrix : ");
         for (int i = 0; i < row; i++) {
@@ -68,6 +63,49 @@ public class Ex24_Matrix {
             }
             System.out.println("");
         }
+//        for (int i = 0; i < row; i++) {
+//            for (int j = 0; j < column; j++) {
+//                sub[j][i] = matrix[i][j];
+//            }
+//        }
+        sortInColumn(matrix);
+
+        System.out.println("Matrix after sorted : ");
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                System.out.print(matrix[i][j]+" ");
+            }
+            System.out.println("");
+        }
+    }
+    public static int[][] transpose(int[][] array) {
+        int rows = array.length;
+        int columns = array[0].length;
+        int[][] tmpArray = new int[columns][rows];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                tmpArray[j][i] = array[i][j];
+            }
+        }
+        return tmpArray;
+    }
+    public static void sortArray(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[i]) {
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+    public static int[][] sortInColumn(int[][] array) {
+        int[][] tmpArray = transpose(array);
+        for (int i = 0; i < tmpArray.length; i++) {
+            sortArray(tmpArray[i]);
+        }
+        return transpose(tmpArray);
     }
     public static void main(String[] args) {
         System.out.println("Exercise 24 : Matrix");
@@ -94,12 +132,7 @@ public class Ex24_Matrix {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 System.out.print("Matrix["+i+"]["+j+"] : ");
-                do {
-                    matrix[i][j] = scanner.nextInt();
-                    if (matrix[i][j] < 0) {
-                        System.out.println("Element must to positive");
-                    }
-                } while (matrix[i][j] < 0);
+                matrix[i][j] = scanner.nextInt();
             }
         }
 

@@ -34,10 +34,10 @@ public class Ex02_RadixConversion {
         long result;
         System.out.println("Radix Conversion");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter n : ");
+        System.out.print("Enter n : ");
         n = scanner.nextInt();
         do {
-            System.out.println("Enter radix(1 < radix <= 36) : ");
+            System.out.print("Enter radix(1 < radix <= 36) : ");
             radix = scanner.nextInt();
         } while ((radix < 2) || (radix > 36));
         result = Ex02_RadixConversion.radix(n, radix);

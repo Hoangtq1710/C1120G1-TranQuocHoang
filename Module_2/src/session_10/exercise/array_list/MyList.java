@@ -32,11 +32,15 @@ public class MyList<E> {
         }
     }
     public E remove(int index) {
-        for (int i = index; i < elements.length-1; i++) {
-            elements[i] = elements[i +1];
+        if (index < 0 || index > elements.length) {
+            throw new IndexOutOfBoundsException("Index : "+index);
+        } else {
+            for (int i = index; i < elements.length-1; i++) {
+                elements[i] = elements[i +1];
+            }
+            size--;
+            return (E) elements;
         }
-        size--;
-        return (E) elements;
     }
 
     public int size() {
@@ -55,7 +59,7 @@ public class MyList<E> {
         return false;
     }
     public int indexOf(E element) {
-        for (int i = 0; i < elements.length; i++) {
+        for (int i = 0; i < elements.length && elements[i] != null; i++) {
             if (elements[i].equals(element)) {
                 return i;
             }
@@ -86,8 +90,12 @@ public class MyList<E> {
     }
 
     public void printList(){
-        for (int i = 0; i < elements.length && elements[i] != null; i++) {
-            System.out.println(elements[i]);
+        if (size == 0) {
+            System.out.println("Object is empty");
+        } else {
+            for (int i = 0; i < elements.length && elements[i] != null; i++) {
+                System.out.println(elements[i]);
+            }
         }
     }
 }

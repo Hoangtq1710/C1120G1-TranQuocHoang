@@ -63,6 +63,10 @@ public class MyListTest {
         if (list.contains(student3)) {
             System.out.println("True");
         }
+        System.out.println("Element 5 is "+list.get(4));
         System.out.println("Size of list is "+ list.size());
+        list.clear();
+        list.printList();
+
     }
 }

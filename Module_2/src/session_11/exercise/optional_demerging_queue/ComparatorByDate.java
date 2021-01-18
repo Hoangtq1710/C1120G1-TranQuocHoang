@@ -1,4 +1,4 @@
-package session_11.exercise.demerging_queue;
+package session_11.exercise.optional_demerging_queue;
 
 import java.util.Comparator;
 

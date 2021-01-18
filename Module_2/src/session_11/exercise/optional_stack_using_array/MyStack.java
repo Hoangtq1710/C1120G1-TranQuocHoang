@@ -1,4 +1,4 @@
-package session_11.exercise.array_using_stack;
+package session_11.exercise.optional_stack_using_array;
 
 import java.util.Arrays;
 
@@ -6,7 +6,7 @@ public class MyStack<E> {
     private int[] array;
     private int size = 0;
     private int index;
-    private final int DEFAULT_CAPACITY = 10;
+    private final int DEFAULT_CAPACITY = 5;
 
     public MyStack() {
         array = new int[DEFAULT_CAPACITY];
@@ -14,15 +14,14 @@ public class MyStack<E> {
 
     public MyStack(int size) {
         this.size = size;
+        array = new int[size];
     }
     public void ensureCapa(){
-        if (array.length == size) {
-            array = Arrays.copyOf(array,(size *2));
-        }
+        array = Arrays.copyOf(array,(this.size() *2));
     }
     public void push(int element){
         if (isFull()) {
-            throw new StackOverflowError("Stack is full");
+            ensureCapa();
         }
         array[index] = element;
         index++;
@@ -42,7 +41,7 @@ public class MyStack<E> {
     }
     public boolean isFull(){
         if (!isEmpty()){
-            return (size == array.length);
+            return array.length == size;
         }
         return false;
     }

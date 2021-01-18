@@ -1,4 +1,4 @@
-package session_11.exercise.palindrome_stack_queue;
+package session_11.exercise.optional_palindrome_stack_queue;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

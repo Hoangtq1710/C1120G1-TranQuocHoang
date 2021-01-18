@@ -1,4 +1,4 @@
-package session_11.exercise.bracket_checking_stack;
+package session_11.exercise.optional_bracket_checking_stack;
 
 import java.util.Stack;
 

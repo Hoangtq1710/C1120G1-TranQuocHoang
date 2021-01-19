@@ -80,25 +80,25 @@ public class BinaryTree<E> {
             System.out.println("Our Tree is NOT containing this value "+value);
         }
     }
-    public void PostOrder(Node<E> root) {
-        if (root != null) {
-            PostOrder(root.left);
-            PostOrder(root.right);
-            System.out.print(" "+root.value);
+    public void PostOrder(Node<E> current) {
+        if (current != null) {
+            PostOrder(current.left);
+            PostOrder(current.right);
+            System.out.print(" "+current.value);
         }
     }
-    public void InOrder(Node<E> root) {
-        if (root != null) {
-            PostOrder(root.left);
-            System.out.print(" "+root.value);
-            PostOrder(root.right);
+    public void InOrder(Node<E> current) {
+        if (current != null) {
+            PostOrder(current.left);
+            System.out.print(" "+current.value);
+            PostOrder(current.right);
         }
     }
-    public void PreOrder(Node<E> root) {
-        if (root != null) {
-            System.out.print(" "+root.value);
-            PostOrder(root.left);
-            PostOrder(root.right);
+    public void PreOrder(Node<E> current) {
+        if (current != null) {
+            System.out.print(" "+current.value);
+            PostOrder(current.left);
+            PostOrder(current.right);
         }
     }
 }

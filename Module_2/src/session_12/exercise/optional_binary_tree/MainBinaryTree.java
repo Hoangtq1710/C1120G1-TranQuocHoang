@@ -5,14 +5,22 @@ public class MainBinaryTree {
         BinaryTree<Integer> tree = new BinaryTree<>();
         tree.root = new Node<>(10);
         tree.add(6);
-        tree.add(16);
         tree.add(11);
+        tree.add(16);
         tree.add(7);
         tree.add(1);
         tree.add(17);
         tree.add(12);
         tree.add(8);
         tree.add(9);
+
+        tree.PostOrder(tree.root);
+        System.out.println();
+
+        tree.delete(10);
+
+        tree.PostOrder(tree.root);
+
 
         tree.searchNode(19);
 

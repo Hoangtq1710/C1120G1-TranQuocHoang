@@ -1,4 +1,4 @@
-package session_11.exercise.optional_queue_linked_list_circular;
+package session_11.exercise.queue_linked_list_circular;
 
 public class Main {
     public static void main(String[] args) {

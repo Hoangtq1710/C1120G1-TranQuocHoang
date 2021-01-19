@@ -1,4 +1,4 @@
-package session_11.exercise.optional_demerging_queue;
+package session_11.exercise.optional.optional_demerging_queue;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

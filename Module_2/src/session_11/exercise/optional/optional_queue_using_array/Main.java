@@ -1,4 +1,4 @@
-package session_11.exercise.optional_queue_using_array;
+package session_11.exercise.optional.optional_queue_using_array;
 
 public class Main {
     public static void main(String[] args) {

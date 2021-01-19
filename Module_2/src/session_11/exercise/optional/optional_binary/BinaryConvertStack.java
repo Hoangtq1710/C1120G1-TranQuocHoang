@@ -1,4 +1,4 @@
-package session_11.exercise.optional_binary;
+package session_11.exercise.optional.optional_binary;
 
 import java.util.Scanner;
 import java.util.Stack;

@@ -1,4 +1,4 @@
-package session_11.exercise.optional_stack_using_array;
+package session_11.exercise.optional.optional_stack_using_array;
 
 public class StackClient {
     public static void main(String[] args) {

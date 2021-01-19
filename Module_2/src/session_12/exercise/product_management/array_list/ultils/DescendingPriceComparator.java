@@ -1,4 +1,6 @@
-package session_12.exercise.product_management.array_list;
+package session_12.exercise.product_management.array_list.ultils;
+
+import session_12.exercise.product_management.array_list.models.Product;
 
 import java.util.Comparator;
 

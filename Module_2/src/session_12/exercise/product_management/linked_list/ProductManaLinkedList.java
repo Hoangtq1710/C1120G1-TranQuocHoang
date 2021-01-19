@@ -1,8 +1,8 @@
 package session_12.exercise.product_management.linked_list;
 
-import session_12.exercise.product_management.array_list.AscendingPriceComparator;
-import session_12.exercise.product_management.array_list.DescendingPriceComparator;
-import session_12.exercise.product_management.array_list.Product;
+import session_12.exercise.product_management.array_list.ultils.AscendingPriceComparator;
+import session_12.exercise.product_management.array_list.ultils.DescendingPriceComparator;
+import session_12.exercise.product_management.array_list.models.Product;
 
 import java.util.Collections;
 import java.util.LinkedList;

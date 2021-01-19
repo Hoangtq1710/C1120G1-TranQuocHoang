@@ -1,6 +1,6 @@
 package session_12.exercise.product_management.linked_list;
 
-import session_12.exercise.product_management.array_list.Product;
+import session_12.exercise.product_management.array_list.models.Product;
 
 import java.util.Scanner;
 

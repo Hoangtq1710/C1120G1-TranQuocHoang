@@ -1,4 +1,4 @@
-package session_12.exercise.product_management.array_list;
+package session_12.exercise.product_management.array_list.models;
 
 public class Product{
     private int id;

@@ -1,4 +1,8 @@
-package session_12.exercise.product_management.array_list;
+package session_12.exercise.product_management.array_list.services;
+
+import session_12.exercise.product_management.array_list.models.Product;
+import session_12.exercise.product_management.array_list.ultils.AscendingPriceComparator;
+import session_12.exercise.product_management.array_list.ultils.DescendingPriceComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -16,6 +16,9 @@ public class Main {
         demerge.add(new DemergingQueue(8,"Khoa",new Date(99,Calendar.FEBRUARY,25), false));
         demerge.add(new DemergingQueue(9,"Van",new Date(98,Calendar.MARCH,8), false));
         demerge.add(new DemergingQueue(10,"Nghia",new Date(97,Calendar.JUNE,9), true));
+        demerge.add(new DemergingQueue(11,"Huu Duc",new Date(96,Calendar.DECEMBER,16), true));
+        demerge.add(new DemergingQueue(12,"Le Van Quang",new Date(93,Calendar.AUGUST,17), true));
+        demerge.add(new DemergingQueue(13,"Dong",new Date(85,Calendar.MARCH,7), true));
 
         System.out.println("Pre-sort");
         for(DemergingQueue demergingQueue : demerge) {

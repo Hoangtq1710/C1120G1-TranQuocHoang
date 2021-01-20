@@ -1,4 +1,4 @@
-package session_13.exercise.optional_longest_consecutive_string;
+package session_13.optional.optional_longest_consecutive_string;
 
 import java.util.LinkedList;
 import java.util.Scanner;

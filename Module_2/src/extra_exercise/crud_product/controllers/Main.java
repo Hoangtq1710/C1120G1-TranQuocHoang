@@ -6,23 +6,6 @@ import java.util.Scanner;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
-    public static void writeToCSVFile(){
-        int number;
-        String result = "";
-
-        System.out.print("How many Product you wanna add? : ");
-        number = Integer.parseInt(scanner.nextLine());
-        for (int i = 0; i < number; i++) {
-            System.out.print("Enter ID of Product : ");
-            result += Integer.parseInt(scanner.nextLine())+",";
-            System.out.print("Enter Name of Product : ");
-            result += scanner.nextLine()+",";
-            System.out.print("Enter Label of Product : ");
-            result += scanner.nextLine()+",";
-            System.out.print("Enter price of Product : ");
-            result += Integer.parseInt(scanner.nextLine())+"\n";
-        }
-    }
     public static void main(String[] args) {
 
         System.out.println("Product Management");
@@ -42,10 +25,7 @@ public class Main {
             menu = Integer.parseInt(scanner.nextLine());
             switch (menu) {
                 case 1:
-
-//                    System.out.print("Enter a Path of File : ");
-//                    String path = scanner.nextLine();
-//                    list.addProduct(list.productFromFile(path));
+                    list.addNewProduct();
                     break;
                 case 2:
                     list.showProduct();
@@ -54,10 +34,10 @@ public class Main {
                     list.editProduct();
                     break;
                 case 4:
-                    list.searchProduct();
+                    list.searchProductByName();
                     break;
                 case 5:
-                    list.sortProduct();
+                    list.sortPriceProduct();
                     break;
                 case 6:
                     list.deleteProduct();

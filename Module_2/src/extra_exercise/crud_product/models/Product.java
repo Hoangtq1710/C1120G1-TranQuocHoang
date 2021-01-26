@@ -55,4 +55,7 @@ public class Product {
                 ", Label "+this.label+
                 ", Price "+this.price;
     }
+    public String getInfo() {
+        return this.id+","+this.name+","+this.label+","+this.price;
+    }
 }

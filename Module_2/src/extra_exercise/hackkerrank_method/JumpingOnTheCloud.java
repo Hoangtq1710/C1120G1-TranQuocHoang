@@ -1,26 +1,18 @@
-package extra_exercise.hackkerrank;
+package extra_exercise.hackkerrank_method;
 
 public class JumpingOnTheCloud {
     static int jumpingOnClouds(int[] c, int k) {
-        int e = 100;
-        int circle = 0;
-        int i = 0;
-        while (true) {
-            for (; i < c.length; i += k) {
-                e -= 1;
-                int check;
-                if (i + k >= c.length) {
-                    i = (i + k) - c.length;
-                    circle++;
-                    break;
-                }
-                check = (c[i+k] == 0) ? 1 : 2;
-                e -= check;
+        int energy = 100;
+        int n = c.length;
+        int currentCloud = 0;
+        do {
+            currentCloud = (currentCloud + k) % n;
+            energy--;
+            if (c[currentCloud] == 1) {
+                energy -= 2;
             }
-            if (circle != 0 && i == 0) {
-                return e;
-            }
-        }
+        } while (currentCloud != 0);
+        return energy;
     }
 
     public static void main(String[] args) {

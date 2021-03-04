@@ -9,7 +9,8 @@ where (ho_ten LIKE 'H%' or ho_ten LIKE 'T%' or ho_ten LIKE 'K%') and length(ho_t
 /*3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.*/
 
 select * from khach_hang
-where (timestampdiff(year,ngay_sinh, now()) >= 18 or (timestampdiff(year,ngay_sinh, now()) <= 50)) and (dia_chi = 'Đà Nẵng' or dia_chi = 'Quảng Trị');
+where (timestampdiff(year,ngay_sinh, now()) >= 18 or (timestampdiff(year,ngay_sinh, now()) <= 50)) and
+		(dia_chi = 'Đà Nẵng' or dia_chi = 'Quảng Trị');
 
 /*TASK 4*/
 /*4.	Đếm xem tương ứng với mỗi khách hàng đã từng đặt phòng bao nhiêu lần. 
@@ -27,7 +28,7 @@ from
 inner join hop_dong 
 on hop_dong.id_khach_hang = khach_hang.id_khach_hang
 group by khach_hang.id_khach_hang
-having ten_loai_khach = 'Gold'
+having ten_loai_khach = 'Platinum'
 order by so_luong;
 
 /*TASK 5*/
@@ -70,7 +71,9 @@ from dich_vu
 inner join hop_dong on dich_vu.id_dich_vu = hop_dong.id_dich_vu
 left join loai_dich_vu on loai_dich_vu.id_loai_dich_vu = dich_vu.id_loai_dich_vu
 where hop_dong.id_dich_vu not in
-(select hop_dong.id_dich_vu from hop_dong where (year(ngay_lam_hop_dong) >= '2019' and month(ngay_lam_hop_dong) >= 1 ));
+	(select hop_dong.id_dich_vu 
+	from hop_dong 
+	where (year(ngay_lam_hop_dong) >= '2019' and month(ngay_lam_hop_dong) >= 1 ));
 
 
 /*TASK 7*/
@@ -93,8 +96,7 @@ in
 	(select id_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2018)
 and dich_vu.id_dich_vu 
 not in
-	(select id_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2019)
-group by dich_vu.id_dich_vu;
+	(select id_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2019);
 
 /*TASK 8*/
 /*8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoTenKhachHang không trùng nhau.

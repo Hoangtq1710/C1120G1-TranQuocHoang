@@ -15,7 +15,7 @@ inner join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di
 inner join hop_dong on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
 inner join khach_hang on khach_hang.id_khach_hang = hop_dong.id_khach_hang
 inner join loai_khach on loai_khach.id_loai_khach = khach_hang.id_loai_khach
-where loai_khach.ten_loai_khach = 'Gold' and (khach_hang.dia_chi IN ('Đà Nẵng', 'Quảng Ngãi'));
+where loai_khach.ten_loai_khach = 'Diamond' and khach_hang.dia_chi IN ('Đà Nẵng', 'Quảng Ngãi');
 
 /*TASK 12*/
 /*12.	Hiển thị thông tin IDHopDong, TenNhanVien, TenKhachHang, SoDienThoaiKhachHang, TenDichVu, SoLuongDichVuDikem 

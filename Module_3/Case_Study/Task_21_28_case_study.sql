@@ -116,7 +116,7 @@ begin
 end $$
 delimiter ;
 
-call Sp_3('Phòng', 2015, 2019);
+call Sp_3('Phòng', '2015', '2019');
 
 
 

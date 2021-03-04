@@ -3,7 +3,10 @@ use module3_case_study;
 /*2.	Hiển thị thông tin của tất cả nhân viên có trong hệ thống có tên bắt đầu là một trong các ký tự “H”, “T” hoặc “K” và
 		có tối đa 15 ký tự.*/
 select * from nhan_vien
-where (ho_ten LIKE 'H%' or ho_ten LIKE 'T%' or ho_ten LIKE 'K%') and length(ho_ten) <= 15;
+where 	(substring_index(ho_ten, ' ', -1) LIKE 'H%' or
+		 substring_index(ho_ten, ' ', -1) LIKE 'T%' or
+		 substring_index(ho_ten, ' ', -1) LIKE 'K%') and 
+         length(ho_ten) <= 15;
 
 /*TASK 3*/
 /*3.	Hiển thị thông tin của tất cả khách hàng có độ tuổi từ 18 đến 50 tuổi và có địa chỉ ở “Đà Nẵng” hoặc “Quảng Trị”.*/
@@ -28,7 +31,7 @@ from
 inner join hop_dong 
 on hop_dong.id_khach_hang = khach_hang.id_khach_hang
 group by khach_hang.id_khach_hang
-having ten_loai_khach = 'Platinum'
+having ten_loai_khach = 'Diamond'
 order by so_luong;
 
 /*TASK 5*/

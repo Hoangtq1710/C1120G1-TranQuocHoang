@@ -167,8 +167,6 @@ create temporary table if not exists task19
 	select 	dich_vu_di_kem.id_dich_vu_di_kem as IDDVDK,
 			dich_vu_di_kem.ten_dich_vu_di_kem as TenDVDK,
             dich_vu_di_kem.gia as Gia,
-            
-            
             sum(hop_dong_chi_tiet.so_luong) as SoLanSuDung
 	from dich_vu_di_kem
 	inner join hop_dong_chi_tiet on hop_dong_chi_tiet.id_dich_vu_di_kem = dich_vu_di_kem.id_dich_vu_di_kem
@@ -197,7 +195,8 @@ select 	khach_hang.id_khach_hang as ID,
         khach_hang.email,
         khach_hang.sdt,
         khach_hang.ngay_sinh,
-        khach_hang.dia_chi
+        khach_hang.dia_chi,
+        'Khách hàng' as ViTri
 from khach_hang
 union all
 select 	nhan_vien.id_nhan_vien as ID,
@@ -205,7 +204,8 @@ select 	nhan_vien.id_nhan_vien as ID,
         nhan_vien.email,
         nhan_vien.sdt,
         nhan_vien.ngay_sinh,
-        nhan_vien.dia_chi
+        nhan_vien.dia_chi,
+        'Nhân viên' as ViTri
 from nhan_vien;
 
     

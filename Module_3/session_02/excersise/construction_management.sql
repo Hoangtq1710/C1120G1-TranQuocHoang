@@ -36,6 +36,7 @@ ngay_ht date
 create table ngay_cong
 (ma_nv int(30),
 ma_ct int(20),
+primary key(ma_nv,ma_ct),
 sl_ngay_cong int(5) check (sl_ngay_cong > 0),
 foreign key(ma_nv) references nhan_vien(ma_nv),
 foreign key(ma_ct) references cong_trinh(ma_ct)

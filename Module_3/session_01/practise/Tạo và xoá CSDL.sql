@@ -21,5 +21,3 @@ alter table mon_hoc
 add column hoc_phi int;
 drop table mon_hoc;
 drop database MYDATABASE;
-
-

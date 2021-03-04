@@ -74,6 +74,9 @@ msrp float not null
 );
 
 create table order_details
-(order_number int, foreign key (order_number) references orders(order_number),
-product_code varchar(15), foreign key (product_code) references products(product_code)
+(order_number int,
+product_code varchar(15),
+primary key(order_number,product_code),
+foreign key (order_number) references orders(order_number),
+foreign key (product_code) references products(product_code)
 );

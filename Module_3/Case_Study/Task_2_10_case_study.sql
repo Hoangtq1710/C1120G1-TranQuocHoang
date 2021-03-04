@@ -93,17 +93,22 @@ in
 	(select id_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2018)
 and dich_vu.id_dich_vu 
 not in
-	(select id_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2019);
+	(select id_dich_vu from hop_dong where year(ngay_lam_hop_dong) = 2019)
+group by dich_vu.id_dich_vu;
 
 /*TASK 8*/
 /*8.	Hiển thị thông tin HoTenKhachHang có trong hệ thống, với yêu cầu HoTenKhachHang không trùng nhau.
 Học viên sử dụng theo 3 cách khác nhau để thực hiện yêu cầu trên
 */
-/*Cách 1*/
-select * from khach_hang
+/*Cách 1 : sử dụng group by ho_ten*/
+select ho_ten from khach_hang
 group by ho_ten;
-/*Cách 2*/
-/*Cách 3*/
+/*Cách 2 : sử dụng distinct*/
+select distinct ho_ten from khach_hang;
+/*Cách 3 : sử dụng union*/
+select ho_ten from khach_hang
+union
+select ho_ten from khach_hang;
 
 /*TASK 9*/
 /*9.	Thực hiện thống kê doanh thu theo tháng, nghĩa là 
@@ -123,7 +128,8 @@ select 	hop_dong.id_hop_dong as IDHopDong,
 		hop_dong.ngay_lam_hop_dong as NgayLamHopDong,
         hop_dong.ngay_ket_thuc as NgayKetthuc,
         hop_dong.tien_dat_coc as TienDatCoc,
-        hop_dong_chi_tiet.so_luong as SoLuongDichVuDiKem
+        count(hop_dong_chi_tiet.id_dich_vu_di_kem) as SoLuongDichVuDiKem
 from hop_dong
-inner join hop_dong_chi_tiet on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong;
+inner join hop_dong_chi_tiet on hop_dong.id_hop_dong = hop_dong_chi_tiet.id_hop_dong
+group by hop_dong.id_hop_dong;
 

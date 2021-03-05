@@ -124,6 +124,7 @@ from hop_dong
 where year(ngay_lam_hop_dong) = 2019
 group by thang;
 
+
 /*TASK 10*/
 /*10.	Hiển thị thông tin tương ứng với từng Hợp đồng thì đã sử dụng bao nhiêu Dịch vụ đi kèm. 
 Kết quả hiển thị bao gồm IDHopDong, NgayLamHopDong, NgayKetthuc, TienDatCoc, SoLuongDichVuDiKem 

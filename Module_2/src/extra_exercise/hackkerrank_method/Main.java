@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank;
+package extra_exercise.hackkerrank_method;
 
 import java.util.LinkedList;
 import java.util.List;

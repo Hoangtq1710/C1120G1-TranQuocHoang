@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank;
+package hackkerrank_method;
 
 public class DivisibleSumPairs {
     static int divisibleSumPairs(int n, int k, int[] ar) {

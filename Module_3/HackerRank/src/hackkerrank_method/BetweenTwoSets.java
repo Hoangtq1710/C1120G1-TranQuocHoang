@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank;
+package hackkerrank_method;
 
 import java.util.ArrayList;
 import java.util.List;

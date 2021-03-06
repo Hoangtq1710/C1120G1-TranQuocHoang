@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank;
+package hackkerrank_method;
 
 public class ApplesAndOranges {
     static void countApplesAndOranges(int s, int t, int a, int b, int[] apples, int[] oranges) {

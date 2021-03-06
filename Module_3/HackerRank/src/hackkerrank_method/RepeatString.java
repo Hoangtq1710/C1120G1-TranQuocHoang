@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank_method;
+package hackkerrank_method;
 
 public class RepeatString {
     static long repeatedString(String s, long n) {

@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank_method;
+package hackkerrank_method;
 
 public class TaumAndBday {
     public static long taumBday(int b, int w, int bc, int wc, int z) {

@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank_method;
+package hackkerrank_method;
 
 public class SherlockAndSquares {
     static int squares(int a, int b) {

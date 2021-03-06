@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank;
+package hackkerrank_method;
 
 public class DayOfProgrammer {
     static String dayOfProgrammer(int year) {

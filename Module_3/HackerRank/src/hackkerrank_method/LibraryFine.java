@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank_method;
+package hackkerrank_method;
 
 public class LibraryFine {
     static int libraryFine(int d1, int m1, int y1, int d2, int m2, int y2) {

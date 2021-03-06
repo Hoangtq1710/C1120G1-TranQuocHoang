@@ -1,4 +1,4 @@
-package extra_exercise.hackkerrank;
+package hackkerrank_method;
 
 public class DrawingBook {
     static int pageCount(int n, int p) {

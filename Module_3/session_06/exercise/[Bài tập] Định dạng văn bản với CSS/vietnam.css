@@ -1,0 +1,33 @@
+* {
+    font-family: sans-serif;
+}
+h1 {
+    border-bottom: 1px solid blue;
+    margin-bottom: 0px;
+}
+p {
+    margin-top: 0px;
+}
+.main {
+    text-indent: 3em;
+}
+a {
+    color: darkblue;
+    text-decoration: none;
+}
+a:hover {
+    color: red;
+}
+a:link {
+    color: green;
+}
+a:visited {
+    color: teal;
+}
+span {
+    color: dodgerblue;
+}
+sup {
+    font-size: 10px;
+    color: blue;
+}

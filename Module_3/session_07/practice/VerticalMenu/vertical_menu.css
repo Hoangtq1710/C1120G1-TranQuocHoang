@@ -1,0 +1,44 @@
+body {
+    font-family: "Courier New", sans-serif;
+}
+#menu, #menu ul, #menu li {
+    padding: 0;
+    margin: 0;
+}
+#menu li {
+    border: 1px solid white;
+}
+#menu ul li {
+    list-style: none;
+    position: relative;
+    width: 100px;
+    height: 30px;
+    padding: 0 20px;
+    background-color: #4CAF50;
+    line-height: 30px;
+    cursor: pointer;
+}
+#menu li li {
+    width: 150px;
+    border: 2px solid white;
+    border-top: 0;
+}
+#menu li a {
+    text-decoration: none;
+    color: white;
+}
+#menu li :hover {
+    background-color: #EE7B30;
+}
+#menu ul ul {
+    position: absolute;
+    top: 0;
+    left: 140px;
+    visibility: hidden;
+}
+#menu ul li:hover ul{
+    visibility:visible;
+}
+#menu ul li:hover {
+    background-color: #EE7B30;
+}

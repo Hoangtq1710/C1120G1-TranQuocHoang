@@ -1,0 +1,226 @@
+body {
+    height: 100%;
+    color: #050505;
+    font-family: "Tahoma",sans-serif;
+}
+.header {
+    grid-area: header;
+    height: 30px;
+}
+.left {
+    grid-area: left;
+    height: 600px;
+}
+.content {
+    grid-area: content
+}
+.right {
+    grid-area: right
+}
+
+.container > div {
+    background-color: #f0f2f5;
+    padding: 0;
+    font-size: 28px;
+    text-align: center;
+}
+.container {
+    display: grid;
+    grid-template-areas:
+    'header header header header header'
+    'left content content content right';
+    grid-column-gap: 10px;
+    background-color: #f0f2f5;
+}
+.header {
+    height: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+.header > div {
+    background-color: white;
+    padding-top: 2px;
+}
+.header .icon-search {
+    background-color: white;
+    float: left;
+}
+.icon-search img {
+    position: relative;
+    right: 50px;
+}
+.icon-search #search input {
+    height: 20px;
+    border: 1px solid #CDCDCD;
+    border-radius: 7px;
+    position: relative;
+    right: 50px;
+    bottom: 5px;
+}
+.header .nav-bar {
+    padding-left: 10px;
+    padding-right: 10px;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    background-color: white;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+.nav-bar img {
+    width: 60px;
+    height: 40px;
+}
+.nav-bar div {
+    margin-bottom: 2px;
+    border-radius: 5px;
+}
+.nav-bar div:hover {
+    background-color: #f0f2f5;
+    cursor: pointer;
+}
+.icon-search > div {
+    display: inline;
+}
+.icon-search img {
+    height: 40px;
+    width: 60px;
+}
+.icon-search #search {
+    position: relative;
+    bottom: 10px;
+}
+.icon-search #icon img {
+    border-radius: 50%;
+}
+.header .right-header {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+.right-header > div {
+    font-size: 15px;
+    padding-top: 13px;
+    border: 1px solid white;
+    border-radius: 50%;
+    background-color: #f0f2f5;
+}
+.right-header div:hover {
+    background-color: #e4e6e9;
+    cursor: pointer;
+}
+.left {
+    float: left;
+    height: 570px;
+}
+.left .top-left {
+    font-size: 18px;
+    text-align: left;
+    height: 290px;
+    border-bottom: 1px solid #ced0d4;
+    background-color: #f0f2f5;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto;
+}
+.top-left div {
+    padding: 12px 10px;
+    border-radius: 10px;
+}
+.top-left div:hover {
+    background-color: #e4e6e9;
+    cursor: pointer;
+}
+.left .mid-left {
+    height: 250px;
+    font-size: 18px;
+    background-color: #f0f2f5;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    text-align: left;
+}
+.mid-left div {
+    padding: 12px 10px;
+    border-radius: 10px;
+}
+.mid-left #short-cut {
+    margin-top: 10px;
+}
+.mid-left div:hover {
+    background-color: #e4e6e9;
+    cursor: pointer;
+}
+.left .footer {
+    height: 30px;
+    font-size: 12px;
+    padding-top: 12px;
+    background-color: #f0f2f5;
+}
+.footer a {
+    text-decoration: none;
+}
+
+.content {
+    height: 1000px;
+    background-color: #f0f2f5;
+}
+.content .story {
+    justify-content: center;
+    margin-top: 20px;
+    height: 200px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+.story > div {
+    padding: 5px;
+}
+.story img {
+    width: 115px;
+    height: 180px;
+    border-radius: 8px;
+    transition: transform .3s;
+}
+.story img:hover{
+    transform: scale(1.15);
+    cursor: pointer;
+}
+.content .what {
+    height: 125px;
+    padding-top: 15px;
+    margin-top: 7px;
+    background-color: #e4e6e9;
+}
+.content .room {
+    height: 65px;
+    background-color: #e4e6e9;
+}
+.content .post {
+    height: 500px;
+    background-color: #e4e6e9;
+}
+
+.right {
+    float: right;
+    height: 570px;
+}
+.right > div {
+    margin: 20px 10px;
+    border-radius: 10px;
+}
+.right .top-right {
+    height: 290px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #ced0d4;
+    background-color: white;
+}
+.right .mid-right {
+    height: 140px;
+    text-align: left;
+    font-size: 20px;
+    padding-left: 12px;
+    background-color: #f0f2f5;
+}
+.right .bot-right {
+    height: 140px;
+    text-align: left;
+    font-size: 20px;
+    padding-left: 12px;
+    background-color: #f0f2f5;
+}

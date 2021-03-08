@@ -1,0 +1,29 @@
+body {
+    font-family: "Courier New",sans-serif;
+    font-size: 0.9em;
+}
+header,footer {
+    padding: 10px;
+    color: white;
+    background-color: darkcyan;
+}
+section {
+    margin: 5px;
+    padding: 10px;
+    background-color: azure;
+}
+article {
+    margin: 5px;
+    padding: 10px;
+    background-color: #CDCDCD;
+}
+article p {
+    font-size: 17px;
+}
+nav ul {
+    padding: 0;
+}
+nav ul li  {
+    display: inline;
+    margin: 5px;
+}

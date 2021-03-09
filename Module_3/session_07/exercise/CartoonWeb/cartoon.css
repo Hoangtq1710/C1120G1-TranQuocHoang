@@ -1,0 +1,121 @@
+body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    background-color: white;
+}
+.header {
+    height: 110px;
+    padding-left: 3.3%;
+    background-color: white;
+    grid-area: header;
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+}
+.header .head {
+    margin: 0 5px;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-color: #DDDDDD;
+}
+.head img {
+    height: 100%;
+    width: 200px;
+    padding: 0;
+}
+.header .nav-head {
+    height: 30px;
+    grid-row-start: 4;
+    grid-row-end: 6;
+    background-color: #cccccc;
+    padding: 0;
+    margin: 5px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    grid-gap: 30px;
+}
+.nav-head > div {
+    padding-top: 5px;
+}
+.nav-head > div:hover {
+    background-color: darkgrey;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.left {
+    height: 100%;
+    background-color: white;
+    grid-area: left;
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+}
+.left > div {
+    padding: 10px;
+}
+.left .video {
+    padding: 10px;
+    display: grid;
+    width: 70%;
+    margin-left: 10%;
+    grid-template-rows: auto auto auto auto;
+}
+.left .video:hover {
+    cursor: pointer;
+}
+.video .thumnail {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    background-color: #CDCDCD;
+    padding: 0;
+    margin: 0;
+}
+.thumnail img {
+    width: 308px;
+    height: 204px;
+    margin-left: 0;
+}
+.video .describe {
+    background-color: #27669B;
+}
+.describe {
+    color: white;
+    padding-left: 5px;
+}
+.content {
+    height: 1200px;
+    background-color: white;
+    grid-area: content;
+    display: grid;
+    grid-template-rows: auto auto;
+}
+.content .content-video {
+    width: 920px;
+    height: 460px;
+    display: grid;
+    padding-top: 10px;
+}
+.content-video iframe {
+    border: 1px solid black;
+}
+.content .content-describe {
+    background-color: white;
+    width: 80%;
+    margin-left: 5%;
+    padding-top: 0;
+    line-height: 2;
+}
+.footer {
+    height: 50px;
+    background-color: cadetblue;
+    margin-left: 3.5%;
+    grid-area: footer;
+    text-align: center;
+}
+.container {
+    display: grid;
+    grid-template-areas:
+    'header header header header header header'
+    'left left content content content content'
+    'footer footer footer footer footer footer'
+;
+}

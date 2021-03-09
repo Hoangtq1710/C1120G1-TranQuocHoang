@@ -1,0 +1,102 @@
+body {
+    height: 100%;
+    color: #CDCDCD;
+    font-family: "Courier New", sans-serif;
+}
+.header {grid-area: header}
+.left {grid-area: left}
+.content {grid-area: content}
+.right {grid-area: right}
+.footer {grid-area: footer}
+
+.container {
+    display: grid;
+    grid-template-areas:
+            'header header header header header header'
+            'left content content content content right'
+            'footer footer footer footer footer footer' ;
+}
+.container > div {
+    padding: 0;
+    font-size: 28px;
+    text-align: center;
+}
+.header {
+    height: 50px;
+    color: white;
+    background-color: dimgray;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+.header > div {
+    padding-top: 8px;
+}
+.header > div:hover {
+    background-color: black;
+    cursor: pointer;
+    color: azure;
+    border-radius: 10px;
+}
+.header .login {
+    grid-column-start: 11;
+    grid-column-end: 13;
+}
+.left {
+    height: 500px;
+    background-color: #e4e6e9;
+}
+.left > div {
+    padding-top: 20px;
+    height: 50px;
+}
+.left > div:hover {
+    background-color: #CDCDCD;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.left a {
+    color: blue;
+    text-decoration: none;
+}
+.left a:hover {
+    color: red;
+}
+.content {
+    height: 500px;
+    background-color: white;
+    color: black;
+}
+.right {
+    height: 500px;
+    display: block;
+    background-color: #e4e6e9;
+}
+.right > a {
+    padding-top: 20px;
+    height: 50px;
+}
+.right:hover {
+    border-radius: 10px;
+}
+.right > a:hover {
+    color: white;
+}
+.right a {
+    color: black;
+    text-decoration: none;
+}
+.footer {
+    height: 50px;
+    background-color: #555555;
+}
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+.footer > div {
+    margin-top: 8px;
+}
+.footer:hover ,a:hover {
+    background-color: #CDCDCD;
+    color: black;
+}

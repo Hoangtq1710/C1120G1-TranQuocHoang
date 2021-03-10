@@ -17,10 +17,52 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\HackerRank\src\hackkerrank_method\Pangrams.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\HackerRank\src\hackkerrank_method\TimeConversion.java">
           <value>
             <Attribute>
               <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\HackerRank\src\hackkerrank_method\TwoStrings.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\session_07\exercise\CartoonWeb\CartoonWeb.html">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\session_07\exercise\Facebook_Layout\FacebookLayout.html">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\session_08\exercise\responsive_galary\ResponsiveGalary.html">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\session_08\practice\LayoutInBootstrap\layout_bootstrap.html">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>

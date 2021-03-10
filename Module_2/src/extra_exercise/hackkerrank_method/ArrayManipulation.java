@@ -3,15 +3,15 @@ package extra_exercise.hackkerrank_method;
 public class ArrayManipulation {
     static long arrayManipulation(int n, int[][] queries) {
         int[] emptyArr = new int[n];
-        for (int i = 0; i < queries.length; i++) {
-            for (int j = queries[i][0]; j <= queries[i][1]; j++) {
-                emptyArr[j] += queries[i][2];
+        for (int[] query : queries) {
+            for (int j = query[0]; j <= query[1]; j++) {
+                emptyArr[j] += query[2];
             }
         }
         int max = 0;
-        for (int i = 0; i < emptyArr.length; i++) {
-            if (emptyArr[i] >= max) {
-                max = emptyArr[i];
+        for (int value : emptyArr) {
+            if (value >= max) {
+                max = value;
             }
         }
         return max;

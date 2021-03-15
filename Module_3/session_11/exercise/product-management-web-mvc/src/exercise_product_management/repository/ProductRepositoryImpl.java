@@ -48,8 +48,9 @@ public class ProductRepositoryImpl implements ProductRepository {
 
     @Override
     public Product search(String name) {
+        Product product;
         for(Map.Entry<Integer, Product> entry : products.entrySet()) {
-            Product product = entry.getValue();
+            product = entry.getValue();
             if (product.getName().equals(name)) {
                 return product;
             }

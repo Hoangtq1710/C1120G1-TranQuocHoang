@@ -17,6 +17,12 @@
 <div class="container">
     <h1>Product List</h1>
     <p><a href="/products?action=create">Create new Product</a></p>
+    <form method="get" action="/products" style="float: right">
+        <input name="action" value="search" hidden>
+        <input type="text" name="search" id="search" placeholder="Search ...">
+        <button>Search</button>
+    </form>
+
     <table class="table table-hover">
         <thead>
             <tr>

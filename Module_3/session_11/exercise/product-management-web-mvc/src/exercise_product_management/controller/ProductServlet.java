@@ -153,6 +153,25 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
+    private void searchProduct(HttpServletRequest request, HttpServletResponse response){
+        String name = request.getParameter("search");
+        Product product = this.productService.search(name);
+        RequestDispatcher dispatcher;
+        if (product == null) {
+            System.out.println(name);
+            request.setAttribute("message", "Oops, Product "+name+" is not found!");
+            dispatcher = request.getRequestDispatcher("/product/search.jsp");
+        } else {
+            request.setAttribute("product", product);
+            dispatcher = request.getRequestDispatcher("/product/view.jsp");
+        }
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
@@ -169,6 +188,7 @@ public class ProductServlet extends HttpServlet {
                 deleteProduct(request, response);
                 break;
             case "search" :
+
                 break;
             default:
                 break;
@@ -191,6 +211,7 @@ public class ProductServlet extends HttpServlet {
                 showDeleteForm(request, response);
                 break;
             case "search" :
+                searchProduct(request, response);
                 break;
             case "view":
                 viewProduct(request, response);

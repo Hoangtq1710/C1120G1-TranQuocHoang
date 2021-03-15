@@ -9,9 +9,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Search</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
 </head>
 <body>
-
+<div class="container">
+    <c:if test='${requestScope["message"] != null}'>
+        <span class="message">${requestScope["message"]}</span>
+    </c:if>
+</div>
 </body>
 </html>

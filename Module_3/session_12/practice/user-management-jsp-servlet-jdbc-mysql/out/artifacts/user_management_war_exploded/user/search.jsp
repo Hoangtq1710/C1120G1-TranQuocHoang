@@ -34,6 +34,9 @@
                 <td>${user.getCountry()}</td>
             </tr>
         </c:forEach>
+        <tr>
+            <td><a type="button" class="btn btn-info" href="/users">Back</a></td>
+        </tr>
         </tbody>
     </table>
 </div>

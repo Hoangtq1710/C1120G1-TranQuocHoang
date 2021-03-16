@@ -36,8 +36,7 @@
                 <td>${requestScope["user"].getCountry()}</td>
             </tr>
             <tr>
-                <th></th>
-                <td><button><a style="text-decoration: none" href="/users">Back</a></button></td>
+                <td><a type="button" class="btn btn-info" href="/users">Back</a></td>
             </tr>
         </table>
     </fieldset>

@@ -21,7 +21,6 @@
 <body>
 <div class="container">
     <h1>Edit User Information</h1>
-    <p><a href="/users">Back to User List</a></p>
     <p>
         <c:if test='${requestScope["message"] != null}'>
             <span class="message">${requestScope["message"]}</span>
@@ -47,8 +46,9 @@
                 <td><input type="text" name="country" id="country" value="${requestScope["user"].getCountry()}"></td>
             </tr>
             <tr>
-                <th><button name="action" value="edit" hidden></button></th>
-                <td><input type="submit" value="Update User"></td>
+                <td><a type="button" class="btn btn-info" href="/users">Back</a></td>
+                <td><button type="submit" class="btn btn-warning">Update</button></td>
+                <td><button name="action" value="edit" hidden></button></td>
             </tr>
         </table>
     </form>

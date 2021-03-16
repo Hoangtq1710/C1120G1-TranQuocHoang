@@ -26,7 +26,6 @@
             <span class="message">${requestScope["message"]}</span>
         </c:if>
     </p>
-    <p><a href="/users">Back to User List</a></p>
     <form method="post">
         <table class="table table-hover">
             <tr>
@@ -42,7 +41,8 @@
                 <td><input type="text" name="country" id="country"></td>
             </tr>
             <tr>
-                <td><input type="submit" value="Create User"></td>
+                <td><a type="button" class="btn btn-info" href="/users">Back</a></td>
+                <td><button type="submit" class="btn btn-success">Create</button></td>
             </tr>
         </table>
     </form>

@@ -12,6 +12,11 @@
     <title>Delete User</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <style>
+        .message {
+            color: green;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -38,9 +43,9 @@
                     <td>${requestScope["user"].getCountry()}</td>
                 </tr>
                 <tr>
-                    <th><button name="action" value="delete" hidden></button></th>
-                    <td><input type="submit" value="Delete User"></td>
-                    <td><a href="/users">Back to User List</a></td>
+                    <td><a type="button" class="btn btn-info" href="/users">Back</a></td>
+                    <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                    <td><button name="action" value="delete" hidden></button></td>
                 </tr>
             </table>
         </form>

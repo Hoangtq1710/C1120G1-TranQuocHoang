@@ -10,10 +10,10 @@ public class UserRepositoryImpl implements UserRepository {
 
     public static final String SELECT_ALL_USERS = "select * from users;";
     public static final String INSERT_NEW_USER = "insert into users(`name`, email, country) values (?, ?, ?);";
-    public static final String SELECT_USER_BY_ID = "select `name`, email,country from users where id = ?;";
+    public static final String SELECT_USER_BY_ID = "select * from users where id = ?;";
     public static final String DELETE_USERS_SQL = "delete from users where id = ?;";
     public static final String UPDATE_USERS_SQL = "update users set `name` = ?,email = ?, country = ? where id = ?;";
-    public static final String SEARCH_USERS_SQL = "select id, `name`, email, country from users where country = ?;";
+    public static final String SEARCH_USERS_SQL = "select * from users where country like ?;";
     public static final String SORT_BY_NAME_DESC = "select * from users order by `name` desc";
     public static final String SORT_BY_NAME_ASC = "select * from users order by `name`";
 
@@ -59,11 +59,12 @@ public class UserRepositoryImpl implements UserRepository {
                 resultSet = statement.executeQuery();
 
                 while (resultSet.next()) {
+                    id = resultSet.getInt("id");
                     String name = resultSet.getString("name");
                     String email = resultSet.getString("email");
                     String country = resultSet.getString("country");
 
-                    user = new User(name, email, country);
+                    user = new User(id, name, email, country);
                 }
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
@@ -176,7 +177,7 @@ public class UserRepositoryImpl implements UserRepository {
         if (connection != null) {
             try {
                 statement = connection.prepareStatement(SEARCH_USERS_SQL);
-                statement.setString(1, searchCountry);
+                statement.setString(1, "%"+searchCountry+"%");
                 resultSet = statement.executeQuery();
 
 

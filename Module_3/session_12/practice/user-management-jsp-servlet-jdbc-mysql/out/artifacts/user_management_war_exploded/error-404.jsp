@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0,
  	    maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <style>
         body {
             font-family: "Courier New", sans-serif;
@@ -23,11 +24,15 @@
             color: teal;
         }
     </style>
+
 </head>
 <body>
-<p class="oops">Oops!</p><br>
-<h2>We can't seem to find the page you're looking for.</h2>
-<h5>Error Code: 404</h5>
+<div class="container" style="text-align: center">
+    <p class="oops">Oops!</p><br>
+    <h2>We can't seem to find the page you're looking for.</h2>
+    <button class="btn btn-light"><a style="text-decoration: none" href="/users">Back to User List</a></button>
+    <h5>Error Code: 404</h5>
+</div>
 </body>
 </html>
 

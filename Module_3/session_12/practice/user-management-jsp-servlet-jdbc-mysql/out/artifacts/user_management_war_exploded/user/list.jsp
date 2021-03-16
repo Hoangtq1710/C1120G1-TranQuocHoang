@@ -17,11 +17,19 @@
 <div class="container">
     <h1>User Management</h1>
     <p><a href="/users?action=create">Create new User</a></p>
+    <form method="get" action="/users" style="float: right">
+        <input name="action" value="search" hidden>
+        <input type="text" name="country" id="search" placeholder="Search ...">
+        <button>Search</button>
+    </form>
     <table class="table table-hover">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
+                <th>Name
+                    <a href="/users?action=sort&sortBy=${"desc"}">DESC</a>
+                    <a href="/users?action=sort&sortBy=${"asc"}">ASC</a>
+                </th>
                 <th>Email</th>
                 <th>Country</th>
                 <th>Options</th>

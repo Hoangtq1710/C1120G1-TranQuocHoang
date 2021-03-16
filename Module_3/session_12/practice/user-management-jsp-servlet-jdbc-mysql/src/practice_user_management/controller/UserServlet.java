@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "UserServlet", urlPatterns = {"", "/users"})
@@ -92,7 +93,7 @@ public class UserServlet extends HttpServlet {
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-//            request.setAttribute("message", "User Information was updated");
+
             request.setAttribute("user", userUpdate);
             List<User> listUser = this.userService.selectAllUsers();
             request.setAttribute("listUser", listUser);
@@ -163,6 +164,38 @@ public class UserServlet extends HttpServlet {
         }
     }
 
+    private void searchUser(HttpServletRequest request, HttpServletResponse response){
+        String country = request.getParameter("country");
+        List<User> listUser = this.userService.searchUser(country);
+        RequestDispatcher dispatcher;
+        if (listUser.isEmpty()) {
+            dispatcher =request.getRequestDispatcher("error-404.jsp");
+        } else {
+            request.setAttribute("listUser", listUser);
+            dispatcher = request.getRequestDispatcher("user/search.jsp");
+        }
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sortListByName(HttpServletRequest request, HttpServletResponse response){
+        String sortBy = request.getParameter("sortBy");
+
+        List<User> listUser = this.userService.sortListUser(sortBy);
+
+        RequestDispatcher dispatcher;
+        request.setAttribute("listUser", listUser);
+         dispatcher = request.getRequestDispatcher("user/list.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
@@ -200,6 +233,12 @@ public class UserServlet extends HttpServlet {
                 break;
             case "view":
                 viewUser(request, response);
+                break;
+            case "search":
+                searchUser(request, response);
+                break;
+            case "sort":
+                sortListByName(request, response);
                 break;
             default:
                 listUser(request, response);

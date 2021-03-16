@@ -31,7 +31,7 @@
             <c:forEach items="${listUser}" var="user">
                 <tr>
                     <td>${user.getId()}</td>
-                    <td>${user.getName()}</td>
+                    <td><a href="/users?action=view&id=${user.getId()}">${user.getName()}</a></td>
                     <td>${user.getEmail()}</td>
                     <td>${user.getCountry()}</td>
                     <td>

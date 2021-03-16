@@ -11,6 +11,11 @@
 <head>
     <title>User Information</title>
     <meta charset="UTF-8">
+    <style>
+        .message {
+            color: green;
+        }
+    </style>
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
 </head>
 <body>
@@ -20,6 +25,11 @@
     <p>
         <c:if test='${requestScope["message"] != null}'>
             <span class="message">${requestScope["message"]}</span>
+        </c:if>
+    </p>
+    <p>
+        <c:if test='${requestScope["user"] != null}'>
+            <input type="hidden" name="id" value="${requestScope["user"].getId()}">
         </c:if>
     </p>
     <form method="post">
@@ -37,7 +47,7 @@
                 <td><input type="text" name="country" id="country" value="${requestScope["user"].getCountry()}"></td>
             </tr>
             <tr>
-                <th></th>
+                <th><button name="action" value="edit" hidden></button></th>
                 <td><input type="submit" value="Update User"></td>
             </tr>
         </table>

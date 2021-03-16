@@ -1,51 +1,46 @@
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
-  Date: 15-Mar-21
-  Time: 23:36
+  Date: 16-Mar-21
+  Time: 13:43
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>Create New User</title>
+    <title>View User Information</title>
     <meta charset="UTF-8">
-    <style>
-        .message {
-            color: green;
-        }
-    </style>
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
 </head>
 <body>
 <div class="container">
-    <h1>Create New User</h1>
-    <p>
-        <c:if test='${requestScope["message"] != null}'>
-            <span class="message">${requestScope["message"]}</span>
-        </c:if>
-    </p>
-    <p><a href="/users">Back to User List</a></p>
-    <form method="post">
+    <h1>User Information</h1>
+    <fieldset>
+        <legend>User information</legend>
         <table class="table table-hover">
             <tr>
+                <th>Id</th>
+                <td>${requestScope["user"].getId()}</td>
+            </tr>
+            <tr>
                 <th>Name</th>
-                <td><input type="text" name="name" id="name"></td>
+                <td>${requestScope["user"].getName()}</td>
             </tr>
             <tr>
                 <th>Email</th>
-                <td><input type="text" name="email" id="email"></td>
+                <td>${requestScope["user"].getEmail()}</td>
             </tr>
             <tr>
                 <th>Country</th>
-                <td><input type="text" name="country" id="country"></td>
+                <td>${requestScope["user"].getCountry()}</td>
             </tr>
             <tr>
-                <td><input type="submit" value="Create User"></td>
+                <th></th>
+                <td><button><a style="text-decoration: none" href="/users">Back</a></button></td>
             </tr>
         </table>
-    </form>
+    </fieldset>
 </div>
 </body>
 </html>

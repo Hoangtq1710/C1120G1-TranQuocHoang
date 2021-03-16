@@ -11,6 +11,11 @@
 <head>
     <title>Create New User</title>
     <meta charset="UTF-8">
+    <style>
+        .message {
+            color: green;
+        }
+    </style>
     <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
 </head>
 <body>
@@ -37,7 +42,6 @@
                 <td><input type="text" name="country" id="country"></td>
             </tr>
             <tr>
-                <td><input name="action" value="create" hidden></td>
                 <td><input type="submit" value="Create User"></td>
             </tr>
         </table>

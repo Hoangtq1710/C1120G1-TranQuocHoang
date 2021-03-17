@@ -1,7 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="JDBC_Transaction:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="34ce671e-78d0-472c-9577-c081b03bf021" name="Default Changelist" comment="" />
+    <list default="true" id="34ce671e-78d0-472c-9577-c081b03bf021" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/csv-plugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_8_0_17.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/.idea/artifacts/CurrencyWebConverter_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/CurrencyWebConverter.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/out/artifacts/CurrencyWebConverter_war_exploded/WEB-INF/classes/controllers/ConvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/out/artifacts/CurrencyWebConverter_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/out/artifacts/CurrencyWebConverter_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../CurrencyWebConverter/out/production/CurrencyWebConverter/controllers/ConvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Dictionary/src/DiscountServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Dictionary/src/TranslateServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Dictionary/web/DiscountCalculator/discount.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session_09/src/controllers/ConvertServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session_09/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session_09/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../session_12/practice/user_management_database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../../../session_12/practice/user_management_database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/JDBC_Transaction_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/JDBC_Transaction_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/JDBC_Transaction.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JDBC_Transaction.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/practice_user_management/controller/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/practice_user_management/controller/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/practice_user_management/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/practice_user_management/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/practice_user_management/repository/UserRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/practice_user_management/repository/UserRepositoryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/practice_user_management/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/practice_user_management/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/practice_user_management/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/practice_user_management/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/controllers/FormServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/controllers/LoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../src/controllers/StudentServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/.idea/artifacts/ServerTime_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/.idea/csv-plugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/ServerTime.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/out/artifacts/ServerTime_war_exploded/WEB-INF/classes/controllers/ServerTimeServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/out/artifacts/ServerTime_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/out/artifacts/ServerTime_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/out/production/ServerTime/controllers/ServerTimeServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/src/controllers/ServerTimeServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServerTime/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/.idea/artifacts/ServletProject_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/.idea/libraries/Java_EE_6_Java_EE_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/ServletProject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.annotation.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.ejb.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.jms.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.persistence.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.resource.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.servlet.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.servlet.jsp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.servlet.jsp.jstl.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/lib/javax.transaction.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/out/artifacts/ServletProject_war_exploded/WEB-INF/classes/controllers/FormServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/out/artifacts/ServletProject_war_exploded/WEB-INF/classes/controllers/ServletLogin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/out/artifacts/ServletProject_war_exploded/WEB-INF/classes/controllers/StudentServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/out/artifacts/ServletProject_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/out/artifacts/ServletProject_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/out/production/ServletProject/controllers/FormServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/out/production/ServletProject/controllers/ServletLogin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../ServletProject/out/production/ServletProject/controllers/StudentServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/.idea/artifacts/simple_login_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/out/artifacts/simple_login_war_exploded/Login/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/out/artifacts/simple_login_war_exploded/WEB-INF/classes/controllers/LoginServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/out/artifacts/simple_login_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/out/artifacts/simple_login_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/out/production/simple_login/controllers/LoginServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/simple_login.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/src/controllers/LoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/web/Login/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../simple_login/web/index.jsp" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,8 +120,17 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectId" id="1prdTDEJpl75kFcUzj7ssSylgwU" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -19,24 +138,85 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/lib/taglibs-standard-spec-1.2.5.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\C1120G1-TranQuocHoang\Module_3\session_13\practice\call_SP_from_JDBC\web" />
+      <recent name="G:\C1120G1-TranQuocHoang\Module_3\session_13\practice\call_SP_from_JDBC\src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat " type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat " ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
         <artifact name="JDBC_Transaction:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/JDBC_Transaction_war_exploded" />
+            <option name="CONTEXT_PATH" value="" />
           </settings>
         </artifact>
       </deployment>
-      <server-settings />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat__JDBC_Transaction" />
+      </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
       <predefined_log_file id="Tomcat Manager" />
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50448" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
@@ -55,8 +235,88 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615945148257</updated>
-      <workItem from="1615945151630" duration="2000" />
+      <workItem from="1615945151630" duration="9393000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1615945443055">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="24" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1615945443055" />
+    <state x="488" y="75" key="#com.intellij.ide.util.MemberChooser" timestamp="1615960481827">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="488" y="75" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1615960481827" />
+    <state x="389" y="110" key="FileChooserDialogImpl" timestamp="1615945340286">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="389" y="110" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1615945340286" />
+    <state width="905" height="267" key="GridCell.Tab.0.bottom" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.0.center" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.0.left" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.0.right" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.1.bottom" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.1.bottom/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.1.center" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.1.center/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.1.left" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.1.left/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.1.right" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.1.right/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.2.bottom" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.2.bottom/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.2.center" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.2.center/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.2.left" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.2.left/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state width="905" height="267" key="GridCell.Tab.2.right" timestamp="1615960698380">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="905" height="267" key="GridCell.Tab.2.right/0.0.1366.738@0.0.1366.738" timestamp="1615960698380" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1615945360788">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1615945360788" />
   </component>
 </project>

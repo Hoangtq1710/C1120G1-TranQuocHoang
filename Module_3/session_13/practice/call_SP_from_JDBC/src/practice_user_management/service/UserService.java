@@ -19,4 +19,20 @@ public interface UserService {
     List<User> searchUser(String country);
 
     List<User> sortListUser(String sortBy);
+
+    User getUserById(int id);
+
+    void insertUserSP(User user);
+
+    void addUserTransaction(User user, int[] permission);
+
+    public void insertUpdateWithoutTransaction();
+
+    public void insertUpdateUseTransaction();
+
+    List<User> findAllUser();
+
+    boolean updateUserSP(User user);
+
+    boolean deleteUserSP(int id);
 }

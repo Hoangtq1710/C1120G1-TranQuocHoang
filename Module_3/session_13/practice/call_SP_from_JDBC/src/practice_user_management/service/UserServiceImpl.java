@@ -44,4 +44,44 @@ public class UserServiceImpl implements UserService{
     public List<User> sortListUser(String sortBy) {
         return repository.sortListUser(sortBy);
     }
+
+    @Override
+    public User getUserById(int id) {
+        return repository.getUserById(id);
+    }
+
+    @Override
+    public void insertUserSP(User user) {
+        repository.insertUserSP(user);
+    }
+
+    @Override
+    public void addUserTransaction(User user, int[] permission) {
+        repository.addUserTransaction(user, permission);
+    }
+
+    @Override
+    public void insertUpdateWithoutTransaction() {
+        repository.insertUpdateWithoutTransaction();
+    }
+
+    @Override
+    public void insertUpdateUseTransaction() {
+        repository.insertUpdateUseTransaction();
+    }
+
+    @Override
+    public List<User> findAllUser() {
+        return repository.findAllUser();
+    }
+
+    @Override
+    public boolean updateUserSP(User user) {
+        return repository.updateUserSP(user);
+    }
+
+    @Override
+    public boolean deleteUserSP(int id) {
+        return repository.deleteUserSP(id);
+    }
 }

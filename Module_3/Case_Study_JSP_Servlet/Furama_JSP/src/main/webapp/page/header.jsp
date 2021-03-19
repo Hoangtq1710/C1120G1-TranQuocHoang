@@ -25,7 +25,7 @@
 <body>
 <!-------------------header-------------------------------------------------------------------->
 <div class="jumbotron text-center" style="margin-bottom:0; padding-top: 15px">
-    <a href="#"><img src="../img/logo.png" alt="logo" style="float: left"></a>
-    <h1>Furama Management</h1>
+    <a href="../index.jsp"><img src="../img/logo.png" alt="logo" style="float: left"></a>
+    <h1>Furama</h1>
     <h3 style="display: inline; float: right">Tran Quoc Hoang</h3>
 </div>

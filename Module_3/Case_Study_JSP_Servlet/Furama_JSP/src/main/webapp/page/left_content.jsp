@@ -9,8 +9,8 @@
 <div class="container-fluid" style="margin-top:30px; margin-left: 0; margin-right: 0">
     <div class="row">
         <!-------------------left menu---------------------------------------------------------->
-        <div class="col-sm-2">
-            <h3>Some Links</h3>
+        <div class="col-sm-1">
+            <h3>Link</h3>
             <ul class="nav nav-pills flex-column">
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Active</a>

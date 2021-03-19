@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #046056; width: 100%">
-    <a class="navbar-brand" href="#"><i class="fas fa-home"></i></a>
+    <a class="navbar-brand" href="../index.jsp"><i class="fas fa-home"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,16 +16,16 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link active" href="/employee">Employee</a>
+                <a class="nav-link active" href="employee">Employee</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/customer">Customer</a>
+                <a class="nav-link" href="customer">Customer</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/service">Service</a>
+                <a class="nav-link" href="service">Service</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/contract">Contract</a>
+                <a class="nav-link" href="contract">Contract</a>
             </li>
             <!--            them Search-->
         </ul>

@@ -7,9 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-------------------body--------------------------------------------------------------->
-<div class="col-sm-10">
-    <div class="fit-img">
-        <img src="img/home-furama-img.jpg" alt="" >
+<div class="col-sm-12 container">
+    <div>
+        <img src="assert/img/bg-furama-img.png" alt="">
     </div>
     <p>Some text..</p>
 

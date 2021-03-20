@@ -9,8 +9,8 @@
 <div class="jumbotron text-center" style="margin-bottom:0">
     <p>Footer cua Hoang</p>
 </div>
-<script src="../style/js/jquery.min.js"></script>
-<script src="../style/js/popper.min.js"></script>
-<script src="../style/js/bootstrap.min.js"></script>
+<script src="../assert/style/js/jquery.min.js"></script>
+<script src="../assert/style/js/popper.min.js"></script>
+<script src="../assert/style/js/bootstrap.min.js"></script>
 </body>
 </html>

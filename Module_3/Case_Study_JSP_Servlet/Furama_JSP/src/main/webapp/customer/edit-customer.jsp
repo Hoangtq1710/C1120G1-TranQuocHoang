@@ -10,51 +10,13 @@
 
 <%@include file="../page/header.jsp" %>
 
-<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #046056; width: 100%">
-    <a class="navbar-brand" href="../index.jsp"><i class="fas fa-home"></i></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <!-------------------navbar----------------------------------------------------------------->
-    <div class="collapse navbar-collapse" id="collapsibleNavbar">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link " href="../employee">Employee</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active">Customer</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../service">Service</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="../contract">Contract</a>
-            </li>
-            <!--            them Search-->
-        </ul>
-    </div>
-
-    <!-------------------search----------------------------------------------------------------->
-    <div>
-        <form method="get" style="float: right" class="input-group">
-            <input type="text" name="country" id="search" class="form-control" placeholder="Search ...">
-
-            <div class="input-group-append" style="padding-left: 5px">
-                <button type="submit" class="btn btn-outline-light">
-                    <i class="fas fa-search"></i>
-                </button>
-                <input name="action" value="search" hidden>
-            </div>
-        </form>
-    </div>
-</nav>
+<%@include file="../page/navbar/cus_navbar.jsp" %>
 
 <%@include file="../page/left_content.jsp" %>
 
 <!-------------------body--------------------------------------------------------------->
-<div class="col-sm-10">
-    <div class="container-fluid">
+<div class="col-sm-12">
+    <div class="container-fluid" style="margin-top: 15px">
         <form method="post">
             <h4>Edit Customer Information</h4>
             <table class="table table-hover">
@@ -67,7 +29,13 @@
                 <tr>
                     <th>Customer Type</th>
                     <td>
-                        <input type="text" name="customerTypeName" value="${requestScope["customer"].getCustomerType().getCustomerTypeName()}">
+                        <select name="customerTypeName">
+                            <option value="Diamond">Diamond</option>
+                            <option value="Platinum">Platinum</option>
+                            <option value="Gold">Gold</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Member">Member</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -79,8 +47,10 @@
                 <tr>
                     <th>Gender</th>
                     <td>
-                        <input type="text" name="customerGender"
-                               value="<c:out value="${customer.isCustomerGender() ? 'Male' : 'Female'} "></c:out>">
+                        <select name="customerGender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -92,7 +62,7 @@
                 <tr>
                     <th>Phone</th>
                     <td>
-                        <input type="text" name="customerPhone" value="${requestScope["customer"].getCustomerPhone()}">
+                        <input type="tel" name="customerPhone" value="${requestScope["customer"].getCustomerPhone()}">
                     </td>
                 </tr>
                 <tr>

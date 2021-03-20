@@ -62,6 +62,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         List<Customer> listCustomer = new ArrayList<>();
+        CustomerType customerType;
 
         if (con != null) {
             try {
@@ -80,7 +81,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
                     String email = resultSet.getString("customer_email");
                     String address = resultSet.getString("customer_address");
                     int cusTypeId = resultSet.getInt("customer_type_id");
-                    CustomerType customerType = this.customerTypeService.findCusTypeById(cusTypeId);
+                    customerType = this.customerTypeService.findCusTypeById(cusTypeId);
                     customer = new Customer(id,name,birthday,gender,idCard,phone,email,address,customerType);
                     listCustomer.add(customer);
                 }

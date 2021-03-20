@@ -12,7 +12,7 @@
         <input type="text" name="search" id="search" class="form-control" placeholder="Search ...">
 
         <div class="input-group-append" style="padding-left: 5px">
-            <button type="submit" class="btn btn-outline-light">
+            <button type="submit" title="Search" class="btn btn-outline-light">
                 <i class="fas fa-search"></i>
             </button>
             <input name="action" value="search" hidden>

@@ -12,7 +12,7 @@
 <%@include file="../page/left_content.jsp" %>
 
 <!-------------------body--------------------------------------------------------------->
-<div class="col-sm-10">
+<div class="col-sm-12">
     <h1>DANG O CONTRACT</h1>
 
 </div>

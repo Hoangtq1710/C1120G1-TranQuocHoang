@@ -188,7 +188,7 @@ public class CustomerServlet extends HttpServlet {
             action = "";
         }
         switch (action){
-            case "submitData": //view
+            case "submitData": //create
                 submitDataFromModal(request, response);
                 break;
             case "edit":

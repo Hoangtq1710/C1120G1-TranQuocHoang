@@ -10,13 +10,13 @@
 
 <%@include file="../page/header.jsp" %>
 <%@include file="../page/navbar/cus_navbar.jsp" %>
-<%--<%@include file="../page/left_content.jsp" %>--%>
+<%@include file="../page/left_content.jsp" %>
 
 <!-------------------body--------------------------------------------------------------->
 
 <div class="col-sm-12">
     <div class="container-fluid">
-        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createCustomer" style="margin: 20px 0" >
+        <button type="button" class="btn btn-success" data-toggle="modal" title="Create Customer" data-target="#createCustomer" style="margin: 20px 20px" >
             <i class="far fa-plus-square"></i>
         </button>
 
@@ -45,19 +45,29 @@
                                     <tr>
                                         <th>Customer Type</th>
                                         <td>
-                                            <input type="text" name="customerTypeName" placeholder="Diamond">
+                                            <select name="customerTypeName">
+                                                <option value="Diamond">Diamond</option>
+                                                <option value="Platinum">Platinum</option>
+                                                <option value="Gold">Gold</option>
+                                                <option value="Silver">Silver</option>
+                                                <option value="Member">Member</option>
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Name</th>
                                         <td>
                                             <input type="text" name="customerName">
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Gender</th>
                                         <td>
-                                            <input type="text" name="customerGender" placeholder="Male">
+                                            <select name="customerGender">
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr>
@@ -69,13 +79,13 @@
                                     <tr>
                                         <th>ID Card</th>
                                         <td>
-                                            <input type="number" name="customerIdCard" placeholder="9 digit X or 12 digit X">
+                                            <input type="number" name="customerIdCard" placeholder="9 or 12 digits of X">
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Phone</th>
                                         <td>
-                                            <input type="text" name="customerPhone" placeholder="090/091/(+84) 090/(+84) 091">
+                                            <input type="tel" name="customerPhone" placeholder="090/091/(+84)">
                                         </td>
                                     </tr>
                                     <tr>
@@ -130,14 +140,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name
-<%--                        <a href="/customer?action=sort&sortBy=${"asc"}">--%>
-<%--                            <i class="fas fa-sort-alpha-down"></i>--%>
-<%--                        </a>--%>
-<%--                        <a href="/customer?action=sort&sortBy=${"desc"}">--%>
-<%--                            <i class="fas fa-sort-alpha-up"></i>--%>
-<%--                        </a>--%>
-                    </th>
+                    <th>Name</th>
                     <th>Customer Type</th>
                     <th>Birthday</th>
                     <th>Gender</th>
@@ -153,7 +156,7 @@
                     <tr>
                         <td>${customer.getCustomerId()}</td>
                         <td>
-                            <a href="/customer?action=view&id=${customer.getCustomerId()}">${customer.getCustomerName()}</a>
+                            <a style="text-decoration: none" title="Click to detail" href="/customer?action=view&id=${customer.getCustomerId()}">${customer.getCustomerName()}</a>
                         </td>
                         <td>${customer.getCustomerType().getCustomerTypeName()}</td>
                         <td>${customer.getCustomerBirthday()}</td>
@@ -165,10 +168,10 @@
                         <td>${customer.getCustomerEmail()}</td>
                         <td>${customer.getCustomerAddress()}</td>
                         <td>
-                            <a type="button" class="btn btn-warning" href="/customer?action=edit&id=${customer.getCustomerId()}">
+                            <a type="button" class="btn btn-warning" title="Edit" href="/customer?action=edit&id=${customer.getCustomerId()}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCustomer"
+                            <button type="button" class="btn btn-danger" title="Delete" data-toggle="modal" data-target="#deleteCustomer"
                                     onclick="saveIdDelete('${customer.getCustomerId()}')" >
                                 <i class="fas fa-trash-alt"></i>
                             </button>

@@ -18,12 +18,19 @@
 </head>
 <body>
 <div class="container">
-    <h1><a style="text-decoration: none;" href="/users">User Management</a></h1>
-    <p><a href="/users?action=create"><i class="fas fa-plus"></i> Create new User</a></p>
+    <h1>
+        <a style="text-decoration: none;" href="/users">User Management</a>
+    </h1>
+    <p>
+        <a href="/users?action=create"><i class="fas fa-plus"></i> Create new User</a>
+    </p>
     <form method="get" style="float: right; width: 250px" class="input-group">
         <input type="text" name="country" id="search" class="form-control" placeholder="Search ...">
+
         <div class="input-group-append">
-            <button type="submit" class="btn btn-outline-info"><i class="fas fa-search"></i></button>
+            <button type="submit" class="btn btn-outline-info">
+                <i class="fas fa-search"></i>
+            </button>
             <input name="action" value="search" hidden>
         </div>
     </form>
@@ -32,8 +39,12 @@
             <tr>
                 <th>ID</th>
                 <th>Name
-                    <a href="/users?action=sort&sortBy=${"asc"}"><i class="fas fa-sort-alpha-down"></i></a>
-                    <a href="/users?action=sort&sortBy=${"desc"}"><i class="fas fa-sort-alpha-up"></i></a>
+                    <a href="/users?action=sort&sortBy=${"asc"}">
+                        <i class="fas fa-sort-alpha-down"></i>
+                    </a>
+                    <a href="/users?action=sort&sortBy=${"desc"}">
+                        <i class="fas fa-sort-alpha-up"></i>
+                    </a>
                 </th>
                 <th>Email</th>
                 <th>Country</th>
@@ -48,8 +59,12 @@
                     <td>${user.getEmail()}</td>
                     <td>${user.getCountry()}</td>
                     <td>
-                        <a type="button" class="btn btn-warning" href="/users?action=edit&id=${user.getId()}"><i class="fas fa-edit"></i></a>
-                        <a type="button" class="btn btn-danger" href="/users?action=delete&id=${user.getId()}"><i class="fas fa-trash-alt"></i></a>
+                        <a type="button" class="btn btn-warning" href="/users?action=edit&id=${user.getId()}">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a type="button" class="btn btn-danger" href="/users?action=delete&id=${user.getId()}">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
                     </td>
                 </tr>
             </c:forEach>

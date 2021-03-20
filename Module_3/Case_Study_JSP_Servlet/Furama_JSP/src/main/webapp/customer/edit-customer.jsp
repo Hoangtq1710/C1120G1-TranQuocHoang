@@ -109,10 +109,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <button type="submit" class="btn btn-warning" name="action" value="edit">Update</button>
+                        <a type="button" class="btn btn-info" href="customer">Back</a>
                     </td>
                     <td>
-                        <a type="button" class="btn btn-info" href="customer">Back</a>
+                        <button type="submit" class="btn btn-warning" name="action" value="edit">Update</button>
                     </td>
                 </tr>
             </table>

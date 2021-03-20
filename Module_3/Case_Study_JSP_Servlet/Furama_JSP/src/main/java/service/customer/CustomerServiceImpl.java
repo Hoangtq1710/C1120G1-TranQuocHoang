@@ -36,8 +36,8 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public Customer search(String name) {
-        return repository.search(name);
+    public List<Customer> search(String search) {
+        return repository.search(search);
     }
 
     @Override

@@ -1,7 +1,6 @@
 package service.customer;
 
 import model.Customer;
-import repository.customer.CustomerRepository;
 
 import java.util.List;
 
@@ -17,7 +16,7 @@ public interface CustomerService {
 
     void remove(String id);
 
-    Customer search(String name);
+    List<Customer> search(String search);
 
     List<Customer> sortCustomer(String sortBy);
 }

@@ -26,7 +26,8 @@ public class CustomerServlet extends HttpServlet {
     private CustomerTypeService customerTypeService = new CustomerTypeServiceImpl();
 
     private void submitDataFromModal(HttpServletRequest request, HttpServletResponse response){
-        Customer customer = common(request, response);
+        String id = request.getParameter("customerId");
+        Customer customer = common(request, response, id);
 
         this.customerService.save(customer);
 
@@ -40,8 +41,8 @@ public class CustomerServlet extends HttpServlet {
         }
     }
 
-    private Customer common(HttpServletRequest request, HttpServletResponse response) {
-        String id = request.getParameter("id");
+    private Customer common(HttpServletRequest request, HttpServletResponse response, String id) {
+
         String name = request.getParameter("customerName");
         Date customerBirthday = null;
         SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
@@ -120,11 +121,11 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void editCustomer(HttpServletRequest request, HttpServletResponse response){
-        String id = request.getParameter("customerId");
+        String editId = request.getParameter("id");
 
-        Customer customer = common(request, response);
+        Customer customer = common(request, response, editId);
 
-        this.customerService.update(id, customer);
+        this.customerService.update(editId, customer);
         request.setAttribute("customer", customer);
         List<Customer> listCustomer = this.customerService.findAllCustomer();
         request.setAttribute("listCustomer", listCustomer);
@@ -137,7 +138,48 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("idCustomer");
+        Customer customer = this.customerService.findCustomerById(id);
+        if (customer != null){
+            this.customerService.remove(id);
+        }
+        List<Customer> listCustomer = this.customerService.findAllCustomer();
+        request.setAttribute("listCustomer", listCustomer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/customer.jsp");
 
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void searchCustomer(HttpServletRequest request, HttpServletResponse response){
+        String search = request.getParameter("search");
+        List<Customer> listCustomer = this.customerService.search(search);
+        request.setAttribute("listCustomer", listCustomer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/customer.jsp");
+
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sortUser(HttpServletRequest request, HttpServletResponse response){
+//        String factor = request.getParameter("factor");
+        String sortBy = request.getParameter("sortBy");
+
+        List<Customer> listCustomer = this.customerService.sortCustomer(sortBy);
+        request.setAttribute("listCustomer", listCustomer);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("customer/customer.jsp");
+
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -146,11 +188,14 @@ public class CustomerServlet extends HttpServlet {
             action = "";
         }
         switch (action){
-            case "submitData":
+            case "submitData": //view
                 submitDataFromModal(request, response);
                 break;
             case "edit":
                 editCustomer(request, response);
+                break;
+            case "delete":
+                deleteCustomer(request, response);
                 break;
             default:
                 break;
@@ -171,9 +216,11 @@ public class CustomerServlet extends HttpServlet {
             case "edit":
                 showEditForm(request, response);
                 break;
-            case "delete":
-                deleteCustomer(request, response);
+            case "search":
+                searchCustomer(request, response);
                 break;
+            case "sort":
+                sortUser(request, response);
             default:
                 showCustomerList(request, response);
                 break;

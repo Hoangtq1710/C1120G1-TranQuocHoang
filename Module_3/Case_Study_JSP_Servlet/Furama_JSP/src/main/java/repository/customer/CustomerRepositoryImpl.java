@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerRepositoryImpl implements CustomerRepository{
+
     CustomerTypeService customerTypeService = new CustomerTypeServiceImpl();
 
     public static final String SELECT_ALL_CUS = "select * from customer;";
@@ -25,9 +26,34 @@ public class CustomerRepositoryImpl implements CustomerRepository{
                                                     "customer_birthday = ?, customer_id_card = ?, customer_phone = ?," +
                                                     "customer_email = ?, customer_address = ?" +
                                                 " where customer_id = ?;";
-    public static final String SEARCH_CUS_SQL = "select * from customer where customer_name like ?;";
+    public static final String SEARCH_CUS_SQL = "select * from customer where customer_name like ? " +
+                                                "union " +
+                                                "select * from customer where customer_type_id like ?" +
+                                                "union " +
+                                                "select * from customer where customer_id_card like ?" +
+                                                "union " +
+                                                "select * from customer where customer_address like ?" +
+                                                "union " +
+                                                "select * from customer where customer_birthday like ?" +
+                                                "union " +
+                                                "select * from customer where customer_phone like ?" +
+                                                "union " +
+                                                "select * from customer where customer_email like ?;";
+
     public static final String SORT_CUS_BY_NAME_DESC = "select * from customer order by customer_name desc;";
     public static final String SORT_CUS_BY_NAME_ASC = "select * from customer order by customer_name;";
+
+//    public static final String SORT_CUS_BY_ID_DESC = "select * from customer order by customer_id desc;";
+//    public static final String SORT_CUS_BY_ID_ASC = "select * from customer order by customer_id;";
+//
+//    public static final String SORT_CUS_BY_BD_DESC = "select * from customer order by customer_birthday desc;";
+//    public static final String SORT_CUS_BY_BD_ASC = "select * from customer order by customer_birthday;";
+//
+//    public static final String SORT_CUS_BY_EMAIL_DESC = "select * from customer order by customer_email desc;";
+//    public static final String SORT_CUS_BY_EMAIL_ASC = "select * from customer order by customer_email;";
+
+    public static final String SORT_CUS_BY_ADDRESS_DESC = "select * from customer order by customer_address desc;";
+    public static final String SORT_CUS_BY_ADDRESS_ASC = "select * from customer order by customer_address;";
 
 
     @Override
@@ -184,17 +210,146 @@ public class CustomerRepositoryImpl implements CustomerRepository{
 
     @Override
     public void remove(String id) {
+        Connection con = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        if (con != null) {
+            try {
+                statement = con.prepareStatement(DELETE_CUS_SQL);
+                statement.setString(1, id);
 
+                statement.executeUpdate();
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
     }
 
     @Override
-    public Customer search(String name) {
-        return null;
+    public List<Customer> search(String search) {
+        Connection con = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<Customer> listCustomer = new ArrayList<>();
+        Customer customer;
+        if (con != null) {
+            try {
+                statement = con.prepareStatement(SEARCH_CUS_SQL);
+                statement.setString(1,'%'+search+'%');
+                statement.setString(2,'%'+search+'%');
+                statement.setString(3,'%'+search+'%');
+                statement.setString(4,'%'+search+'%');
+                statement.setString(5,'%'+search+'%');
+                statement.setString(6,'%'+search+'%');
+                statement.setString(7,'%'+search+'%');
+
+                resultSet = statement.executeQuery();
+                while (resultSet.next()){
+                    String customerId = resultSet.getString("customer_id");
+                    String name = resultSet.getString("customer_name");
+                    Date birthday = resultSet.getDate("customer_birthday");
+                    int int_gender = resultSet.getInt("customer_gender");
+                    boolean gender = (int_gender == 1);
+                    String idCard = resultSet.getString("customer_id_card");
+                    String phone = resultSet.getString("customer_phone");
+                    String email = resultSet.getString("customer_email");
+                    String address = resultSet.getString("customer_address");
+
+                    int typeCustomerId = resultSet.getInt("customer_type_id");
+                    CustomerType customerType = this.customerTypeService.findCusTypeById(typeCustomerId);
+
+                    customer = new Customer(customerId,name,birthday,gender,idCard,phone,email,address,customerType);
+                    listCustomer.add(customer);
+                }
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                try {
+                    resultSet.close();
+                    statement.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        return listCustomer;
     }
 
     @Override
     public List<Customer> sortCustomer(String sortBy) {
-        return null;
+        Connection con = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<Customer> listCustomer = new ArrayList<>();
+        Customer customer;
+
+//        switch (factor) {
+////            case "id":
+////                sql = (sortBy.equals("desc") ? SORT_CUS_BY_ID_DESC : SORT_CUS_BY_ID_ASC );
+////                break;
+//            case "name":
+//                sql = (sortBy.equals("desc") ? SORT_CUS_BY_NAME_DESC : SORT_CUS_BY_NAME_ASC );
+//                break;
+////            case "birthday":
+////                sql = (sortBy.equals("desc") ? SORT_CUS_BY_BD_DESC : SORT_CUS_BY_BD_ASC );
+////                break;
+////            case "email":
+////                sql = (sortBy.equals("desc") ? SORT_CUS_BY_EMAIL_DESC : SORT_CUS_BY_EMAIL_ASC );
+////                break;
+//            case "address":
+//                sql = (sortBy.equals("desc") ? SORT_CUS_BY_ADDRESS_DESC : SORT_CUS_BY_ADDRESS_ASC );
+//                break;
+//        }
+
+
+
+        if (con != null) {
+            try {
+                if (sortBy.equals("desc")) {
+                    statement = con.prepareStatement(SORT_CUS_BY_NAME_DESC);
+                } else {
+                    statement = con.prepareStatement(SORT_CUS_BY_NAME_ASC);
+                }
+
+                resultSet = statement.executeQuery();
+
+                while (resultSet.next()) {
+                    String id = resultSet.getString("customer_id");
+                    String name = resultSet.getString("customer_name");
+                    Date birthday = resultSet.getDate("customer_birthday");
+                    int int_gender = resultSet.getInt("customer_gender");
+                    boolean gender = (int_gender == 1);
+                    String idCard = resultSet.getString("customer_id_card");
+                    String phone = resultSet.getString("customer_phone");
+                    String email = resultSet.getString("customer_email");
+                    String address = resultSet.getString("customer_address");
+                    int cusTypeId = resultSet.getInt("customer_type_id");
+                    CustomerType customerType = this.customerTypeService.findCusTypeById(cusTypeId);
+                    customer = new Customer(id,name,birthday,gender,idCard,phone,email,address,customerType);
+                    listCustomer.add(customer);
+                }
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                try {
+                    resultSet.close();
+                    statement.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        return listCustomer;
     }
 
 }

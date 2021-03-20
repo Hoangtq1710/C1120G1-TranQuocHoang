@@ -16,7 +16,7 @@ public interface CustomerRepository {
 
     void remove(String id);
 
-    Customer search(String name);
+    List<Customer> search(String search);
 
     List<Customer> sortCustomer(String sortBy);
 }

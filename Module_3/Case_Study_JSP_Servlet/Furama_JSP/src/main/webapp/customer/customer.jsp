@@ -13,6 +13,7 @@
 <%--<%@include file="../page/left_content.jsp" %>--%>
 
 <!-------------------body--------------------------------------------------------------->
+
 <div class="col-sm-12">
     <div class="container-fluid">
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createCustomer" style="margin: 20px 0" >
@@ -95,11 +96,31 @@
 
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-danger" name="action" value="submitData">Create</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-success" name="action" value="submitData">Create</button>
+                            <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                         </div>
 
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="deleteCustomer">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">ARE YOU SURE?</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-danger" onclick="submitFormDelete()">Delete</button>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -110,12 +131,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Name
-                        <a href="/customer?action=sort&sortBy=${"asc"}">
-                            <i class="fas fa-sort-alpha-down"></i>
-                        </a>
-                        <a href="/customer?action=sort&sortBy=${"desc"}">
-                            <i class="fas fa-sort-alpha-up"></i>
-                        </a>
+<%--                        <a href="/customer?action=sort&sortBy=${"asc"}">--%>
+<%--                            <i class="fas fa-sort-alpha-down"></i>--%>
+<%--                        </a>--%>
+<%--                        <a href="/customer?action=sort&sortBy=${"desc"}">--%>
+<%--                            <i class="fas fa-sort-alpha-up"></i>--%>
+<%--                        </a>--%>
                     </th>
                     <th>Customer Type</th>
                     <th>Birthday</th>
@@ -147,18 +168,36 @@
                             <a type="button" class="btn btn-warning" href="/customer?action=edit&id=${customer.getCustomerId()}">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a type="button" class="btn btn-danger" href="/customer?action=delete&id=${customer.getCustomerId()}">
+                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCustomer"
+                                    onclick="saveIdDelete('${customer.getCustomerId()}')" >
                                 <i class="fas fa-trash-alt"></i>
-                            </a>
+                            </button>
+
                         </td>
                     </tr>
                 </c:forEach>
                 </tbody>
             </c:if>
         </table>
+
+        <a type="button" class="btn btn-info" href="/" style="margin-bottom: 15px">Back</a>
     </div>
 </div>
 </div>
 </div>
+<form action="/customer" method="post" id="formDelete">
+    <input type="hidden" name="idCustomer" id="idDeleteCustomer">
+    <input type="hidden" name="action" value="delete">
+</form>
+<script>
 
+    function saveIdDelete(idCustomer) {
+        document.getElementById("idDeleteCustomer").value = idCustomer;
+    }
+
+    function submitFormDelete() {
+        document.getElementById("formDelete").submit();
+    }
+
+</script>
 <%@include file="../page/footer.jsp" %>

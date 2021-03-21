@@ -81,7 +81,92 @@ public class EmployeeServlet extends HttpServlet {
         return new Employee(name,employeeBirthday,idCard,salary,phone,email,address,position,eduDegree,division,user);
     }
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void viewEmployee(HttpServletRequest request, HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("id"));
+        Employee employee = this.employeeService.findEmployeeById(id);
+
+        if (employee != null) {
+            request.setAttribute("employee", employee);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("employee/view-employee.jsp");
+
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void showEditForm(HttpServletRequest request, HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("id"));
+        Employee employee = this.employeeService.findEmployeeById(id);
+
+
+        if (employee != null) {
+            String password = employee.getUser().getPassword();
+            request.setAttribute("password", password);
+            request.setAttribute("employee", employee);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("employee/edit-employee.jsp");
+
+            try {
+                dispatcher.forward(request, response);
+            } catch (ServletException | IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void editEmployee(HttpServletRequest request, HttpServletResponse response){
+        int id = Integer.parseInt(request.getParameter("employeeId"));
+        String name = request.getParameter("employeeName");
+
+        int positionId = Integer.parseInt(request.getParameter("position"));
+        int divisionId= Integer.parseInt(request.getParameter("division"));
+        int eduDegreeId = Integer.parseInt(request.getParameter("eduDegree"));
+        Position position = this.positionService.findById(positionId);
+        Division division = this.divisionService.findById(divisionId);
+        EduDegree eduDegree = this.eduDegreeService.findById(eduDegreeId);
+
+        Date empBirthday = null;
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-mm-dd");
+        try {
+            java.util.Date birthday = format.parse(request.getParameter("birthday"));
+            empBirthday = new Date(birthday.getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        String idCard = request.getParameter("idCard");
+        double salary = Double.parseDouble(request.getParameter("salary"));
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+
+        User user = this.userService.findByUserName(username);
+        user.setPassword(password);
+        this.userService.update(username, password);
+        user = this.userService.findByUserName(username);
+
+        Employee employee = new Employee(id,name,empBirthday,idCard,salary,phone,email,address,position,eduDegree,division,user);
+
+        this.employeeService.update(id, employee);
+        List<Employee> listEmployee = this.employeeService.findAllEmployee();
+
+        request.setAttribute("password",password);
+        request.setAttribute("listEmployee", listEmployee);
+
+        RequestDispatcher dispatcher = request.getRequestDispatcher("employee/employee.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -90,18 +175,29 @@ public class EmployeeServlet extends HttpServlet {
             case "submitData" :
                 submitDataFromModal(request, response);
                 break;
+            case "edit":
+                editEmployee(request, response);
+                break;
             default:
                 break;
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
         }
         switch (action){
+            case "view":
+                viewEmployee(request, response);
+                break;
+            case "edit":
+                showEditForm(request, response);
+                break;
+            case "search":
 
+                break;
             default:
                 showEmployeeList(request, response);
                 break;

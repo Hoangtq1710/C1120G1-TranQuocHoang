@@ -9,8 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserRepositoryImpl implements UserRepository{
-    public static final String CREATE_NEW_ACC = "insert into `user`(username, `password`) values (?, ?);";
-    public static final String FIND_BY_USERNAME = "select * from `user` where username = ?;";
+    public static final String CREATE_NEW_ACC = "insert into `user`(`username`, `password`) values (?, ?);";
+    public static final String FIND_BY_USERNAME = "select * from `user` where `username` = ?;";
+    public static final String UPDATE_ACC = "update `user` set `password` = ? where `username` = ?;";
 
     @Override
     public void createAccount(String username) {
@@ -68,5 +69,31 @@ public class UserRepositoryImpl implements UserRepository{
             }
         }
         return user;
+    }
+
+    @Override
+    public void update(String username, String password) {
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(UPDATE_ACC);
+                statement.setString(1, password);
+                statement.setString(2, username);
+
+                statement.executeUpdate();
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                try {
+                    statement.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
     }
 }

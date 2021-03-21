@@ -26,7 +26,9 @@ public class CustomerRepositoryImpl implements CustomerRepository{
                                                     "customer_birthday = ?, customer_id_card = ?, customer_phone = ?," +
                                                     "customer_email = ?, customer_address = ?" +
                                                 " where customer_id = ?;";
-    public static final String SEARCH_CUS_SQL = "select * from customer where customer_name like ? " +
+    public static final String SEARCH_CUS_SQL = "select * from customer where customer_id like ? " +
+                                                "union "+
+                                                "select * from customer where customer_name like ? " +
                                                 "union " +
                                                 "select * from customer where customer_type_id like ?" +
                                                 "union " +
@@ -249,6 +251,7 @@ public class CustomerRepositoryImpl implements CustomerRepository{
                 statement.setString(5,'%'+search+'%');
                 statement.setString(6,'%'+search+'%');
                 statement.setString(7,'%'+search+'%');
+                statement.setString(8,'%'+search+'%');
 
                 resultSet = statement.executeQuery();
                 while (resultSet.next()){

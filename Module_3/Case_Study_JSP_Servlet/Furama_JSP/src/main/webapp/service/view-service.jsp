@@ -17,7 +17,7 @@
 <%--<!-------------------body--------------------------------------------------------------->--%>
 <%--<div class="col-sm-12">--%>
 <%--    <div class="container-fluid" style="margin-top: 15px">--%>
-<%--        <h4>Service Information</h4>--%>
+<%--        <h4>View Service Information</h4>--%>
 <%--        <table class="table table-hover">--%>
 <%--            <tr>--%>
 <%--                <th>ID</th>--%>

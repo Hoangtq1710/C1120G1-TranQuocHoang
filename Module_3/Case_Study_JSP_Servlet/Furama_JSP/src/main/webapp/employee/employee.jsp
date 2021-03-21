@@ -149,6 +149,7 @@
                     <th hidden>Email</th>
                     <th>Address</th>
                     <th hidden>UserName</th>
+                    <th hidden>Password</th>
                     <th>Options</th>
                 </tr>
                 </thead>
@@ -167,6 +168,7 @@
                         <td hidden>${employee.getEmployeeEmail()}</td>
                         <td>${employee.getEmployeeAddress()}</td>
                         <td hidden>${employee.getUser().getUsername()}</td>
+                        <td hidden>${requestScope["password"]}</td>
                         <td>
                             <a type="button" class="btn btn-warning" title="Edit" href="/employee?action=edit&id=${employee.getEmployeeId()}">
                                 <i class="fas fa-edit"></i>

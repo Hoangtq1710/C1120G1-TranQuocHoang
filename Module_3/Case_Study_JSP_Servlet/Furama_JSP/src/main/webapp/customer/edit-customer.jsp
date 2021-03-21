@@ -30,11 +30,41 @@
                     <th>Customer Type</th>
                     <td>
                         <select name="customerTypeName">
-                            <option value="Diamond">Diamond</option>
-                            <option value="Platinum">Platinum</option>
-                            <option value="Gold">Gold</option>
-                            <option value="Silver">Silver</option>
-                            <option value="Member">Member</option>
+                            <option value="Diamond"
+                                    <c:if test='${requestScope["customer"].getCustomerType().getCustomerTypeId()== 1}'>
+                                        selected="selected"
+                                    </c:if>
+                            >
+                                Diamond
+                            </option>
+                            <option value="Platinum"
+                                    <c:if test='${requestScope["customer"].getCustomerType().getCustomerTypeId()== 2}'>
+                                        selected="selected"
+                                    </c:if>
+                            >
+                                Platinum
+                            </option>
+                            <option value="Gold"
+                                    <c:if test='${requestScope["customer"].getCustomerType().getCustomerTypeId()== 3}'>
+                                        selected="selected"
+                                    </c:if>
+                            >
+                                Gold
+                            </option>
+                            <option value="Silver"
+                                    <c:if test='${requestScope["customer"].getCustomerType().getCustomerTypeId()== 4}'>
+                                        selected="selected"
+                                    </c:if>
+                            >
+                                Silver
+                            </option>
+                            <option value="Member"
+                                    <c:if test='${requestScope["customer"].getCustomerType().getCustomerTypeId()== 5}'>
+                                        selected="selected"
+                                    </c:if>
+                            >
+                                Member
+                            </option>
                         </select>
                     </td>
                 </tr>
@@ -48,8 +78,20 @@
                     <th>Gender</th>
                     <td>
                         <select name="customerGender">
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
+                            <option value="Male"
+                                    <c:if test='${requestScope["customer"].isCustomerGender()}'>
+                                        selected="selected"
+                                    </c:if>
+                            >
+                                Male
+                            </option>
+                            <option value="Female"
+                                    <c:if test='${requestScope["customer"].isCustomerGender() == false}'>
+                                        selected="selected"
+                                    </c:if>
+                            >
+                                Female
+                            </option>
                         </select>
                     </td>
                 </tr>

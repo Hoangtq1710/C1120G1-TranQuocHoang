@@ -15,4 +15,9 @@ public class UserServiceImpl implements UserService{
     public User findByUserName(String username) {
         return repository.findByUserName(username);
     }
+
+    @Override
+    public void update(String username, String password) {
+        repository.update(username, password);
+    }
 }

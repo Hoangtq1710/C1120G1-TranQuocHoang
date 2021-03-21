@@ -26,21 +26,44 @@ public class CustomerRepositoryImpl implements CustomerRepository{
                                                     "customer_birthday = ?, customer_id_card = ?, customer_phone = ?," +
                                                     "customer_email = ?, customer_address = ?" +
                                                 " where customer_id = ?;";
-    public static final String SEARCH_CUS_SQL = "select * from customer where customer_id like ? " +
+    public static final String SEARCH_CUS_SQL = "select customer_id,customer_name,customer_birthday,customer_gender," +
+                                                        "customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer_type_id from customer where customer_id like ? " +
+                                                "union " +
+                                                "select customer_id,customer_name,customer_birthday,customer_gender," +
+                                                        "customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer.customer_type_id from customer " +
+                                                "inner join customer_type on customer_type.customer_type_id = customer.customer_type_id\n" +
+                                                        "where customer_type.customer_type_name like ?" +
                                                 "union "+
-                                                "select * from customer where customer_name like ? " +
+                                                "select customer_id,customer_name,customer_birthday,customer_gender," +
+                                                        "customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer_type_id from customer where customer_name like ? " +
                                                 "union " +
-                                                "select * from customer where customer_type_id like ?" +
+                                                "select customer_id,customer_name,customer_birthday,customer_gender" +
+                                                        ",customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer_type_id from customer where customer_type_id like ?" +
                                                 "union " +
-                                                "select * from customer where customer_id_card like ?" +
+                                                "select customer_id,customer_name,customer_birthday,customer_gender," +
+                                                        "customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer_type_id from customer where customer_id_card like ?" +
                                                 "union " +
-                                                "select * from customer where customer_address like ?" +
+                                                "select customer_id,customer_name,customer_birthday,customer_gender," +
+                                                        "customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer_type_id from customer where customer_address like ?" +
                                                 "union " +
-                                                "select * from customer where customer_birthday like ?" +
+                                                "select customer_id,customer_name,customer_birthday,customer_gender," +
+                                                        "customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer_type_id from customer where customer_birthday like ?" +
                                                 "union " +
-                                                "select * from customer where customer_phone like ?" +
+                                                "select customer_id,customer_name,customer_birthday,customer_gender," +
+                                                        "customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer_type_id from customer where customer_phone like ?" +
                                                 "union " +
-                                                "select * from customer where customer_email like ?;";
+                                                "select customer_id,customer_name,customer_birthday,customer_gender," +
+                                                        "customer_id_card,customer_phone,customer_email,customer_address," +
+                                                        "customer_type_id from customer where customer_email like ?;";
+
 
     public static final String SORT_CUS_BY_NAME_DESC = "select * from customer order by customer_name desc;";
     public static final String SORT_CUS_BY_NAME_ASC = "select * from customer order by customer_name;";
@@ -252,6 +275,8 @@ public class CustomerRepositoryImpl implements CustomerRepository{
                 statement.setString(6,'%'+search+'%');
                 statement.setString(7,'%'+search+'%');
                 statement.setString(8,'%'+search+'%');
+                statement.setString(9,'%'+search+'%');
+
 
                 resultSet = statement.executeQuery();
                 while (resultSet.next()){

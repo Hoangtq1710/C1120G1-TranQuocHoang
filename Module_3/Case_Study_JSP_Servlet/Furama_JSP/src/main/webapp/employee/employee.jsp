@@ -18,6 +18,7 @@
         <button type="button" class="btn btn-success"  data-toggle="modal" title="Create Employee" data-target="#createEmployee" style="margin: 20px 20px" >
             <i class="far fa-plus-square"></i>
         </button>
+        <a href="employee" type="button" class="btn btn-info" title="Refresh" style="float: right;margin: 20px 20px"><i class="fas fa-sync-alt"></i></a>
 
         <div class="modal fade" id="createEmployee">
             <div class="modal-dialog">

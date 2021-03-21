@@ -19,6 +19,7 @@
         <button type="button" class="btn btn-success" data-toggle="modal" title="Create Customer" data-target="#createCustomer" style="margin: 20px 20px" >
             <i class="far fa-plus-square"></i>
         </button>
+        <a href="customer" type="button" class="btn btn-info" title="Refresh" style="float: right;margin: 20px 20px"><i class="fas fa-sync-alt"></i></a>
 
         <div class="modal fade" id="createCustomer">
             <div class="modal-dialog">

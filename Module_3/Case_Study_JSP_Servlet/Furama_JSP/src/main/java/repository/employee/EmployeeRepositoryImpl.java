@@ -28,6 +28,35 @@ public class EmployeeRepositoryImpl implements EmployeeRepository{
                                                 "employee_salary = ?, employee_phone = ?, employee_email = ?, " +
                                                 "employee_address = ?" +
                                             "where employee_id = ?;";
+    public static final String SEARCH_EMP = "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee inner join `position` on `position`.position_id = employee.position_id \n" +
+                                            "where `position`.position_name like ?\n" +
+                                            "union \n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee inner join education_degree on education_degree.education_degree_id = employee.education_degree_id \n" +
+                                            "where education_degree.education_degree_name like ?\n" +
+                                            "union\n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee inner join division on division.division_id = employee.division_id \n" +
+                                            "where division.division_name like ?\n" +
+                                            "union\n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee\n" +
+                                            "where employee_name like ?\n" +
+                                            "union\n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee\n" +
+                                            "where employee_birthday like ?\n" +
+                                            "union\n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee\n" +
+                                            "where employee_id_card like ?\n" +
+                                            "union\n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee\n" +
+                                            "where employee_salary like ?\n" +
+                                            "union\n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee\n" +
+                                            "where employee_phone like ?\n" +
+                                            "union\n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee\n" +
+                                            "where employee_email like ?\n" +
+                                            "union\n" +
+                                            "select employee_id,employee.position_id,employee.education_degree_id,employee.division_id,username,employee_name,employee_birthday,employee_id_card,employee_salary,employee_phone,employee_email,employee_address from employee\n" +
+                                            "where employee_address like ?";
 
 
     PositionService positionService = new PositionServiceImpl();
@@ -204,7 +233,45 @@ public class EmployeeRepositoryImpl implements EmployeeRepository{
 
     @Override
     public List<Employee> search(String search) {
-        return null;
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Employee employee = null;
+        List<Employee> listEmployee = new ArrayList<>();
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SEARCH_EMP);
+                statement.setString(1,'%'+search+'%');
+                statement.setString(2,'%'+search+'%');
+                statement.setString(3,'%'+search+'%');
+                statement.setString(4,'%'+search+'%');
+                statement.setString(5,'%'+search+'%');
+                statement.setString(6,'%'+search+'%');
+                statement.setString(7,'%'+search+'%');
+                statement.setString(8,'%'+search+'%');
+                statement.setString(9,'%'+search+'%');
+                statement.setString(10,'%'+search+'%');
+
+                resultSet = statement.executeQuery();
+                while (resultSet.next()){
+                    employee = common(resultSet);
+
+                    listEmployee.add(employee);
+                }
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                try {
+                    resultSet.close();
+                    statement.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        return listEmployee;
     }
 
     @Override

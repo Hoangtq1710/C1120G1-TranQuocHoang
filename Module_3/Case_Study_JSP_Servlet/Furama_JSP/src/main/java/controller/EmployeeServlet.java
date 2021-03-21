@@ -166,6 +166,19 @@ public class EmployeeServlet extends HttpServlet {
 
     }
 
+    private void searchEmployee(HttpServletRequest request, HttpServletResponse response){
+        String search = request.getParameter("search");
+        List<Employee> listEmployee = this.employeeService.search(search);
+        request.setAttribute("listEmployee",listEmployee);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("employee/employee.jsp");
+
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String action = request.getParameter("action");
         if (action == null) {
@@ -196,7 +209,7 @@ public class EmployeeServlet extends HttpServlet {
                 showEditForm(request, response);
                 break;
             case "search":
-
+                searchEmployee(request, response);
                 break;
             default:
                 showEmployeeList(request, response);

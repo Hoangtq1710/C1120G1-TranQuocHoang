@@ -25,6 +25,8 @@
             <i class="far fa-plus-square"></i>
         </button>
 
+        <a href="service" type="button" class="btn btn-info" title="Refresh" style="float: right;margin: 20px 20px"><i class="fas fa-sync-alt"></i></a>
+
         <div class="modal fade" id="createVilla">
             <div class="modal-dialog">
                 <div class="modal-content">

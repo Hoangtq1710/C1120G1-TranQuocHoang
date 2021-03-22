@@ -46,7 +46,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <td>
-                                        <input type="text" name="serviceId" placeholder="DV-XXXX">
+                                        <input type="text" name="serviceId" placeholder="DV-XXXX" required>
                                     </td>
                                 </tr>
                                 <tr hidden>
@@ -58,7 +58,7 @@
                                 <tr>
                                     <th>Rent Type</th>
                                     <td>
-                                        <select name="rentType">
+                                        <select name="rentType" required>
                                             <option value="1">Rent by Hour</option>
                                             <option value="2">Rent by Day</option>
                                             <option value="3">Rent by Month</option>
@@ -69,25 +69,25 @@
                                 <tr>
                                     <th>Area</th>
                                     <td>
-                                        <input type="number" name="serviceArea" placeholder="15">
+                                        <input type="number" name="serviceArea" placeholder="15" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Max People</th>
                                     <td>
-                                        <input type="number" name="maxPeople" placeholder="0">
+                                        <input type="number" name="maxPeople" placeholder="0" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Cost</th>
                                     <td>
-                                        <input type="number" name="serviceCost" placeholder="0 $">
+                                        <input type="number" name="serviceCost" placeholder="0 $" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Standard Room</th>
                                     <td>
-                                        <select name="standardRoom">
+                                        <select name="standardRoom" required>
                                             <option value="VIP">VIP</option>
                                             <option value="Business">Business</option>
                                             <option value="Normal">Normal</option>
@@ -97,13 +97,13 @@
                                 <tr>
                                     <th>Pool Area</th>
                                     <td>
-                                        <input type="number" name="poolArea" placeholder="0">
+                                        <input type="number" name="poolArea" placeholder="0" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Number of Floor</th>
                                     <td>
-                                        <input type="number" name="numOfFloor" placeholder="0">
+                                        <input type="number" name="numOfFloor" placeholder="0" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -146,7 +146,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <td>
-                                        <input type="text" name="serviceId" placeholder="DV-XXXX">
+                                        <input type="text" name="serviceId" placeholder="DV-XXXX" required>
                                     </td>
                                 </tr>
                                 <tr hidden>
@@ -158,7 +158,7 @@
                                 <tr>
                                     <th>Rent Type</th>
                                     <td>
-                                        <select name="rentType">
+                                        <select name="rentType" required>
                                             <option value="1">Rent by Hour</option>
                                             <option value="2">Rent by Day</option>
                                             <option value="3">Rent by Month</option>
@@ -169,25 +169,25 @@
                                 <tr>
                                     <th>Area</th>
                                     <td>
-                                        <input type="number" name="serviceArea" placeholder="15">
+                                        <input type="number" name="serviceArea" placeholder="15" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Max People</th>
                                     <td>
-                                        <input type="number" name="maxPeople" placeholder="0">
+                                        <input type="number" name="maxPeople" placeholder="0" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Cost</th>
                                     <td>
-                                        <input type="number" name="serviceCost" placeholder="0 $">
+                                        <input type="number" name="serviceCost" placeholder="0 $" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Standard Room</th>
                                     <td>
-                                        <select name="standardRoom">
+                                        <select name="standardRoom" required>
                                             <option value="VIP">VIP</option>
                                             <option value="Business">Business</option>
                                             <option value="Normal">Normal</option>
@@ -203,7 +203,7 @@
                                 <tr>
                                     <th>Number of Floor</th>
                                     <td>
-                                        <input type="number" name="numOfFloor" placeholder="0">
+                                        <input type="number" name="numOfFloor" placeholder="0" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -246,7 +246,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <td>
-                                        <input type="text" name="serviceId" placeholder="DV-XXXX">
+                                        <input type="text" name="serviceId" placeholder="DV-XXXX" required>
                                     </td>
                                 </tr>
                                 <tr hidden>
@@ -258,7 +258,7 @@
                                 <tr>
                                     <th>Rent Type</th>
                                     <td>
-                                        <select name="rentType">
+                                        <select name="rentType" required>
                                             <option value="1">Rent by Hour</option>
                                             <option value="2">Rent by Day</option>
                                             <option value="3">Rent by Month</option>
@@ -269,19 +269,19 @@
                                 <tr>
                                     <th>Area</th>
                                     <td>
-                                        <input type="number" name="serviceArea" placeholder="15">
+                                        <input type="number" name="serviceArea" placeholder="15" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Max People</th>
                                     <td>
-                                        <input type="number" name="maxPeople" placeholder="0">
+                                        <input type="number" name="maxPeople" placeholder="0" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Cost</th>
                                     <td>
-                                        <input type="number" name="serviceCost" placeholder="0 $">
+                                        <input type="number" name="serviceCost" placeholder="0 $" required>
                                     </td>
                                 </tr>
                                 <tr hidden>

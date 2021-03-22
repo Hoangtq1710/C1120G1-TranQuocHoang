@@ -45,7 +45,7 @@
                                 <tr>
                                     <th>Position</th>
                                     <td>
-                                        <select name="position">
+                                        <select name="position" required>
                                             <option value="1">Receptionist</option>
                                             <option value="2">Serve</option>
                                             <option value="3">Expert</option>
@@ -58,7 +58,7 @@
                                 <tr>
                                     <th>Division</th>
                                     <td>
-                                        <select name="division">
+                                        <select name="division" required>
                                             <option value="1">Sale-Marketing</option>
                                             <option value="2">Administration</option>
                                             <option value="3">Serve</option>
@@ -69,7 +69,7 @@
                                 <tr>
                                     <th>Education Degree</th>
                                     <td>
-                                        <select name="eduDegree">
+                                        <select name="eduDegree" required>
                                             <option value="1">Intermediate</option>
                                             <option value="2">College</option>
                                             <option value="3">University</option>
@@ -80,19 +80,19 @@
                                 <tr>
                                     <th>Birthday</th>
                                     <td>
-                                        <input type="date" name="birthday">
+                                        <input type="date" name="birthday" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>ID Card</th>
                                     <td>
-                                        <input type="text" name="idCard" placeholder="9 or 12 digits of X">
+                                        <input type="text" name="idCard" required placeholder="9 or 12 digits of X">
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Salary</th>
                                     <td>
-                                        <input type="number" name="salary" placeholder="0 $">
+                                        <input type="number" name="salary" placeholder="0 $" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -110,13 +110,13 @@
                                 <tr>
                                     <th>Address</th>
                                     <td>
-                                        <input type="text" name="address">
+                                        <input type="text" name="address" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Username</th>
                                     <td>
-                                        <input type="text" name="username">
+                                        <input type="text" name="username" required>
                                     </td>
                                 </tr>
                                 </tbody>
@@ -184,6 +184,7 @@
                 </tbody>
             </c:if>
         </table>
+
         <a type="button" class="btn btn-info" href="/" style="margin-bottom: 15px">Back</a>
     </div>
 

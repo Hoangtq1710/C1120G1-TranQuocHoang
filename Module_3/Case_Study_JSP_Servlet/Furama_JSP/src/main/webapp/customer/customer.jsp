@@ -40,13 +40,13 @@
                                     <tr>
                                         <th>ID</th>
                                         <td>
-                                            <input type="text" name="customerId" placeholder="KH-XXXX">
+                                            <input type="text" name="customerId" placeholder="KH-XXXX" required>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Customer Type</th>
                                         <td>
-                                            <select name="customerTypeName">
+                                            <select name="customerTypeName" required>
                                                 <option value="Diamond">Diamond</option>
                                                 <option value="Platinum">Platinum</option>
                                                 <option value="Gold">Gold</option>
@@ -58,14 +58,14 @@
                                     <tr>
                                         <th>Name</th>
                                         <td>
-                                            <input type="text" name="customerName">
+                                            <input type="text" name="customerName" required>
 
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Gender</th>
                                         <td>
-                                            <select name="customerGender">
+                                            <select name="customerGender" required>
                                                 <option value="Male">Male</option>
                                                 <option value="Female">Female</option>
                                             </select>
@@ -74,13 +74,13 @@
                                     <tr>
                                         <th>Birthday</th>
                                         <td>
-                                            <input type="date" name="customerBirthday">
+                                            <input type="date" name="customerBirthday" required>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>ID Card</th>
                                         <td>
-                                            <input type="number" name="customerIdCard" placeholder="9 or 12 digits of X">
+                                            <input type="number" required name="customerIdCard" placeholder="9 or 12 digits of X">
                                         </td>
                                     </tr>
                                     <tr>
@@ -98,7 +98,7 @@
                                     <tr>
                                         <th>Address</th>
                                         <td>
-                                            <input type="text" name="customerAddress">
+                                            <input type="text" name="customerAddress" required>
                                         </td>
                                     </tr>
                                 </tbody>

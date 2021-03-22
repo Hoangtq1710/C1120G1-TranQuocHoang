@@ -39,7 +39,7 @@
                                 <tr>
                                     <th>Customer</th>
                                     <td>
-                                        <select name="customerId" >
+                                        <select name="customerId" required>
                                             <c:forEach items='${requestScope["listCustomer"]}' var="customer">
                                                 <option value="${customer.getCustomerId()}">${customer.getCustomerName()}</option>
                                             </c:forEach>
@@ -49,7 +49,7 @@
                                 <tr>
                                     <th>Employee</th>
                                     <td>
-                                        <select name="employeeId" >
+                                        <select name="employeeId" required>
                                             <c:forEach items='${requestScope["listEmployee"]}' var="employee">
                                                 <option value="${employee.getEmployeeId()}">${employee.getEmployeeName()}</option>
                                             </c:forEach>
@@ -59,7 +59,7 @@
                                 <tr>
                                     <th>Service</th>
                                     <td>
-                                        <select name="serviceId" >
+                                        <select name="serviceId" required>
                                             <c:forEach items='${requestScope["listService"]}' var="service">
                                                 <option value="${service.getServiceId()}">${service.getServiceName()}</option>
                                             </c:forEach>
@@ -69,13 +69,13 @@
                                 <tr>
                                     <th>Start Date</th>
                                     <td>
-                                        <input type="date" name="startDate">
+                                        <input type="date" name="startDate" required>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>End Date</th>
                                     <td>
-                                        <input type="date" name="endDate">
+                                        <input type="date" name="endDate" required>
                                     </td>
                                 </tr>
                                 <tr>
@@ -87,7 +87,7 @@
                                 <tr>
                                     <th>Total Money</th>
                                     <td>
-                                        <input type="number" name="totalMoney" placeholder="0.0 $">
+                                        <input type="number" name="totalMoney" placeholder="0.0 $" required>
                                     </td>
                                 </tr>
                                 </tbody>

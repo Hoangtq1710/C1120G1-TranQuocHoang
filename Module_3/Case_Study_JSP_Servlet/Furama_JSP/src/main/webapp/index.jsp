@@ -28,12 +28,8 @@
 <!-------------------header-------------------------------------------------------------------->
 <div class="jumbotron text-center"  style="margin-bottom: 0">
     <a href="index.jsp"><img src="assert/img/logo.png" alt="logo" style="float: left"></a>
-    <h1>Furama</h1>
-    <h3 style="display: inline; float: right">
-        <i class="fas fa-user-circle"></i>
-        <i class="fas fa-sign-out-alt"></i>
-    </h3>
-</div>
+
+<%@include file="page/login.jsp" %>
 
 <%@include file="page/navbar/home_navbar.jsp" %>
 <%@include file="page/left_content.jsp" %>

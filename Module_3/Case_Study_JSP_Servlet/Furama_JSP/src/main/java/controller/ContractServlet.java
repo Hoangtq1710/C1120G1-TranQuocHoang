@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.ParseException;
@@ -53,13 +54,9 @@ public class ContractServlet extends HttpServlet {
     }
 
     private void submitDataFromModal(HttpServletRequest request, HttpServletResponse response){
-        System.out.println("da vao submit");
         int employeeId = Integer.parseInt(request.getParameter("employeeId"));
         String customerId = request.getParameter("customerId");
         String serviceId = request.getParameter("serviceId");
-        System.out.println("employeeId "+employeeId);
-        System.out.println("customerId "+customerId);
-        System.out.println("serviceId "+serviceId);
 
         Employee employee = this.employeeService.findEmployeeById(employeeId);
         Customer customer = this.customerService.findCustomerById(customerId);
@@ -104,6 +101,14 @@ public class ContractServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            String name = (String) session.getAttribute("uname");
+            request.setAttribute("isLogin", "yes");
+            request.setAttribute("employeeName",name);
+        } else {
+            request.setAttribute("isLogin", "no");
+        }
         String action = request.getParameter("action");
         if (action == null) {
             action = "";

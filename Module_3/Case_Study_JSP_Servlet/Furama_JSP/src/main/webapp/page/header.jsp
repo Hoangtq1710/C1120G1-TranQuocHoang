@@ -26,10 +26,7 @@
 <body>
 <!-------------------header-------------------------------------------------------------------->
 <div class="jumbotron text-center" style="margin-bottom: 0">
-    <a href="../index.jsp"><img src="../assert/img/logo.png" alt="logo" style="float: left"></a>
-    <h1>Furama</h1>
-    <h3 style="display: inline; float: right">
-        <i class="fas fa-user-circle"></i>
-        <i class="fas fa-sign-out-alt"></i>
-    </h3>
-</div>
+    <a href="/"><img src="../assert/img/logo.png" alt="logo" style="float: left"></a>
+
+
+<%@include file="login.jsp" %>

@@ -65,6 +65,20 @@ public class ServiceServlet extends HttpServlet {
         }
     }
 
+    private void viewService(HttpServletRequest request, HttpServletResponse response) {
+        String id = request.getParameter("id");
+        Service service = this.serviceService.findServiceById(id);
+
+        request.setAttribute("service", service);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("service/view-service.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException | IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null){
@@ -85,6 +99,9 @@ public class ServiceServlet extends HttpServlet {
             action = "";
         }
         switch (action){
+            case "view":
+                viewService(request, response);
+                break;
             default:
                 showServiceList(request, response);
                 break;

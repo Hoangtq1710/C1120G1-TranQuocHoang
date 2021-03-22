@@ -137,6 +137,9 @@ public class CustomerRepositoryImpl implements CustomerRepository{
                 statement.setString(3,customer.getCustomerName());
                 statement.setInt(4,(customer.isCustomerGender()) ? 1 : 0);
                 statement.setString(5, customer.getCustomerBirthday().toString());
+
+
+
                 statement.setString(6,customer.getCustomerIdCard());
                 statement.setString(7, customer.getCustomerPhone());
                 statement.setString(8, customer.getCustomerEmail());

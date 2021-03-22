@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="../assert/style/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="../assert/style/fontawesome/css/all.min.css" type="text/css">
 </head>
+<style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
 <body>
 <!-------------------header-------------------------------------------------------------------->
 <div class="jumbotron text-center" style="margin-bottom: 0">

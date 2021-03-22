@@ -11,6 +11,9 @@
 </div>
 <script src="../assert/style/js/jquery.min.js"></script>
 <script src="../assert/style/js/popper.min.js"></script>
+<script src="../assert/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../assert/datatables/js/dataTables.bootstrap4.min.js" ></script>
+<%--<script src="../assert/style/js/popper.min.js.map"></script>--%>
 <script src="../assert/style/js/bootstrap.min.js"></script>
 </body>
 </html>

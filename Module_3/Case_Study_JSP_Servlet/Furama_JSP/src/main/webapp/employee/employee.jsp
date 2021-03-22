@@ -32,7 +32,7 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <table class="table table-hover">
+                            <table class="table table-striped">
                                 <thead>
                                 </thead>
                                 <tbody>
@@ -134,7 +134,7 @@
             </div>
         </div>
 
-        <table class="table table-hover">
+        <table class="table table-striped">
             <c:if test='${requestScope["listEmployee"] != null}'>
                 <thead>
                 <tr>
@@ -144,7 +144,7 @@
                     <th>Division</th>
                     <th>Degree</th>
                     <th>Birthday</th>
-                    <th hidden>ID Card</th>
+                    <th>ID Card</th>
                     <th>Salary</th>
                     <th>Phone</th>
                     <th hidden>Email</th>
@@ -163,7 +163,7 @@
                         <td>${employee.getDivision().getDivisionName()}</td>
                         <td>${employee.getEduDegree().getEduDegreeName()}</td>
                         <td>${employee.getEmployeeBirthday()}</td>
-                        <td hidden>${employee.getEmployeeIdCard()}</td>
+                        <td>${employee.getEmployeeIdCard()}</td>
                         <td>${employee.getEmployeeSalary()}</td>
                         <td>${employee.getEmployeePhone()}</td>
                         <td hidden>${employee.getEmployeeEmail()}</td>

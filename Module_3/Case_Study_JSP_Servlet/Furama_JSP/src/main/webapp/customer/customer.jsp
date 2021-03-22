@@ -33,7 +33,7 @@
 
                         <!-- Modal body -->
                         <div class="modal-body">
-                            <table class="table table-hover">
+                            <table class="table table-striped">
                                 <thead>
                                 </thead>
                                 <tbody>
@@ -136,7 +136,7 @@
             </div>
         </div>
 
-        <table class="table table-hover">
+        <table id="customer" class="table table-striped">
             <c:if test='${requestScope["listCustomer"] != null}'>
                 <thead>
                 <tr>
@@ -204,4 +204,14 @@
     }
 
 </script>
+<script>
+    $(document).ready(function () {
+        $('#customer').dataTable({
+            "dom" : 'lrtip',
+            "lengthChange" : false,
+            "pageLength" : 5
+        })
+    })
+</script>
+
 <%@include file="../page/footer.jsp" %>

@@ -22,6 +22,9 @@ public class ServiceRepositoryImpl implements ServiceRepository{
                                                                 "service_cost,rent_type_id,service_type_id,standard_room," +
                                                                 "description_other_convenience,pool_area,number_of_floors)" +
                                                                 "values (?,?,?,?,?,?,?,?,?,?,?)";
+    public static final String SELECT_SER_BY_ID = "select * from service where service_id = ?;";
+
+
     RentTypeService rentTypeService = new RentTypeServiceImpl();
     ServiceTypeService serviceTypeService = new ServiceTypeServiceImpl();
 
@@ -39,19 +42,8 @@ public class ServiceRepositoryImpl implements ServiceRepository{
                 resultSet = statement.executeQuery();
 
                 while (resultSet.next()){
-                    String serviceId = resultSet.getString("service_id");
-                    String serviceName = resultSet.getString("service_name");
-                    int serviceArea = resultSet.getInt("service_area");
-                    double serviceCost = Double.parseDouble(resultSet.getString("service_cost"));
-                    int serviceMaxPp = resultSet.getInt("service_max_people");
-                    String serviceStandRoom = resultSet.getString("standard_room");
-                    String serviceDesc = resultSet.getString("description_other_convenience");
-                    double servicePoolArea = Double.parseDouble(resultSet.getString("pool_area"));
-                    int serviceNof = resultSet.getInt("number_of_floors");
-                    RentType rentType = this.rentTypeService.findById(resultSet.getInt("rent_type_id"));
-                    ServiceType serviceType = this.serviceTypeService.findById(resultSet.getInt("service_type_id"));
+                    service = common(resultSet);
 
-                    service = new Service(serviceId,serviceName,serviceArea,serviceCost,serviceMaxPp,serviceStandRoom,serviceDesc,servicePoolArea,serviceNof,rentType, serviceType);
                     listService.add(service);
                 }
             } catch (SQLException throwables) {
@@ -67,6 +59,24 @@ public class ServiceRepositoryImpl implements ServiceRepository{
             }
         }
         return listService;
+    }
+
+    private Service common(ResultSet resultSet) throws SQLException {
+        String serviceId = resultSet.getString("service_id");
+        String serviceName = resultSet.getString("service_name");
+        int serviceArea = resultSet.getInt("service_area");
+        double serviceCost = Double.parseDouble(resultSet.getString("service_cost"));
+        int serviceMaxPp = resultSet.getInt("service_max_people");
+        String serviceStandRoom = resultSet.getString("standard_room");
+        String serviceDesc = resultSet.getString("description_other_convenience");
+        double servicePoolArea = Double.parseDouble(resultSet.getString("pool_area"));
+        int serviceNof = resultSet.getInt("number_of_floors");
+        RentType rentType = this.rentTypeService.findById(resultSet.getInt("rent_type_id"));
+        ServiceType serviceType = this.serviceTypeService.findById(resultSet.getInt("service_type_id"));
+
+        Service service = new Service(serviceId,serviceName,serviceArea,serviceCost,serviceMaxPp,serviceStandRoom,serviceDesc,servicePoolArea,serviceNof,rentType, serviceType);
+
+        return service;
     }
 
     @Override
@@ -106,7 +116,35 @@ public class ServiceRepositoryImpl implements ServiceRepository{
 
     @Override
     public Service findServiceById(String id) {
-        return null;
+        Connection connection = DBConnection.getConnection();
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Service service = null;
+
+        if (connection != null) {
+            try {
+                statement = connection.prepareStatement(SELECT_SER_BY_ID);
+                statement.setString(1, id);
+                resultSet = statement.executeQuery();
+
+                while (resultSet.next()){
+                    service = common(resultSet);
+                }
+
+
+            } catch (SQLException throwables) {
+                throwables.printStackTrace();
+            } finally {
+                try {
+                    resultSet.close();
+                    statement.close();
+                } catch (SQLException throwables) {
+                    throwables.printStackTrace();
+                }
+                DBConnection.close();
+            }
+        }
+        return service;
     }
 
     @Override

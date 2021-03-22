@@ -42,6 +42,7 @@ public class EmployeeServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
     private void submitDataFromModal(HttpServletRequest request, HttpServletResponse response){
         Employee employee = common(request, response);
         this.employeeService.save(employee);

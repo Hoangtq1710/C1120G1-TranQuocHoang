@@ -158,6 +158,7 @@ public class CustomerServlet extends HttpServlet {
     private void searchCustomer(HttpServletRequest request, HttpServletResponse response){
         String search = request.getParameter("search");
         List<Customer> listCustomer = this.customerService.search(search);
+
         request.setAttribute("listCustomer", listCustomer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/customer.jsp");
 
@@ -205,15 +206,16 @@ public class CustomerServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         HttpSession session = request.getSession(false);
         if (session != null) {
             String name = (String) session.getAttribute("uname");
             request.setAttribute("isLogin", "yes");
             request.setAttribute("employeeName",name);
         } else {
+//            request.setAttribute("employeeName","You're not login");
             request.setAttribute("isLogin", "no");
         }
+
         String action = request.getParameter("action");
         if (action == null) {
             action = "";

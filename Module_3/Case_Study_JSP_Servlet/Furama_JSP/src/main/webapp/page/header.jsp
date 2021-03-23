@@ -14,7 +14,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../assert/style/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../assert/style/fontawesome/css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="../assert/style/fontawesome/css/all.min.css" type="text/css"
+    <script src="../assert/style/js/jquery.min.js"></script>
+    <script src="../assert/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../assert/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script src="../assert/style/bootstrap4/js/bootstrap.min.js"></script>
+    <script src="../assert/style/bootstrap4/js/popper.min.js"></script>
+    <script src="../assert/style/bootstrap4/js/popper.min.js.map"></script>
+    <script src="../assert/style/bootstrap4/js/bootstrap.bundle.js"></script>
 </head>
 <style>
     /* Make the image fully responsive */
@@ -23,10 +30,10 @@
         height: 100%;
     }
 </style>
-<body>
+<body onload="customerFunction('${message}')">
 <!-------------------header-------------------------------------------------------------------->
 <div class="jumbotron text-center" style="margin-bottom: 0">
-    <a href="/"><img src="../assert/img/logo.png" alt="logo" style="float: left"></a>
+    <a href="/home"><img src="../assert/img/logo.png" alt="logo" style="float: left"></a>
 
 
 <%@include file="login.jsp" %>

@@ -18,6 +18,7 @@ public class MainServlet extends HttpServlet {
     UserService userService = new UserServiceImpl();
 
     private void showIndexPage(HttpServletRequest request, HttpServletResponse response){
+
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         try {
             dispatcher.forward(request, response);
@@ -40,12 +41,13 @@ public class MainServlet extends HttpServlet {
 
         } else {
             request.setAttribute("isLogin", "no");
-            request.setAttribute("employeeName", "");
+            request.setAttribute("uname", "");
         }
 
         showIndexPage(request, response);
 
     }
+
     private void userLogout(HttpServletRequest request, HttpServletResponse response) {
         request.setAttribute("isLogin", "no");
         HttpSession session = request.getSession();

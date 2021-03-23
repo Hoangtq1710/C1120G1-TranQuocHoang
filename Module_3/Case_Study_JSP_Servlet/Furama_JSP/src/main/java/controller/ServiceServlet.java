@@ -101,6 +101,7 @@ public class ServiceServlet extends HttpServlet {
             request.setAttribute("isLogin", "yes");
             request.setAttribute("employeeName",name);
         } else {
+//            request.setAttribute("employeeName","You're not login");
             request.setAttribute("isLogin", "no");
         }
 

@@ -142,12 +142,12 @@
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Customer Type</th>
+                    <th>Type</th>
                     <th>Birthday</th>
                     <th>Gender</th>
                     <th>Id Card</th>
                     <th>Phone</th>
-                    <th>Email</th>
+                    <th hidden>Email</th>
                     <th>Address</th>
                     <th>Options</th>
                 </tr>
@@ -166,7 +166,7 @@
                         </td>
                         <td>${customer.getCustomerIdCard()}</td>
                         <td>${customer.getCustomerPhone()}</td>
-                        <td>${customer.getCustomerEmail()}</td>
+                        <td hidden>${customer.getCustomerEmail()}</td>
                         <td>${customer.getCustomerAddress()}</td>
                         <td>
                             <a type="button" class="btn btn-warning" title="Edit" href="/customer?action=edit&id=${customer.getCustomerId()}">
@@ -193,25 +193,6 @@
     <input type="hidden" name="idCustomer" id="idDeleteCustomer">
     <input type="hidden" name="action" value="delete">
 </form>
-<script>
 
-    function saveIdDelete(idCustomer) {
-        document.getElementById("idDeleteCustomer").value = idCustomer;
-    }
-
-    function submitFormDelete() {
-        document.getElementById("formDelete").submit();
-    }
-
-</script>
-<script>
-    $(document).ready(function () {
-        $('#customer').dataTable({
-            "dom" : 'lrtip',
-            "lengthChange" : false,
-            "pageLength" : 5
-        })
-    })
-</script>
 
 <%@include file="../page/footer.jsp" %>

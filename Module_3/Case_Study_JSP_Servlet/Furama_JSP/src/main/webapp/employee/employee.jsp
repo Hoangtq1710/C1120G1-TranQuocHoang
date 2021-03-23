@@ -134,7 +134,7 @@
             </div>
         </div>
 
-        <table class="table table-striped">
+        <table id="employee" class="table table-striped">
             <c:if test='${requestScope["listEmployee"] != null}'>
                 <thead>
                 <tr>
@@ -146,7 +146,7 @@
                     <th>Birthday</th>
                     <th>ID Card</th>
                     <th>Salary</th>
-                    <th>Phone</th>
+                    <th hidden>Phone</th>
                     <th hidden>Email</th>
                     <th>Address</th>
                     <th hidden>UserName</th>
@@ -165,7 +165,7 @@
                         <td>${employee.getEmployeeBirthday()}</td>
                         <td>${employee.getEmployeeIdCard()}</td>
                         <td>${employee.getEmployeeSalary()}</td>
-                        <td>${employee.getEmployeePhone()}</td>
+                        <td hidden>${employee.getEmployeePhone()}</td>
                         <td hidden>${employee.getEmployeeEmail()}</td>
                         <td>${employee.getEmployeeAddress()}</td>
                         <td hidden>${employee.getUser().getUsername()}</td>

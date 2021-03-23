@@ -105,7 +105,7 @@
             </div>
         </div>
 
-        <table class="table table-striped">
+        <table id="contract" class="table table-striped">
             <c:if test='${requestScope["listContract"] != null}'>
                 <thead>
                 <tr>

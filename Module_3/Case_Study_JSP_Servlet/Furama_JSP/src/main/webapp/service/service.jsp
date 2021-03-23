@@ -323,7 +323,7 @@
             </div>
         </div>
 
-        <table class="table table-striped">
+        <table id="service" class="table table-striped">
             <c:if test='${requestScope["listService"] != null}'>
                 <thead>
                     <tr>

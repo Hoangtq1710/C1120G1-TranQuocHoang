@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <nav class="sticky-top navbar navbar-expand-sm navbar-dark" style="background-color: #046056; width: 100%; margin-top: 0">
-    <a class="navbar-brand" title="Home" href="/"><i class="fas fa-home"></i></a>
+    <a class="navbar-brand" title="Home" href="/home"><i class="fas fa-home"></i></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>

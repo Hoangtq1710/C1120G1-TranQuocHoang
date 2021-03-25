@@ -77,7 +77,7 @@
 <script src="../assert/style/bootstrap/js/bootstrap.bundle.js"></script>
 <script>
     $(document).ready(function () {
-        $('#customer').dataTable({
+        $('#room').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 6
@@ -86,9 +86,9 @@
 </script>
 <script>
 
-    function saveIdDelete(idCustomer, nameCustomer) {
-        document.getElementById("idDeleteCustomer").value = idCustomer;
-        document.getElementById("modelId").value = "Do you want to delete customer name : "+ nameCustomer;
+    function saveIdDelete(idRoom, nameCustomer) {
+        document.getElementById("idDeleteRoom").value = idRoom;
+        document.getElementById("modelId").value = "Do you want to delete Room : "+ idRoom;
     }
 
     function submitFormDelete() {
@@ -97,14 +97,9 @@
 
 </script>
 <script type="text/javascript">
-    function myFunction(messageId,messageName,messageIdCard,messagePhone,messageEmail) {    //bao nhiêu message thi bấy nhiêu tham số
-        if (messageId || messageName || messageIdCard || messagePhone || messageEmail ) { // tức là nếu bất kỳ message nào khác null thì sẽ bật modal lên lại
-            console.log(messageId);
-            console.log(messageName);
-            console.log(messageIdCard);
-            console.log(messagePhone);
-            console.log(messageEmail);
-            $('#createCustomer').modal('show');      //phương thức show modal
+    function myFunction(messageName,messagePhone,messageDescription) {    //bao nhiêu message thi bấy nhiêu tham số
+        if (messageName || messagePhone || messageDescription) { // tức là nếu bất kỳ message nào khác null thì sẽ bật modal lên lại
+            $('#createRoom').modal('show');      //phương thức show modal
         }
     }
 </script>

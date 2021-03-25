@@ -15,7 +15,7 @@
 <%--                <a class="nav-link " href="employee">Employee</a>--%>
 <%--            </li>--%>
             <li class="nav-item">
-                <a class="nav-link active" href="customer">Customer</a>
+                <a class="nav-link active" href="/">Show</a>
             </li>
 <%--            <li class="nav-item">--%>
 <%--                <a class="nav-link" href="service">Service</a>--%>

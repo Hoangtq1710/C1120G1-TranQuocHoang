@@ -8,7 +8,7 @@ public class DBConnection {
     private static final String USER_NAME = "root";
     private static final String PASSWORD = "hoangnhan";
     private static final String HOST = "localhost";
-    private static final String DATABASE = "case_study_jsp";
+    private static final String DATABASE = "last_chance";
     private static final String PORT = "3306";
 
     private static final String URL = "jdbc:mysql://"+HOST+":"+PORT+"/"+DATABASE+"?useSSL=false";

@@ -29,7 +29,7 @@
         height: 100%;
     }
 </style>
-<body onload="customerFunction('${message}')">
+<body>
 <!-------------------header-------------------------------------------------------------------->
 <div class="jumbotron text-center" style="margin-bottom: 0">
     <a href="/home"><img src="../assert/img/logo.png" alt="logo" style="float: left"></a>

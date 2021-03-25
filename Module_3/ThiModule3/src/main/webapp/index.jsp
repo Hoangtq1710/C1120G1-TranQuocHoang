@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Furama</title>
+    <title>Room</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assert/style/css/bootstrap.min.css" type="text/css">
@@ -24,7 +24,7 @@
         }
     </style>
 </head>
-<body onload="myFunction('${messageId}','${messageName}','${messageIdCard}','${messagePhone}','${messageEmail}')">
+<body>
 <!-------------------header-------------------------------------------------------------------->
 <div class="jumbotron text-center"  style="margin-bottom: 0">
     <a href="index.jsp"><img src="assert/img/logo.png" alt="logo" style="float: left"></a>

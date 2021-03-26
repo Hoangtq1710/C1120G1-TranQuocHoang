@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\HackerRank\src\hackkerrank_method\CavityMap.java">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\HackerRank\src\hackkerrank_method\ChocolateFeast.java">
           <value>
             <Attribute>

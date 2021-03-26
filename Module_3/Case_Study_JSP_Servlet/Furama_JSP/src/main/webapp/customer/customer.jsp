@@ -40,7 +40,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <td>
-                                            <input type="text" name="customerId" placeholder="KH-XXXX" required>
+                                            <input type="text" name="customerId" placeholder="KH-XXXX" required pattern="^KH-[0-9]$">
                                         </td>
                                     </tr>
                                     <tr>

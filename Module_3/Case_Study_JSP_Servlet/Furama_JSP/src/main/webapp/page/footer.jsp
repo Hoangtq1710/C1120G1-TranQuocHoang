@@ -68,12 +68,12 @@
         <!-- Copyright -->
     </footer>
 </div>
-<script src="../assert/style/js/jquery.min.js"></script>
-<script src="../assert/style/bootstrap4/js/bootstrap.min.js"></script>
-<script src="../assert/datatables/js/jquery.dataTables.min.js"></script>
-<script src="../assert/datatables/js/dataTables.bootstrap4.min.js"></script>
-<script src="../assert/style/bootstrap4/js/bootstrap.min.js"></script>
-<script src="../assert/style/bootstrap4/js/bootstrap.bundle.js"></script>
+<script src="../assert/style/jquery/jquery-3.5.1.min.js"></script>
+<script src="../assert/style/bootstrap/js/popper.min.js"></script>
+<script src="../assert/style/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../assert/style/datatables/js/dataTables.bootstrap4.min.js"></script>
+<script src="../assert/style/bootstrap/js/bootstrap.min.js"></script>
+<script src="../assert/style/bootstrap/js/bootstrap.bundle.js"></script>
 <script>
     $(document).ready(function () {
         $('#customer').dataTable({

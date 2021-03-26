@@ -110,8 +110,8 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Employee Name</th>
                     <th>Customer Name</th>
+                    <th>Employee Name</th>
                     <th>Service Name</th>
                     <th>Start Date</th>
                     <th>End Date</th>
@@ -124,8 +124,8 @@
                 <c:forEach items='${requestScope["listContract"]}' var="contract">
                     <tr>
                         <td>${contract.getContractId()}</td>
-                        <td>${contract.getEmployee().getEmployeeName()}</td>
                         <td>${contract.getCustomer().getCustomerName()}</td>
+                        <td>${contract.getEmployee().getEmployeeName()}</td>
                         <td>${contract.getService().getServiceName()}</td>
                         <td>${contract.getContractStartDate()}</td>
                         <td>${contract.getContractEndDate()}</td>

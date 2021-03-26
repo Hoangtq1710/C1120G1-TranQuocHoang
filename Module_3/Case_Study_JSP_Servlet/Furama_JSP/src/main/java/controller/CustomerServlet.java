@@ -159,6 +159,7 @@ public class CustomerServlet extends HttpServlet {
         String search = request.getParameter("search");
         List<Customer> listCustomer = this.customerService.search(search);
 
+        request.setAttribute("search", search);
         request.setAttribute("listCustomer", listCustomer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/customer.jsp");
 

@@ -13,15 +13,14 @@
     <title>Furama</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../assert/style/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../assert/style/fontawesome/css/all.min.css" type="text/css"
-    <script src="../assert/style/js/jquery.min.js"></script>
-    <script src="../assert/datatables/js/jquery.dataTables.min.js"></script>
-    <script src="../assert/datatables/js/dataTables.bootstrap4.min.js"></script>
-    <script src="../assert/style/bootstrap4/js/bootstrap.min.js"></script>
-    <script src="../assert/style/bootstrap4/js/popper.min.js"></script>
-    <script src="../assert/style/bootstrap4/js/popper.min.js.map"></script>
-    <script src="../assert/style/bootstrap4/js/bootstrap.bundle.js"></script>
+    <link rel="stylesheet" href="../assert/style/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../assert/style/fontawesome/css/all.min.css" type="text/css">
+
+    <link rel="stylesheet" href="../assert/style/datatables/css/dataTables.bootstrap4.min.css">
+    <script src="../assert/style/bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="../assert/style/bootstrap/js/popper.min.js"></script>
+    <script src="../assert/style/bootstrap/js/popper.min.js.map"></script>
+    <script src="../assert/style/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <style>
     /* Make the image fully responsive */

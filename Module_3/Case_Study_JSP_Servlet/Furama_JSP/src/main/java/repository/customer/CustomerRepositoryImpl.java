@@ -8,6 +8,7 @@ import service.customer_type.CustomerTypeServiceImpl;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CustomerRepositoryImpl implements CustomerRepository{
@@ -64,6 +65,8 @@ public class CustomerRepositoryImpl implements CustomerRepository{
                                                         "customer_id_card,customer_phone,customer_email,customer_address," +
                                                         "customer_type_id from customer where customer_email like ?;";
 
+    public static final String SEARCH_DEEPER = "select * from customer\n" +
+            "where customer_id like ? and customer_name like ? and customer_address like ?;";
 
     public static final String SORT_CUS_BY_NAME_DESC = "select * from customer order by customer_name desc;";
     public static final String SORT_CUS_BY_NAME_ASC = "select * from customer order by customer_name;";
@@ -267,18 +270,33 @@ public class CustomerRepositoryImpl implements CustomerRepository{
         ResultSet resultSet = null;
         List<Customer> listCustomer = new ArrayList<>();
         Customer customer;
+        String[] str = new String[3];
+        String[] arraySearch = search.split(",");
+        int n = arraySearch.length;
+        switch (n) {
+            case 0:
+                str[0] = str[1] = str[2] = "";
+                break;
+            case 1:
+                str[0] = arraySearch[0];
+                str[1] = str[2] = "";
+                break;
+            case 2:
+                str[0] = arraySearch[0];
+                str[1] = arraySearch[1];
+                str[2] = "";
+                break;
+            default:
+                str = Arrays.copyOf(arraySearch,3);
+                break;
+        }
+
         if (con != null) {
             try {
-                statement = con.prepareStatement(SEARCH_CUS_SQL);
-                statement.setString(1,'%'+search+'%');
-                statement.setString(2,'%'+search+'%');
-                statement.setString(3,'%'+search+'%');
-                statement.setString(4,'%'+search+'%');
-                statement.setString(5,'%'+search+'%');
-                statement.setString(6,'%'+search+'%');
-                statement.setString(7,'%'+search+'%');
-                statement.setString(8,'%'+search+'%');
-                statement.setString(9,'%'+search+'%');
+                statement = con.prepareStatement(SEARCH_DEEPER);
+                statement.setString(1,'%'+str[0]+'%');
+                statement.setString(2,'%'+str[1]+'%');
+                statement.setString(3,'%'+str[2]+'%');
 
 
                 resultSet = statement.executeQuery();

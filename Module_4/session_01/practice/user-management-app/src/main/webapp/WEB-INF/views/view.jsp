@@ -35,7 +35,7 @@
                 </tr>
                 <tr>
                     <th></th>
-                    <td><a href="/customer"><button class="btn btn-success">BACK</button></a></td>
+                    <td><a href="/customer"><button class="btn btn-info btn-sm">BACK</button></a></td>
                 </tr>
             </tbody>
         </table>

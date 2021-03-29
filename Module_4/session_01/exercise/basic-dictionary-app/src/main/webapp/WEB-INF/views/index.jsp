@@ -9,13 +9,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
-    <title>Convert</title>
+    <title>Translate</title>
     <meta charset="utf-8">
-<%--    <link rel="stylesheet" href="../../assert/style/bootstrap/css/bootstrap.min.css">--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-<div style="text-align: center;width: 30%">
+<div style="text-align: center;width: 30%;margin: auto">
     <h1>Translate</h1>
     <form action="/translate" method="post">
         <table class="table table-hover">

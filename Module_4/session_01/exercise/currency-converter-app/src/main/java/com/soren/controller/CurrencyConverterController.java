@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class MainController {
+public class CurrencyConverterController {
 
     @GetMapping("/")
     public String getHomePage(){
         return "index";
     }
-    @PostMapping("/convert")
+    @GetMapping("/convert")
     public String convert(@RequestParam String from,@RequestParam String to,@RequestParam int currency, Model model){
         int rateIncome = 0;
         int rateOutcome = 0;

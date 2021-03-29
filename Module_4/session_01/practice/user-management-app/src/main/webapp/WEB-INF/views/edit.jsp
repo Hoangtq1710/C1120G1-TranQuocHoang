@@ -43,7 +43,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th></th>
+                    <td><a href="/customer"><button class="btn btn-info btn-sm">BACK</button></a></td>
                     <td><button class="btn btn-warning btn-sm" type="submit">UPDATE</button></td>
                 </tr>
                 </tbody>

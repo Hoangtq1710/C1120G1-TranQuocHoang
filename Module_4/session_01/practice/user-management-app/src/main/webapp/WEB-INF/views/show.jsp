@@ -38,13 +38,13 @@
                         <td>${customer.email}</td>
                         <td>${customer.address}</td>
                         <td>
-                            <form action="/view" method="post">
+                            <form action="/view" method="get">
                                 <input type="number" name="customerId" value="${customer.id}" hidden>
                                 <button class="btn btn-success btn-sm" type="submit">VIEW</button>
                             </form>
                         </td>
                         <td>
-                            <form action="/showEdit" method="post">
+                            <form action="/showEdit" method="get">
                                 <input type="number" name="customerId" value="${customer.id}" hidden>
                                 <button class="btn btn-warning btn-sm" type="submit">EDIT</button>
                             </form>
@@ -53,7 +53,11 @@
                 </c:forEach>
                     <tr>
                         <td></td>
-                        <td><a href="/"><button class="btn btn-info">BACK</button></a></td>
+                        <td></td>
+                        <td><a href="/"><button class="btn btn-info btn-sm">BACK</button></a></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,7 +1,7 @@
 package com.soren.controller;
 
-import com.soren.repository.DictionaryRepository;
-import com.soren.repository.DictionaryRepositoryImpl;
+import com.soren.service.DictionaryService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class MainController {
+public class DictionaryController {
 
-    DictionaryRepository repository = new DictionaryRepositoryImpl();
+    @Autowired
+    DictionaryService dictionaryService;
 
     @GetMapping("/")
     public String getHomePage(){
@@ -19,7 +20,7 @@ public class MainController {
     }
     @PostMapping("/translate")
     public String convert(@RequestParam String input, Model model){
-        String result = repository.translate(input);
+        String result = dictionaryService.translate(input);
         String message = "";
         if (result.equals("")) {
             message = "Oops, try another word!";

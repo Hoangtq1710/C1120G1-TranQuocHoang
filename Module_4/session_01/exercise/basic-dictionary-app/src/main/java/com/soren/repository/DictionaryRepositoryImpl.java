@@ -1,8 +1,11 @@
 package com.soren.repository;
 
+import org.springframework.stereotype.Repository;
+
 import java.util.Map;
 import java.util.TreeMap;
 
+@Repository
 public class DictionaryRepositoryImpl implements DictionaryRepository{
     static TreeMap<String, String> map = new TreeMap<>();
     static {

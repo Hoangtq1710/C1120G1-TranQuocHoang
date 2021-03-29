@@ -8,9 +8,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Success</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-$END$
+    <div class="container" style="text-align: center">
+        <h4>Your valid email is : ${email}</h4>
+        <a href="/"><button class="btn btn-info btn-sm">BACK</button></a>
+    </div>
 </body>
 </html>

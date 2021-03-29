@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="0c980001-d117-4954-bcb2-d2c253c12b75" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/.idea/artifacts/CurrencyWebConverter_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/CurrencyWebConverter.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/out/artifacts/CurrencyWebConverter_war_exploded/WEB-INF/classes/controllers/ConvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/out/artifacts/CurrencyWebConverter_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/out/artifacts/CurrencyWebConverter_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../CurrencyWebConverter/out/production/CurrencyWebConverter/controllers/ConvertServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/.idea/artifacts/ServerTime_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/.idea/csv-plugin.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/ServerTime.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/out/artifacts/ServerTime_war_exploded/WEB-INF/classes/controllers/ServerTimeServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/out/artifacts/ServerTime_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/out/artifacts/ServerTime_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/out/production/ServerTime/controllers/ServerTimeServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/src/controllers/ServerTimeServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServerTime/web/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/.idea/artifacts/ServletProject_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/.idea/libraries/Java_EE_6_Java_EE_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/ServletProject.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.annotation.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.ejb.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.jms.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.persistence.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.resource.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.servlet.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.servlet.jsp.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.servlet.jsp.jstl.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/lib/javax.transaction.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/out/artifacts/ServletProject_war_exploded/WEB-INF/classes/controllers/FormServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/out/artifacts/ServletProject_war_exploded/WEB-INF/classes/controllers/ServletLogin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/out/artifacts/ServletProject_war_exploded/WEB-INF/classes/controllers/StudentServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/out/artifacts/ServletProject_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/out/artifacts/ServletProject_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/out/production/ServletProject/controllers/FormServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/out/production/ServletProject/controllers/ServletLogin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ServletProject/out/production/ServletProject/controllers/StudentServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/.idea/artifacts/simple_login_war_exploded.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/out/artifacts/simple_login_war_exploded/Login/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/out/artifacts/simple_login_war_exploded/WEB-INF/classes/controllers/LoginServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/out/artifacts/simple_login_war_exploded/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/out/artifacts/simple_login_war_exploded/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/out/production/simple_login/controllers/LoginServlet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/simple_login.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/src/controllers/LoginServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/web/Login/index.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../simple_login/web/index.jsp" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1qEZxvZTZA6oBMPrPF1o56J3raq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0c980001-d117-4954-bcb2-d2c253c12b75" name="Default Changelist" comment="" />
+      <created>1616646959085</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616646959085</updated>
+      <workItem from="1616646962228" duration="662000" />
+      <workItem from="1616655270657" duration="40000" />
+      <workItem from="1616726842641" duration="1870000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="462" y="124" key="FileChooserDialogImpl" timestamp="1616729604153">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="462" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1616729604153" />
+    <state x="65" y="0" key="new project wizard" timestamp="1616729622528">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.738@0.0.1366.738" timestamp="1616729622528" />
+  </component>
+</project>

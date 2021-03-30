@@ -22,7 +22,7 @@
                 <td>
                     <div class="form-check">
                         <label class="form-check-label" for="lettuce">
-                            <input type="checkbox" class="form-check-input" id="lettuce" name="condiment" value="Lettuce">Lettuce
+                            <input type="checkbox" class="form-check-input" id="lettuce" name="condiments" value="Lettuce">Lettuce
                         </label>
                     </div>
                 </td>
@@ -31,7 +31,7 @@
                 <td>
                     <div class="form-check">
                         <label class="form-check-label" for="tomato">
-                            <input type="checkbox" class="form-check-input" id="tomato" name="condiment" value="Tomato">Tomato
+                            <input type="checkbox" class="form-check-input" id="tomato" name="condiments" value="Tomato">Tomato
                         </label>
                     </div>
                 </td>
@@ -40,7 +40,7 @@
                 <td>
                     <div class="form-check">
                         <label class="form-check-label" for="mustard">
-                            <input type="checkbox" class="form-check-input" id="mustard" name="condiment" value="Mustard">Mustard
+                            <input type="checkbox" class="form-check-input" id="mustard" name="condiments" value="Mustard">Mustard
                         </label>
                     </div>
                 </td>
@@ -49,7 +49,7 @@
                 <td>
                     <div class="form-check">
                         <label class="form-check-label" for="sprouts">
-                            <input type="checkbox" class="form-check-input" id="sprouts" name="condiment" value="Sprouts">Sprouts
+                            <input type="checkbox" class="form-check-input" id="sprouts" name="condiments" value="Sprouts">Sprouts
                         </label>
                     </div>
                 </td>

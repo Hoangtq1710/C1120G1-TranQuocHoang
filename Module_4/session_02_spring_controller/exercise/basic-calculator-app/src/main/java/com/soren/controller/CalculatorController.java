@@ -1,5 +1,7 @@
 package com.soren.controller;
 
+import com.soren.service.CalculatorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,37 +11,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class CalculatorController {
 
+    @Autowired
+    CalculatorService calculatorService;
+
     @GetMapping("/")
     public String getHome(){
         return "index";
     }
 
     @PostMapping("/calculator")
-    public String calculator(@RequestParam String first, @RequestParam String second, @RequestParam String calculation, Model model){
+    public String calculator(@RequestParam String first,
+                             @RequestParam String second,
+                             @RequestParam String operator,
+                             Model model){
         double result = 0;
-        double firstNumber = Double.parseDouble(first);
-        double secondNumber = Double.parseDouble(second);
-        switch (calculation){
-            case "+":
-                result = firstNumber + secondNumber;
-                break;
-            case "-":
-                result = firstNumber - secondNumber;
-                break;
-            case "*":
-                result = firstNumber * secondNumber;
-                break;
-            case "/":
-                if (secondNumber != 0) {
-                    result = firstNumber / secondNumber;
-                } else {
-                    model.addAttribute("message", "Can't divine by 0");
-                }
-                break;
+        if (Double.parseDouble(second) == 0 && operator.equals("/")) {
+            model.addAttribute("message", "Can't divine by 0");
+        } else {
+            result = this.calculatorService.calculate(first, second, operator);
         }
+
         model.addAttribute("first", first);
         model.addAttribute("second", second);
-        model.addAttribute("calculation", calculation);
+        model.addAttribute("operator", operator);
         model.addAttribute("result", result);
         return "index";
     }

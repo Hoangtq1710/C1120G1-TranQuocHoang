@@ -19,6 +19,7 @@
         <c:forEach items="${listCondiment}" var="condiment">
             <p>${condiment}</p>
         </c:forEach>
+        <a href="/"><button class="btn btn-info">Back</button></a>
     </div>
 </body>
 </html>

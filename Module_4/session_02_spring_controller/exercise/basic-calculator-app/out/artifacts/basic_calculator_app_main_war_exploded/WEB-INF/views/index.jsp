@@ -35,23 +35,23 @@
             </tr>
                 <tr>
                     <td>
-                        <button type="submit" class="btn btn-success" value="+" name="calculation">Addition</button>
+                        <button type="submit" class="btn btn-success" value="+" name="operator">Addition</button>
                     </td>
                     <td>
-                        <button type="submit" class="btn btn-success" value="-" name="calculation">Subtraction</button>
+                        <button type="submit" class="btn btn-success" value="-" name="operator">Subtraction</button>
                     </td>
                     <td>
-                        <button type="submit" class="btn btn-success" value="*" name="calculation">Multiplication</button>
+                        <button type="submit" class="btn btn-success" value="*" name="operator">Multiplication</button>
                     </td>
                     <td>
-                        <button type="submit" class="btn btn-success" value="/" name="calculation">Division</button>
+                        <button type="submit" class="btn btn-success" value="/" name="operator">Division</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </form>
-    <c:if test='${calculation != null and message == null}'>
-        <h3>Result ${first} ${calculation} ${second} = ${result}</h3>
+    <c:if test='${operator != null and message == null}'>
+        <h3>Result ${first} ${operator} ${second} = ${result}</h3>
     </c:if>
     <c:if test='${message != null}'>
         <h2 style="color: red">${message}</h2>

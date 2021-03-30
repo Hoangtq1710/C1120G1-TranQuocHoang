@@ -27,10 +27,10 @@
             <tbody>
             <tr>
                 <th colspan="2">
-                    <input type="text" name="first" placeholder="First" value="${first}">
+                    <input type="text" name="first" placeholder="First" value="${first}" required>
                 </th>
                 <th colspan="2">
-                    <input type="text" name="second" placeholder="Second" value="${second}">
+                    <input type="text" name="second" placeholder="Second" value="${second}" required>
                 </th>
             </tr>
                 <tr>

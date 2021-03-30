@@ -4,6 +4,8 @@ import com.soren.repository.DictionaryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DictionaryServiceImpl implements DictionaryService{
 
@@ -13,5 +15,10 @@ public class DictionaryServiceImpl implements DictionaryService{
     @Override
     public String translate(String input) {
         return repository.translate(input);
+    }
+
+    @Override
+    public List<String> getAllKey() {
+        return repository.getAllKey();
     }
 }

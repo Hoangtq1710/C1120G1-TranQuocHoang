@@ -2,6 +2,8 @@ package com.soren.repository;
 
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -28,5 +30,14 @@ public class DictionaryRepositoryImpl implements DictionaryRepository{
             }
         }
         return "";
+    }
+
+    @Override
+    public List<String> getAllKey() {
+        List<String> listKey = new ArrayList<>();
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            listKey.add(entry.getKey());
+        }
+        return listKey;
     }
 }

@@ -43,12 +43,17 @@
                             <a href="/"><button type="button" class="btn btn-info">Back</button></a>
                         </th>
                     </c:if>
-                    <c:if test='${message != ""}'>
-                        <th></th>
-                        <th>
-                            <p style="color: red">${message}</p>
-                        </th>
-                        <th></th>
+                    <c:if test='${message != "" and listKey != null}'>
+                        <td colspan="3">
+                            <h4 style="color: red">${message}</h4><br>
+                            <p><h5>Tip</h5> :
+                                <span style="color: cadetblue">
+                                    <c:forEach items="${listKey}" var="key">
+                                        ${key},
+                                    </c:forEach>
+                                </span>
+                            </p>
+                        </td>
                     </c:if>
                 </tr>
             </tbody>

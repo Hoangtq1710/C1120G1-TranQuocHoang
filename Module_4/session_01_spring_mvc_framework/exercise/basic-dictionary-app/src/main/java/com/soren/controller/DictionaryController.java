@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
 @Controller
 public class DictionaryController {
 
@@ -18,9 +20,11 @@ public class DictionaryController {
     public String getHomePage(){
         return "index";
     }
+
     @PostMapping("/translate")
     public String convert(@RequestParam String input, Model model){
-        String result = dictionaryService.translate(input);
+        String result = this.dictionaryService.translate(input);
+        List<String> listKey = this.dictionaryService.getAllKey();
         String message = "";
         if (result.equals("")) {
             message = "Oops, try another word!";
@@ -28,6 +32,7 @@ public class DictionaryController {
         model.addAttribute("input",input);
         model.addAttribute("result", result);
         model.addAttribute("message", message);
+        model.addAttribute("listKey",listKey);
         return "index";
     }
 }

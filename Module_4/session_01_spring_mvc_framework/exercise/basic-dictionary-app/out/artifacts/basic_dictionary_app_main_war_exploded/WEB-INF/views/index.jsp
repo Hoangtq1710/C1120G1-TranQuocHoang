@@ -9,9 +9,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
-    <title>Convert</title>
+    <title>Translate</title>
     <meta charset="utf-8">
-<%--    <link rel="stylesheet" href="../../assert/style/bootstrap/css/bootstrap.min.css">--%>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -44,12 +43,17 @@
                             <a href="/"><button type="button" class="btn btn-info">Back</button></a>
                         </th>
                     </c:if>
-                    <c:if test='${message != ""}'>
-                        <th></th>
-                        <th>
-                            <p style="color: red">${message}</p>
-                        </th>
-                        <th></th>
+                    <c:if test='${message != "" and listKey != null}'>
+                        <td colspan="3">
+                            <h4 style="color: red">${message}</h4><br>
+                            <p><h5>Tip</h5> :
+                                <span style="color: cadetblue">
+                                    <c:forEach items="${listKey}" var="key">
+                                        ${key},
+                                    </c:forEach>
+                                </span>
+                            </p>
+                        </td>
                     </c:if>
                 </tr>
             </tbody>

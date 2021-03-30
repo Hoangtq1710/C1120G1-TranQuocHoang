@@ -20,7 +20,11 @@ public class CalculatorServiceImpl implements CalculatorService{
                 result = firstNumber * secondNumber;
                 break;
             case "/":
-                result = firstNumber / secondNumber;
+                if (secondNumber != 0){
+                    result = firstNumber / secondNumber;
+                } else {
+                    throw new ArithmeticException();
+                }
                 break;
         }
         return result;

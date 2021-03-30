@@ -27,10 +27,11 @@ public class CalculatorController {
                              @RequestParam String operator,
                              Model model){
         double result = 0;
-        if (Double.parseDouble(second) == 0 && operator.equals("/")) {
-            model.addAttribute("message", "Can't divide by 0");
-        } else {
+        try {
             result = this.calculatorService.calculate(first, second, operator);
+        } catch (ArithmeticException e) {
+            model.addAttribute("message", "Error : Can't divide by 0");
+            System.out.println(e.getMessage());
         }
 
         model.addAttribute("first", first);

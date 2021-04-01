@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+
+<div class="container">
+    <h1 style="color: darkcyan">Product Information</h1>
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td th:text="${product.id}"></td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td th:text="${product.name}"></td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td th:text="${product.price}"></td>
+            </tr>
+            <tr>
+                <th>Manufacture</th>
+                <td th:text="${product.manufacture}"></td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td th:text="${product.description}"></td>
+            </tr>
+            <tr>
+                <th></th>
+                <td>
+                    <a href="/"><button class="btn btn-info">Back</button></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

@@ -6,28 +6,16 @@
 <div th:insert="~{layout :: header}"></div>
 
 <div class="container">
-
-<!--    <div th:if="${message-delete}" class="alert alert-danger">-->
-<!--        <button type="button" class="close" data-dismiss="alert">-->
-<!--            &times;-->
-<!--        </button>-->
-<!--        <strong th:text="${message-delete}"></strong>-->
-<!--    </div>-->
     <h1 style="color: darkcyan">List Customer</h1>
     <div style="margin-bottom: 15px">
         <a th:href="@{/show-create}">
             <button type="button" class="btn btn-success">Create</button>
         </a>
     </div>
-    <div th:if="${messageCreate}" >
-        <span th:text="${messageCreate}"></span>
+    <div th:if="${message}">
+        <span style="color:red;" th:text="${message}"></span>
     </div>
-    <div th:if="${messageUpdate}" class="alert alert-warning">
-        <button type="button" class="close" data-dismiss="alert">
-            &times;
-        </button>
-        <strong th:text="${messageUpdate}"></strong>
-    </div>
+
     <table class="table table-hover">
         <thead></thead>
         <tbody>
@@ -47,8 +35,12 @@
                     <td th:text="${customer.email}"></td>
                     <td th:text="${customer.address}"></td>
                     <td>
-                        <a th:href="@{/show-edit(id=${customer.id})}"><button type="button" class="btn btn-warning">Edit</button></a>
-                        <a th:href="@{/show-delete(id=${customer.id})}"><button type="button" class="btn btn-danger">Delete</button></a>
+                        <a th:href="@{/show-edit(id=${customer.id})}">
+                            <button type="button" class="btn btn-warning">Edit</button>
+                        </a>
+                        <a th:href="@{/show-delete(id=${customer.id})}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
                     </td>
                 </tr>
             </div>

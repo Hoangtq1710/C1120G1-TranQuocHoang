@@ -19,7 +19,4 @@ public interface ProductRepository extends CRUDInterface<Product>{
 
     @Override
     void remove(int id);
-
-    @Override
-    boolean isExistId(int id);
 }

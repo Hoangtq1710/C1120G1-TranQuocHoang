@@ -38,9 +38,4 @@ public class ProductServiceImpl implements ProductService {
     public void remove(int id) {
         repository.remove(id);
     }
-
-    @Override
-    public boolean isExistId(int id) {
-        return repository.isExistId(id);
-    }
 }

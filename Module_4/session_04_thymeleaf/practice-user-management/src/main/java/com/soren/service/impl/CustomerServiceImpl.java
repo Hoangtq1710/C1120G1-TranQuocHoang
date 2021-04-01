@@ -39,8 +39,4 @@ public class CustomerServiceImpl implements CustomerService {
         repository.remove(id);
     }
 
-    @Override
-    public boolean isExistId(int id) {
-        return repository.isExistId(id);
-    }
 }

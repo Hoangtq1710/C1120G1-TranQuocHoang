@@ -13,5 +13,4 @@ public interface CRUDInterface<T> {
 
       void remove(int id);
 
-      boolean isExistId(int id);
 }

@@ -6,42 +6,29 @@
 <div th:insert="~{layout :: header}"></div>
 
 <div class="container">
-    <h1 style="color: darkcyan">Add Customer</h1>
-    <form th:action="@{/create-customer}" th:object="${customer}" method="post">
-        <table class="table table-hover">
-            <tr>
-                <th>ID</th>
-                <td>
-                    <input type="number" th:field="*{id}">
-                    <div th:if="${message}">
-                        <span style="color:red;" th:text="${message}"></span>
-                    </div>
-                </td>
+    <h1 class="text-center my-3">Add Customer</h1>
+    <form class="form w-75 border mx-auto" th:action="@{/customer/save}" th:object="${customer}" method="POST" novalidate="novalidate">
+        <input type="hidden" th:field="*{id}"/>
+        <table class="table table-borderless">
+            <tr class="form-group">
+                <td class="font-weight-bold align-middle"><label>Name</label></td>
+                <td><input class="form-control" type="text" th:field="*{name}"/></td>
+            </tr>
+            <tr class="form-group">
+                <td class="font-weight-bold align-middle"><label>Email</label></td>
+                <td><input class="form-control w-50" type="text" th:field="*{email}"/></td>
+            </tr>
+            <tr class="form-group">
+                <td class="font-weight-bold align-middle"><label>Address</label></td>
+                <td><input class="form-control w-50" type="text" th:field="*{address}"/></td>
             </tr>
             <tr>
-                <th>Name</th>
+                <td></td>
                 <td>
-                    <input type="text" th:field="*{name}">
-                </td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>
-                    <input type="text" th:field="*{email}">
-                </td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>
-                    <input type="text" th:field="*{address}">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="/"><button class="btn btn-info" type="button">Back</button></a>
-                </td>
-                <td>
-                    <button type="submit" class="btn btn-success">Create</button>
+                    <a th:href="@{/}">
+                        <input type="button" class="btn btn-info" value="Cancel"/>
+                    </a>
+                    <input type="submit" class="btn btn-success" value="Save"/>
                 </td>
             </tr>
         </table>

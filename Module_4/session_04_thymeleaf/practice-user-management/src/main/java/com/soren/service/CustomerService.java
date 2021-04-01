@@ -21,6 +21,4 @@ public interface CustomerService extends CRUDInterface<Customer> {
     @Override
     void remove(int id);
 
-    @Override
-    boolean isExistId(int id);
 }

@@ -30,7 +30,10 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public void save(Customer customer) {
-        map.put(customer.getId(), customer);
+        List<Customer> listCustomer = findAll();
+        int id = listCustomer.get(listCustomer.size() - 1).getId() + 1;
+        customer.setId(id);
+        map.put(id, customer);
     }
 
     @Override
@@ -48,8 +51,5 @@ public class CustomerRepositoryImpl implements CustomerRepository {
         map.remove(id);
     }
 
-    @Override
-    public boolean isExistId(int id) {
-        return map.containsKey(id);
-    }
+
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+<div class="container">
+    <h1 class="text-center my-3">View Customer</h1>
+    <table class="table table-borderless w-50 border mx-auto">
+        <tr>
+            <td class="font-weight-bold align-middle">Customer ID</td>
+            <td><p th:text="${customer.id}"></p></td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold align-middle">Customer Name</td>
+            <td><p th:text="${customer.name}"></p></td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold align-middle">Email</td>
+            <td><p th:text="${customer.email}"></p></td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold align-middle">Address</td>
+            <td><p th:text="${customer.address}"></p></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="text-center">
+                <a class="text-decoration-none" th:href="@{/}">
+                    <button class="btn btn-secondary">Back</button>
+                </a>
+                <a class="text-decoration-none" th:href="@{/customer/edit(id=${customer.id})}">
+                    <button class="btn btn-warning">Edit</button>
+                </a>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                        th:onclick="|customerSetId('${customer.id}')|">Delete
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

@@ -12,8 +12,8 @@
             <button type="button" class="btn btn-success">Create</button>
         </a>
     </div>
-    <div th:if="${message}">
-        <span style="color:red;" th:text="${message}"></span>
+    <div th:if="${message}" class="row">
+        <p style="color:green;" th:text="${message}"></p>
     </div>
 
     <table class="table table-hover">

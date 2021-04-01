@@ -9,7 +9,8 @@
     <form th:action="@{/delete}" method="post" th:object="${product}">
         <table></table>
         <h1 style="color:teal;" th:text="${confirm}"></h1>
-        <div style="margin-top: 20px">
+        <input hidden type="number" th:field="${product.id}">
+        <div style="margin-top: 20px; height: 300px" class="row justify-content-center align-items-center">
             <a href="/">
                 <button class="btn btn-info" type="button">Cancel</button>
             </a>

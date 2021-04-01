@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -20,9 +21,10 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping("/")
-    public ModelAndView getHome(){
+    public String getHome(Model model){
         List<Product> listProduct = this.productService.findAll();
-        return new ModelAndView("index","listProduct", listProduct );
+        model.addAttribute("listProduct",listProduct);
+        return "index";
     }
 
     @GetMapping("/showCreate")
@@ -31,15 +33,14 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public ModelAndView createProduct(Product product){
-        ModelAndView modelAndView = new ModelAndView();
+    public String createProduct(Product product, Model model, RedirectAttributes redirect){
         if (!this.productService.isExistId(product.getId())){
             this.productService.save(product);
-            return getHome();
+            model.addAttribute("message", "Product "+product.getName()+" was added");
+            return getHome(model);
         } else {
-            modelAndView.addObject("message", "ID "+product.getId()+" was existed!");
-            modelAndView.setViewName("create");
-            return modelAndView;
+            redirect.addFlashAttribute("message", "ID "+product.getId()+" was existed!");
+            return "redirect:/";
         }
     }
 
@@ -50,10 +51,10 @@ public class ProductController {
     }
 
     @PostMapping("/editProduct")
-    public ModelAndView editProduct(Product product, ModelAndView modelAndView){
+    public String editProduct(Product product, RedirectAttributes redirect){
         this.productService.update(product.getId(), product);
-        modelAndView.addObject("messageUpdate","Product information was updated");
-        return getHome();
+        redirect.addFlashAttribute("message", "Product "+product.getName()+" was edited");
+        return "redirect:/";
     }
 
     @GetMapping("/view")
@@ -72,7 +73,10 @@ public class ProductController {
     }
 
     @PostMapping("/delete")
-    public ModelAndView deleteProduct(Product product){
-        this.productService.remove(product.getId());
+    public String deleteProduct(@RequestParam int id, RedirectAttributes redirect){
+        Product product = this.productService.findById(id);
+        redirect.addFlashAttribute("message", "Product "+product.getName()+" was deleted");
+        this.productService.remove(id);
+        return "redirect:/";
     }
 }

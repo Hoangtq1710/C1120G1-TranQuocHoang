@@ -1,16 +1,16 @@
-package com.soren;
+package com.codegym.cms;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
-public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class ApplicationInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{AppConfig.class};
+        return new Class[]{ApplicationConfig.class};
     }
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[0];
+        return new Class<?>[0];
     }
 
     @Override

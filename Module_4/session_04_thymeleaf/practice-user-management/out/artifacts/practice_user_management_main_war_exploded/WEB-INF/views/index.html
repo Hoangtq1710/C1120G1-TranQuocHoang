@@ -39,14 +39,14 @@
                 <a class="text-decoration-none" th:href="@{/customer/edit(id=${customer.id})}">
                     <button class="btn btn-warning"><i class="far fa-edit"></i></button>
                 </a>
-<!--                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"-->
-<!--                        th:onclick="|customerSetId('${customer.id}')|">-->
-<!--                    <i class="far fa-trash-alt"></i>-->
-<!--                </button>-->
                 <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
-                        th:idCus="${customer.id}" onclick="customerSetId(this.getAttribute('idCus'))">
+                        th:onclick="|customerSetId('${customer.id}')|">
                     <i class="far fa-trash-alt"></i>
                 </button>
+<!--                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"-->
+<!--                        th:idCus="${customer.id}" onclick="customerSetId(this.getAttribute('idCus'))">-->
+<!--                    <i class="far fa-trash-alt"></i>-->
+<!--                </button>-->
             </td>
         </tr>
         </tbody>

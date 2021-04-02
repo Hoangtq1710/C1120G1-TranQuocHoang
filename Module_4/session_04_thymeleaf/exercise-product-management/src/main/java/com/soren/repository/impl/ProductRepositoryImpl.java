@@ -32,7 +32,12 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public void save(Product product) {
         List<Product> listProduct = findAll();
-        int id = listProduct.get(listProduct.size() -1).getId() +1;
+        int id;
+        if (listProduct.isEmpty()){
+            id = 1;
+        } else {
+            id = listProduct.get(listProduct.size() -1).getId() +1;
+        }
         product.setId(id);
         map.put(id, product);
     }

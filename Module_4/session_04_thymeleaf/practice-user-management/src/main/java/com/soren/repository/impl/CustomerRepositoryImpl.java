@@ -31,7 +31,12 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     @Override
     public void save(Customer customer) {
         List<Customer> listCustomer = findAll();
-        int id = listCustomer.get(listCustomer.size() - 1).getId() + 1;
+        int id;
+        if (listCustomer.isEmpty()){
+            id = 1;
+        } else {
+            id = listCustomer.get(listCustomer.size() - 1).getId() + 1;
+        }
         customer.setId(id);
         map.put(id, customer);
     }

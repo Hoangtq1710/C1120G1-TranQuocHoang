@@ -14,6 +14,7 @@ public class Customer {
 //    @Column(name = "date_of_birth", columnDefinition = "DATE")
 //    private Date dateOfBirth;
 
+
     public Customer() {
     }
 

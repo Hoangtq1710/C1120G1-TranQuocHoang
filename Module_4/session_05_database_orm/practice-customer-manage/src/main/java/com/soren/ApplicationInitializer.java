@@ -1,4 +1,4 @@
-package com.codegym.cms;
+package com.soren;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

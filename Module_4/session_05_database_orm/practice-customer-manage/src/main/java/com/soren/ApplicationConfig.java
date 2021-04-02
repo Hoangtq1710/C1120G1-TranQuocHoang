@@ -1,9 +1,5 @@
-package com.codegym.cms;
+package com.soren;
 
-import com.codegym.cms.repository.CustomerRepository;
-import com.codegym.cms.repository.impl.CustomerRepositoryImpl;
-import com.codegym.cms.service.CustomerService;
-import com.codegym.cms.service.impl.CustomerServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -35,8 +31,8 @@ import java.util.Properties;
 @Configuration
 @EnableWebMvc
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"com.codegym.cms.repository.impl"})
-@ComponentScan("com.codegym.cms")
+@EnableJpaRepositories(basePackages = {"com.soren.repository.impl"})
+@ComponentScan("com.soren")
 public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
     private ApplicationContext applicationContext;
@@ -52,7 +48,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public SpringResourceTemplateResolver templateResolver(){
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB_INF/views");
+        templateResolver.setPrefix("/WEB_INF/views/");
         templateResolver.setSuffix(".html");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         return templateResolver;
@@ -83,7 +79,7 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public LocalContainerEntityManagerFactoryBean entityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan(new String[]{"com.codegym.cms.model"});
+        em.setPackagesToScan(new String[]{"com.soren.model"});
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
         em.setJpaProperties(additionalProperties());
@@ -94,9 +90,9 @@ public class ApplicationConfig extends WebMvcConfigurerAdapter implements Applic
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/c1120g1");
+        dataSource.setUrl("jdbc:mysql://localhost:3306/ss05_customer_manager?useSSL=false");
         dataSource.setUsername( "root" );
-        dataSource.setPassword( "123456" );
+        dataSource.setPassword( "hoangnhan" );
         return dataSource;
     }
 

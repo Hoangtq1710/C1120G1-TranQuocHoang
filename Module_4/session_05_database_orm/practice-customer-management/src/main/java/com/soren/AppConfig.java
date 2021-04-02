@@ -1,7 +1,5 @@
-package cg.wbd.grandemonstration;
+package com.soren;
 
-import cg.wbd.grandemonstration.service.CustomerService;
-import cg.wbd.grandemonstration.service.impl.SimpleCustomerServiceImpl;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -20,7 +18,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("cg.wbd.grandemonstration")
+@ComponentScan("com.soren")
 public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
     private ApplicationContext appContext;
 
@@ -53,8 +51,4 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         return templateResolver;
     }
 
-    @Bean
-    public CustomerService customerService() {
-        return new SimpleCustomerServiceImpl();
-    }
 }

@@ -1,4 +1,4 @@
-package cg.wbd.grandemonstration;
+package com.soren;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

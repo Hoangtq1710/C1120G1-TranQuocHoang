@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">Add New Product</h1>
+    <form th:action="@{/product/create}" th:object="${product}" method="post">
+        <table class="table table-hover">
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>
+                        <input type="text" th:field="*{name}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Price</th>
+                    <td>
+                        <input type="number" th:field="*{price}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Manufacture</th>
+                    <td>
+                        <input type="text" th:field="*{manufacture}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        <input type="text" th:field="*{description}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a th:href="@{/product/}"><button type="button" class="btn btn-info">Back</button></a>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" type="submit">Create</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

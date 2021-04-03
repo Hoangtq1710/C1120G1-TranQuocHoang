@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+
+<div class="container">
+    <h1 class="text-center my-3">Product List</h1>
+    <a th:href="@{/product/show_create}">
+        <button class="btn btn-success" style="margin-bottom: 15px">Add new product</button>
+    </a>
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <table class="table table-hover" id="products">
+        <thead>
+        <tr>
+            <th class="align-middle">Product ID</th>
+            <th class="align-middle">Product Name</th>
+            <th class="align-middle">Price</th>
+            <th class="align-middle">Manufacture</th>
+            <th class="align-middle">Description</th>
+            <th class="align-middle">Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="product,iterStat : ${listProduct}">
+            <td class="align-middle" th:text="${product.id}"></td>
+            <td class="align-middle" th:text="${product.name}"></td>
+            <td class="align-middle" th:text="${product.price}"></td>
+            <td class="align-middle" th:text="${product.manufacture}"></td>
+            <td class="align-middle" th:text="${product.description}"></td>
+            <td>
+                <a class="text-decoration-none" th:href="@{/product/view(id=${product.id})}">
+                    <button class="btn btn-info"><i class="far fa-eye"></i></button>
+                </a>
+                <a class="text-decoration-none" th:href="@{/product/show_edit(id=${product.id})}">
+                    <button class="btn btn-warning"><i class="far fa-edit"></i></button>
+                </a>
+                <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                        th:onclick="|productSetId('${product.id}')|">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="/layout :: deleteModal"></div>
+<div th:replace="/layout :: script"></div>
+
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

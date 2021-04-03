@@ -8,7 +8,9 @@
 <div class="container">
     <h1 class="text-center my-3">Product List</h1>
     <a th:href="@{/product/show_create}">
-        <button class="btn btn-success" style="margin-bottom: 15px">Add new product</button>
+        <button class="btn btn-success" style="margin-bottom: 15px">
+            <i class="fas fa-plus-square"></i>
+        </button>
     </a>
     <div th:if="${message}">
         <div class="alert alert-success alert-dismissible fade show font-weight-bold">
@@ -19,8 +21,9 @@
     <table class="table table-hover" id="products">
         <thead>
         <tr>
-            <th class="align-middle">Product ID</th>
-            <th class="align-middle">Product Name</th>
+            <th class="align-middle">No</th>
+            <th class="align-middle">ID</th>
+            <th class="align-middle">Name</th>
             <th class="align-middle">Price</th>
             <th class="align-middle">Manufacture</th>
             <th class="align-middle">Description</th>
@@ -29,6 +32,7 @@
         </thead>
         <tbody>
         <tr th:each="product,iterStat : ${listProduct}">
+            <td class="align-middle" th:text="${iterStat.count}"></td>
             <td class="align-middle" th:text="${product.id}"></td>
             <td class="align-middle" th:text="${product.name}"></td>
             <td class="align-middle" th:text="${product.price}"></td>

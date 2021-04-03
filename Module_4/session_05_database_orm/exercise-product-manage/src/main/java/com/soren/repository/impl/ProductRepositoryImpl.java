@@ -39,9 +39,9 @@ public class ProductRepositoryImpl implements ProductRepository {
     @Override
     public void save(Product product) {
         if (product.getId() != null){
-            em.persist(product);
-        } else {
             em.merge(product);
+        } else {
+            em.persist(product);
         }
     }
 

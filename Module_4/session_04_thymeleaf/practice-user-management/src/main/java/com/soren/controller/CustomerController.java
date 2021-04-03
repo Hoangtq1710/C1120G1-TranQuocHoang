@@ -50,7 +50,7 @@ public class CustomerController {
         return "redirect:/";
     }
 
-    @GetMapping("/customer/delete")
+    @PostMapping("/customer/delete")
     public String delete(@RequestParam int id, RedirectAttributes redirect) {
         customerService.remove(customerService.findById(id).getId());
         redirect.addFlashAttribute("message", "Removed customer successfully!");

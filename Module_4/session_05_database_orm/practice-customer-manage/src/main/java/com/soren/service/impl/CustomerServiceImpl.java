@@ -20,7 +20,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findById(int id) {
+    public Customer findById(Long id) {
         return repository.findById(id);
     }
 
@@ -30,12 +30,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void update(Customer customer) {
-        repository.update(customer);
-    }
-
-    @Override
-    public void remove(int id) {
+    public void remove(Long id) {
         repository.remove(id);
     }
+
 }

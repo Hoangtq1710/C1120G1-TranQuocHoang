@@ -41,16 +41,30 @@ public class CustomerController {
     }
 
     @GetMapping("/view")
-    public String viewCustomer(@RequestParam int id, Model model){
+    public String viewCustomer(@RequestParam Long id, Model model){
         Customer customer = this.customerService.findById(id);
         model.addAttribute("customer", customer);
         return "customer/view";
     }
 
     @GetMapping("/show_edit")
-    public String showEdit(@RequestParam int id, Model model){
+    public String showEdit(@RequestParam Long id, Model model){
         Customer customer = this.customerService.findById(id);
         model.addAttribute("customer", customer);
         return "customer/edit";
+    }
+
+    @PostMapping("/edit")
+    public String editCustomer(Customer customer, RedirectAttributes redirect){
+        this.customerService.save(customer);
+        redirect.addFlashAttribute("message", "Information of customer "+customer.getName()+" was updated");
+        return "redirect:/customer/";
+    }
+
+    @PostMapping("/delete")
+    public String deleteCustomer(@RequestParam Long id, RedirectAttributes redirect){
+        this.customerService.remove(id);
+        redirect.addFlashAttribute("message", "Customer was deleted!");
+        return "redirect:/customer/";
     }
 }

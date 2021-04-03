@@ -8,12 +8,11 @@ public interface CustomerRepository {
 
     List<Customer> findAll();
 
-    Customer findById(int id);
+    Customer findById(Long id);
 
     void save(Customer customer);
 
-    void update(Customer customer);
+    void remove(Long id);
 
-    void remove(int id);
 
 }

@@ -4,10 +4,7 @@ import com.soren.model.Customer;
 import com.soren.repository.CustomerRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.NoResultException;
-import javax.persistence.PersistenceContext;
-import javax.persistence.TypedQuery;
+import javax.persistence.*;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class CustomerRepositoryImpl implements CustomerRepository {
     }
 
     @Override
-    public Customer findById(int id) {
+    public Customer findById(Long id) {
         TypedQuery<Customer> query = em.createQuery("select c from Customer c where c.id=:id", Customer.class);
         query.setParameter("id", id);
         try {
@@ -37,19 +34,18 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 
     @Override
     public void save(Customer customer) {
-        em.persist(customer);
+        if (customer.getId() != null) {
+            em.merge(customer);
+        } else {
+            em.persist(customer);
+        }
     }
 
     @Override
-    public void update(Customer customer) {
-        this.em.merge(customer);
-    }
-
-    @Override
-    public void remove(int id) {
-        Customer customer = this.findById(id);
+    public void remove(Long id) {
+        Customer customer = findById(id);
         if (customer != null){
-            this.em.remove(customer);
+            em.remove(customer);
         }
     }
 }

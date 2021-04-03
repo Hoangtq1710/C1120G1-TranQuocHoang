@@ -7,6 +7,12 @@
 <div class="container">
     <h1 style="color: teal" class="text-center">List Customer</h1>
     <a th:href="@{/customer/show_create}"><button class="btn btn-success" style="margin-bottom: 15px"><i class="far fa-plus-square"></i></button></a>
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
     <table class="table table-hover">
         <thead>
             <th>No</th>
@@ -27,7 +33,10 @@
                     <td>
                         <a th:href="@{/customer/view(id=${customer.id})}"><button class="btn btn-info" type="button" ><i class="fas fa-eye"></i></button></a>
                         <a th:href="@{/customer/show_edit(id=${customer.id})}"><button class="btn btn-warning" type="button" ><i class="fas fa-edit"></i></button></a>
-                        <button class="btn btn-danger" th:href="@{/delete}"><i class="fas fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                                th:onclick="|customerSetId('${customer.id}')|">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
                     </td>
                 </tr>
             </th:block>
@@ -35,7 +44,7 @@
     </table>
 </div>
 
-
+<div th:replace="/layout :: deleteModal"></div>
 <div th:replace="/layout :: script"></div>
 <div th:insert="~{layout :: footer}"></div>
 </body>

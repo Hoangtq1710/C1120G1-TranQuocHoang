@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">List Blog</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th th:text="${blog.id}"></th>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td th:text="${blog.title}"></td>
+            </tr>
+            <tr>
+                <td>Category</td>
+                <td th:text="${blog.category}"></td>
+            </tr>
+            <tr>
+                <td>Content</td>
+                <td th:text="${blog.content}"></td>
+            </tr>
+            <tr>
+                <td>Post Day</td>
+                <td th:text="${blog.postDay}"></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td th:text="${blog.image}"></td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td th:text="${blog.author}"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td th:text="${blog.description}"></td>
+            </tr>
+            <tr>
+                <td>
+                    <a style="text-decoration: none" th:href="@{/admin/}">
+                        <button class="btn btn-info">Back</button>
+                    </a>
+                </td>
+                <td>
+                    <a style="text-decoration: none" th:href="@{/admin/show_edit(id=${blog.id})}">
+                        <button class="btn btn-warning">Edit</button>
+                    </a>
+                </td>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

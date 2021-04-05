@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">List Blog</h1>
+    <a>
+        <button class="btn btn-success" data-target="#createModal" data-toggle="modal" style="margin-bottom: 15px">
+            <i class="far fa-plus-square"></i>
+        </button>
+    </a>
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>PostDay</th>
+                <th>Image</th>
+                <th>Author</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <th:block th:each="blog, iterStat : ${listBlog}">
+                <tr>
+                    <td th:text="${iterStat.count}"></td>
+                    <td th:text="${blog.id}"></td>
+                    <td th:text="${blog.title}"></td>
+                    <td th:text="${blog.category}"></td>
+                    <td th:text="${blog.postDay}"></td>
+                    <td th:text="${blog.image}"></td>
+                    <td th:text="${blog.author}"></td>
+                    <td>
+                        <a style="text-decoration: none" th:href="@{/admin/view(id=${blog.id})}">
+                            <button class="btn btn-info">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </a>
+                        <a style="text-decoration: none" th:href="@{/admin/show_edit(id=${blog.id})}">
+                            <button class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </a>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                                th:onclick="|blogSetId('${blog.id}')|">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </th:block>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="modal" id="createModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add New Article</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form th:action="@{/admin/create}" method="post" th:object="${blog}">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead></thead>
+                        <tbody>
+                        <tr>
+                            <th>Title</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{title}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Category</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{category}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Content</th>
+                            <td>
+                                <textarea th:field="*{content}" required></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Post Day</th>
+                            <td>
+                                <input type="date" th:field="*{postDay}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td>
+                                <input type="file" th:field="*{image}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Author</th>
+                            <td>
+                                <input type="text" th:field="*{author}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>
+                                <input type="text" th:field="*{description}" required>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:replace="/layout :: deleteModal"></div>
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

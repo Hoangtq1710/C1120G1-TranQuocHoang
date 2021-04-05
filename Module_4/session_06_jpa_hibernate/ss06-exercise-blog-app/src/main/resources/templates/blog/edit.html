@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">Edit Blog Information</h1>
+    <form th:action="@{/admin/edit}" method="post" th:object="${blog}">
+        <table class="table table-hover">
+            <thead></thead>
+            <tbody>
+                <tr hidden>
+                    <th>ID</th>
+                    <td>
+                        <input type="text" th:field="*{id}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Title</th>
+                    <td>
+                        <input type="text" th:field="*{title}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Category</th>
+                    <td>
+                        <input type="text" th:field="*{category}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Content</th>
+                    <td>
+                        <textarea th:field="*{content}" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Post Day</th>
+                    <td>
+                        <input type="date" th:field="*{postDay}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Image</th>
+                    <td>
+                        <input type="file" th:text="*{image}" th:field="*{image}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Author</th>
+                    <td>
+                        <input type="text" th:field="*{author}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        <input type="text" th:field="*{description}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a style="text-decoration: none" th:href="@{/admin/}"><button class="btn btn-info">Back</button></a>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-warning">Update</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

@@ -14,4 +14,6 @@ public interface BlogService {
 
     void deleteById(Integer id);
 
+    String getPostTime();
+
 }

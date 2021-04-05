@@ -13,7 +13,7 @@ public class Blog {
     private String title;
     private String category;
     private String content;
-    private Date postDay;
+    private String postDay;
     private String image;
     private String author;
     private String description;
@@ -22,7 +22,7 @@ public class Blog {
     }
 
     public Blog(Integer id, String title, String category, String content,
-                Date postDay, String image, String author, String description) {
+                String postDay, String image, String author, String description) {
         this.id = id;
         this.title = title;
         this.category = category;
@@ -65,11 +65,11 @@ public class Blog {
         this.content = content;
     }
 
-    public Date getPostDay() {
+    public String getPostDay() {
         return postDay;
     }
 
-    public void setPostDay(Date postDay) {
+    public void setPostDay(String postDay) {
         this.postDay = postDay;
     }
 

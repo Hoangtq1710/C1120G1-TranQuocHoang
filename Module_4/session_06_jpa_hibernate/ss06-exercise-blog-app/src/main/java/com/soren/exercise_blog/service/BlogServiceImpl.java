@@ -32,4 +32,5 @@ public class BlogServiceImpl implements BlogService{
     public void deleteById(Integer id) {
         repository.deleteById(id);
     }
+
 }

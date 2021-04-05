@@ -13,4 +13,5 @@ public interface BlogService {
     void save(Blog blog);
 
     void deleteById(Integer id);
+
 }

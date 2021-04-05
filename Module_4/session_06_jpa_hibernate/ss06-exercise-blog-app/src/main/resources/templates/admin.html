@@ -63,7 +63,7 @@
 
 </div>
 
-<div class="modal" id="createModal">
+<div class="modal fade" id="createModal">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -93,31 +93,31 @@
                         <tr>
                             <th>Content</th>
                             <td>
-                                <textarea th:field="*{content}" required></textarea>
+                                <textarea class="form-control" th:field="*{content}" required></textarea>
                             </td>
                         </tr>
-                        <tr>
+                        <tr hidden>
                             <th>Post Day</th>
                             <td>
-                                <input type="date" th:field="*{postDay}" required>
+                                <input type="date" class="form-control" th:field="*{postDay}">
                             </td>
                         </tr>
                         <tr>
                             <th>Image</th>
                             <td>
-                                <input type="file" th:field="*{image}" required>
+                                <input type="file" class="form-control" th:field="*{image}" required>
                             </td>
                         </tr>
                         <tr>
                             <th>Author</th>
                             <td>
-                                <input type="text" th:field="*{author}" required>
+                                <input type="text" class="form-control" th:field="*{author}" required>
                             </td>
                         </tr>
                         <tr>
                             <th>Description</th>
                             <td>
-                                <input type="text" th:field="*{description}" required>
+                                <input type="text" class="form-control" th:field="*{description}" required>
                             </td>
                         </tr>
                         </tbody>

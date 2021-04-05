@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.sql.Date;
 import java.util.List;
 
 @Controller
@@ -24,12 +25,15 @@ public class BlogController {
     public String getHomeAdmin(Model model){
         List<Blog> listBlog = this.blogService.findAll();
         model.addAttribute("listBlog", listBlog);
-        model.addAttribute("blog", new Blog());
+        Blog blog = new Blog();
+        blog.setPostDay(new Date(new java.util.Date().getTime()));
+        model.addAttribute("blog", blog);
         return "admin";
     }
 
     @PostMapping("/create")
     public String createArticle(Blog blog, RedirectAttributes redirect){
+        blog.setPostDay(new Date(new java.util.Date().getTime()));
         this.blogService.save(blog);
         redirect.addFlashAttribute("message", "Blog "+blog.getId()+" was added");
         return "redirect:/admin/";
@@ -51,6 +55,7 @@ public class BlogController {
 
     @PostMapping("/edit")
     public String editBlog(Blog blog, RedirectAttributes redirect){
+        blog.setPostDay(new Date(new java.util.Date().getTime()));
         this.blogService.save(blog);
         redirect.addFlashAttribute("message", "Information of Blog "+blog.getId()+" was updated");
         return "redirect:/admin/";

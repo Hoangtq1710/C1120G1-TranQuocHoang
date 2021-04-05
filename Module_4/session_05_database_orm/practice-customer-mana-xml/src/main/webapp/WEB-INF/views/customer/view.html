@@ -19,12 +19,19 @@
                 <td th:text="${customer.name}"></td>
             </tr>
             <tr>
-                <th>Email</th>
-                <td th:text="${customer.email}"></td>
+                <th>Gender</th>
+                <th:block th:switch="${customer.gender}">
+                    <td th:case="true" th:text="Male"></td>
+                    <td th:case="false" th:text="Female"></td>
+                </th:block>
             </tr>
             <tr>
-                <th>Address</th>
-                <td th:text="${customer.address}"></td>
+                <th>Date Of Birth</th>
+                <td th:text="${customer.dateOfBirth}"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td th:text="${customer.email}"></td>
             </tr>
             <tr>
                 <td>

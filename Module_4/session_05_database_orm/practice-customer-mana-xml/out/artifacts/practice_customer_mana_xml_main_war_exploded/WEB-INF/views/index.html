@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">List Customer</h1>
+    <a th:href="@{/customer/show_create}"><button class="btn btn-success" style="margin-bottom: 15px"><i class="far fa-plus-square"></i></button></a>
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <th>No</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Date Of Birth</th>
+        <th>Email</th>
+        <th>Options</th>
+        </thead>
+        <tbody>
+        <th:block th:each="customer, iterStat : ${listCustomer}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${customer.id}"></td>
+                <td th:text="${customer.name}"></td>
+                <td th:text="${customer.age}"></td>
+                <th:block th:switch="${customer.gender}">
+                    <td th:case="true" th:text="Male"></td>
+                    <td th:case="false" th:text="Female"></td>
+                </th:block>
+                <td th:text="${customer.dateOfBirth}"></td>
+                <td th:text="${customer.email}"></td>
+                <td>
+                    <a th:href="@{/customer/view(id=${customer.id})}"><button class="btn btn-info" type="button" ><i class="fas fa-eye"></i></button></a>
+                    <a th:href="@{/customer/show_edit(id=${customer.id})}"><button class="btn btn-warning" type="button" ><i class="fas fa-edit"></i></button></a>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                            th:onclick="|customerSetId('${customer.id}')|">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="/layout :: deleteModal"></div>
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

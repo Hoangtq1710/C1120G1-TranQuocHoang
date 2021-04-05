@@ -1,4 +1,4 @@
-package com.codegym.repository.impl;
+package com.soren.repository.impl;
 
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
@@ -14,9 +14,7 @@ public class BaseRepository {
 
     static {
         try {
-            sessionFactory = new Configuration()
-                    .configure("hibernate.conf.xml")
-                    .buildSessionFactory();
+            sessionFactory = new Configuration().configure("hibernate.conf.xml").buildSessionFactory();
             entityManager = sessionFactory.createEntityManager();
         } catch (HibernateException e) {
             e.printStackTrace();

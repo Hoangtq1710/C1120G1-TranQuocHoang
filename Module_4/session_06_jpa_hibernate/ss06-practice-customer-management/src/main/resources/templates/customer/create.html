@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">Add New Customer</h1>
+    <form th:action="@{/customer/create}" method="post" th:object="${customer}">
+        <table class="table table-hover">
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>
+                        <input type="text" th:field="*{name}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>
+                        <input type="text" th:field="*{age}">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Address</th>
+                    <td>
+                        <input type="text" th:field="*{address}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a th:href="@{/customer/}"><button type="button" class="btn btn-info">Back</button></a>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" type="submit">Create</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

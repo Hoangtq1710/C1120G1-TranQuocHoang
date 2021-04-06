@@ -40,4 +40,9 @@ public class BlogServiceImpl implements BlogService{
         repository.deleteById(id);
     }
 
+    @Override
+    public Page<Blog> findAllByTitleContaining(String search, Pageable pageable) {
+        return repository.findAllByTitleContaining(search,pageable);
+    }
+
 }

@@ -2,17 +2,28 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="~{layout :: head}"></head>
 <body>
-<div th:insert="~{layout :: header}"></div>
+<div th:insert="~{layout :: main-header}"></div>
 
 <div class="container">
     <h1 style="color: teal" class="text-center">List Blog</h1>
     <div>
-        <button class="btn btn-success" data-target="#createModal" data-toggle="modal" style="margin-bottom: 15px">
+        <button class="btn btn-success"
+                data-target="#createModal" data-toggle="modal" style="margin-bottom: 15px">
             <i class="far fa-plus-square"></i>
         </button>
         <a th:href="@{/category}">
-            <button style="margin-bottom: 15px" class="btn btn-info">Go to Category List</button>
+            <button style="margin-bottom: 15px"
+                    class="btn btn-info">Go to Category List</button>
         </a>
+        <form th:action="@{/admin/search}" class="input-group col-4 float-right">
+            <input type="text" name="search" id="search"
+                   class="form-control" placeholder="Search ..." th:value="${search}">
+            <div class="input-group-append" style="padding-left: 5px">
+                <button type="submit" title="Search" class="btn btn-outline-success">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </form>
     </div>
     <div th:if="${message}">
         <div class="alert alert-success alert-dismissible fade show font-weight-bold">
@@ -54,7 +65,8 @@
                                 <i class="fas fa-edit"></i>
                             </button>
                         </a>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"
+                        <button type="button" class="btn btn-danger"
+                                data-toggle="modal" data-target="#deleteModal"
                                 th:onclick="|blogSetId('${blog.id}')|">
                             <i class="fas fa-trash-alt"></i>
                         </button>
@@ -65,15 +77,19 @@
     </table>
 
     <div>
-        <a th:href="@{'/admin'(page=${listBlog.number - 1})}" th:if="${listBlog.hasPrevious()}">
+        <a th:href="@{'/admin'(page=${listBlog.number - 1})}"
+           th:if="${listBlog.hasPrevious()}">
             <button class="btn btn-info">
                 <i class="fas fa-fast-backward"></i>
             </button>
         </a>
         <button class="btn btn-info col-1">
-            <span th:text="${listBlog.number + 1}"></span>/<span th:text="${listBlog.totalPages}"></span>
+            <span th:text="${listBlog.number + 1}"></span>
+            /
+            <span th:text="${listBlog.totalPages}"></span>
         </button>
-        <a th:href="@{'/admin'(page=${listBlog.number + 1})}" th:if="${listBlog.hasNext()}">
+        <a th:href="@{'/admin'(page=${listBlog.number + 1})}"
+           th:if="${listBlog.hasNext()}">
             <button class="btn btn-info">
                 <i class="fas fa-fast-forward"></i>
             </button>
@@ -143,7 +159,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                     <button class="btn btn-success" type="submit">Create</button>
                 </div>
             </form>

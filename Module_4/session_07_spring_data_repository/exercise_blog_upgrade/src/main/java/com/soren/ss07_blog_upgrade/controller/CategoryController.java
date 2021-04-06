@@ -3,6 +3,9 @@ package com.soren.ss07_blog_upgrade.controller;
 import com.soren.ss07_blog_upgrade.model.Category;
 import com.soren.ss07_blog_upgrade.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +24,8 @@ public class CategoryController {
     CategoryService categoryService;
 
     @GetMapping("")
-    public String getCategoryHome(Model model){
-        List<Category> listCategory = this.categoryService.findAll();
+    public String getCategoryHome(Model model,@PageableDefault(value = 3) Pageable pageable){
+        Page<Category> listCategory = this.categoryService.findAll(pageable);
         Category category = new Category();
         model.addAttribute("category", category);
         model.addAttribute("listCategory", listCategory);
@@ -37,9 +40,10 @@ public class CategoryController {
     }
 
     @GetMapping("/edit")
-    public String showEditForm(@RequestParam Integer id, Model model){
+    public String showEditForm(@RequestParam Integer id, Model model,
+                               @PageableDefault(value = 3) Pageable pageable){
         Category category = this.categoryService.findById(id);
-        model.addAttribute("listCategory", this.categoryService.findAll());
+        model.addAttribute("listCategory", this.categoryService.findAll(pageable));
         model.addAttribute("category", category);
         return "category/edit";
     }
@@ -47,7 +51,7 @@ public class CategoryController {
     @PostMapping("edit")
     public String editCategory(Category category, RedirectAttributes redirect){
         this.categoryService.save(category);
-        redirect.addFlashAttribute("message", "Information of category "+category.getName()+" was updated");
+        redirect.addFlashAttribute("message", "Category "+category.getName()+" was updated");
         return "redirect:/category/";
     }
 

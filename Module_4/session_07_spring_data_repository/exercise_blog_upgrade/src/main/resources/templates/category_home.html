@@ -10,7 +10,9 @@
         <a style="text-decoration: none" th:href="@{/admin}">
             <button style="margin-bottom: 15px" class="btn btn-info">Back to Blog List</button>
         </a>
-        <button class="btn btn-success" data-target="#createCategoryModal" data-toggle="modal" style="margin-bottom: 15px">
+        <button class="btn btn-success"
+                data-target="#createCategoryModal" data-toggle="modal"
+                style="margin-bottom: 15px">
             <i class="far fa-plus-square"></i>
         </button>
     </div>
@@ -42,7 +44,8 @@
                             <i class="fas fa-edit"></i>
                         </button>
                     </a>
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteCategoryModal"
+                    <button type="button" class="btn btn-danger"
+                            data-toggle="modal" data-target="#deleteCategoryModal"
                             th:onclick="|categorySetId('${category.id}')|">
                         <i class="fas fa-trash-alt"></i>
                     </button>
@@ -51,6 +54,28 @@
         </th:block>
         </tbody>
     </table>
+
+    <div>
+        <a style="text-decoration: none"
+           th:href="@{'/category'(page=${listCategory.number - 1})}"
+           th:if="${listCategory.hasPrevious()}">
+            <button class="btn btn-info">
+                <i class="fas fa-fast-backward"></i>
+            </button>
+        </a>
+        <button class="btn btn-info col-1">
+            <span th:text="${listCategory.number + 1}"></span>
+            /
+            <span th:text="${listCategory.totalPages}"></span>
+        </button>
+        <a style="text-decoration: none"
+           th:href="@{'/category'(page=${listCategory.number + 1})}"
+           th:if="${listCategory.hasNext()}">
+            <button class="btn btn-info">
+                <i class="fas fa-fast-forward"></i>
+            </button>
+        </a>
+    </div>
 </div>
 
 <div class="modal fade" id="createCategoryModal">
@@ -59,7 +84,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Add New Article</h4>
+                <h4 class="modal-title">Add New Category</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <form th:action="@{/category/create}" method="post" th:object="${category}">
@@ -80,7 +105,7 @@
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                     <button class="btn btn-success" type="submit">Create</button>
                 </div>
             </form>

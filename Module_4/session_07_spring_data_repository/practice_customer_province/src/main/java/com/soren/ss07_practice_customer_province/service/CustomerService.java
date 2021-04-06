@@ -1,17 +1,23 @@
-package com.soren.service;
+package com.soren.ss07_practice_customer_province.service;
 
-import com.soren.model.Customer;
+import com.soren.ss07_practice_customer_province.model.Customer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
 public interface CustomerService {
 
-    List<Customer> findAll();
+    Page<Customer> findAll(Pageable pageable);
 
-    Customer findById(Long id);
+    Customer findById(Integer id);
 
     void save(Customer customer);
 
-    void remove(Long id);
+    void remove(Integer id);
+
+    List<Customer> findAllByProvinceName(String name);
+
+    Page<Customer> findAllByNameContaining(String name, Pageable pageable);
 
 }

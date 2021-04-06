@@ -1,9 +1,11 @@
-package com.soren.service.impl;
+package com.soren.ss07_practice_customer_province.service.impl;
 
-import com.soren.model.Customer;
-import com.soren.repository.CustomerRepository;
-import com.soren.service.CustomerService;
+import com.soren.ss07_practice_customer_province.model.Customer;
+import com.soren.ss07_practice_customer_province.repository.CustomerRepository;
+import com.soren.ss07_practice_customer_province.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,13 +17,13 @@ public class CustomerServiceImpl implements CustomerService {
     CustomerRepository repository;
 
     @Override
-    public List<Customer> findAll() {
-        return repository.findAll();
+    public Page<Customer> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
-    public Customer findById(Long id) {
-        return repository.findById(id);
+    public Customer findById(Integer id) {
+        return repository.findById(id).orElse(null);
     }
 
     @Override
@@ -30,8 +32,19 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void remove(Long id) {
-        repository.remove(id);
+    public void remove(Integer id) {
+        repository.deleteById(id);
     }
+
+    @Override
+    public List<Customer> findAllByProvinceName(String name) {
+        return repository.findAllByProvinceName(name);
+    }
+
+    @Override
+    public Page<Customer> findAllByNameContaining(String name, Pageable pageable) {
+        return repository.findAllByNameContaining(name, pageable);
+    }
+
 
 }

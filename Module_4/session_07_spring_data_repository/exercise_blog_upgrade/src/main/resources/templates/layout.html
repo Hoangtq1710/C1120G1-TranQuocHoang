@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
     <meta charset="UTF-8">
-    <title>Customer Province</title>
+    <title>My Blog Admin</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -42,7 +42,7 @@
                     <h4 class="modal-title w-100 text-center mt-4">Are you sure?</h4>
                 </div>
                 <div class="modal-body text-center">
-                    <p>Do you really want to delete this Customer?</p>
+                    <p>Do you really want to delete this Blog?</p>
                 </div>
                 <div class="modal-footer justify-content-center text-center">
                     <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
@@ -51,11 +51,11 @@
             </div>
         </div>
     </div>
-    <form th:action="@{/customer/delete}" method="post" id="idForm">
+    <form th:action="@{/admin/delete}" method="post" id="idForm">
         <input type="hidden" name="id" id="idDeleted">
     </form>
     <script>
-        function customerSetId(id) {
+        function blogSetId(id) {
             document.getElementById("idDeleted").value = id;
         }
         function submitDelete() {

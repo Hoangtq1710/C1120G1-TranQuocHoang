@@ -1,18 +1,14 @@
-package com.soren.repository;
+package com.soren.ss07_practice_customer_province.repository;
 
-import com.soren.model.Customer;
+import com.soren.ss07_practice_customer_province.model.Customer;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CustomerRepository {
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+    List<Customer> findAllByProvinceName(String name);
 
-    List<Customer> findAll();
-
-    Customer findById(Long id);
-
-    void save(Customer customer);
-
-    void remove(Long id);
-
-
+    Page<Customer> findAllByNameContaining(String name, Pageable pageable);
 }

@@ -23,12 +23,12 @@
                 <td th:text="${customer.email}"></td>
             </tr>
             <tr>
-                <th>Address</th>
-                <td th:text="${customer.address}"></td>
+                <th>Province</th>
+                <td th:text="${customer.province.name}"></td>
             </tr>
             <tr>
                 <td>
-                    <a th:href="@{/}"><button class="btn btn-info" type="button">Back</button></a>
+                    <a th:href="@{/customer/}"><button class="btn btn-info" type="button">Back</button></a>
                 </td>
                 <td>
                     <a th:href="@{/customer/show_edit(id=${customer.id})}"><button type="button" class="btn btn-warning">Edit</button></a>

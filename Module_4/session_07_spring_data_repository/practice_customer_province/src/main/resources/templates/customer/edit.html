@@ -29,14 +29,19 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>Address</th>
+                    <th>Province</th>
                     <td>
-                        <input type="text" th:field="*{address}" required>
+                        <select th:field="*{province}">
+                            <option th:each="province : ${listProvince}"
+                                    th:value="${province.id}"
+                                    th:text="${province.name}" >
+                            </option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a th:href="@{/customer/view}"><button class="btn btn-info">Back</button></a>
+                        <a th:href="@{/customer/}"><button class="btn btn-info">Back</button></a>
                     </td>
                     <td>
                         <button type="submit" class="btn btn-warning">Update</button>

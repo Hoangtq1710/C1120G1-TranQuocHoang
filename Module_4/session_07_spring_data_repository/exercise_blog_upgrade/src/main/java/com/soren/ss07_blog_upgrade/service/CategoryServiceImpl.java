@@ -3,8 +3,6 @@ package com.soren.ss07_blog_upgrade.service;
 import com.soren.ss07_blog_upgrade.model.Category;
 import com.soren.ss07_blog_upgrade.repository.CategoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,8 +14,8 @@ public class CategoryServiceImpl implements CategoryService {
     CategoryRepository repository;
 
     @Override
-    public Page<Category> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
+    public List<Category> findAll() {
+        return repository.findAll();
     }
 
     @Override

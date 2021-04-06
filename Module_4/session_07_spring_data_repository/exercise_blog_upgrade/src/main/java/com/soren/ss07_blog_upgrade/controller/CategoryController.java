@@ -24,8 +24,8 @@ public class CategoryController {
     CategoryService categoryService;
 
     @GetMapping("")
-    public String getCategoryHome(Model model,@PageableDefault(value = 3) Pageable pageable){
-        Page<Category> listCategory = this.categoryService.findAll(pageable);
+    public String getCategoryHome(Model model){
+        List<Category> listCategory = this.categoryService.findAll();
         Category category = new Category();
         model.addAttribute("category", category);
         model.addAttribute("listCategory", listCategory);
@@ -40,10 +40,9 @@ public class CategoryController {
     }
 
     @GetMapping("/edit")
-    public String showEditForm(@RequestParam Integer id, Model model,
-                               @PageableDefault(value = 3) Pageable pageable){
+    public String showEditForm(@RequestParam Integer id, Model model){
         Category category = this.categoryService.findById(id);
-        model.addAttribute("listCategory", this.categoryService.findAll(pageable));
+        model.addAttribute("listCategory", this.categoryService.findAll());
         model.addAttribute("category", category);
         return "category/edit";
     }

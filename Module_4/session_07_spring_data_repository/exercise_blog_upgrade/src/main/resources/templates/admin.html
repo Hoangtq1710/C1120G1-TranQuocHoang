@@ -7,14 +7,16 @@
 <div class="container">
     <h1 style="color: teal" class="text-center">List Blog</h1>
     <div>
+        <a style="text-decoration: none" th:href="@{/category}">
+            <button style="margin-bottom: 15px"
+                    class="btn btn-info">Go to Category List</button>
+        </a>
+
         <button class="btn btn-success"
                 data-target="#createModal" data-toggle="modal" style="margin-bottom: 15px">
             <i class="far fa-plus-square"></i>
         </button>
-        <a th:href="@{/category}">
-            <button style="margin-bottom: 15px"
-                    class="btn btn-info">Go to Category List</button>
-        </a>
+
         <form th:action="@{/admin/search}" class="input-group col-4 float-right">
             <input type="text" name="search" id="search"
                    class="form-control" placeholder="Search ..." th:value="${search}">

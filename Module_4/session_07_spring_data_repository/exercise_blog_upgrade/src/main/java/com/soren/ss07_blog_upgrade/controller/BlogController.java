@@ -31,9 +31,9 @@ public class BlogController {
 
     @GetMapping("")
     public String getHomeAdmin(Model model,
-                               @PageableDefault(value = 3) Pageable pageable){
+                               @PageableDefault(value = 5) Pageable pageable){
         Page<Blog> listBlog = this.blogService.findAll(pageable);
-        Page<Category> listCategory = this.categoryService.findAll(pageable);
+        List<Category> listCategory = this.categoryService.findAll();
         model.addAttribute("listBlog", listBlog);
         model.addAttribute("listCategory", listCategory);
         model.addAttribute("blog", new Blog());
@@ -58,7 +58,7 @@ public class BlogController {
     public String showEditForm(@RequestParam Integer id, Model model,
                                @PageableDefault(value = 3) Pageable pageable){
         Blog blog = this.blogService.findById(id);
-        Page<Category> listCategory = this.categoryService.findAll(pageable);
+        List<Category> listCategory = this.categoryService.findAll();
         model.addAttribute("listCategory", listCategory);
         model.addAttribute("blog", blog);
         return "blog/edit";
@@ -91,7 +91,7 @@ public class BlogController {
         }
         model.addAttribute("listBlog", listBlog);
 
-        Page<Category> listCategory = this.categoryService.findAll(pageable);
+        List<Category> listCategory = this.categoryService.findAll();
 
         model.addAttribute("blog", new Blog());
         model.addAttribute("listCategory", listCategory);

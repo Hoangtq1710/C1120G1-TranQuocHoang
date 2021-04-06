@@ -4,7 +4,9 @@ import com.soren.ss07_blog_upgrade.model.Blog;
 import com.soren.ss07_blog_upgrade.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -44,5 +46,4 @@ public class BlogServiceImpl implements BlogService{
     public Page<Blog> findAllByTitleContaining(String search, Pageable pageable) {
         return repository.findAllByTitleContaining(search,pageable);
     }
-
 }

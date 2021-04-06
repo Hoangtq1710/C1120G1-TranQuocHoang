@@ -3,6 +3,8 @@ package com.soren.ss07_blog_upgrade.service;
 import com.soren.ss07_blog_upgrade.model.Blog;
 import com.soren.ss07_blog_upgrade.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -16,8 +18,8 @@ public class BlogServiceImpl implements BlogService{
     BlogRepository repository;
 
     @Override
-    public List<Blog> findAll() {
-        return repository.findAll();
+    public Page<Blog> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override

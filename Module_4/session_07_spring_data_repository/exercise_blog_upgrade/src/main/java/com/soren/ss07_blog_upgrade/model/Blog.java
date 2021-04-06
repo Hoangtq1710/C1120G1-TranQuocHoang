@@ -10,6 +10,7 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
+
     @ManyToOne
     @JoinColumn(name = "categories", nullable = false, referencedColumnName = "category_id")
     private Category category;

@@ -1,8 +1,13 @@
 package com.soren.ss07_blog_upgrade.controller;
 
 import com.soren.ss07_blog_upgrade.model.Blog;
+import com.soren.ss07_blog_upgrade.model.Category;
 import com.soren.ss07_blog_upgrade.service.BlogService;
+import com.soren.ss07_blog_upgrade.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,10 +25,15 @@ public class BlogController {
     @Autowired
     BlogService blogService;
 
+    @Autowired
+    CategoryService categoryService;
+
     @GetMapping("")
-    public String getHomeAdmin(Model model){
-        List<Blog> listBlog = this.blogService.findAll();
+    public String getHomeAdmin(Model model,@PageableDefault(value = 2) Pageable pageable){
+        Page<Blog> listBlog = this.blogService.findAll(pageable);
+        List<Category> listCategory = this.categoryService.findAll();
         model.addAttribute("listBlog", listBlog);
+        model.addAttribute("listCategory", listCategory);
         model.addAttribute("blog", new Blog());
         return "admin";
     }
@@ -45,6 +55,8 @@ public class BlogController {
     @GetMapping("/show_edit")
     public String showEditForm(@RequestParam Integer id, Model model){
         Blog blog = this.blogService.findById(id);
+        List<Category> listCategory = this.categoryService.findAll();
+        model.addAttribute("listCategory", listCategory);
         model.addAttribute("blog", blog);
         return "blog/edit";
     }

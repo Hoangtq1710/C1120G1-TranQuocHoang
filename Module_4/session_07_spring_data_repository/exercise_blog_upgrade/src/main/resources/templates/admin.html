@@ -6,11 +6,14 @@
 
 <div class="container">
     <h1 style="color: teal" class="text-center">List Blog</h1>
-    <a>
+    <div>
         <button class="btn btn-success" data-target="#createModal" data-toggle="modal" style="margin-bottom: 15px">
             <i class="far fa-plus-square"></i>
         </button>
-    </a>
+        <a th:href="@{/category}">
+            <button style="margin-bottom: 15px" class="btn btn-info">Go to Category List</button>
+        </a>
+    </div>
     <div th:if="${message}">
         <div class="alert alert-success alert-dismissible fade show font-weight-bold">
             <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
@@ -36,7 +39,7 @@
                     <td th:text="${iterStat.count}"></td>
                     <td th:text="${blog.id}"></td>
                     <td th:text="${blog.title}"></td>
-                    <td th:text="${blog.category}"></td>
+                    <td th:text="${blog.category.name}"></td>
                     <td th:text="${blog.postDay}"></td>
                     <td th:text="${blog.image}"></td>
                     <td th:text="${blog.author}"></td>
@@ -60,6 +63,22 @@
             </th:block>
         </tbody>
     </table>
+
+    <div>
+        <a th:href="@{'/admin'(page=${listBlog.number - 1})}" th:if="${listBlog.hasPrevious()}">
+            <button class="btn btn-info">
+                <i class="fas fa-fast-backward"></i>
+            </button>
+        </a>
+        <button class="btn btn-info col-1">
+            <span th:text="${listBlog.number + 1}"></span>/<span th:text="${listBlog.totalPages}"></span>
+        </button>
+        <a th:href="@{'/admin'(page=${listBlog.number + 1})}" th:if="${listBlog.hasNext()}">
+            <button class="btn btn-info">
+                <i class="fas fa-fast-forward"></i>
+            </button>
+        </a>
+    </div>
 
 </div>
 
@@ -87,7 +106,11 @@
                         <tr>
                             <th>Category</th>
                             <td>
-                                <input type="text" class="form-control" th:field="*{category}" required>
+                                <select th:field="*{category}" class="form-control">
+                                    <option th:each="category : ${listCategory}" th:value="${category.id}"
+                                            th:text="${category.name}">
+                                    </option>
+                                </select>
                             </td>
                         </tr>
                         <tr>

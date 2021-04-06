@@ -25,7 +25,11 @@
                 <tr>
                     <th>Category</th>
                     <td>
-                        <input type="text" class="form-control" th:field="*{category}" required>
+                        <select th:field="*{category}" class="form-control">
+                            <option th:each="category : ${listCategory}" th:value="${category.id}"
+                                    th:text="${category.name}">
+                            </option>
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -61,7 +65,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a style="text-decoration: none" th:href="@{/admin/}"><button class="btn btn-info">Back</button></a>
+                        <a th:href="@{/admin/}"><button type="button" class="btn btn-info">Back</button></a>
                     </td>
                     <td>
                         <button type="submit" class="btn btn-warning">Update</button>

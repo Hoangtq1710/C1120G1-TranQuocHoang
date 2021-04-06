@@ -5,9 +5,8 @@ import com.soren.exercise_blog.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -37,8 +36,7 @@ public class BlogServiceImpl implements BlogService{
     }
 
     @Override
-    public String getPostTime() {
-        return LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
+    public Timestamp getPostTime() {
+        return new Timestamp(new Date().getTime());
     }
-
 }

@@ -1,7 +1,7 @@
 package com.soren.exercise_blog.model;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "blog")
@@ -13,7 +13,9 @@ public class Blog {
     private String title;
     private String category;
     private String content;
-    private String postDay;
+
+    private Timestamp postDay;
+
     private String image;
     private String author;
     private String description;
@@ -22,7 +24,7 @@ public class Blog {
     }
 
     public Blog(Integer id, String title, String category, String content,
-                String postDay, String image, String author, String description) {
+                Timestamp postDay, String image, String author, String description) {
         this.id = id;
         this.title = title;
         this.category = category;
@@ -65,11 +67,11 @@ public class Blog {
         this.content = content;
     }
 
-    public String getPostDay() {
+    public Timestamp getPostDay() {
         return postDay;
     }
 
-    public void setPostDay(String postDay) {
+    public void setPostDay(Timestamp postDay) {
         this.postDay = postDay;
     }
 

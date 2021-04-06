@@ -2,6 +2,7 @@ package com.soren.exercise_blog.service;
 
 import com.soren.exercise_blog.model.Blog;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public interface BlogService {
@@ -14,6 +15,6 @@ public interface BlogService {
 
     void deleteById(Integer id);
 
-    String getPostTime();
+    Timestamp getPostTime();
 
 }

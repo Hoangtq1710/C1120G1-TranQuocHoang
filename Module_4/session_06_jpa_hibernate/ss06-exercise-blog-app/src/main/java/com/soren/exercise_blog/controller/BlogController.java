@@ -20,7 +20,7 @@ public class BlogController {
     @Autowired
     BlogService blogService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public String getHomeAdmin(Model model){
         List<Blog> listBlog = this.blogService.findAll();
         model.addAttribute("listBlog", listBlog);

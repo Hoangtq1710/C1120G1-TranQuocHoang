@@ -15,6 +15,4 @@ public interface BlogService {
 
     void deleteById(Integer id);
 
-    Timestamp getPostTime();
-
 }

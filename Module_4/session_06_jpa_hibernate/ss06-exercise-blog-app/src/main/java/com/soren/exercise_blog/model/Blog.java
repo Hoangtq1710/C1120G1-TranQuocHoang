@@ -12,9 +12,12 @@ public class Blog {
     private Integer id;
     private String title;
     private String category;
+
+    @Column(columnDefinition = "blob")
     private String content;
 
-    private Timestamp postDay;
+    @Column(columnDefinition = "datetime")
+    private String postDay;
 
     private String image;
     private String author;
@@ -24,7 +27,7 @@ public class Blog {
     }
 
     public Blog(Integer id, String title, String category, String content,
-                Timestamp postDay, String image, String author, String description) {
+                String postDay, String image, String author, String description) {
         this.id = id;
         this.title = title;
         this.category = category;
@@ -67,11 +70,11 @@ public class Blog {
         this.content = content;
     }
 
-    public Timestamp getPostDay() {
+    public String getPostDay() {
         return postDay;
     }
 
-    public void setPostDay(Timestamp postDay) {
+    public void setPostDay(String postDay) {
         this.postDay = postDay;
     }
 

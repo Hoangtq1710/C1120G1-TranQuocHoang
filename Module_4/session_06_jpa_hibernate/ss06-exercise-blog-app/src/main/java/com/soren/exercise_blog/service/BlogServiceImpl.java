@@ -4,8 +4,10 @@ import com.soren.exercise_blog.model.Blog;
 import com.soren.exercise_blog.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.thymeleaf.util.DateUtils;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -27,6 +29,9 @@ public class BlogServiceImpl implements BlogService{
 
     @Override
     public void save(Blog blog) {
+        if (blog.getId() == null){
+            blog.setPostDay(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        }
         repository.save(blog);
     }
 
@@ -35,8 +40,4 @@ public class BlogServiceImpl implements BlogService{
         repository.deleteById(id);
     }
 
-    @Override
-    public Timestamp getPostTime() {
-        return new Timestamp(new Date().getTime());
-    }
 }

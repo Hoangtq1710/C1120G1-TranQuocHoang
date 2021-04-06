@@ -29,6 +29,13 @@
                     </td>
                 </tr>
                 <tr>
+                    <th>Post Day</th>
+                    <td>
+                        <p th:text="*{postDay}"></p>
+                        <input type="hidden" th:field="*{postDay}">
+                    </td>
+                </tr>
+                <tr>
                     <th>Content</th>
                     <td>
                         <textarea class="form-control" th:field="*{content}" required></textarea>

@@ -24,15 +24,12 @@ public class BlogController {
     public String getHomeAdmin(Model model){
         List<Blog> listBlog = this.blogService.findAll();
         model.addAttribute("listBlog", listBlog);
-        Blog blog = new Blog();
-        blog.setPostDay(this.blogService.getPostTime());
-        model.addAttribute("blog", blog);
+        model.addAttribute("blog", new Blog());
         return "admin";
     }
 
     @PostMapping("/create")
     public String createArticle(Blog blog, RedirectAttributes redirect){
-        blog.setPostDay(this.blogService.getPostTime());
         this.blogService.save(blog);
         redirect.addFlashAttribute("message", "Blog "+blog.getId()+" was added");
         return "redirect:/admin/";
@@ -54,7 +51,6 @@ public class BlogController {
 
     @PostMapping("/edit")
     public String editBlog(Blog blog, RedirectAttributes redirect){
-        blog.setPostDay(this.blogService.getPostTime());
         this.blogService.save(blog);
         redirect.addFlashAttribute("message", "Information of Blog "+blog.getId()+" was updated");
         return "redirect:/admin/";

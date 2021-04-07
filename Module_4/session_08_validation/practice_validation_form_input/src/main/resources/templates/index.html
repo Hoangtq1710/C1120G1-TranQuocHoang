@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>FORM INPUT</h1>
+        <form th:action="@{/user/register}" method="post" th:object="${user}">
+            <table class="table table-hover">
+                <thead></thead>
+                <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>
+                        <input class="form-control" type="text" th:field="*{name}">
+                        <p th:if="${#fields.errors('name')}" th:errors="*{name}" style="color: red"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>
+                        <input class="form-control" type="text" th:field="*{age}">
+                        <p th:if="${#fields.errors('age')}" th:errors="*{age}" style="color: red"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-success" type="submit">Submit</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

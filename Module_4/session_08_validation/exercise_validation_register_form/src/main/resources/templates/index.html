@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User Register</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        p {
+            color: red;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color: blueviolet">USER REGISTER</h1>
+    <form th:action="@{/register}" th:object="${user}" method="post">
+        <table class="table table-hover">
+            <thead></thead>
+            <tbody>
+                <tr>
+                    <th>First Name</th>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{firstName}" placeholder="First Name">
+                        <p th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{lastName}" placeholder="Last Name">
+                        <p th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Age</th>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{age}">
+                        <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Phone</th>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{phone}">
+                        <p th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{email}">
+                        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button class="btn btn-info" type="reset">Cancel</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" type="submit">Register</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

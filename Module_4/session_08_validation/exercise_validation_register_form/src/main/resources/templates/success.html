@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Success Register</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color:teal">SUCCESSFULLY REGISTER</h1>
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td th:text="${user.id}"></td>
+            </tr>
+            <tr>
+                <th>First Name</th>
+                <td th:text="${user.firstName}"></td>
+            </tr>
+            <tr>
+                <th>Last Name</th>
+                <td th:text="${user.lastName}"></td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td th:text="${user.age}"></td>
+            </tr>
+            <tr>
+                <th>Phone</th>
+                <td th:text="${user.phone}"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td th:text="${user.email}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <a style="text-decoration: none" th:href="@{/}">
+                        <button type="button" class="btn btn-info">Back</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

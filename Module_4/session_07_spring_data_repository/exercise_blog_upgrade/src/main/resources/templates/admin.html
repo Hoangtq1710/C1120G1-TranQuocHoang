@@ -7,11 +7,18 @@
 <div class="container">
     <h1 style="color: teal" class="text-center">List Blog</h1>
     <div>
-        <a style="text-decoration: none" th:href="@{/category}">
-            <button style="margin-bottom: 15px"
-                    class="btn btn-info">Category</button>
-        </a>
-
+        <div class="dropdown" style="text-decoration: none;margin-bottom: 15px">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Category</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" th:href="@{/category}">Category List</a>
+                <div class="dropdown-divider"></div>
+                <th:block th:each="category : ${listCategory}">
+                    <a class="dropdown-item"
+                       th:href="@{/category/show_blog_of_category(id=${category.id})}"
+                       th:text="${category.name}"></a>
+                </th:block>
+            </div>
+        </div>
         <button class="btn btn-success"
                 data-target="#createModal" data-toggle="modal" style="margin-bottom: 15px">
             <i class="far fa-plus-square"></i>
@@ -35,51 +42,51 @@
     </div>
     <table class="table table-hover">
         <thead>
-            <tr>
-                <th>No</th>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Category</th>
-                <th>PostDay
-                    <a style="text-decoration: none"
-                       th:href="@{/admin/sort(sortBy=${reverseSortBy})}">
-                        <i class="fas fa-sort"></i>
-                    </a>
-                </th>
-                <th>Image</th>
-                <th>Author</th>
-                <th>Options</th>
-            </tr>
+        <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>PostDay
+                <a style="text-decoration: none"
+                   th:href="@{/admin/sort(sortBy=${reverseSortBy})}">
+                    <i class="fas fa-sort"></i>
+                </a>
+            </th>
+            <th>Image</th>
+            <th>Author</th>
+            <th>Options</th>
+        </tr>
         </thead>
         <tbody>
-            <th:block th:each="blog, iterStat : ${listBlog}">
-                <tr>
-                    <td th:text="${iterStat.count}"></td>
-                    <td th:text="${blog.id}"></td>
-                    <td th:text="${blog.title}"></td>
-                    <td th:text="${blog.category.name}"></td>
-                    <td th:text="${blog.postDay}"></td>
-                    <td th:text="${blog.image}"></td>
-                    <td th:text="${blog.author}"></td>
-                    <td>
-                        <a style="text-decoration: none" th:href="@{/admin/view(id=${blog.id})}">
-                            <button class="btn btn-info">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </a>
-                        <a style="text-decoration: none" th:href="@{/admin/show_edit(id=${blog.id})}">
-                            <button class="btn btn-warning">
-                                <i class="fas fa-edit"></i>
-                            </button>
-                        </a>
-                        <button type="button" class="btn btn-danger"
-                                data-toggle="modal" data-target="#deleteModal"
-                                th:onclick="|blogSetId('${blog.id}')|">
-                            <i class="fas fa-trash-alt"></i>
+        <th:block th:each="blog, iterStat : ${listBlog}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${blog.id}"></td>
+                <td th:text="${blog.title}"></td>
+                <td th:text="${blog.category.name}"></td>
+                <td th:text="${blog.postDay}"></td>
+                <td th:text="${blog.image}"></td>
+                <td th:text="${blog.author}"></td>
+                <td>
+                    <a style="text-decoration: none" th:href="@{/admin/view(id=${blog.id})}">
+                        <button class="btn btn-info">
+                            <i class="fas fa-eye"></i>
                         </button>
-                    </td>
-                </tr>
-            </th:block>
+                    </a>
+                    <a style="text-decoration: none" th:href="@{/admin/show_edit(id=${blog.id})}">
+                        <button class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </a>
+                    <button type="button" class="btn btn-danger"
+                            data-toggle="modal" data-target="#deleteModal"
+                            th:onclick="|blogSetId('${blog.id}')|">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </th:block>
         </tbody>
     </table>
 
@@ -111,7 +118,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Add New Article</h4>
+                <h4 class="modal-title text-center">Add New Article</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <form th:action="@{/admin/create}" method="post" th:object="${blog}">

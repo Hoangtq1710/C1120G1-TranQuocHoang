@@ -1,11 +1,10 @@
 package com.soren.ss07_blog_upgrade.controller;
 
+import com.soren.ss07_blog_upgrade.model.Blog;
 import com.soren.ss07_blog_upgrade.model.Category;
+import com.soren.ss07_blog_upgrade.service.BlogService;
 import com.soren.ss07_blog_upgrade.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +21,9 @@ public class CategoryController {
 
     @Autowired
     CategoryService categoryService;
+
+    @Autowired
+    BlogService blogService;
 
     @GetMapping("")
     public String getCategoryHome(Model model){
@@ -59,5 +61,12 @@ public class CategoryController {
         this.categoryService.deleteById(id);
         redirect.addFlashAttribute("message", "Category "+id+" was deleted");
         return "redirect:/category/";
+    }
+
+    @GetMapping("/show_blog_of_category")
+    public String showBlogOfCategory(@RequestParam Integer id, Model model){
+        model.addAttribute("category", this.categoryService.findById(id));
+        model.addAttribute("listBlog",this.blogService.findAllByCategoryId(id));
+        return "category/show_blog";
     }
 }

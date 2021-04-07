@@ -18,5 +18,5 @@ public interface BlogService {
 
     Page<Blog> findAllByTitleContaining(String search, Pageable pageable);
 
-
+    List<Blog> findAllByCategoryId(Integer id);
 }

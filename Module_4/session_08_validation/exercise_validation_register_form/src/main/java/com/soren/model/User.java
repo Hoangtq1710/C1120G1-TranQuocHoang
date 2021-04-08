@@ -1,7 +1,6 @@
 package com.soren.model;
 
 import org.hibernate.validator.constraints.Range;
-import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -11,7 +10,6 @@ import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "users")
-@Component
 public class User implements Validator {
 
     @Id

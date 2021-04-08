@@ -1,6 +1,6 @@
-package com.soren.ss07_practice_customer_province.service;
+package com.soren.service;
 
-import com.soren.ss07_practice_customer_province.model.Province;
+import com.soren.model.Province;
 
 import java.util.List;
 

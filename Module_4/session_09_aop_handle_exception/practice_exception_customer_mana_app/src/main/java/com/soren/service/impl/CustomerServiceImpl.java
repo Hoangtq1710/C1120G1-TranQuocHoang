@@ -1,9 +1,11 @@
-package com.soren.ss07_practice_customer_province.service.impl;
+package com.soren.service.impl;
 
-import com.soren.ss07_practice_customer_province.model.Customer;
-import com.soren.ss07_practice_customer_province.repository.CustomerRepository;
-import com.soren.ss07_practice_customer_province.service.CustomerService;
+import com.soren.model.Customer;
+import com.soren.repository.CustomerRepository;
+import com.soren.service.CustomerService;
+import com.soren.service.exception.DuplicateEmailException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -27,8 +29,13 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void save(Customer customer) {
-        repository.save(customer);
+    public void save(Customer customer) throws DuplicateEmailException {
+        try {
+            repository.save(customer);
+        } catch (DataIntegrityViolationException e){
+            throw new DuplicateEmailException();
+        }
+
     }
 
     @Override

@@ -1,8 +1,8 @@
-package com.soren.ss07_practice_customer_province.service.impl;
+package com.soren.service.impl;
 
-import com.soren.ss07_practice_customer_province.model.Customer;
-import com.soren.ss07_practice_customer_province.repository.CustomerRepository;
-import com.soren.ss07_practice_customer_province.service.CustomerService;
+import com.soren.model.Customer;
+import com.soren.repository.CustomerRepository;
+import com.soren.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -22,17 +22,26 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer findById(Integer id) {
+    public Customer findById(Integer id) throws Exception {
+        if (true){
+            throw new Exception("a findById Exception");
+        }
         return repository.findById(id).orElse(null);
     }
 
     @Override
-    public void save(Customer customer) {
+    public void save(Customer customer) throws Exception {
+        if (true){
+            throw new Exception("a save Exception");
+        }
         repository.save(customer);
     }
 
     @Override
-    public void remove(Integer id) {
+    public void remove(Integer id) throws Exception {
+        if (true){
+            throw new Exception("a delete Exception");
+        }
         repository.deleteById(id);
     }
 

@@ -1,9 +1,12 @@
-package com.soren.ss07_practice_customer_province.model;
+package com.soren.model;
+
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "customers")
+@Component
 public class Customer {
 
     @Id

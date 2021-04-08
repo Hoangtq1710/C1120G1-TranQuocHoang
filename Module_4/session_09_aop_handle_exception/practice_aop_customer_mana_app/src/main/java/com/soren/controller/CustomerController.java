@@ -1,9 +1,9 @@
-package com.soren.ss07_practice_customer_province.controller;
+package com.soren.controller;
 
-import com.soren.ss07_practice_customer_province.model.Customer;
-import com.soren.ss07_practice_customer_province.model.Province;
-import com.soren.ss07_practice_customer_province.service.CustomerService;
-import com.soren.ss07_practice_customer_province.service.ProvinceService;
+import com.soren.model.Customer;
+import com.soren.model.Province;
+import com.soren.service.CustomerService;
+import com.soren.service.ProvinceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -40,39 +40,63 @@ public class CustomerController {
 
     @PostMapping("/create")
     public String createCustomer(Customer customer, RedirectAttributes redirect){
-        this.customerService.save(customer);
-        redirect.addFlashAttribute("message", "Customer "+customer.getName()+" was added");
-        return "redirect:/customer/";
+        try {
+            this.customerService.save(customer);
+            redirect.addFlashAttribute("message", "Customer "+customer.getName()+" was added");
+            return "redirect:/customer/";
+        } catch (Exception e){
+            return "redirect:/customer/";
+        }
+
     }
 
     @GetMapping("/view")
     public String viewCustomer(@RequestParam Integer id, Model model){
-        Customer customer = this.customerService.findById(id);
-        model.addAttribute("customer", customer);
-        return "customer/view";
+        try {
+            Customer customer = this.customerService.findById(id);
+            model.addAttribute("customer", customer);
+            return "customer/view";
+        } catch (Exception e) {
+            return "redirect:/customer/";
+        }
     }
 
     @GetMapping("/show_edit")
     public String showEdit(@RequestParam Integer id, Model model){
-        List<Province> listProvince = this.provinceService.findAll();
-        Customer customer = this.customerService.findById(id);
-        model.addAttribute("customer", customer);
-        model.addAttribute("listProvince",listProvince);
-        return "customer/edit";
+        try {
+            List<Province> listProvince = this.provinceService.findAll();
+            Customer customer = this.customerService.findById(id);
+            model.addAttribute("customer", customer);
+            model.addAttribute("listProvince",listProvince);
+            return "customer/edit";
+        } catch (Exception e){
+            return "redirect:/customer/";
+        }
+
     }
 
     @PostMapping("/edit")
     public String editCustomer(Customer customer, RedirectAttributes redirect){
-        this.customerService.save(customer);
-        redirect.addFlashAttribute("message", "Information of customer "+customer.getName()+" was updated");
-        return "redirect:/customer/";
+        try {
+            this.customerService.save(customer);
+            redirect.addFlashAttribute("message", "Information of customer "+customer.getName()+" was updated");
+            return "redirect:/customer/";
+        } catch (Exception e){
+            return "redirect:/customer/";
+        }
+
     }
 
     @PostMapping("/delete")
     public String deleteCustomer(@RequestParam Integer id, RedirectAttributes redirect){
-        this.customerService.remove(id);
-        redirect.addFlashAttribute("message", "Customer was deleted!");
-        return "redirect:/customer/";
+        try {
+            this.customerService.remove(id);
+            redirect.addFlashAttribute("message", "Customer was deleted!");
+            return "redirect:/customer/";
+        } catch (Exception e){
+            return "redirect:/customer/";
+        }
+
     }
 
     @GetMapping("/province")

@@ -1,4 +1,4 @@
-package com.soren.ss07_practice_customer_province.model;
+package com.soren.model;
 
 import javax.persistence.*;
 
@@ -9,6 +9,8 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(unique = true)
     private String name;
     private String email;
 

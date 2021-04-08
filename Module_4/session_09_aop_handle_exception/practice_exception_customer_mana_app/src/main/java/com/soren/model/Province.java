@@ -1,4 +1,4 @@
-package com.soren.ss07_practice_customer_province.model;
+package com.soren.model;
 
 import javax.persistence.*;
 import java.util.List;

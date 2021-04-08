@@ -1,6 +1,7 @@
-package com.soren.ss07_practice_customer_province.service;
+package com.soren.service;
 
-import com.soren.ss07_practice_customer_province.model.Customer;
+import com.soren.model.Customer;
+import com.soren.service.exception.DuplicateEmailException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -12,7 +13,7 @@ public interface CustomerService {
 
     Customer findById(Integer id);
 
-    void save(Customer customer);
+    void save(Customer customer) throws DuplicateEmailException;
 
     void remove(Integer id);
 

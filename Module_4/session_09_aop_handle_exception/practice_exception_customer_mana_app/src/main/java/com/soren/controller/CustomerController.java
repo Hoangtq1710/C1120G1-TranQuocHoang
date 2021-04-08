@@ -1,19 +1,18 @@
-package com.soren.ss07_practice_customer_province.controller;
+package com.soren.controller;
 
-import com.soren.ss07_practice_customer_province.model.Customer;
-import com.soren.ss07_practice_customer_province.model.Province;
-import com.soren.ss07_practice_customer_province.service.CustomerService;
-import com.soren.ss07_practice_customer_province.service.ProvinceService;
+import com.soren.model.Customer;
+import com.soren.model.Province;
+import com.soren.service.CustomerService;
+import com.soren.service.ProvinceService;
+import com.soren.service.exception.DuplicateEmailException;
+import org.aspectj.lang.JoinPoint;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String createCustomer(Customer customer, RedirectAttributes redirect){
+    public String createCustomer(Customer customer, RedirectAttributes redirect) throws DuplicateEmailException {
         this.customerService.save(customer);
         redirect.addFlashAttribute("message", "Customer "+customer.getName()+" was added");
         return "redirect:/customer/";
@@ -62,7 +61,7 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String editCustomer(Customer customer, RedirectAttributes redirect){
+    public String editCustomer(Customer customer, RedirectAttributes redirect) throws DuplicateEmailException {
         this.customerService.save(customer);
         redirect.addFlashAttribute("message", "Information of customer "+customer.getName()+" was updated");
         return "redirect:/customer/";
@@ -101,5 +100,10 @@ public class CustomerController {
         model.addAttribute("listCustomer", listCustomer);
 
         return "index";
+    }
+
+    @ExceptionHandler(DuplicateEmailException.class)
+    public String showExistEmailPage(){
+        return "customer/error_exist_email";
     }
 }

@@ -1,4 +1,4 @@
 package com.soren.service.exception;
 
-public class DuplicateEmailException {
+public class DuplicateEmailException extends Exception{
 }

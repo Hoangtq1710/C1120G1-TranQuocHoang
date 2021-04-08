@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color: teal">Soren Library</h1>
+    <a th:href="@{/book/giveback}">
+        <button style="margin-bottom: 15px" class="btn btn-info">Give Back</button>
+    </a>
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Book Name</th>
+                <th>Code</th>
+                <th>Quantity</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="book, iterStat : ${listBook}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${book.name}"></td>
+                <td th:text="${book.code}"></td>
+                <td th:text="${book.quantity}"></td>
+                <td>
+                    <a th:href="@{/book/book_detail(code=${book.code})}">
+                        <button class="btn btn-warning">Borrow</button>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

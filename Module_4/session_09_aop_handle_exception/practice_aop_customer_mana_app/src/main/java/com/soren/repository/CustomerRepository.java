@@ -1,6 +1,6 @@
-package com.soren.ss07_practice_customer_province.repository;
+package com.soren.repository;
 
-import com.soren.ss07_practice_customer_province.model.Customer;
+import com.soren.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,6 +1,6 @@
-package com.soren.ss07_practice_customer_province.service;
+package com.soren.service;
 
-import com.soren.ss07_practice_customer_province.model.Customer;
+import com.soren.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -10,11 +10,11 @@ public interface CustomerService {
 
     Page<Customer> findAll(Pageable pageable);
 
-    Customer findById(Integer id);
+    Customer findById(Integer id) throws Exception;
 
-    void save(Customer customer);
+    void save(Customer customer) throws Exception;
 
-    void remove(Integer id);
+    void remove(Integer id) throws Exception;
 
     List<Customer> findAllByProvinceName(String name);
 

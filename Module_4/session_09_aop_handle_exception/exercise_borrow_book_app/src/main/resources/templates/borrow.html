@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Library</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color: teal">Borrow Book</h1>
+    <form th:action="@{/book/borrow}" method="post" th:object="${book}">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>
+                        <input class="form-control col-4" type="text" th:field="*{name}" disabled/>
+                        <input type="hidden" th:field="*{name}"/>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Code</th>
+                    <th>
+                        <input class="form-control col-4" type="text" th:field="*{code}" disabled/>
+                        <input type="hidden" th:field="*{code}"/>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <th>
+                        <input class="form-control col-4" type="text" th:field="*{quantity}" disabled/>
+                        <input type="hidden" th:field="*{quantity}"/>
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <a th:href="@{/book}">
+                            <button class="btn btn-info" type="button">Back</button>
+                        </a>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-success">Borrow</button>
+                    </td>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </form>
+</div>
+<div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

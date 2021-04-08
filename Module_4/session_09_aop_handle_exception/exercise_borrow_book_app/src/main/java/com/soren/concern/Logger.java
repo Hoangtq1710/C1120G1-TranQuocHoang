@@ -9,6 +9,6 @@ public class Logger {
 
     @After("execution(* com.soren.service.BookServiceImpl.findAll(..))")
     public void afterFindAll(JoinPoint joinPoint){
-        System.out.println("Sau khi ket thuc ham : "+joinPoint.getSignature().getName());
+        System.err.println("Sau khi ket thuc ham : "+joinPoint.getSignature().getName());
     }
 }

@@ -28,6 +28,7 @@ public class BookController {
         Cookie cookie = new Cookie("view", count.toString());
         cookie.setMaxAge(60*60*12);
         response.addCookie(cookie);
+        model.addAttribute("times", cookie.getValue());
         model.addAttribute("listBook", this.bookService.findAll());
         return "index";
     }

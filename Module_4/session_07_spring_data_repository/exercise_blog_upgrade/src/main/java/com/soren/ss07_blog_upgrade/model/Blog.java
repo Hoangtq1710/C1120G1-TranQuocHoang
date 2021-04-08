@@ -15,7 +15,7 @@ public class Blog {
     @JoinColumn(name = "categories", nullable = false, referencedColumnName = "category_id")
     private Category category;
 
-    @Column(columnDefinition = "blob")
+    @Column(columnDefinition = "text(10000)")
     private String content;
 
     @Column(columnDefinition = "datetime")

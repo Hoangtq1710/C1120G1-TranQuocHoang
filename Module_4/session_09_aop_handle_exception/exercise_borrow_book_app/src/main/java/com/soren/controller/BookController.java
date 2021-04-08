@@ -26,7 +26,7 @@ public class BookController {
         count++;
         request.getSession().setAttribute("count", count);
         Cookie cookie = new Cookie("view", count.toString());
-        cookie.setMaxAge(60*60*12);
+        cookie.setMaxAge(60*60);
         response.addCookie(cookie);
         model.addAttribute("times", cookie.getValue());
         model.addAttribute("listBook", this.bookService.findAll());
@@ -40,11 +40,12 @@ public class BookController {
     }
 
     @PostMapping("/borrow")
-    public String borrowBook(Book book, RedirectAttributes redirect){
+    public String borrowBook(Book book, Model model){
         try {
             this.bookService.decreasingBookQuantity(book);
-            redirect.addFlashAttribute("message", "You've borrow the book "+book.getName()+". Your GIVEBACK code is : "+book.getCode());
-            return "redirect:/book/";
+            model.addAttribute("message", "You've borrow the book "+book.getName()+". Your GIVEBACK code is : "+book.getCode());
+            model.addAttribute("listBook", this.bookService.findAll());
+            return "index";
         } catch (QuantityEqualsZeroException e){
             return "error";
         }

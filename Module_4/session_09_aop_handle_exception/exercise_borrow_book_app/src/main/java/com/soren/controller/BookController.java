@@ -2,6 +2,7 @@ package com.soren.controller;
 
 import com.soren.model.Book;
 import com.soren.service.BookService;
+import com.soren.service.exception.QuantityEqualsZeroException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,9 +33,14 @@ public class BookController {
 
     @PostMapping("/borrow")
     public String borrowBook(Book book, RedirectAttributes redirect){
-        this.bookService.decreasingBookQuantity(book);
-        redirect.addFlashAttribute("message", "You've borrow the book "+book.getName()+". Your GIVEBACK code is : "+book.getCode());
-        return "redirect:/book/";
+        try {
+            this.bookService.decreasingBookQuantity(book);
+            redirect.addFlashAttribute("message", "You've borrow the book "+book.getName()+". Your GIVEBACK code is : "+book.getCode());
+            return "redirect:/book/";
+        } catch (QuantityEqualsZeroException e){
+            return "error";
+        }
+
     }
 
     @GetMapping("/giveback")

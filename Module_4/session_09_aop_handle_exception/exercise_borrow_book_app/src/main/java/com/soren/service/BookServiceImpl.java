@@ -2,6 +2,7 @@ package com.soren.service;
 
 import com.soren.model.Book;
 import com.soren.repository.BookRepository;
+import com.soren.service.exception.QuantityEqualsZeroException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,13 +25,13 @@ public class BookServiceImpl implements BookService{
     }
 
     @Override
-    public boolean decreasingBookQuantity(Book book) {
+    public void decreasingBookQuantity(Book book) throws QuantityEqualsZeroException {
         if (book.getQuantity() > 0){
             book.setQuantity(book.getQuantity()-1);
             repository.save(book);
-            return true;
+        } else {
+            throw new QuantityEqualsZeroException();
         }
-        return false;
     }
 
     @Override

@@ -39,8 +39,15 @@
                 <td th:text="${book.quantity}"></td>
                 <td>
                     <a th:href="@{/book/book_detail(code=${book.code})}">
-                        <button class="btn btn-warning">Borrow</button>
+                        <button type="button" class="btn btn-warning">Borrow</button>
                     </a>
+
+<!--                    Huong giai quyet khac : -->
+<!--                    Neu so luong = 0 thi disable nut Borrow -> nguoi dung k the click vao de muon duoc sach =))     -->
+<!--                    <a th:href="@{/book/book_detail(code=${book.code})}">-->
+<!--                        <button type="button" class="btn btn-warning" th:if="${book.quantity != 0}">Borrow</button>-->
+<!--                        <button type="button" class="btn btn-warning" th:if="${book.quantity == 0}" disabled>Borrow</button>-->
+<!--                    </a>-->
                 </td>
             </tr>
         </tbody>

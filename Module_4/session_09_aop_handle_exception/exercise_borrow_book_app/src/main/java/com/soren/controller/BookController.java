@@ -20,8 +20,10 @@ public class BookController {
     BookService bookService;
 
     @GetMapping("")
-    public String getHome(Model model, @CookieValue(value = "view", defaultValue = "0") Long count,
-                          HttpServletRequest request, HttpServletResponse response){
+    public String getHome(Model model,
+                          @CookieValue(value = "view", defaultValue = "0") Long count,
+                          HttpServletRequest request,
+                          HttpServletResponse response){
         count++;
         request.getSession().setAttribute("count", count);
         Cookie cookie = new Cookie("view", count.toString());
@@ -33,13 +35,18 @@ public class BookController {
     }
 
     @GetMapping("/book_detail")
-    public String getBookDetail(@RequestParam(name = "code") Integer code, Model model){
+    public String getBookDetail(@RequestParam(name = "code") Integer code,
+                                Model model){
         model.addAttribute("book", this.bookService.findById(code));
         return "borrow";
     }
 
     @PostMapping("/borrow")
-    public String borrowBook(Book book, Model model, @CookieValue(value = "view") Long count, HttpServletRequest request, HttpServletResponse response){
+    public String borrowBook(Book book,
+                             Model model,
+                             @CookieValue(value = "view") Long count,
+                             HttpServletRequest request,
+                             HttpServletResponse response){
         try {
             this.bookService.decreasingBookQuantity(book);
             model.addAttribute("message", "You've borrow the book "+book.getName()+". Your GIVEBACK code is : "+book.getCode());
@@ -57,7 +64,12 @@ public class BookController {
     }
 
     @PostMapping("/giveback")
-    public String givebackBook(@RequestParam(name = "inputCode") Integer code, Model model,  @CookieValue(value = "view") Long count, HttpServletRequest request, HttpServletResponse response){
+    public String givebackBook(@RequestParam(name = "inputCode") Integer code,
+                               Model model,
+                               @CookieValue(value = "view") Long count,
+                               HttpServletRequest request,
+                               HttpServletResponse response){
+
         if (this.bookService.checkingCodeBook(code)){
             this.bookService.increasingBookQuantity(this.bookService.findById(code));
             model.addAttribute("message", "Giveback Book successfully!");

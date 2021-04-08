@@ -71,8 +71,9 @@ public class BookController {
                                HttpServletResponse response){
 
         if (this.bookService.checkingCodeBook(code)){
-            this.bookService.increasingBookQuantity(this.bookService.findById(code));
-            model.addAttribute("message", "Giveback Book successfully!");
+            Book book = this.bookService.findById(code);
+            this.bookService.increasingBookQuantity(book);
+            model.addAttribute("message", "Giveback Book "+book.getName()+" successfully!");
             model.addAttribute("listBook", this.bookService.findAll());
             return getHome(model, count, request, response);
         } else {

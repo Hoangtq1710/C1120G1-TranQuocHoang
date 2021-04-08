@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -28,7 +27,7 @@ public class BookController {
         Cookie cookie = new Cookie("view", count.toString());
         cookie.setMaxAge(60*60);
         response.addCookie(cookie);
-        model.addAttribute("times", cookie.getValue());
+        model.addAttribute("time", count);
         model.addAttribute("listBook", this.bookService.findAll());
         return "index";
     }
@@ -40,12 +39,12 @@ public class BookController {
     }
 
     @PostMapping("/borrow")
-    public String borrowBook(Book book, Model model){
+    public String borrowBook(Book book, Model model, @CookieValue(value = "view") Long count, HttpServletRequest request, HttpServletResponse response){
         try {
             this.bookService.decreasingBookQuantity(book);
             model.addAttribute("message", "You've borrow the book "+book.getName()+". Your GIVEBACK code is : "+book.getCode());
             model.addAttribute("listBook", this.bookService.findAll());
-            return "index";
+            return getHome(model, count, request, response);
         } catch (QuantityEqualsZeroException e){
             return "error";
         }
@@ -58,12 +57,12 @@ public class BookController {
     }
 
     @PostMapping("/giveback")
-    public String givebackBook(@RequestParam(name = "inputCode") Integer code, Model model){
+    public String givebackBook(@RequestParam(name = "inputCode") Integer code, Model model,  @CookieValue(value = "view") Long count, HttpServletRequest request, HttpServletResponse response){
         if (this.bookService.checkingCodeBook(code)){
             this.bookService.increasingBookQuantity(this.bookService.findById(code));
             model.addAttribute("message", "Giveback Book successfully!");
             model.addAttribute("listBook", this.bookService.findAll());
-            return "index";
+            return getHome(model, count, request, response);
         } else {
             model.addAttribute("inputCode", code);
             model.addAttribute("message", "Your book code is invalid!");

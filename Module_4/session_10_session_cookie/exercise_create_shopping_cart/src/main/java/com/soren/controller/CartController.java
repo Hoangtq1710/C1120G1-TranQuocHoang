@@ -42,12 +42,15 @@ public class CartController {
         cookie.setMaxAge(24*60*60);
         response.addCookie(cookie);
 
-
-
         model.addAttribute("cart", cart);
         model.addAttribute("cookieCart",cookie);
         model.addAttribute("listFromCart", this.cart.getListFromCart());
-//        model.addAttribute("amount", amount);
         return "cart/cart";
+    }
+
+    @PostMapping("/remove")
+    public String removeProductFromCart(@RequestParam Integer id){
+        this.cart.removeProduct(this.productService.findById(id));
+        return "redirect:/cart/";
     }
 }

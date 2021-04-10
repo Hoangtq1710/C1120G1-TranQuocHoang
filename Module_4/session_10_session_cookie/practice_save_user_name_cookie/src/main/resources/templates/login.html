@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <h1 style="color: teal;margin-top: 30px">Login Form</h1>
+    <form th:action="@{/check_login}" method="post" th:object="${user}">
+        <table class="table table-borderless">
+            <thead></thead>
+            <tbody>
+            <tr>
+                <th>User Name</th>
+                <td>
+                    <input class="form-control" type="text" id="username" name="username"
+                           th:value="${cookieValue.value}"/>
+                </td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>
+                    <input class="form-control" type="password" th:field="*{password}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="reset" class="btn btn-light">Reset</button>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-success">Login</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <p style="margin-top: 30px; font-style: italic; color: red" th:text="${message}"></p>
+                    <p style="margin-top: 30px; font-weight: bold; color: teal" th:text="${user.username}"></p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+<div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
+</body>
+</html>

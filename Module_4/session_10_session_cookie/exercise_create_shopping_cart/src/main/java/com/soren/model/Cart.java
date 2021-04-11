@@ -31,7 +31,13 @@ public class Cart {
     public String getCookieCart() {
         StringBuilder cookie = new StringBuilder();
         for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
-            cookie.append(entry.getKey().getId()).append("and").append(getAmount(entry.getKey()));
+            cookie.append(entry.getKey().getId())
+                    .append("and")
+                    .append(entry.getKey().getName())
+                    .append("and")
+                    .append(entry.getKey().getPrice())
+                    .append("and")
+                    .append(getAmount(entry.getKey()));
             cookie.append("split");
         }
         return cookie.toString();

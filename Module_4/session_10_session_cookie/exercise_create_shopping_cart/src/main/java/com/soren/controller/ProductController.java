@@ -29,8 +29,11 @@ public class ProductController {
     }
 
     @GetMapping("/product/view")
-    public String viewProduct(@RequestParam Integer id, Model model){
+    public String viewProduct(@RequestParam Integer id,
+                              Model model,
+                              @ModelAttribute("cart") Cart cart){
         model.addAttribute("product", this.productService.findById(id));
+        model.addAttribute("size", cart.getSize());
         return "product/view";
     }
 

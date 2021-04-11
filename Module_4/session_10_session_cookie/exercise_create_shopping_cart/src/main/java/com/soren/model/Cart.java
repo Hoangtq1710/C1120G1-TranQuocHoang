@@ -1,13 +1,8 @@
 package com.soren.model;
 
-import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-@Component
 public class Cart {
 
     private Map<Product, Integer> cart;
@@ -16,47 +11,30 @@ public class Cart {
         cart = new HashMap<>();
     }
 
-    public void addToCart(Product product, Integer amount){
+    public void addToCart(Product product, Integer amount) {
         if (cart.containsKey(product)) {
-            cart.put(product,cart.get(product) + amount);
+            cart.put(product, cart.get(product) + amount);
         } else {
             cart.put(product, amount);
         }
 
     }
 
-    public int getAmount(Product product){
+    public int getAmount(Product product) {
         return cart.get(product);
     }
 
-    public void removeProduct(Product product){
+    public void removeProduct(Product product) {
         cart.remove(product);
     }
 
-    public int getSize(){
-        return cart.size();
-    }
-
-    public List<Product> getListFromCart(){
-        List<Product> list = new ArrayList<>();
-        for(Map.Entry<Product, Integer> entry : cart.entrySet()){
-            list.add(entry.getKey());
-        }
-        return list;
-    }
-
-    public String getCookieCart(){
+    public String getCookieCart() {
         StringBuilder cookie = new StringBuilder();
-        if (!cart.isEmpty()) {
-            for(Map.Entry<Product, Integer> entry : cart.entrySet()){
-                cookie.append("split");
-                cookie.append(entry.getKey().getId()+"and"+getAmount(entry.getKey()));
-            }
-            System.out.println(cookie.toString());
-            return cookie.toString();
-        } else {
-            return "";
+        for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
+            cookie.append(entry.getKey().getId()).append("and").append(getAmount(entry.getKey()));
+            cookie.append("split");
         }
+        return cookie.toString();
     }
 
     public Map<Product, Integer> getCart() {

@@ -30,33 +30,35 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="product : ${listFromCart}" class="dropdown-divider">
+            <tr th:each="product : ${arrayString}" class="dropdown-divider">
                 <th scope="row" class="border-0">
                     <div class="p-2">
                         <img id="img_in_cart" src="https://vn-test-11.slatic.net/p/e188780343707fd740da78ded387330c.jpg"
                              alt="" class="img-fluid rounded shadow-sm">
                         <div class="ml-3 d-inline-block align-middle">
                             <h5 class="mb-0">
-                                <a th:href="@{/product/view(id=${product.id})}" style="text-decoration: none"
+                                <a th:href='@{/product/view(id=${product.split("and")[0]})}'
+                                   style="text-decoration: none"
                                    class="h4 text-dark d-inline-block align-middle">
-                                    <strong th:text="${product.name}"></strong>
+                                    <strong th:text='${product.split("and")[0]}'></strong>
                                 </a>
                             </h5>
                             <span class="h6 text-muted font-weight-normal font-italic d-block"
                                     >
-                                <span th:text="${product.description}"></span>
+                                <span th:text="DESCRIPTION"></span>
                             </span>
                         </div>
                     </div>
                 </th>
-                <td class="border-0 align-middle"><strong th:text="${product.price}"></strong></td>
+                <td class="border-0 align-middle"><strong th:text='PRICE'></strong></td>
                 <td class="border-0 text-center align-middle">
-                    <strong th:text="${cart.getAmount(product)}"></strong>
+                    <strong th:text='${product.split("and")[1]}'></strong>
                 </td>
                 <td class="border-0 align-middle">
                     <button type="button" class="btn btn-danger"
-                            data-toggle="modal" data-target="#deleteModal"
-                            th:onclick="|setId('${product.id}')|">
+                            data-toggle="modal" data-target="#deleteModal">
+<!--                            th:onclick="|setId('${product.split('and')[0]}')|">-->
+<!--                            th:onclick="|setId('${product.id}')|">-->
                         <i class="fas fa-trash-alt"></i>
                     </button>
                 </td>

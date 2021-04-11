@@ -27,14 +27,7 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping({"", "product"})
-    public String getHome(Model model,
-                          @CookieValue(value = "cookieCart", defaultValue = "") String cookieCart,
-                          HttpServletResponse response){
-        Cookie cookie = new Cookie("cookieCart",cookieCart );
-        cookie.setMaxAge(3*60*60);
-        response.addCookie(cookie);
-
-        model.addAttribute("cookieCart", cookie);
+    public String getHome(Model model){
         model.addAttribute("listProduct", this.productService.findAll());
         return "index";
     }
@@ -50,15 +43,16 @@ public class ProductController {
                             @RequestParam Integer amount,
                             HttpServletResponse response,
                             Model model,
+                            @CookieValue(name = "cookieCart") String cookieCart,
                             @ModelAttribute("cart") Cart cart){
         Product product = this.productService.findById(id);
         cart.addToCart(product, amount);
-        String cookieCart = cart.getCookieCart();
-        Cookie cookie = new Cookie("cookieCart",cookieCart );
+        String ckCart = cart.getCookieCart();
+        Cookie cookie = new Cookie("cookieCart",ckCart );
         cookie.setMaxAge(3*60*60);
         response.addCookie(cookie);
 
-        model.addAttribute("cookieCart", cookieCart);
+        model.addAttribute("cookieCart", ckCart);
         return "redirect:/cart";
     }
 

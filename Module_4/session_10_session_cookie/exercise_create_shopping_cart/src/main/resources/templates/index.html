@@ -5,11 +5,14 @@
 <div th:insert="~{layout :: main-header}"></div>
 
 
-<div class="container-fluid" style="background-color: cadetblue">
+<div class="container-fluid" style="background-color: seashell">
     <div style="height: 60px; padding-top: 10px" class="col-12">
         <a th:href="@{/cart/}">
-            <button class="btn btn-warning btn-lg float-right">
+            <button class="btn btn-success btn-lg float-right m-3">
                 <i class="fas fa-cart-plus"></i>
+                <strong style="color: white" th:if="${size}">
+                    <sup th:text="${size}"></sup>
+                </strong>
             </button>
         </a>
     </div>

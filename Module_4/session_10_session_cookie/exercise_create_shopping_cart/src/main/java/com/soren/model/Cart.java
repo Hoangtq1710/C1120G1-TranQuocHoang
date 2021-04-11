@@ -20,27 +20,19 @@ public class Cart {
 
     }
 
+    public int getSize(){
+        if (!cart.isEmpty()) {
+            return cart.size();
+        }
+        return 0;
+    }
+
     public int getAmount(Product product) {
         return cart.get(product);
     }
 
     public void removeProduct(Product product) {
         cart.remove(product);
-    }
-
-    public String getCookieCart() {
-        StringBuilder cookie = new StringBuilder();
-        for (Map.Entry<Product, Integer> entry : cart.entrySet()) {
-            cookie.append(entry.getKey().getId())
-                    .append("and")
-                    .append(entry.getKey().getName())
-                    .append("and")
-                    .append(entry.getKey().getPrice())
-                    .append("and")
-                    .append(getAmount(entry.getKey()));
-            cookie.append("split");
-        }
-        return cookie.toString();
     }
 
     public Map<Product, Integer> getCart() {

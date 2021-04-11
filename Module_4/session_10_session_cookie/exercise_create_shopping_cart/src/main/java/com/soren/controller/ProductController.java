@@ -7,19 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Arrays;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @SessionAttributes("cart")
 public class ProductController {
 
     @ModelAttribute("cart")
-    public Cart cart(){
+    public Cart getCart(){
         return new Cart();
     }
 
@@ -27,8 +22,9 @@ public class ProductController {
     ProductService productService;
 
     @GetMapping({"", "product"})
-    public String getHome(Model model){
+    public String getHome(Model model, @ModelAttribute("cart") Cart cart){
         model.addAttribute("listProduct", this.productService.findAll());
+        model.addAttribute("size", cart.getSize());
         return "index";
     }
 
@@ -41,46 +37,32 @@ public class ProductController {
     @PostMapping("/cart/add")
     public String addToCart(@RequestParam Integer id,
                             @RequestParam Integer amount,
-                            HttpServletResponse response,
                             Model model,
-                            @CookieValue(name = "cookieCart") String cookieCart,
                             @ModelAttribute("cart") Cart cart){
         Product product = this.productService.findById(id);
-        cart.addToCart(product, amount);
-        String ckCart = cart.getCookieCart();
-        Cookie cookie = new Cookie("cookieCart",ckCart );
-        cookie.setMaxAge(3*60*60);
-        response.addCookie(cookie);
-
-        model.addAttribute("cookieCart", ckCart);
-        return "redirect:/cart";
+        model.addAttribute("product", product);
+        if (product != null){
+            cart.addToCart(product, amount);
+            model.addAttribute("size", cart.getSize());
+            model.addAttribute("message", "Add Product "+product.getName()+" with amount "+cart.getAmount(product)+" to Cart successfully");
+        }
+        return "product/view";
     }
 
     @GetMapping("/cart")
     public String goToCart(Model model,
-                           HttpServletRequest request,
                            @ModelAttribute("cart") Cart cart){
-
-        Cookie[] cookies = request.getCookies();
-        for(Cookie ck : cookies){
-            if (ck.getName().equals("cookieCart")){
-                model.addAttribute("cookieCart",ck.getValue());
-                String[] arrayString  = ck.getValue().split("split");
-                System.err.println(Arrays.toString(arrayString));
-                model.addAttribute("arrayString", arrayString);
-                break;
-            } else {
-                ck.setValue("");
-                model.addAttribute("cookieCart",ck.getValue());
-            }
-        }
+        model.addAttribute("listProduct", cart.getCart());
         return "cart/cart";
     }
 
     @PostMapping("/cart/remove")
     public String removeProductFromCart(@RequestParam Integer id,
-                                        @ModelAttribute("cart") Cart cart){
-        cart.removeProduct(this.productService.findById(id));
+                                        @ModelAttribute("cart") Cart cart,
+                                        RedirectAttributes redirect){
+        Product product = this.productService.findById(id);
+        cart.removeProduct(product);
+        redirect.addFlashAttribute("message", "Remove Product "+product.getName()+" successfully!");
         return "redirect:/cart";
     }
 

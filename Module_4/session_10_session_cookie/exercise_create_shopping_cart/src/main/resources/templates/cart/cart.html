@@ -55,7 +55,10 @@
                         </div>
                     </div>
                 </th>
-                <td class="border-0 align-middle"><strong th:text='${product.price}'></strong></td>
+                <td class="border-0 align-middle">
+                    <strong th:text='${product.price}'></strong>
+                    <span> VND</span>
+                </td>
                 <td class="border-0 text-center align-middle">
                     <strong th:text='${cart.getAmount(product)}'></strong>
                 </td>
@@ -65,6 +68,15 @@
                             th:onclick="|setId('${product.id}')|">
                         <i class="fas fa-trash-alt"></i>
                     </button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td>
+                    <span style="color: green; font-size: 22px" th:text="${total}"></span>
+                    <span> VND</span>
                 </td>
             </tr>
             </tbody>

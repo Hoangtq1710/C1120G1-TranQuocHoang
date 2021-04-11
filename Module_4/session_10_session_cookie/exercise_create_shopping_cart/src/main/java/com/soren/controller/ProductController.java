@@ -53,6 +53,7 @@ public class ProductController {
     public String goToCart(Model model,
                            @ModelAttribute("cart") Cart cart){
         model.addAttribute("listProduct", cart.getCart());
+        model.addAttribute("total", cart.getTotal());
         return "cart/cart";
     }
 

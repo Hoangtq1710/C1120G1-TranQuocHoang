@@ -31,6 +31,14 @@ public class Cart {
         return cart.get(product);
     }
 
+    public int getTotal(){
+        int sum = 0;
+        for(Map.Entry<Product, Integer> entry : cart.entrySet()){
+            sum += (Integer.parseInt(entry.getKey().getPrice()) * getAmount(entry.getKey()));
+        }
+        return sum;
+    }
+
     public void removeProduct(Product product) {
         cart.remove(product);
     }

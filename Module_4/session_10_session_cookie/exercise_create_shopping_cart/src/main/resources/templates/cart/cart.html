@@ -63,7 +63,7 @@
                     <strong th:text='${cart.getAmount(product)}'></strong>
                 </td>
                 <td class="border-0 align-middle">
-                    <button type="button" class="btn btn-danger"
+                    <button type="button" class="btn btn-danger" title="Delete"
                             data-toggle="modal" data-target="#deleteModal"
                             th:onclick="|setId('${product.id}')|">
                         <i class="fas fa-trash-alt"></i>

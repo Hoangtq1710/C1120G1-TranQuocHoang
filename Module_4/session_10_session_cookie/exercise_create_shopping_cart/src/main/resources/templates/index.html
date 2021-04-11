@@ -8,7 +8,8 @@
 <div class="container-fluid" style="background-color: lightblue">
     <div style="height: 60px; padding-top: 10px">
         <a th:href="@{/cart/}">
-            <button class="btn btn-success btn-lg float-right m-3">
+            <button class="btn btn-success btn-lg float-right m-3"
+                th:title="${size}+' products'">
                 <i class="fas fa-cart-plus"></i>
                 <strong style="color: white" th:if="${size}">
                     <sup th:text="${size}"></sup>

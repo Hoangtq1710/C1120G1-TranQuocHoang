@@ -68,5 +68,4 @@ public class UserController {
         this.userService.deleteById(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
 }

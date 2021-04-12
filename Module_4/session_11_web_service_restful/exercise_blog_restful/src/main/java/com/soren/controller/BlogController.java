@@ -55,8 +55,4 @@ public class BlogController {
         }
         return new ResponseEntity<>(blog, HttpStatus.OK);
     }
-
-
-
-
 }

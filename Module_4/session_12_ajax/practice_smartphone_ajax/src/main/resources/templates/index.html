@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
 <body>
-$END$
+<div th:insert="~{layout :: main-header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">Smartphone List</h1>
+    <button class="btn btn-success m-3" id="btnCreateModal">
+        <i class="far fa-plus-square"></i>
+    </button>
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Model</th>
+                <th>Price</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="smartphone , iterStat : ${listSmartphone}">
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${smartphone.id}"></td>
+                <td th:text="${smartphone.name}"></td>
+                <td th:text="${smartphone.model}"></td>
+                <td th:text="${smartphone.price}"> $</td>
+                <td>
+                    <button class="viewButton btn btn-info" th:value="${smartphone.id}" type="button">
+                        <i class="far fa-eye"></i>
+                    </button>
+                    <button class="editButton btn btn-warning" th:value="${smartphone.id}" type="button">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="deleteButton btn btn-danger" th:value="${smartphone.id}" type="button">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>
+        <a th:href="@{'/phone'(page=${listSmartphone.number - 1})}"
+           th:if="${listSmartphone.hasPrevious()}">
+            <button class="btn btn-info">
+                <i class="fas fa-fast-backward"></i>
+            </button>
+        </a>
+        <button class="btn btn-info col-1">
+            <span th:text="${listSmartphone.number + 1}"></span>
+            /
+            <span th:text="${listSmartphone.totalPages}"></span>
+        </button>
+        <a th:href="@{'/phone'(page=${listSmartphone.number + 1})}"
+           th:if="${listSmartphone.hasNext()}">
+            <button class="btn btn-info">
+                <i class="fas fa-fast-forward"></i>
+            </button>
+        </a>
+    </div>
+</div>
+<div th:replace="~{layout :: modal}"></div>
+<div th:replace="~{layout :: script}"></div>
+<div th:insert="~{layout :: footer}"></div>
 </body>
 </html>

@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
 <body>
-$END$
+
+<form th:action="@{/phone/create}" method="post" th:object="${smartphone}">
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th>Name</th>
+                <td>
+                    <input class="form-control" type="text" th:field="*{name}" required>
+                </td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>
+                    <input class="form-control" type="text" th:field="*{model}" required>
+                </td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>
+                    <input class="form-control" type="number" th:field="*{price}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Cancel</button>
+                </td>
+                <td>
+                    <button type="submit" class="btn btn-success">Create</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</form>
+
 </body>
 </html>

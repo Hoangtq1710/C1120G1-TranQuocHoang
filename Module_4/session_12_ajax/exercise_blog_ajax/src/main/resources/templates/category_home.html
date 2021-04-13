@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: category_header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">List Category</h1>
+    <div>
+        <a style="text-decoration: none" th:href="@{/admin}">
+            <button style="margin-bottom: 15px" class="btn btn-info">Blog</button>
+        </a>
+        <button class="btn btn-success"
+                data-target="#createCategoryModal" data-toggle="modal"
+                style="margin-bottom: 15px">
+            <i class="far fa-plus-square"></i>
+        </button>
+    </div>
+
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="category, iterStat : ${listCategory}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${category.id}"></td>
+                <td th:text="${category.name}"></td>
+                <td>
+                    <a style="text-decoration: none" th:href="@{/category/edit(id=${category.id})}">
+                        <button class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </a>
+                    <button type="button" class="btn btn-danger"
+                            data-toggle="modal" data-target="#deleteCategoryModal"
+                            th:onclick="|categorySetId('${category.id}')|">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
+</div>
+
+<div class="modal fade" id="createCategoryModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Add New Category</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form th:action="@{/category/create}" method="post" th:object="${category}">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead></thead>
+                        <tbody>
+                        <tr>
+                            <th>Category Name</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{name}" required>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:replace="/layout :: deleteCategoryModal"></div>
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body id="bodyList">
+<div th:insert="~{layout :: main-header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">List Blog</h1>
+    <div>
+        <div class="dropdown" style="text-decoration: none;margin-bottom: 15px">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">Category</button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" th:href="@{/category}">Category List</a>
+                <div class="dropdown-divider"></div>
+                <th:block th:each="category : ${listCategory}">
+                    <a class="dropdown-item"
+                       th:href="@{/category/show_blog_of_category(id=${category.id})}"
+                       th:text="${category.name}"></a>
+                </th:block>
+            </div>
+        </div>
+        <button class="btn btn-success"
+                data-target="#createModal" data-toggle="modal" style="margin-bottom: 15px">
+            <i class="far fa-plus-square"></i>
+        </button>
+        <a th:href="@{/admin/}" >
+            <button class="btn btn-info ml-3" title="Refresh"
+                    style="margin-bottom: 15px" type="button">
+                <i class="fas fa-sync-alt"></i>
+            </button>
+        </a>
+        <div class="input-group col-4 float-right">
+            <input type="text" name="search" id="search"
+                   class="form-control" placeholder="Search ..." th:value="${search}">
+            <div class="input-group-append" style="padding-left: 5px">
+                <button id="btnSearch" title="Search"
+                        class="btn btn-outline-success">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>No</th>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>PostDay
+                <a style="text-decoration: none"
+                   th:href="@{/admin/sort(sortBy=${reverseSortBy})}">
+                    <i class="fas fa-sort"></i>
+                </a>
+            </th>
+            <th>Image</th>
+            <th>Author</th>
+            <th>Options</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="blog, iterStat : ${listBlog}">
+            <tr>
+                <td th:text="${iterStat.count}"></td>
+                <td th:text="${blog.id}"></td>
+                <td th:text="${blog.title}"></td>
+                <td th:text="${blog.category.name}"></td>
+                <td th:text="${blog.postDay}"></td>
+                <td th:text="${blog.image}"></td>
+                <td th:text="${blog.author}"></td>
+                <td>
+                    <a style="text-decoration: none" th:href="@{/admin/view(id=${blog.id})}">
+                        <button class="btn btn-info">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </a>
+                    <a style="text-decoration: none" th:href="@{/admin/show_edit(id=${blog.id})}">
+                        <button class="btn btn-warning">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                    </a>
+                    <button type="button" class="btn btn-danger"
+                            data-toggle="modal" data-target="#deleteModal"
+                            th:onclick="|blogSetId('${blog.id}')|">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+
+    <div>
+        <a th:href="@{'/admin'(page=${listBlog.number - 1})}"
+           th:if="${listBlog.hasPrevious()}">
+            <button class="btn btn-info">
+                <i class="fas fa-fast-backward"></i>
+            </button>
+        </a>
+        <button class="btn btn-info col-1">
+            <span th:text="${listBlog.number + 1}"></span>
+            /
+            <span th:text="${listBlog.totalPages}"></span>
+        </button>
+        <a th:href="@{'/admin'(page=${listBlog.number + 1})}"
+           th:if="${listBlog.hasNext()}">
+            <button class="btn btn-info">
+                <i class="fas fa-fast-forward"></i>
+            </button>
+        </a>
+    </div>
+
+</div>
+
+<div class="modal fade" id="createModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Add New Article</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <form th:action="@{/admin/create}" method="post" th:object="${blog}">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <table class="table table-hover">
+                        <thead></thead>
+                        <tbody>
+                        <tr>
+                            <th>Title</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{title}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Category</th>
+                            <td>
+                                <select th:field="*{category}" class="form-control">
+                                    <option th:each="category : ${listCategory}" th:value="${category.id}"
+                                            th:text="${category.name}">
+                                    </option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Content</th>
+                            <td>
+                                <textarea class="form-control" th:field="*{content}" required></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Image</th>
+                            <td>
+                                <input type="file" class="form-control" th:field="*{image}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Author</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{author}" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Description</th>
+                            <td>
+                                <input type="text" class="form-control" th:field="*{description}" required>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    <button class="btn btn-success" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div th:replace="/layout :: deleteModal"></div>
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

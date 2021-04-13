@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+<div th:insert="~{layout :: category_header}"></div>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">List Blog of Category</h1>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Category</th>
+                <th>Blogs</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="blog, iterStat : ${listBlog}">
+                <td th:text="${iterStat.count}"></td>
+                <th th:if="${iterStat.first}">
+                    <p th:text="${category.name}"></p>
+                </th>
+                <td th:if="!${iterStat.first}">
+                </td>
+                <td>
+                    <a style="text-decoration: none"
+                       th:href="@{/admin/view(id=${blog.id})}"
+                       th:text="${blog.title}"></a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a th:href="@{/admin}">
+                        <button type="button" class="btn btn-info">Back</button>
+                    </a>
+                </td>
+                <td colspan="2"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div th:replace="/layout :: script"></div>
+<div th:insert="~{layout :: footer}"></div>
+</body>
+</html>

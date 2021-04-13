@@ -2,10 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="~{layout :: head}"></head>
 <body>
-<div th:insert="~{layout :: header}"></div>
 
 <div class="container">
-    <h1 style="color: teal" class="text-center">List Blog</h1>
+    <h1 style="color: teal" class="text-center">Blog Information</h1>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -43,15 +42,10 @@
                 <td th:text="${blog.description}"></td>
             </tr>
             <tr>
-                <td>
-                    <a th:href="@{/admin/}">
-                        <button class="btn btn-info">Back</button>
-                    </a>
-                </td>
-                <td>
-                    <a th:href="@{/admin/show_edit(id=${blog.id})}">
-                        <button class="btn btn-warning">Edit</button>
-                    </a>
+                <td colspan="2">
+                    <button class="btn btn-info" type="button" data-dismiss="modal">Back</button>
+                    <button class="btnEditModal btn btn-warning" type="button" th:value="${blog.id}">Edit</button>
+                    <button class="btnDeleteModal btn btn-danger" type="button" th:value="${blog.id}">Delete</button>
                 </td>
             </tr>
         </thead>
@@ -59,7 +53,7 @@
     </table>
 </div>
 
+<div th:replace="/layout :: modal"></div>
 <div th:replace="/layout :: script"></div>
-<div th:insert="~{layout :: footer}"></div>
 </body>
 </html>

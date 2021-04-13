@@ -3,8 +3,6 @@ package com.soren.service;
 import com.soren.model.Blog;
 import com.soren.repository.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -18,8 +16,8 @@ public class BlogServiceImpl implements BlogService{
     BlogRepository repository;
 
     @Override
-    public Page<Blog> findAll(Pageable pageable) {
-        return repository.findAll(pageable);
+    public List<Blog> findAll() {
+        return repository.findAll();
     }
 
     @Override
@@ -41,12 +39,13 @@ public class BlogServiceImpl implements BlogService{
     }
 
     @Override
-    public Page<Blog> findAllByTitleContaining(String search, Pageable pageable) {
-        return repository.findAllByTitleContaining(search,pageable);
+    public List<Blog> findAllByTitleContaining(String search) {
+        return repository.findAllByTitleContaining(search);
     }
 
     @Override
     public List<Blog> findAllByCategoryId(Integer id) {
         return repository.findAllByCategoryId(id);
     }
+
 }

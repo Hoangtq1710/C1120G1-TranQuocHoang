@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:insert="~{layout :: head}"></head>
 <body>
-<div th:insert="~{layout :: header}"></div>
 
 <div class="container">
     <h1 style="color: teal" class="text-center">Edit Blog Information</h1>
@@ -65,9 +64,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <a th:href="@{/admin/}">
-                            <button type="button" class="btn btn-info">Back</button>
-                        </a>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Back</button>
                     </td>
                     <td>
                         <button type="submit" class="btn btn-warning">Update</button>

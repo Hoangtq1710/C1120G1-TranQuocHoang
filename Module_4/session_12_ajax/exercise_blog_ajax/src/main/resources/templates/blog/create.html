@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="~{layout :: head}"></head>
+<body>
+
+<div class="container">
+    <h1 style="color: teal" class="text-center">Add New Blog</h1>
+    <form th:action="@{/admin/create}" method="post" th:object="${blog}">
+        <table class="table table-hover">
+            <thead></thead>
+            <tbody>
+            <tr>
+                <th>Title</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{title}" required>
+                </td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>
+                    <select th:field="*{category}" class="form-control">
+                        <option th:each="category : ${listCategory}" th:value="${category.id}"
+                                th:text="${category.name}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>
+                    <textarea class="form-control" th:field="*{content}" required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>
+                    <input type="file" class="form-control" th:field="*{image}" required>
+                </td>
+            </tr>
+            <tr>
+                <th>Author</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{author}" required>
+                </td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>
+                    <input type="text" class="form-control" th:field="*{description}" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                </td>
+                <td>
+                    <button class="btn btn-success" type="submit">Create</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+
+</body>
+</html>

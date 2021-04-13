@@ -15,7 +15,7 @@ public class Blog {
 
     @JsonBackReference
     @ManyToOne
-    @JoinColumn(name = "categories", nullable = false, referencedColumnName = "category_id")
+    @JoinColumn(name = "categories", nullable = true, referencedColumnName = "category_id")
     private Category category;
 
     @Column(columnDefinition = "text(10000)")

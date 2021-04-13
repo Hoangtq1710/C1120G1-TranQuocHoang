@@ -1,7 +1,5 @@
 package com.soren.controller;
 
-import com.fasterxml.jackson.core.JsonEncoding;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.soren.model.Blog;
 import com.soren.model.Category;
 import com.soren.service.BlogService;
@@ -27,7 +25,7 @@ public class BlogController {
 
     @GetMapping("")
     public String getHomeAdmin(Model model){
-        List<Blog> listBlog = this.blogService.findAll();
+        List<Blog> listBlog = this.blogService.findAllLoad(0, 5);
         List<Category> listCategory = this.categoryService.findAll();
         model.addAttribute("listBlog", listBlog);
         model.addAttribute("listCategory", listCategory);
@@ -93,7 +91,7 @@ public class BlogController {
             listBlog = this.blogService.findAllByTitleContaining(search.get());
             model.addAttribute("search", search.get());
         } else {
-            listBlog = this.blogService.findAll();
+            listBlog = this.blogService.findAllLoad(0, 5);
         }
         model.addAttribute("listBlog", listBlog);
 
@@ -105,8 +103,8 @@ public class BlogController {
     }
 
     @GetMapping("/load")
-    public Blog loadMore(){
-        return this.blogService.findById(2);
+    public String loadMore(@RequestParam(name = "currentIndex") Integer currentIndex, Model model){
+        model.addAttribute("listBlog", this.blogService.findNext(currentIndex));
+        return "blog/append_page";
     }
-
 }

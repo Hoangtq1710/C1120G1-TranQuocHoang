@@ -152,16 +152,15 @@
                     }
                 });
             });
+            let currentIndex = 5;
             $("#btnLoadMore").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/admin/load",
-                    dataType: "JSON",
+                    url: "/admin/load?currentIndex="+currentIndex,
                     success: function (data) {
-                        console.log(data);
-                        // let trHTML = "";
-                        // trHTML = '<tr><td>' + data;
-                        // $("#myTable tbody tr:last-child").append(trHTML);
+                        console.log(currentIndex);
+                        $(".tableAppend").append(data);
+                        currentIndex+=2;
                     }
                 });
             });

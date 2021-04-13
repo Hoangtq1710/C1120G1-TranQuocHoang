@@ -7,6 +7,8 @@ public interface BlogService {
 
     List<Blog> findAll();
 
+    List<Blog> findAllLoad(Integer start, Integer limit);
+
     Blog findById(Integer id);
 
     void save(Blog blog);
@@ -16,4 +18,6 @@ public interface BlogService {
     List<Blog> findAllByTitleContaining(String search);
 
     List<Blog> findAllByCategoryId(Integer id);
+
+    List<Blog> findNext(int currentIndex);
 }

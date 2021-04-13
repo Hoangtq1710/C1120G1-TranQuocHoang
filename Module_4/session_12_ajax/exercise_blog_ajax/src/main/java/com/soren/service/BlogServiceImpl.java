@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +19,11 @@ public class BlogServiceImpl implements BlogService{
     @Override
     public List<Blog> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public List<Blog> findAllLoad(Integer start, Integer limit) {
+        return repository.findAllLoad(start, limit);
     }
 
     @Override
@@ -46,6 +52,11 @@ public class BlogServiceImpl implements BlogService{
     @Override
     public List<Blog> findAllByCategoryId(Integer id) {
         return repository.findAllByCategoryId(id);
+    }
+
+    @Override
+    public List<Blog> findNext(int currentIndex) {
+        return repository.findNext(currentIndex);
     }
 
 }

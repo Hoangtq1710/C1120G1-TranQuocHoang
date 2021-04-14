@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Internationalization</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class="container col-6 justify-content-center">
+        <div class="m-3">
+            <a href="?language=en"><button class="btn btn-info">English</button></a>
+            <a href="?language=vi"><button class="btn btn-info">Vietnam</button></a>
+            <a href="?language=in"><button class="btn btn-info">Indonesia</button></a>
+        </div>
+        <p th:text="#{family}"></p>
+        <p th:text="#{username}"></p>
+        <p th:text="#{password}"></p>
+    </div>
+</body>
+</html>

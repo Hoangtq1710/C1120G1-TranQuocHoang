@@ -23,7 +23,8 @@
 </head>
 <body>
 <header th:fragment="header">
-    <p style="font-size: 30px; margin-right: 0; text-align: center">BLOG HEADER</p>
+    <p style="font-size: 30px; margin-right: 0; text-align: center; text-transform: uppercase"
+       th:text="#{blogHeader}"></p>
     <div class="float-right" style="margin-bottom: 15px">
         <a href="/lang?language=en" style="text-decoration: none">
             <button class="btn btn-info">English</button>

@@ -16,13 +16,14 @@
     </style>
 </head>
 <body>
-<div class="jumbotron text-center" style="margin-bottom: 0">
 
+<!--head_nav_bar-->
+<div th:fragment="head_navbar">
 <!--    img logo-->
     <a href="/home"><img src="/img/logo.png" alt="logo" style="float: left"></a>
     <h1>Furama</h1>
 
-    <nav class="sticky-top navbar navbar-expand-sm navbar-dark" 
+    <nav class="sticky-top navbar navbar-expand-sm navbar-dark"
          style="background-color: #046056; width: 100%; margin-top: 0">
 
 <!--        home button-->
@@ -50,7 +51,8 @@
             </ul>
         </div>
 
-<!--        search-->
+
+        <!--        search-->
         <div>
             <form method="get" class="input-group">
                 <input type="text" name="search" id="search" class="form-control"
@@ -65,91 +67,83 @@
             </form>
         </div>
     </nav>
-<!--    container-->
-    <div class="container-fluid">
-        <div class="row">
-            <div></div>
-        </div>
-    </div>
-
-<!--    footer-->
-    <div th:fragment="footer">
-        <div class="jumbotron text-center" style="margin-bottom:0">
-            <footer class="text-center text-dark" >
-                <div class="container p-4 pb-0" style="background-color: #e9ecef">
-                    <section class="mb-4">
-                        <a
-                                class="btn btn-success btn-floating m-1"
-                                style="background-color: #3b5998;"
-                                href="https://www.facebook.com/"
-                                role="button"
-                        ><i class="fab fa-facebook-f"></i
-                        ></a>
-
-                        <a
-                                class="btn btn-success btn-floating m-1"
-                                style="background-color: #55acee;"
-                                href="https://twitter.com/"
-                                role="button"
-                        ><i class="fab fa-twitter"></i
-                        ></a>
-
-                        <a
-                                class="btn btn-success btn-floating m-1"
-                                style="background-color: #dd4b39;"
-                                href="https://www.google.com/"
-                                role="button"
-                        ><i class="fab fa-google"></i
-                        ></a>
-
-                        <a
-                                class="btn btn-success btn-floating m-1"
-                                style="background-color: #ac2bac;"
-                                href="https://www.instagram.com/"
-                                role="button"
-                        ><i class="fab fa-instagram"></i
-                        ></a>
-
-                        <a
-                                class="btn btn-success btn-floating m-1"
-                                style="background-color: #0082ca;"
-                                href="https://www.linkedin.com/"
-                                role="button"
-                        ><i class="fab fa-linkedin-in"></i
-                        ></a>
-
-                        <a
-                                class="btn btn-success btn-floating m-1"
-                                style="background-color: #333333;"
-                                href="https://github.com/"
-                                role="button"
-                        ><i class="fab fa-github"></i
-                        ></a>
-                    </section>
-
-                </div>
-
-                <div class="text-center p-3" style="background-color: #8fd19e">
-                    © 2021 Copyright:
-                    <a class="text-white" href="home" style="text-decoration: none">SOREN SHAW</a>
-                </div>
-                <!-- Copyright -->
-            </footer>
-        </div>
-
-        <script src="/style/jquery/jquery-3.5.1.min.js"></script>
-        <script src="/style/bootstrap/js/popper.min.js"></script>
-        <script src="/style/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/style/bootstrap/js/bootstrap.bundle.js"></script>
-
-<!--        script function-->
-        <script>
-
-        </script>
-    </div>
 </div>
 
 
+<!--    footer-->
+<div th:fragment="footer">
+    <div class="jumbotron text-center" style="margin-bottom:0">
+        <footer class="text-center text-dark" >
+            <div class="container p-4 pb-0" style="background-color: #e9ecef">
+                <section class="mb-4">
+                    <a
+                            class="btn btn-success btn-floating m-1"
+                            style="background-color: #3b5998;"
+                            href="https://www.facebook.com/"
+                            role="button"
+                    ><i class="fab fa-facebook-f"></i
+                    ></a>
 
+                    <a
+                            class="btn btn-success btn-floating m-1"
+                            style="background-color: #55acee;"
+                            href="https://twitter.com/"
+                            role="button"
+                    ><i class="fab fa-twitter"></i
+                    ></a>
+
+                    <a
+                            class="btn btn-success btn-floating m-1"
+                            style="background-color: #dd4b39;"
+                            href="https://www.google.com/"
+                            role="button"
+                    ><i class="fab fa-google"></i
+                    ></a>
+
+                    <a
+                            class="btn btn-success btn-floating m-1"
+                            style="background-color: #ac2bac;"
+                            href="https://www.instagram.com/"
+                            role="button"
+                    ><i class="fab fa-instagram"></i
+                    ></a>
+
+                    <a
+                            class="btn btn-success btn-floating m-1"
+                            style="background-color: #0082ca;"
+                            href="https://www.linkedin.com/"
+                            role="button"
+                    ><i class="fab fa-linkedin-in"></i
+                    ></a>
+
+                    <a
+                            class="btn btn-success btn-floating m-1"
+                            style="background-color: #333333;"
+                            href="https://github.com/"
+                            role="button"
+                    ><i class="fab fa-github"></i
+                    ></a>
+                </section>
+
+            </div>
+
+            <div class="text-center p-3" style="background-color: #8fd19e">
+                © 2021 Copyright:
+                <a class="text-white" href="home" style="text-decoration: none">SOREN SHAW</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+    </div>
+
+    <script src="/style/jquery/jquery-3.5.1.min.js"></script>
+    <script src="/style/bootstrap/js/popper.min.js"></script>
+    <script src="/style/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/style/bootstrap/js/bootstrap.bundle.js"></script>
+
+    <!--        script function-->
+    <script>
+
+    </script>
+</div>
 </body>
 </html>

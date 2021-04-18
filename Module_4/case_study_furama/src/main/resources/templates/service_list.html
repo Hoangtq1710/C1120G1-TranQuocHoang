@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head_fragment}"></head>
+<body>
+
+<div class="container-fluid justify-content-center m-0 p-0">
+    <!--    head_navbar-->
+    <div th:replace="~{layout :: head_navbar}"></div>
+
+    <div class="container-fluid">
+        <table class="table table-hover">
+
+        </table>
+    </div>
+</div>
+
+<div th:replace="~{layout :: modal}"></div>
+<div th:replace="~{layout :: script_link}"></div>
+<div th:replace="~{layout :: ser_func_script}"></div>
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

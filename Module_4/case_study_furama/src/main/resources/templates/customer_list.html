@@ -9,7 +9,7 @@
     <div th:replace="~{layout :: head_navbar}"></div>
 
     <div class="m-3">
-        <button id="createButton" class="btn btn-success">
+        <button id="createCustomerButton" class="btn btn-success">
             <i class="far fa-plus-square"></i>
         </button>
     </div>
@@ -53,13 +53,13 @@
                     <td hidden th:text="${customer.customerEmail}"></td>
                     <td th:text="${customer.customerAddress}"></td>
                     <td>
-                        <button class="viewButton btn btn-info">
+                        <button class="viewCustomerButton btn btn-info">
                             <i class="far fa-eye"></i>
                         </button>
-                        <button class="editButton btn btn-warning" th:value="${customer.customerId}" type="button">
+                        <button class="editCustomerButton btn btn-warning" th:value="${customer.customerId}" type="button">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button class="deleteButton btn btn-danger" th:value="${customer.customerId}" type="button">
+                        <button class="deleteCustomerButton btn btn-danger" th:value="${customer.customerId}" type="button">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </td>

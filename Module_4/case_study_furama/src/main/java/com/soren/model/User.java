@@ -23,14 +23,18 @@ public class User {
     @Column(name = "enabled", length = 1, columnDefinition = "BIT DEFAULT 1")
     private boolean enabled;
 
+    @OneToOne(mappedBy = "user")
+    private Employee employee;
+
     public User() {
     }
 
-    public User(Integer userId, String username, String password, boolean enabled) {
+    public User(Integer userId, String username, String password, boolean enabled, Employee employee) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.enabled = enabled;
+        this.employee = employee;
     }
 
     public Integer getUserId() {
@@ -63,5 +67,13 @@ public class User {
 
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

@@ -164,7 +164,7 @@
     <!--        script function-->
     <script>
         $(document).ready(function () {
-            $("#createButton").click(function () {
+            $("#createCustomerButton").click(function () {
                 $.ajax({
                     type: "GET",
                     url: "/customer/create",
@@ -175,7 +175,7 @@
                     }
                 });
             });
-            $(".editButton").click(function () {
+            $(".editCustomerButton").click(function () {
                 $.ajax({
                     type: "GET",
                     url: "/customer/edit?id="+$(this).val(),
@@ -186,10 +186,50 @@
                     }
                 });
             });
-            $(".deleteButton").click(function () {
+            $(".deleteCustomerButton").click(function () {
                 $.ajax({
                     type: "GET",
                     url: "/customer/delete?id="+$(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+        });
+    </script>
+</div>
+<div th:fragment="ser_func_script">
+    <!--        script function-->
+    <script>
+        $(document).ready(function () {
+            $("#createServiceButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/service/create",
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".editServiceButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/service/edit?id="+$(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".deleteServiceButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/service/delete?id="+$(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);

@@ -13,13 +13,13 @@ public class Service {
     @Column(name = "service_name", columnDefinition = "VARCHAR(45) NOT NULL")
     private String serviceName;
 
-    @Column(name = "service_area", columnDefinition = "NOT NULL")
+    @Column(name = "service_area", nullable = false)
     private Integer serviceArea;
 
-    @Column(name = "service_cost", columnDefinition = "NOT NULL")
+    @Column(name = "service_cost", nullable = false)
     private double serviceCost;
 
-    @Column(name = "service_max_people", columnDefinition = "NOT NULL")
+    @Column(name = "service_max_people", nullable = false)
     private Integer serviceMaxPeople;
 
     @Column(name = "standard_room", columnDefinition = "VARCHAR(45)")

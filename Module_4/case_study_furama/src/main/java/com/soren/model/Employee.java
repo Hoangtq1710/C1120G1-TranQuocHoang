@@ -20,7 +20,7 @@ public class Employee {
     @Column(name = "employee_id_card", columnDefinition = "VARCHAR(45) UNIQUE NOT NULL")
     private String employeeIdCard;
 
-    @Column(name = "employee_salary", columnDefinition = "NOT NULL")
+    @Column(name = "employee_salary")
     private double employeeSalary;
 
     @Column(name = "employee_phone", columnDefinition = "VARCHAR(45)")

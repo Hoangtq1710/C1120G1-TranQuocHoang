@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head_fragment}"></head>
+<body>
+
+<div class="container-fluid justify-content-center m-0 p-0">
+
+    <!--    head_navbar-->
+    <div th:replace="~{layout :: head_navbar}"></div>
+
+    <div class="m-3">
+        <button id="createButton" class="btn btn-success">
+            <i class="far fa-plus-square"></i>
+        </button>
+    </div>
+    <div th:if="${message}">
+        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Birthday</th>
+                <th>Gender</th>
+                <th>Id Card</th>
+                <th>Phone</th>
+                <th hidden>Email</th>
+                <th>Address</th>
+                <th>Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="customer, iterStat : ${listCustomer}">
+                <tr>
+                    <td th:text="${iterStat.count}"></td>
+                    <td th:text="${customer.customerId}"></td>
+                    <td th:text="${customer.customerName}"></td>
+                    <td th:text="${customer.customerType.customerTypeName}"></td>
+                    <td th:text="${customer.customerBirthday}"></td>
+                    <td>
+                        <span th:if="${customer.customerGender}" th:text="Male"></span>
+                        <span th:if="${!customer.customerGender}" th:text="Female"></span>
+                    </td>
+                    <td th:text="${customer.customerIdCard}"></td>
+                    <td th:text="${customer.customerPhone}"></td>
+                    <td hidden th:text="${customer.customerEmail}"></td>
+                    <td th:text="${customer.customerAddress}"></td>
+                    <td>
+                        <button class="viewButton btn btn-info">
+                            <i class="far fa-eye"></i>
+                        </button>
+                        <button class="editButton btn btn-warning" th:value="${customer.customerId}" type="button">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="deleteButton btn btn-danger" th:value="${customer.customerId}" type="button">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div th:replace="~{layout :: modal}"></div>
+<div th:replace="~{layout :: script_link}"></div>
+<div th:replace="~{layout :: cus_func_script}"></div>
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

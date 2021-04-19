@@ -1,9 +1,17 @@
 package com.soren.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "rent_type")
 public class RentType {
 
     @Id
@@ -19,46 +27,4 @@ public class RentType {
 
     @OneToMany(mappedBy = "rentType", cascade = CascadeType.ALL)
     private Set<Service> serviceSet;
-
-    public RentType() {
-    }
-
-    public RentType(Integer rentTypeId, String rentTypeName, double rentTypeCost, Set<Service> serviceSet) {
-        this.rentTypeId = rentTypeId;
-        this.rentTypeName = rentTypeName;
-        this.rentTypeCost = rentTypeCost;
-        this.serviceSet = serviceSet;
-    }
-
-    public Integer getRentTypeId() {
-        return rentTypeId;
-    }
-
-    public void setRentTypeId(Integer rentTypeId) {
-        this.rentTypeId = rentTypeId;
-    }
-
-    public String getRentTypeName() {
-        return rentTypeName;
-    }
-
-    public void setRentTypeName(String rentTypeName) {
-        this.rentTypeName = rentTypeName;
-    }
-
-    public double getRentTypeCost() {
-        return rentTypeCost;
-    }
-
-    public void setRentTypeCost(double rentTypeCost) {
-        this.rentTypeCost = rentTypeCost;
-    }
-
-    public Set<Service> getServiceSet() {
-        return serviceSet;
-    }
-
-    public void setServiceSet(Set<Service> serviceSet) {
-        this.serviceSet = serviceSet;
-    }
 }

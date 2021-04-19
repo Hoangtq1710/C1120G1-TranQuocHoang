@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{layout :: head_fragment}"></head>
-<body>
+<body id="body">
 
 <div class="container-fluid justify-content-center m-0 p-0">
 
@@ -14,7 +14,7 @@
         </button>
     </div>
     <div th:if="${message}">
-        <div class="alert alert-success alert-dismissible fade show font-weight-bold">
+        <div id="alertCustomerFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
             <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
             <span th:text="${message}"></span>
         </div>
@@ -40,7 +40,7 @@
             <th:block th:each="customer, iterStat : ${listCustomer}">
                 <tr>
                     <td th:text="${iterStat.count}"></td>
-                    <td th:text="${customer.customerId}"></td>
+                    <th th:text="${customer.customerId}"></th>
                     <td th:text="${customer.customerName}"></td>
                     <td th:text="${customer.customerType.customerTypeName}"></td>
                     <td th:text="${customer.customerBirthday}"></td>
@@ -53,13 +53,16 @@
                     <td hidden th:text="${customer.customerEmail}"></td>
                     <td th:text="${customer.customerAddress}"></td>
                     <td>
-                        <button class="viewCustomerButton btn btn-info">
+                        <button class="viewCustomerButton btn btn-info"
+                                th:value="${customer.customerId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>
-                        <button class="editCustomerButton btn btn-warning" th:value="${customer.customerId}" type="button">
+                        <button class="editCustomerButton btn btn-warning"
+                                th:value="${customer.customerId}" type="button">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button class="deleteCustomerButton btn btn-danger" th:value="${customer.customerId}" type="button">
+                        <button class="deleteCustomerButton btn btn-danger"
+                                th:value="${customer.customerId}" type="button">
                             <i class="fas fa-trash-alt"></i>
                         </button>
                     </td>
@@ -67,6 +70,27 @@
             </th:block>
             </tbody>
         </table>
+    </div>
+    <div class="text-center m-3">
+        <a class="text-decoration-none"
+           th:href="@{'/customer'(page=${listCustomer.number - 1})}"
+           th:if="${listCustomer.hasPrevious()}">
+            <button class="btn btn-outline-danger rounded-circle">
+                <i class="fas fa-fast-backward"></i>
+            </button>
+        </a>
+        <button class="btn btn-outline-danger rounded-pill col-1">
+            <span th:text="${listCustomer.number + 1}"></span>
+            /
+            <span th:text="${listCustomer.totalPages}"></span>
+        </button>
+        <a class="text-decoration-none"
+           th:href="@{'/customer'(page=${listCustomer.number + 1})}"
+           th:if="${listCustomer.hasNext()}">
+            <button class="btn btn-outline-danger rounded-circle">
+                <i class="fas fa-fast-forward"></i>
+            </button>
+        </a>
     </div>
 
 </div>

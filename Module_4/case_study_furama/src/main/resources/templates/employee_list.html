@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head_fragment}"></head>
+<body>
+
+<div class="container-fluid justify-content-center m-0 p-0">
+
+    <!--    head_navbar-->
+    <div th:replace="~{layout :: head_navbar}"></div>
+
+<!--    add new employee-->
+    <div class="m-3">
+        <button id="createEmployeeButton" class="btn btn-success">
+            <i class="far fa-plus-square"></i>
+        </button>
+    </div>
+
+<!--    message-->
+    <div th:if="${message}">
+        <div id="alertEmployeeFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+
+<!--    table-->
+    <div class="container-fluid">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Birthday</th>
+                <th>Position</th>
+                <th>Division</th>
+                <th>Degree</th>
+                <th>ID Card</th>
+                <th>Salary</th>
+                <th>Phone</th>
+                <th hidden>Email</th>
+                <th hidden>Address</th>
+                <th hidden>Username</th>
+                <th>Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="employee, iteStat : ${listEmployee}">
+                <tr>
+                    <td th:text="${iteStat.count}"></td>
+                    <td th:text="${employee.employeeId}"></td>
+                    <td th:text="${employee.employeeName}"></td>
+                    <td th:text="${employee.employeeBirthday}"></td>
+                    <td th:text="${employee.position.positionName}"></td>
+                    <td th:text="${employee.division.divisionName}"></td>
+                    <td th:text="${employee.educationDegree.educationDegreeName}"></td>
+                    <td th:text="${employee.employeeIdCard}"></td>
+                    <td th:text="${employee.employeeSalary}"></td>
+                    <td th:text="${employee.employeePhone}"></td>
+                    <td hidden th:text="${employee.employeeEmail}"></td>
+                    <td hidden th:text="${employee.employeeAddress}"></td>
+                    <td hidden th:text="${employee.user.username}"></td>
+                    <td>
+                        <button class="viewEmployeeButton btn btn-info"
+                                th:value="${employee.employeeId}" type="button">
+                            <i class="far fa-eye"></i>
+                        </button>
+                        <button class="editEmployeeButton btn btn-warning"
+                                th:value="${employee.employeeId}" type="button">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="deleteEmployeeButton btn btn-danger"
+                                th:value="${employee.employeeId}" type="button">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center m-3">
+        <a class="text-decoration-none"
+           th:href="@{'/employee'(page=${listEmployee.number - 1})}"
+           th:if="${listEmployee.hasPrevious()}">
+            <button class="btn btn-outline-danger rounded-circle">
+                <i class="fas fa-fast-backward"></i>
+            </button>
+        </a>
+        <button class="btn btn-outline-danger rounded-pill col-1">
+            <span th:text="${listEmployee.number + 1}"></span>
+            /
+            <span th:text="${listEmployee.totalPages}"></span>
+        </button>
+        <a class="text-decoration-none"
+           th:href="@{'/employee'(page=${listEmployee.number + 1})}"
+           th:if="${listEmployee.hasNext()}">
+            <button class="btn btn-outline-danger rounded-circle">
+                <i class="fas fa-fast-forward"></i>
+            </button>
+        </a>
+    </div>
+
+</div>
+
+<div th:replace="~{layout :: modal}"></div>
+<div th:replace="~{layout :: script_link}"></div>
+<div th:replace="~{layout :: emp_func_script}"></div>
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

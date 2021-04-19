@@ -1,9 +1,17 @@
 package com.soren.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "customer_type")
 public class CustomerType {
 
     @Id
@@ -17,36 +25,4 @@ public class CustomerType {
     @OneToMany(mappedBy = "customerType", cascade = CascadeType.ALL)
     private Set<Customer> customerSet;
 
-    public CustomerType() {
-    }
-
-    public CustomerType(Integer customerTypeId, String customerTypeName, Set<Customer> customerSet) {
-        this.customerTypeId = customerTypeId;
-        this.customerTypeName = customerTypeName;
-        this.customerSet = customerSet;
-    }
-
-    public Integer getCustomerTypeId() {
-        return customerTypeId;
-    }
-
-    public void setCustomerTypeId(Integer customerTypeId) {
-        this.customerTypeId = customerTypeId;
-    }
-
-    public String getCustomerTypeName() {
-        return customerTypeName;
-    }
-
-    public void setCustomerTypeName(String customerTypeName) {
-        this.customerTypeName = customerTypeName;
-    }
-
-    public Set<Customer> getCustomerSet() {
-        return customerSet;
-    }
-
-    public void setCustomerSet(Set<Customer> customerSet) {
-        this.customerSet = customerSet;
-    }
 }

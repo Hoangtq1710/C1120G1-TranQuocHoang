@@ -1,8 +1,16 @@
 package com.soren.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Contract {
 
     @Id
@@ -34,82 +42,7 @@ public class Contract {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    public Contract() {
-    }
+    @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
+    private Set<ContractDetail> contractDetailSet;
 
-    public Contract(Integer contractId, String contractStartDate, String contractEndDate, double contractDeposit,
-                    double contractTotalMoney, Service service, Employee employee, Customer customer) {
-        this.contractId = contractId;
-        this.contractStartDate = contractStartDate;
-        this.contractEndDate = contractEndDate;
-        this.contractDeposit = contractDeposit;
-        this.contractTotalMoney = contractTotalMoney;
-        this.service = service;
-        this.employee = employee;
-        this.customer = customer;
-    }
-
-    public Integer getContractId() {
-        return contractId;
-    }
-
-    public void setContractId(Integer contractId) {
-        this.contractId = contractId;
-    }
-
-    public String getContractStartDate() {
-        return contractStartDate;
-    }
-
-    public void setContractStartDate(String contractStartDate) {
-        this.contractStartDate = contractStartDate;
-    }
-
-    public String getContractEndDate() {
-        return contractEndDate;
-    }
-
-    public void setContractEndDate(String contractEndDate) {
-        this.contractEndDate = contractEndDate;
-    }
-
-    public double getContractDeposit() {
-        return contractDeposit;
-    }
-
-    public void setContractDeposit(double contractDeposit) {
-        this.contractDeposit = contractDeposit;
-    }
-
-    public double getContractTotalMoney() {
-        return contractTotalMoney;
-    }
-
-    public void setContractTotalMoney(double contractTotalMoney) {
-        this.contractTotalMoney = contractTotalMoney;
-    }
-
-    public Service getService() {
-        return service;
-    }
-
-    public void setService(Service service) {
-        this.service = service;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Customer getCustomer() {
-        return customer;
-    }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
 }

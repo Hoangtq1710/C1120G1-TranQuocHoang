@@ -1,8 +1,17 @@
 package com.soren.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "attach_service")
 public class AttachService {
 
     @Id
@@ -22,54 +31,6 @@ public class AttachService {
     @Column(name = "attach_service_status", columnDefinition = "VARCHAR(255) NOT NULL")
     private String attachServiceStatus;
 
-    public AttachService() {
-    }
-
-    public AttachService(Integer attachServiceId, String attachServiceName, double attachServiceCost, String attachServiceUnit, String attachServiceStatus) {
-        this.attachServiceId = attachServiceId;
-        this.attachServiceName = attachServiceName;
-        this.attachServiceCost = attachServiceCost;
-        this.attachServiceUnit = attachServiceUnit;
-        this.attachServiceStatus = attachServiceStatus;
-    }
-
-    public Integer getAttachServiceId() {
-        return attachServiceId;
-    }
-
-    public void setAttachServiceId(Integer attachServiceId) {
-        this.attachServiceId = attachServiceId;
-    }
-
-    public String getAttachServiceName() {
-        return attachServiceName;
-    }
-
-    public void setAttachServiceName(String attachServiceName) {
-        this.attachServiceName = attachServiceName;
-    }
-
-    public double getAttachServiceCost() {
-        return attachServiceCost;
-    }
-
-    public void setAttachServiceCost(double attachServiceCost) {
-        this.attachServiceCost = attachServiceCost;
-    }
-
-    public String getAttachServiceUnit() {
-        return attachServiceUnit;
-    }
-
-    public void setAttachServiceUnit(String attachServiceUnit) {
-        this.attachServiceUnit = attachServiceUnit;
-    }
-
-    public String getAttachServiceStatus() {
-        return attachServiceStatus;
-    }
-
-    public void setAttachServiceStatus(String attachServiceStatus) {
-        this.attachServiceStatus = attachServiceStatus;
-    }
+    @OneToMany(mappedBy = "attachService", cascade = CascadeType.ALL)
+    private Set<ContractDetail> contractDetailSet;
 }

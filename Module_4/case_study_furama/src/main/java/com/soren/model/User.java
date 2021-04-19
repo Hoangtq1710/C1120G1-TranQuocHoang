@@ -1,8 +1,15 @@
 package com.soren.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table( name = "User",
         uniqueConstraints = {
         @UniqueConstraint(name = "USER_UK", columnNames = "User_Name")
@@ -23,57 +30,7 @@ public class User {
     @Column(name = "enabled", length = 1, columnDefinition = "BIT DEFAULT 1")
     private boolean enabled;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Employee employee;
 
-    public User() {
-    }
-
-    public User(Integer userId, String username, String password, boolean enabled, Employee employee) {
-        this.userId = userId;
-        this.username = username;
-        this.password = password;
-        this.enabled = enabled;
-        this.employee = employee;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
 }

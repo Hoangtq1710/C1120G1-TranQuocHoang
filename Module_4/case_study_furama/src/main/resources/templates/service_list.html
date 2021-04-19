@@ -4,14 +4,81 @@
 <body>
 
 <div class="container-fluid justify-content-center m-0 p-0">
+
     <!--    head_navbar-->
     <div th:replace="~{layout :: head_navbar}"></div>
 
+    <div class="dropdown m-3" style="text-decoration: none">
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+            <i class="far fa-plus-square"></i>
+        </button>
+        <div class="dropdown-menu">
+            <button class="createServiceButton dropdown-item text-success"
+                    type="button" th:value="1">Villa</button>
+            <button class="createServiceButton dropdown-item text-warning"
+                    type="button" th:value="2">House</button>
+            <button class="createServiceButton dropdown-item text-info"
+                    type="button" th:value="3">Room</button>
+        </div>
+    </div>
+    <div th:if="${message}">
+        <div id="alertServiceFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
     <div class="container-fluid">
         <table class="table table-hover">
-
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Area</th>
+                <th>Cost</th>
+                <th>Max People</th>
+                <th>Standard Room</th>
+                <th hidden>Description</th>
+                <th>Pool Area</th>
+                <th>Floor</th>
+                <th>Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="service, iterStat : ${listService}">
+                <tr>
+                    <td th:text="${iterStat.count}"></td>
+                    <th th:text="${service.serviceId}"></th>
+                    <td th:text="${service.serviceName}"></td>
+                    <td th:text="${service.serviceType.serviceTypeName}"></td>
+                    <td th:text="${service.serviceArea}"></td>
+                    <td th:text="${service.serviceCost}"></td>
+                    <td th:text="${service.serviceMaxPeople}"></td>
+                    <td th:text="${service.standardRoom}"></td>
+                    <td hidden th:text="${service.description}"></td>
+                    <td th:text="${service.poolArea}"></td>
+                    <td th:text="${service.numberOfFloor}"></td>
+                    <td>
+                        <button class="viewServiceButton btn btn-info"
+                                th:value="${service.serviceId}" type="button">
+                            <i class="far fa-eye"></i>
+                        </button>
+                        <button class="editServiceButton btn btn-warning"
+                                th:value="${service.serviceId}" type="button">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="deleteServiceButton btn btn-danger"
+                                th:value="${service.serviceId}" type="button">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
         </table>
     </div>
+
 </div>
 
 <div th:replace="~{layout :: modal}"></div>

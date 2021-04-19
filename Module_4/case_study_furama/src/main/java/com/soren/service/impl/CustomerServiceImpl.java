@@ -4,6 +4,8 @@ import com.soren.model.Customer;
 import com.soren.repository.CustomerRepository;
 import com.soren.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,10 +16,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private CustomerRepository repository;
 
-
     @Override
-    public List<Customer> findAll() {
-        return repository.findAll();
+    public Page<Customer> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
@@ -33,5 +34,10 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void deleteById(String id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public Page<Customer> findAllByCustomerNameContaining(String search, Pageable pageable) {
+        return repository.findAllByCustomerNameContaining(search, pageable);
     }
 }

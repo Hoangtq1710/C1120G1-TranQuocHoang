@@ -1,9 +1,17 @@
 package com.soren.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "education_degree")
 public class EducationDegree {
 
     @Id
@@ -16,37 +24,4 @@ public class EducationDegree {
 
     @OneToMany(mappedBy = "educationDegree", cascade = CascadeType.ALL)
     private Set<Employee> employeeSet;
-
-    public EducationDegree() {
-    }
-
-    public EducationDegree(Integer educationDegreeId, String educationDegreeName, Set<Employee> employeeSet) {
-        this.educationDegreeId = educationDegreeId;
-        this.educationDegreeName = educationDegreeName;
-        this.employeeSet = employeeSet;
-    }
-
-    public Integer getEducationDegreeId() {
-        return educationDegreeId;
-    }
-
-    public void setEducationDegreeId(Integer educationDegreeId) {
-        this.educationDegreeId = educationDegreeId;
-    }
-
-    public String getEducationDegreeName() {
-        return educationDegreeName;
-    }
-
-    public void setEducationDegreeName(String educationDegreeName) {
-        this.educationDegreeName = educationDegreeName;
-    }
-
-    public Set<Employee> getEmployeeSet() {
-        return employeeSet;
-    }
-
-    public void setEmployeeSet(Set<Employee> employeeSet) {
-        this.employeeSet = employeeSet;
-    }
 }

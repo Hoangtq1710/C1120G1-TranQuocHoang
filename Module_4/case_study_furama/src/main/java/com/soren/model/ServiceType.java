@@ -1,9 +1,17 @@
 package com.soren.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@Table(name = "service_type")
 public class ServiceType {
 
     @Id
@@ -17,36 +25,5 @@ public class ServiceType {
     @OneToMany(mappedBy = "serviceType", cascade = CascadeType.ALL)
     private Set<Service> serviceSet;
 
-    public ServiceType() {
-    }
 
-    public ServiceType(Integer serviceTypeId, String serviceTypeName, Set<Service> serviceSet) {
-        this.serviceTypeId = serviceTypeId;
-        this.serviceTypeName = serviceTypeName;
-        this.serviceSet = serviceSet;
-    }
-
-    public Integer getServiceTypeId() {
-        return serviceTypeId;
-    }
-
-    public void setServiceTypeId(Integer serviceTypeId) {
-        this.serviceTypeId = serviceTypeId;
-    }
-
-    public String getServiceTypeName() {
-        return serviceTypeName;
-    }
-
-    public void setServiceTypeName(String serviceTypeName) {
-        this.serviceTypeName = serviceTypeName;
-    }
-
-    public Set<Service> getServiceSet() {
-        return serviceSet;
-    }
-
-    public void setServiceSet(Set<Service> serviceSet) {
-        this.serviceSet = serviceSet;
-    }
 }

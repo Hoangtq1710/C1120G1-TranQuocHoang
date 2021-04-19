@@ -1,8 +1,15 @@
 package com.soren.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 @Table( name = "Role",
         uniqueConstraints = {
         @UniqueConstraint(name = "ROLE_UK", columnNames = "Role_Name")
@@ -17,27 +24,4 @@ public class Role {
         @Column(name = "Role_Name", columnDefinition = "VARCHAR(45) NOT NULL")
         private String roleName;
 
-        public Role() {
-        }
-
-        public Role(Integer id, String roleName) {
-                this.id = id;
-                this.roleName = roleName;
-        }
-
-        public Integer getId() {
-                return id;
-        }
-
-        public void setId(Integer id) {
-                this.id = id;
-        }
-
-        public String getRoleName() {
-                return roleName;
-        }
-
-        public void setRoleName(String roleName) {
-                this.roleName = roleName;
-        }
 }

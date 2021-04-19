@@ -4,85 +4,85 @@
         <table class="table table-hover">
             <thead></thead>
             <tbody>
-            <tr>
-                <td>Customer Id</td>
-                <td>
-                    <input type="text" class="form-control" placeholder="KH-XXXX"
-                           th:field="*{customerId}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Customer Name</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerName}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Gender</td>
-                <td>
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" th:value="true"
-                                   class="form-check-input" th:field="*{customerGender}">Male
-                        </label>
-                    </div>
-                    <div class="form-check-inline">
-                        <label class="form-check-label">
-                            <input type="radio" th:value="false"
-                                   class="form-check-input" th:field="*{customerGender}">Female
-                        </label>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td>Customer Type</td>
-                <td>
-                    <select th:field="*{customerType}" class="form-control">
-                        <option th:each="type : ${listCustomerType}"
-                                th:value="${type.customerTypeId}"
-                                th:text="${type.customerTypeName}">
-                        </option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Birthday</td>
-                <td>
-                    <input type="date" class="form-control" th:field="*{customerBirthday}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Id Card</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerIdCard}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>Phone</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerPhone}">
-                </td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerEmail}">
-                </td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td>
-                    <input type="text" class="form-control" th:field="*{customerAddress}">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                </td>
-                <td>
-                    <button class="btn btn-success" type="submit">Create</button>
-                </td>
-            </tr>
+                <tr>
+                    <td>Customer Id</td>
+                    <td>
+                        <input type="text" class="form-control" placeholder="KH-XXXX"
+                               th:field="*{customerId}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Customer Name</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerName}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender</td>
+                    <td>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" th:value="true"
+                                       class="form-check-input" th:field="*{customerGender}">Male
+                            </label>
+                        </div>
+                        <div class="form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" th:value="false"
+                                       class="form-check-input" th:field="*{customerGender}">Female
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Customer Type</td>
+                    <td>
+                        <select th:field="*{customerType}" class="form-control">
+                            <option th:each="type : ${listCustomerType}"
+                                    th:value="${type.customerTypeId}"
+                                    th:text="${type.customerTypeName}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Birthday</td>
+                    <td>
+                        <input type="date" class="form-control" th:field="*{customerBirthday}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Id Card</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerIdCard}" required>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerPhone}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerEmail}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <input type="text" class="form-control" th:field="*{customerAddress}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+                    </td>
+                    <td>
+                        <button class="btn btn-success" type="submit">Create</button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </form>

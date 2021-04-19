@@ -4,8 +4,10 @@
     <title th:text="Furama"></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style/bootstrap/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="style/fontawesome/css/all.min.css" type="text/css">
+
+    <!--    link offline-->
+    <link rel="stylesheet" href="/style/bootstrap/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/style/fontawesome/css/all.min.css" type="text/css">
 
     <style>
         .fit-img {
@@ -56,17 +58,16 @@
 
         <div>
             <!--        search-->
-            <form method="get" class="input-group">
+            <div class="input-group">
                 <input type="text" name="search" id="search" class="form-control"
                        th:value="${search}" placeholder="Search ..."/>
-
                 <div class="input-group-append" style="padding-left: 5px">
-                    <button type="submit" title="Search" class="btn btn-outline-light">
+                    <button type="submit" title="Search" id="searchCustomerButton"
+                            class="btn btn-outline-light">
                         <i class="fas fa-search"></i>
                     </button>
-                    <input name="action" value="search" hidden/>
                 </div>
-            </form>
+            </div>
 
         </div>
     </nav>
@@ -89,6 +90,7 @@
         </div>
     </div>
 </div>
+
 <!--    footer-->
 <div th:fragment="footer">
     <div class="jumbotron text-center m-0">
@@ -154,16 +156,24 @@
         </footer>
     </div>
 </div>
+
+<!--script-->
 <div th:fragment="script_link">
+
+    <!--    link offline-->
     <script src="/style/jquery/jquery-3.5.1.min.js"></script>
     <script src="/style/bootstrap/js/popper.min.js"></script>
     <script src="/style/bootstrap/js/bootstrap.min.js"></script>
     <script src="/style/bootstrap/js/bootstrap.bundle.js"></script>
+
 </div>
 <div th:fragment="cus_func_script">
     <!--        script function-->
     <script>
         $(document).ready(function () {
+            $("#alertCustomerFade").fadeTo(3000, 500).slideUp(1000, function(){
+                $("#alertCustomerFade").alert('close');
+            });
             $("#createCustomerButton").click(function () {
                 $.ajax({
                     type: "GET",
@@ -175,10 +185,21 @@
                     }
                 });
             });
+            $(".viewCustomerButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/customer/view?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
             $(".editCustomerButton").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/customer/edit?id="+$(this).val(),
+                    url: "/customer/edit?id=" + $(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);
@@ -189,11 +210,21 @@
             $(".deleteCustomerButton").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/customer/delete?id="+$(this).val(),
+                    url: "/customer/delete?id=" + $(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);
                         $("#modalId").modal('show');
+                    }
+                });
+            });
+            $("#searchCustomerButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/customer/search?search=" + $("#search").val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $("#body").html(data);
                     }
                 });
             });
@@ -204,10 +235,24 @@
     <!--        script function-->
     <script>
         $(document).ready(function () {
-            $("#createServiceButton").click(function () {
+            $("#alertServiceFade").fadeTo(3000, 500).slideUp(1000, function(){
+                $("#alertServiceFade").alert('close');
+            });
+            $(".viewServiceButton").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/service/create",
+                    url: "/service/view?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".createServiceButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/service/create?type=" + $(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);
@@ -218,7 +263,7 @@
             $(".editServiceButton").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/service/edit?id="+$(this).val(),
+                    url: "/service/edit?id=" + $(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);
@@ -229,7 +274,7 @@
             $(".deleteServiceButton").click(function () {
                 $.ajax({
                     type: "GET",
-                    url: "/service/delete?id="+$(this).val(),
+                    url: "/service/delete?id=" + $(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);
@@ -240,5 +285,60 @@
         });
     </script>
 </div>
+<div th:fragment="emp_func_script">
+    <!--        script function-->
+    <script>
+        $(document).ready(function () {
+            $("#alertEmployeeFade").fadeTo(3000, 500).slideUp(1000, function(){
+                $("#alertEmployeeFade").alert('close');
+            });
+            $(".viewEmployeeButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/employee/view?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $("#createEmployeeButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/employee/create",
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".editEmployeeButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/employee/edit?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".deleteEmployeeButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/employee/delete?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+        });
+    </script>
+</div>
+
 </body>
 </html>

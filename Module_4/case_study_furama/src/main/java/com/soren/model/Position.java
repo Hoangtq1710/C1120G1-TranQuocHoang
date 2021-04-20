@@ -21,7 +21,7 @@ public class Position {
     @Column(name = "position_name", columnDefinition = "VARCHAR(45) NOT NULL")
     private String positionName;
 
-    @OneToMany(mappedBy = "position", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "position", cascade = CascadeType.REMOVE)
     private Set<Employee> employeeSet;
 
 }

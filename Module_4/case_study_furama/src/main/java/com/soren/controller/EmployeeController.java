@@ -1,6 +1,7 @@
 package com.soren.controller;
 
 import com.soren.model.Employee;
+import com.soren.model.User;
 import com.soren.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -45,7 +46,11 @@ public class EmployeeController {
     public String createEmployee(@ModelAttribute(name = "employee") Employee employee,
                                  @RequestParam(name = "inputUsername") String username,
                                  RedirectAttributes redirect){
-        employee.setUser(this.userService.createUserByUsername(username));
+        User user = this.userService.createUserByUsername(username);
+        if (user != null){
+            employee.setUser(user);
+        }
+        //sau này sẽ else nếu validate tên username bị trùng
         this.employeeService.save(employee);
         redirect.addFlashAttribute("message", "Employee "+employee.getEmployeeName()+" was added!");
         return "redirect:/employee/";
@@ -55,5 +60,41 @@ public class EmployeeController {
     public String viewEmployee(@RequestParam(name = "id") Integer id, Model model){
         model.addAttribute("employee", this.employeeService.findById(id));
         return "employee/view";
+    }
+
+    @GetMapping("/edit")
+    public String showEditForm(@RequestParam(name = "id") Integer id, Model model){
+        model.addAttribute("listEducation", this.educationService.findAll());
+        model.addAttribute("listDivision", this.divisionService.findAll());
+        model.addAttribute("listPosition", this.positionService.findAll());
+        model.addAttribute("employee", this.employeeService.findById(id));
+        return "employee/edit";
+    }
+
+    @PostMapping("/edit")
+    public String editEmployee(@ModelAttribute("employee") Employee employee,
+                               @RequestParam(name = "newPassword") String newPassword,
+                               RedirectAttributes redirect){
+        this.userService.changePassword(employee.getUser(), newPassword);
+        this.employeeService.save(employee);
+        redirect.addFlashAttribute( "message",
+                                    "Information of Employee "+employee.getEmployeeName()+" was updated!");
+        return "redirect:/employee/";
+    }
+
+    @GetMapping("/delete")
+    public String showDeleteForm(@RequestParam(name = "id") Integer id, Model model){
+        model.addAttribute("employee", this.employeeService.findById(id));
+        return "employee/delete";
+    }
+
+    @PostMapping("/delete")
+    public String deleteEmployee(@RequestParam(name = "employeeId") Integer id, RedirectAttributes redirect){
+        Employee employee = this.employeeService.findById(id);
+        employee.getUser().setEnabled(false); // set Enabled của account = 0
+        this.employeeService.deleteById(id); // xóa Employee sẽ không xóa account của employee đó ,mà sẽ set Enabled = 0;
+        redirect.addFlashAttribute( "message",
+                                    "Employee "+employee.getEmployeeName()+" was deleted!");
+        return "redirect:/employee/";
     }
 }

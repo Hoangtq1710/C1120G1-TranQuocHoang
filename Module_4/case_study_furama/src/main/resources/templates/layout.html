@@ -35,7 +35,8 @@
 
         <!--        home button-->
         <a class="navbar-brand" title="Home" th:href="@{/}"><i class="fas fa-home"></i></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -91,6 +92,24 @@
     </div>
 </div>
 
+<!--modal for contract detail only size lg-->
+<div th:fragment="modalContractDetail">
+    <div class="modal fade" id="modalContractDetailId">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" id="modalBodyContractDetail">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--    footer-->
 <div th:fragment="footer">
     <div class="jumbotron text-center m-0">
@@ -98,7 +117,7 @@
             <div class="container p-4 pb-0" style="background-color: #e9ecef">
                 <section class="mb-4">
                     <a
-                            class="btn btn-success btn-floating m-1"
+                            class="btn btn-success btn-floating m-1 rounded-circle"
                             style="background-color: #3b5998;"
                             href="https://www.facebook.com/"
                             role="button"
@@ -106,7 +125,7 @@
                     ></a>
 
                     <a
-                            class="btn btn-success btn-floating m-1"
+                            class="btn btn-success btn-floating m-1 rounded-circle"
                             style="background-color: #55acee;"
                             href="https://twitter.com/"
                             role="button"
@@ -114,7 +133,7 @@
                     ></a>
 
                     <a
-                            class="btn btn-success btn-floating m-1"
+                            class="btn btn-success btn-floating m-1 rounded-circle"
                             style="background-color: #dd4b39;"
                             href="https://www.google.com/"
                             role="button"
@@ -122,7 +141,7 @@
                     ></a>
 
                     <a
-                            class="btn btn-success btn-floating m-1"
+                            class="btn btn-success btn-floating m-1 rounded-circle"
                             style="background-color: #ac2bac;"
                             href="https://www.instagram.com/"
                             role="button"
@@ -130,7 +149,7 @@
                     ></a>
 
                     <a
-                            class="btn btn-success btn-floating m-1"
+                            class="btn btn-success btn-floating m-1 rounded-circle"
                             style="background-color: #0082ca;"
                             href="https://www.linkedin.com/"
                             role="button"
@@ -138,7 +157,7 @@
                     ></a>
 
                     <a
-                            class="btn btn-success btn-floating m-1"
+                            class="btn btn-success btn-floating m-1 rounded-circle"
                             style="background-color: #333333;"
                             href="https://github.com/"
                             role="button"
@@ -329,6 +348,71 @@
                 $.ajax({
                     type: "GET",
                     url: "/employee/delete?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+        });
+    </script>
+</div>
+<div th:fragment="con_func_script">
+    <!--        script function-->
+    <script>
+        $(document).ready(function () {
+            $("#alertContractFade").fadeTo(3000, 500).slideUp(1000, function(){
+                $("#alertContractFade").alert('close');
+            });
+            $(".viewContractDetail").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/contract/viewDetail?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $("#modalBodyContractDetail").html(data);
+                        $("#modalContractDetailId").modal('show');
+                    }
+                });
+            });
+            $("#createContractButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/contract/create",
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".createContractDetail").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/contract/createDetail?contractId="+$(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".editContractButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/contract/edit?id=" + $(this).val(),
+                    dataType: "HTML",
+                    success: function (data) {
+                        $(".modal-body").html(data);
+                        $("#modalId").modal('show');
+                    }
+                });
+            });
+            $(".deleteContractButton").click(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "/contract/delete?id=" + $(this).val(),
                     dataType: "HTML",
                     success: function (data) {
                         $(".modal-body").html(data);

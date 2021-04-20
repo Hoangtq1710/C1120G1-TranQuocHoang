@@ -1,0 +1,81 @@
+package com.soren.controller;
+
+import com.soren.model.Contract;
+import com.soren.model.ContractDetail;
+import com.soren.service.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+@Controller
+@RequestMapping("/contract")
+public class ContractController {
+
+    @Autowired
+    private CustomerService customerService;
+    @Autowired
+    private EmployeeService employeeService;
+    @Autowired
+    private ServiceService serviceService;
+    @Autowired
+    private ContractService contractService;
+    @Autowired
+    private AttachServiceService attachServiceService;
+    @Autowired
+    private ContractDetailService contractDetailService;
+
+    @GetMapping("")
+    public String getContractHome(Model model) {
+        model.addAttribute("listContract", this.contractService.findAll());
+        return "contract_list";
+    }
+
+    @GetMapping("/create")
+    public String showCreateForm(Model model) {
+        model.addAttribute("listCustomer", this.customerService.findAllList());
+        model.addAttribute("listEmployee", this.employeeService.findAllList());
+        model.addAttribute("listService", this.serviceService.findAll());
+        model.addAttribute("contract", new Contract());
+        return "contract/create";
+    }
+
+    @PostMapping("/create")
+    public String createContract(@ModelAttribute(name = "contract") Contract contract,
+                                 RedirectAttributes redirect) {
+        contract.setContractTotalMoney(this.contractService.getTotalMoney(contract));
+        this.contractService.save(contract);
+        System.out.println("Total : " + contract.getContractTotalMoney());
+        redirect.addFlashAttribute("message", "Contract ID " + contract.getContractId() + " was added!");
+        return "redirect:/contract/";
+    }
+
+    @GetMapping("/createDetail")
+    public String showContractDetailForm(@RequestParam(name = "contractId") Integer id, Model model) {
+        model.addAttribute("contractDetail", new ContractDetail());
+        model.addAttribute("contract", this.contractService.findById(id));
+        model.addAttribute("listAttachService", this.attachServiceService.findAll());
+        return "contract/create_contract_detail";
+    }
+
+    @PostMapping("/createDetail")
+    public String createContractDetail(@ModelAttribute(name = "contractDetail") ContractDetail contractDetail,
+                                       @RequestParam(name = "contractId") Integer id,
+                                       RedirectAttributes redirect) {
+        Contract contract = this.contractService.findById(id);
+        contractDetail.setContract(contract);
+        this.contractDetailService.save(contractDetail);
+        redirect.addFlashAttribute("message",
+                "Contract Detail of Contract " + contract.getContractId() + " was created!");
+        return "redirect:/contract/";
+    }
+
+    @GetMapping("/viewDetail")
+    public String viewDetailOfContractDetail(@RequestParam(name = "id") Integer id, Model model){
+        Contract contract = this.contractService.findById(id);
+        model.addAttribute("contract", contract);
+        model.addAttribute("listContractDetail", this.contractDetailService.findAllByContract(contract));
+        return "contract/detail_of_contract_detail";
+    }
+}

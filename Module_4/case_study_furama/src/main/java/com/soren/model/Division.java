@@ -21,7 +21,7 @@ public class Division {
     @Column(name = "division_name", columnDefinition = "VARCHAR(45) NOT NULL")
     private String divisionName;
 
-    @OneToMany(mappedBy = "division", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "division", cascade = CascadeType.REMOVE)
     private Set<Employee> employeeSet;
 
 }

@@ -8,19 +8,25 @@
     <!--    head_navbar-->
     <div th:replace="~{layout :: head_navbar}"></div>
 
-    <div class="dropdown m-3" style="text-decoration: none">
-        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
-            <i class="far fa-plus-square"></i>
-        </button>
-        <div class="dropdown-menu">
-            <button class="createServiceButton dropdown-item text-success"
-                    type="button" th:value="1">Villa</button>
-            <button class="createServiceButton dropdown-item text-warning"
-                    type="button" th:value="2">House</button>
-            <button class="createServiceButton dropdown-item text-info"
-                    type="button" th:value="3">Room</button>
+    <div class="m-3 row text-center">
+        <div class="col text-decoration-none">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" title="Create">
+                <i class="far fa-plus-square"></i>
+            </button>
+            <div class="dropdown-menu">
+                <button class="createServiceButton dropdown-item text-success" title="Create Villa"
+                        type="button" th:value="1">Villa</button>
+                <button class="createServiceButton dropdown-item text-warning" title="Create House"
+                        type="button" th:value="2">House</button>
+                <button class="createServiceButton dropdown-item text-info" title="Create Room"
+                        type="button" th:value="3">Room</button>
+            </div>
+        </div>
+        <div class="col-11">
+            <h1 style="color: teal">LIST SERVICE</h1>
         </div>
     </div>
+
     <div th:if="${message}">
         <div id="alertServiceFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
             <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
@@ -60,15 +66,15 @@
                     <td th:text="${service.poolArea}"></td>
                     <td th:text="${service.numberOfFloor}"></td>
                     <td>
-                        <button class="viewServiceButton btn btn-info"
+                        <button class="viewServiceButton btn btn-info" title="View Service"
                                 th:value="${service.serviceId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>
-                        <button class="editServiceButton btn btn-warning"
+                        <button class="editServiceButton btn btn-warning" title="Edit Service"
                                 th:value="${service.serviceId}" type="button">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button class="deleteServiceButton btn btn-danger"
+                        <button class="deleteServiceButton btn btn-danger" title="Delete Service"
                                 th:value="${service.serviceId}" type="button">
                             <i class="fas fa-trash-alt"></i>
                         </button>

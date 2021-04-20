@@ -30,7 +30,7 @@ public class User {
     @Column(name = "enabled", length = 1, columnDefinition = "BIT DEFAULT 1")
     private boolean enabled;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "user")
     private Employee employee;
 
 }

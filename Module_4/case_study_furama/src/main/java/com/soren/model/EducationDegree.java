@@ -22,6 +22,6 @@ public class EducationDegree {
     @Column(name = "education_degree_name", columnDefinition = "VARCHAR(45) NOT NULL")
     private String educationDegreeName;
 
-    @OneToMany(mappedBy = "educationDegree", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "educationDegree", cascade = CascadeType.REMOVE)
     private Set<Employee> employeeSet;
 }

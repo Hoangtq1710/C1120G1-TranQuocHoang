@@ -43,6 +43,10 @@
             <td>Pool Area</td>
             <td th:text="${service.poolArea}"></td>
         </tr>
+        <tr th:if="${service.numberOfFloor != 0}">
+            <td>Number Of Floors</td>
+            <td th:text="${service.numberOfFloor}"></td>
+        </tr>
         <tr>
             <td></td>
             <td>

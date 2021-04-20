@@ -8,11 +8,17 @@
     <!--    head_navbar-->
     <div th:replace="~{layout :: head_navbar}"></div>
 
-    <div class="m-3">
-        <button id="createCustomerButton" class="btn btn-success">
-            <i class="far fa-plus-square"></i>
-        </button>
+    <div class="m-3 row text-center">
+        <div class="col">
+            <button id="createCustomerButton" class="btn btn-success" title="Create Customer">
+                <i class="far fa-plus-square"></i>
+            </button>
+        </div>
+        <div class="col-11">
+            <h1 style="color: teal">LIST CUSTOMER</h1>
+        </div>
     </div>
+
     <div th:if="${message}">
         <div id="alertCustomerFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
             <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
@@ -53,15 +59,15 @@
                     <td hidden th:text="${customer.customerEmail}"></td>
                     <td th:text="${customer.customerAddress}"></td>
                     <td>
-                        <button class="viewCustomerButton btn btn-info"
+                        <button class="viewCustomerButton btn btn-info" title="View Customer"
                                 th:value="${customer.customerId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>
-                        <button class="editCustomerButton btn btn-warning"
+                        <button class="editCustomerButton btn btn-warning" title="Edit Customer"
                                 th:value="${customer.customerId}" type="button">
                             <i class="fas fa-edit"></i>
                         </button>
-                        <button class="deleteCustomerButton btn btn-danger"
+                        <button class="deleteCustomerButton btn btn-danger" title="Delete Customer"
                                 th:value="${customer.customerId}" type="button">
                             <i class="fas fa-trash-alt"></i>
                         </button>
@@ -75,7 +81,7 @@
         <a class="text-decoration-none"
            th:href="@{'/customer'(page=${listCustomer.number - 1})}"
            th:if="${listCustomer.hasPrevious()}">
-            <button class="btn btn-outline-danger rounded-circle">
+            <button class="btn btn-outline-danger rounded-circle" title="Previous Pages">
                 <i class="fas fa-fast-backward"></i>
             </button>
         </a>
@@ -87,7 +93,7 @@
         <a class="text-decoration-none"
            th:href="@{'/customer'(page=${listCustomer.number + 1})}"
            th:if="${listCustomer.hasNext()}">
-            <button class="btn btn-outline-danger rounded-circle">
+            <button class="btn btn-outline-danger rounded-circle" title="Next Page">
                 <i class="fas fa-fast-forward"></i>
             </button>
         </a>

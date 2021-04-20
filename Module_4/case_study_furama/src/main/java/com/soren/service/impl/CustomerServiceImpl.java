@@ -22,6 +22,11 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
+    public List<Customer> findAllList() {
+        return repository.findAll();
+    }
+
+    @Override
     public Customer findById(String id) {
         return repository.findById(id).orElse(null);
     }

@@ -40,4 +40,12 @@ public class UserServiceImpl implements UserService {
         save(user);
         return user;
     }
+
+    @Override
+    public void changePassword(User user, String newPassword) {
+        if (!user.getPassword().equals(newPassword)) {
+            user.setPassword(newPassword);
+        }
+        save(user);
+    }
 }

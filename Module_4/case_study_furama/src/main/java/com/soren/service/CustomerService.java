@@ -10,6 +10,8 @@ public interface CustomerService {
 
     Page<Customer> findAll(Pageable pageable);
 
+    List<Customer> findAllList();
+
     Customer findById(String id);
 
     void save(Customer customer);

@@ -29,7 +29,7 @@ public class ServiceController {
     @GetMapping("")
     public String getServiceHome(Model model){
         model.addAttribute("listService", this.serviceService.findAll());
-        return "service_list";
+        return "service/service_list";
     }
 
     @GetMapping("/create")

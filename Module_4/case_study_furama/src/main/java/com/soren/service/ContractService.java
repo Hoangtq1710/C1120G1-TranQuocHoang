@@ -1,6 +1,8 @@
 package com.soren.service;
 
 import com.soren.model.Contract;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -15,4 +17,6 @@ public interface ContractService {
     void deleteById(Integer id);
 
     double getTotalMoney(Contract contract);
+
+    Page<Contract> getListUsingCustomer(String date, Pageable pageable);
 }

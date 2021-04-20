@@ -4,11 +4,12 @@ import com.soren.model.Contract;
 import com.soren.repository.ContractRepository;
 import com.soren.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -51,6 +52,11 @@ public class ContractServiceImpl implements ContractService {
             e.printStackTrace();
         }
         return totalDay * contract.getService().getServiceCost();
+    }
+
+    @Override
+    public Page<Contract> getListUsingCustomer(String date, Pageable pageable) {
+        return repository.getListUsingCustomer(date, pageable);
     }
 }
 

@@ -30,7 +30,7 @@ public class EmployeeController {
     public String getEmployeeHome(@PageableDefault(value = 5) Pageable pageable,
                                   Model model){
         model.addAttribute("listEmployee", this.employeeService.findAll(pageable));
-        return "employee_list";
+        return "employee/employee_list";
     }
 
     @GetMapping("/create")

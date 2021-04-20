@@ -1,6 +1,7 @@
 package com.soren.controller;
 
 import com.soren.model.Customer;
+import com.soren.service.ContractService;
 import com.soren.service.CustomerService;
 import com.soren.service.CustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Optional;
 
 @Controller
@@ -25,11 +28,13 @@ public class CustomerController {
     private CustomerService customerService;
     @Autowired
     private CustomerTypeService customerTypeService;
+    @Autowired
+    private ContractService contractService;
 
     @GetMapping("")
     public String getCustomerHome(Model model, @PageableDefault(value = 5) Pageable pageable){
         model.addAttribute("listCustomer", this.customerService.findAll(pageable));
-        return "customer_list";
+        return "customer/customer_list";
     }
 
     @GetMapping("/create")
@@ -95,6 +100,13 @@ public class CustomerController {
             listCustomer = this.customerService.findAll(pageable);
         }
         model.addAttribute("listCustomer", listCustomer);
-        return "customer_list";
+        return "customer/customer_list";
+    }
+
+    @GetMapping("/using")
+    public String showUsingCustomer(Model model, @PageableDefault(value = 5) Pageable pageable){
+        String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        model.addAttribute("listUsingCustomer", this.contractService.getListUsingCustomer(date, pageable));
+        return "customer/using";
     }
 }

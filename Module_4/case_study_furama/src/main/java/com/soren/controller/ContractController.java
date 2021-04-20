@@ -29,7 +29,7 @@ public class ContractController {
     @GetMapping("")
     public String getContractHome(Model model) {
         model.addAttribute("listContract", this.contractService.findAll());
-        return "contract_list";
+        return "contract/contract_list";
     }
 
     @GetMapping("/create")

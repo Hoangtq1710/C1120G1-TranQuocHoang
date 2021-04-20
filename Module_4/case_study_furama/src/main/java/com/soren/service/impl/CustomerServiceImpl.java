@@ -1,5 +1,6 @@
 package com.soren.service.impl;
 
+import com.soren.model.Contract;
 import com.soren.model.Customer;
 import com.soren.repository.CustomerRepository;
 import com.soren.service.CustomerService;
@@ -45,4 +46,5 @@ public class CustomerServiceImpl implements CustomerService {
     public Page<Customer> findAllByCustomerNameContaining(String search, Pageable pageable) {
         return repository.findAllByCustomerNameContaining(search, pageable);
     }
+
 }

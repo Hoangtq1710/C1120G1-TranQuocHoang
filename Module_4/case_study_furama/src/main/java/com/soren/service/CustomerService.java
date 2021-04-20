@@ -1,5 +1,6 @@
 package com.soren.service;
 
+import com.soren.model.Contract;
 import com.soren.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

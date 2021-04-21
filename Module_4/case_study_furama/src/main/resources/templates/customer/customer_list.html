@@ -10,9 +10,11 @@
 
     <div class="m-3 row text-center">
         <div class="col">
-            <button id="createCustomerButton" class="btn btn-success" title="Create Customer">
-                <i class="far fa-plus-square"></i>
-            </button>
+            <a th:href="@{/customer/create}" class="text-decoration-none">
+                <button class="btn btn-success" title="Create Customer">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </a>
         </div>
         <div class="col-10">
             <h1 style="color: teal">LIST CUSTOMER</h1>
@@ -70,10 +72,11 @@
                                 th:value="${customer.customerId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>
-                        <button class="editCustomerButton btn btn-warning" title="Edit Customer"
-                                th:value="${customer.customerId}" type="button">
-                            <i class="fas fa-edit"></i>
-                        </button>
+                        <a th:href="@{/customer/edit(id=${customer.customerId})}" class="text-decoration-none">
+                            <button class="btn btn-warning" title="Edit Customer" type="button">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </a>
                         <button class="deleteCustomerButton btn btn-danger" title="Delete Customer"
                                 th:value="${customer.customerId}" type="button">
                             <i class="fas fa-trash-alt"></i>

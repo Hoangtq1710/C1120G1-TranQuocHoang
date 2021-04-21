@@ -10,12 +10,14 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
@@ -45,10 +47,19 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String createCustomer(Customer customer, RedirectAttributes redirect){
-        this.customerService.save(customer);
-        redirect.addFlashAttribute("message","Customer "+customer.getCustomerName()+" was added!");
-        return "redirect:/customer/";
+    public String createCustomer(@Valid Customer customer, BindingResult bindingResult,
+                                 Model model, RedirectAttributes redirect){
+        new Customer().validate(customer,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("customer", customer);
+            model.addAttribute("listCustomerType", this.customerTypeService.findAll());
+            return "customer/create";
+        } else {
+            this.customerService.save(customer);
+            redirect.addFlashAttribute( "message",
+                                        "Customer "+customer.getCustomerName()+" was added!");
+            return "redirect:/customer/";
+        }
     }
 
     @GetMapping("/view")
@@ -67,10 +78,18 @@ public class CustomerController {
     }
 
     @PostMapping("/edit")
-    public String editCustomer(Customer customer, RedirectAttributes redirect){
-        this.customerService.save(customer);
-        redirect.addFlashAttribute("message","Information of Customer "+customer.getCustomerName()+" was updated!");
-        return "redirect:/customer/";
+    public String editCustomer(@Valid Customer customer,BindingResult bindingResult,
+                               Model model, RedirectAttributes redirect){
+        new Customer().validate(customer,bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("listCustomerType", this.customerTypeService.findAll());
+            model.addAttribute("customer", customer);
+            return "customer/edit";
+        } else {
+            this.customerService.save(customer);
+            redirect.addFlashAttribute("message","Information of Customer "+customer.getCustomerName()+" was updated!");
+            return "redirect:/customer/";
+        }
     }
 
     @GetMapping("/delete")

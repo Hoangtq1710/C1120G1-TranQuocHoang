@@ -3,15 +3,21 @@ package com.soren.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
+import javax.validation.constraints.PastOrPresent;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Contract {
+public class Contract implements Validator {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -45,4 +51,30 @@ public class Contract {
     @OneToMany(mappedBy = "contract", cascade = CascadeType.ALL)
     private Set<ContractDetail> contractDetailSet;
 
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Contract.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object object, Errors errors) {
+        Contract contract = (Contract) object;
+        try {
+            Date start = new SimpleDateFormat("yyyy-MM-dd").parse(contract.getContractStartDate());
+            Date end = new SimpleDateFormat("yyyy-MM-dd").parse(contract.getContractEndDate());
+
+            Date currentDate = new Date();
+
+            if (start.after(currentDate)){
+                errors.rejectValue("start", "con.start.afterCurrent");
+            } else if (start.after(end)) {
+                errors.rejectValue("start", "con.start.afterEnd");
+            }
+            if (end.before(start)) {
+                errors.rejectValue("end", "con.end.beforeStart");
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }

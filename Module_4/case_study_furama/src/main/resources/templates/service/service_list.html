@@ -14,12 +14,15 @@
                 <i class="far fa-plus-square"></i>
             </button>
             <div class="dropdown-menu">
-                <button class="createServiceButton dropdown-item text-success" title="Create Villa"
-                        type="button" th:value="1">Villa</button>
-                <button class="createServiceButton dropdown-item text-warning" title="Create House"
-                        type="button" th:value="2">House</button>
-                <button class="createServiceButton dropdown-item text-info" title="Create Room"
-                        type="button" th:value="3">Room</button>
+                <a th:href="@{/service/create(type=1)}" class="text-decoration-none">
+                    <button class="dropdown-item text-success" title="Create Villa" type="button">Villa</button>
+                </a>
+                <a th:href="@{/service/create(type=2)}" class="text-decoration-none">
+                    <button class="dropdown-item text-warning" title="Create House" type="button">House</button>
+                </a>
+                <a th:href="@{/service/create(type=3)}" class="text-decoration-none">
+                    <button class="dropdown-item text-info" title="Create Room" type="button">Room</button>
+                </a>
             </div>
         </div>
         <div class="col-11">

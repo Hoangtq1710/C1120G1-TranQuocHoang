@@ -50,7 +50,7 @@ public class ServiceController {
             model.addAttribute("type",type);
             model.addAttribute("listServiceType", this.serviceTypeService.findAll());
             model.addAttribute("listRentType", this.rentTypeService.findAll());
-            model.addAttribute("service", new Service());
+            model.addAttribute("service", service);
             return "service/create";
         } else {
             service.setServiceName(this.serviceService.createServiceName(service));

@@ -6,8 +6,11 @@ import com.soren.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/contract")
@@ -42,13 +45,22 @@ public class ContractController {
     }
 
     @PostMapping("/create")
-    public String createContract(@ModelAttribute(name = "contract") Contract contract,
-                                 RedirectAttributes redirect) {
-        contract.setContractTotalMoney(this.contractService.getTotalMoney(contract));
-        this.contractService.save(contract);
-        System.out.println("Total : " + contract.getContractTotalMoney());
-        redirect.addFlashAttribute("message", "Contract ID " + contract.getContractId() + " was added!");
-        return "redirect:/contract/";
+    public String createContract(@Valid @ModelAttribute(name = "contract") Contract contract, BindingResult bindingResult,
+                                 Model model, RedirectAttributes redirect) {
+        new Contract().validate(contract, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("listCustomer", this.customerService.findAllList());
+            model.addAttribute("listEmployee", this.employeeService.findAllList());
+            model.addAttribute("listService", this.serviceService.findAll());
+            model.addAttribute("contract", contract);
+            return "contract/create";
+        } else {
+            contract.setContractTotalMoney(this.contractService.getTotalMoney(contract));
+            this.contractService.save(contract);
+            System.out.println("Total : " + contract.getContractTotalMoney());
+            redirect.addFlashAttribute("message", "Contract ID " + contract.getContractId() + " was added!");
+            return "redirect:/contract/";
+        }
     }
 
     @GetMapping("/createDetail")

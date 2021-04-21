@@ -3,10 +3,9 @@ package com.soren.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMin;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.Set;
@@ -19,6 +18,7 @@ public class Service {
 
     @Id
     @Column(name = "service_id", columnDefinition = "VARCHAR(45) NOT NULL")
+    @NotNull
     @Pattern(regexp = "^DV-[\\d]{4}$", message = "Service ID must be in DV-XXXX format !\nExample : DV-0306")
     private String serviceId;
 
@@ -26,17 +26,17 @@ public class Service {
     @NotNull(message = "Service Name can not be NULL")
     private String serviceName;
 
-    @Column(name = "service_area", nullable = false)
-    @Min(value = 1, message = "Service Area must be positive! Example : 50")
-    private Integer serviceArea;
+    @Column(name = "service_area", columnDefinition = "VARCHAR(10) NOT NULL", nullable = false)
+    @Pattern(regexp = "^[\\d]+$", message = "Service Area must be a number! \nExample : 60")
+    private String serviceArea;
 
-    @Column(name = "service_cost", nullable = false)
-    @DecimalMin(value = "1.0", message = "Cost must be positive! Example : 350 or 380.5")
-    private double serviceCost;
+    @Column(name = "service_cost", columnDefinition = "VARCHAR(10) NOT NULL" , nullable = false)
+    @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Service Cost must be a number! \nExample : 350 or 350.0")
+    private String serviceCost;
 
-    @Column(name = "service_max_people", nullable = false)
-    @Min(value = 1, message = "Max People must be equal or greater than 1! Example : 6")
-    private Integer serviceMaxPeople;
+    @Column(name = "service_max_people", columnDefinition = "VARCHAR(10) NOT NULL" , nullable = false)
+    @Pattern(regexp = "^[\\d]+$", message = "Max People must be a number! \nExample : 7")
+    private String serviceMaxPeople;
 
     @Column(name = "standard_room", columnDefinition = "VARCHAR(45)")
     private String standardRoom;
@@ -44,13 +44,13 @@ public class Service {
     @Column(name = "description", columnDefinition = "VARCHAR(255)")
     private String description;
 
-    @Column(name = "pool_area")
-    @DecimalMin(value = "1.0", message = "Pool Area must be greater than 1! Example : 45 or 45.6")
-    private double poolArea;
+    @Column(name = "pool_area", columnDefinition = "VARCHAR(10) NOT NULL")
+    @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Pool Area must be a number! \nExample : 75 or 75.0")
+    private String poolArea;
 
-    @Column(name = "number_of_floor")
-    @Min(value = 0, message = "Number Of Floor must be positive! Example : 6")
-    private int NumberOfFloor;
+    @Column(name = "number_of_floor", columnDefinition = "VARCHAR(10) NOT NULL")
+    @Pattern(regexp = "^[\\d]+$", message = "Number of Floor must be a number! \nExample : 8")
+    private String numberOfFloor;
 
     @ManyToOne
     @JoinColumn(name = "rent_type_id", nullable = false)
@@ -62,5 +62,4 @@ public class Service {
 
     @OneToMany(mappedBy = "service", cascade = CascadeType.ALL)
     private Set<Contract> contractSet;
-
 }

@@ -71,6 +71,7 @@ public class Customer implements Validator {
     @Override
     public void validate(Object object, Errors errors) {
         Customer customer = (Customer) object;
+
         try {
             Date birthday = new SimpleDateFormat("yyyy-MM-dd").parse(customer.getCustomerBirthday());
             Date currentDate = new Date();

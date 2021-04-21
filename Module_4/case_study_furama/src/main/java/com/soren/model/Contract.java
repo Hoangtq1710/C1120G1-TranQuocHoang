@@ -7,7 +7,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import javax.persistence.*;
-import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,11 +30,12 @@ public class Contract implements Validator {
     @Column(name = "contract_end_date", columnDefinition = "DATE")
     private String contractEndDate;
 
-    @Column(name = "contract_deposit")
-    private double contractDeposit;
+    @Column(name = "contract_deposit", columnDefinition = "VARCHAR(10) NOT NULL")
+    @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Contract Deposit must be a number! \nExample : 1000 or 1000.0")
+    private String contractDeposit;
 
-    @Column(name = "contract_total_money")
-    private double contractTotalMoney;
+    @Column(name = "contract_total_money", columnDefinition = "VARCHAR(10) NOT NULL")
+    private String contractTotalMoney;
 
     @ManyToOne
     @JoinColumn(name = "service_id", nullable = false)
@@ -65,13 +66,14 @@ public class Contract implements Validator {
 
             Date currentDate = new Date();
 
-            if (start.after(currentDate)){
-                errors.rejectValue("start", "con.start.afterCurrent");
-            } else if (start.after(end)) {
-                errors.rejectValue("start", "con.start.afterEnd");
+            if (start.after(end)) {
+                errors.rejectValue("contractStartDate", "con.start.afterEnd");
             }
             if (end.before(start)) {
-                errors.rejectValue("end", "con.end.beforeStart");
+                errors.rejectValue("contractEndDate", "con.end.beforeStart");
+            }
+            if (end.before(currentDate)){
+                errors.rejectValue("contractEndDate", "con.end.beforeCurrent");
             }
         } catch (ParseException e) {
             e.printStackTrace();

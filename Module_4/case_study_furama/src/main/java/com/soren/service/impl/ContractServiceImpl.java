@@ -42,7 +42,7 @@ public class ContractServiceImpl implements ContractService {
     }
 
     @Override
-    public double getTotalMoney(Contract contract) {
+    public String getTotalMoney(Contract contract) {
         int totalDay = 0;
         try {
             Date start = new SimpleDateFormat("yyyy-MM-dd").parse(contract.getContractStartDate());
@@ -52,7 +52,8 @@ public class ContractServiceImpl implements ContractService {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return totalDay * contract.getService().getServiceCost();
+        double cost = Double.parseDouble(contract.getService().getServiceCost());
+        return totalDay * cost+"";
     }
 
     @Override

@@ -3,18 +3,22 @@ package com.soren.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.validation.Errors;
+import org.springframework.validation.Validator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
-public class Employee {
+public class Employee implements Validator {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,11 +26,10 @@ public class Employee {
     private Integer employeeId;
 
     @Column(name = "employee_name", columnDefinition = "VARCHAR(45) NOT NULL")
-    @NotNull
+    @NotNull(message = "Employee Name can not be NULL")
     private String employeeName;
 
     @Column(name = "employee_birthday", columnDefinition = "DATE")
-    @PastOrPresent(message = "You picked a day in Future!")
     private String employeeBirthday;
 
     @Column(name = "employee_id_card", columnDefinition = "VARCHAR(45) UNIQUE NOT NULL")
@@ -37,7 +40,7 @@ public class Employee {
 
     @Column(name = "employee_salary")
     @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Salary must be positive! \nExample : 750 or 750.0")
-    private double employeeSalary;
+    private String employeeSalary;
 
     @Column(name = "employee_phone", columnDefinition = "VARCHAR(45)")
     @Pattern(regexp = "^(091|090|\\(84\\)\\+90|\\(84\\)\\+91)[\\d]{7}$",
@@ -71,4 +74,24 @@ public class Employee {
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private Set<Contract> contractSet;
 
+    @Override
+    public boolean supports(Class<?> clazz) {
+        return Employee.class.isAssignableFrom(clazz);
+    }
+
+    @Override
+    public void validate(Object object, Errors errors) {
+        Employee employee = (Employee) object;
+
+        try {
+            Date employeeBirthday = new SimpleDateFormat("yyyy-MM-dd").parse(employee.getEmployeeBirthday());
+            Date currentDate = new Date();
+
+            if (employeeBirthday.after(currentDate)){
+                errors.rejectValue("employeeBirthday", "emp.birthday.afterCurrent");
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
 }

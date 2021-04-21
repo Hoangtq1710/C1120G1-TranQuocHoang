@@ -11,9 +11,11 @@
 <!--    add new employee-->
     <div class="m-3 row text-center">
         <div class="col">
-            <button id="createEmployeeButton" class="btn btn-success" title="Create Employee">
-                <i class="far fa-plus-square"></i>
-            </button>
+            <a th:href="@{/employee/create}" class="text-decoration-none">
+                <button class="btn btn-success" title="Create Employee">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </a>
         </div>
         <div class="col-11">
             <h1 style="color: teal">LIST EMPLOYEE</h1>
@@ -70,10 +72,11 @@
                                 th:value="${employee.employeeId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>
-                        <button class="editEmployeeButton btn btn-warning" title="Edit Employee"
-                                th:value="${employee.employeeId}" type="button">
-                            <i class="fas fa-edit"></i>
-                        </button>
+                        <a th:href="@{/employee/edit(id=${employee.employeeId})}" class="text-decoration-none">
+                            <button class="btn btn-warning" title="Edit Employee" type="button">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </a>
                         <button class="deleteEmployeeButton btn btn-danger" title="Delete Employees"
                                 th:value="${employee.employeeId}" type="button">
                             <i class="fas fa-trash-alt"></i>
@@ -84,6 +87,8 @@
             </tbody>
         </table>
     </div>
+
+<!--    pageable-->
     <div class="text-center m-3">
         <a class="text-decoration-none"
            th:href="@{'/employee'(page=${listEmployee.number - 1})}"

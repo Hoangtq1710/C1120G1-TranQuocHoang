@@ -11,9 +11,11 @@
 <!--    create-->
     <div class="m-3 row text-center">
         <div class="col">
-            <button id="createContractButton" class="btn btn-success" title="Create Contract">
-                <i class="far fa-plus-square"></i>
-            </button>
+            <a th:href="@{contract/create}" class="text-decoration-none">
+                <button class="btn btn-success" title="Create Contract">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </a>
         </div>
         <div class="col-11">
             <h1 style="color: teal">LIST CONTRACT</h1>
@@ -29,7 +31,7 @@
     </div>
 
 
-<!--    container-->
+<!--    table-->
     <div class="container-fluid">
         <table class="table table-hover">
             <thead>

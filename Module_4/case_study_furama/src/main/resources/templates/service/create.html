@@ -5,10 +5,10 @@
 
 <div class="container-fluid justify-content-center m-0 p-0">
 
-    <!--    head_navbar-->
+<!--    head_navbar-->
     <div th:replace="~{layout :: head_navbar}"></div>
 
-    <!--    create-->
+<!--    Back-->
     <div class="m-3 row text-center">
         <div class="col">
             <a th:href="@{/service}" class="text-decoration-none">
@@ -21,7 +21,8 @@
         </div>
     </div>
 
-    <div>
+<!--    create-->
+    <div>s
         <!--    Villa-->
         <div class="container" th:if="${type} == 1">
             <h1 style="color: teal" class="text-center">Add New Villa</h1>

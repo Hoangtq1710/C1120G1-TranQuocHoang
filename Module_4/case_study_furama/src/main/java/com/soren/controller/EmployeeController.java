@@ -8,8 +8,12 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import javax.naming.Binding;
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("/employee")
@@ -43,17 +47,28 @@ public class EmployeeController {
     }
 
     @PostMapping("/create")
-    public String createEmployee(@ModelAttribute(name = "employee") Employee employee,
-                                 @RequestParam(name = "inputUsername") String username,
+    public String createEmployee(@Valid @ModelAttribute(name = "employee") Employee employee, BindingResult bindingResult,
+                                 Model model,
+                                 @RequestParam(name = "inputUsername") String inputUsername,
                                  RedirectAttributes redirect){
-        User user = this.userService.createUserByUsername(username);
-        if (user != null){
-            employee.setUser(user);
+        new Employee().validate(employee, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("listEducation", this.educationService.findAll());
+            model.addAttribute("listDivision", this.divisionService.findAll());
+            model.addAttribute("listPosition", this.positionService.findAll());
+            model.addAttribute("inputUsername", inputUsername);
+            model.addAttribute("employee", employee);
+            return "employee/create";
+        } else {
+            User user = this.userService.createUserByUsername(inputUsername);
+            if (user != null){
+                employee.setUser(user);
+            }
+            //sau này sẽ else nếu validate tên username bị trùng
+            this.employeeService.save(employee);
+            redirect.addFlashAttribute("message", "Employee "+employee.getEmployeeName()+" was added!");
+            return "redirect:/employee/";
         }
-        //sau này sẽ else nếu validate tên username bị trùng
-        this.employeeService.save(employee);
-        redirect.addFlashAttribute("message", "Employee "+employee.getEmployeeName()+" was added!");
-        return "redirect:/employee/";
     }
 
     @GetMapping("/view")
@@ -72,14 +87,25 @@ public class EmployeeController {
     }
 
     @PostMapping("/edit")
-    public String editEmployee(@ModelAttribute("employee") Employee employee,
+    public String editEmployee(@Valid @ModelAttribute("employee") Employee employee, BindingResult bindingResult,
+                               Model model,
                                @RequestParam(name = "newPassword") String newPassword,
                                RedirectAttributes redirect){
-        this.userService.changePassword(employee.getUser(), newPassword);
-        this.employeeService.save(employee);
-        redirect.addFlashAttribute( "message",
-                                    "Information of Employee "+employee.getEmployeeName()+" was updated!");
-        return "redirect:/employee/";
+        new Employee().validate(employee, bindingResult);
+        if (bindingResult.hasErrors()){
+            model.addAttribute("listEducation", this.educationService.findAll());
+            model.addAttribute("listDivision", this.divisionService.findAll());
+            model.addAttribute("listPosition", this.positionService.findAll());
+            model.addAttribute("newPassword",newPassword);
+            model.addAttribute("employee", employee);
+            return "employee/edit";
+        } else {
+            this.userService.changePassword(employee.getUser(), newPassword);
+            this.employeeService.save(employee);
+            redirect.addFlashAttribute( "message",
+                    "Information of Employee "+employee.getEmployeeName()+" was updated!");
+            return "redirect:/employee/";
+        }
     }
 
     @GetMapping("/delete")

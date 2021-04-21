@@ -16,7 +16,7 @@ public interface ContractService {
 
     void deleteById(Integer id);
 
-    double getTotalMoney(Contract contract);
+    String getTotalMoney(Contract contract);
 
     Page<Contract> getListUsingCustomer(String date, Pageable pageable);
 }

@@ -5,9 +5,10 @@
 
 <div class="container-fluid justify-content-center m-0 p-0">
 
-    <!--    head_navbar-->
+<!--    head_navbar-->
     <div th:replace="~{layout :: head_navbar}"></div>
 
+<!--    create-->
     <div class="m-3 row text-center">
         <div class="col">
             <a th:href="@{/customer/create}" class="text-decoration-none">
@@ -28,12 +29,15 @@
         </div>
     </div>
 
+<!--    message-->
     <div th:if="${message}">
         <div id="alertCustomerFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
             <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
             <span th:text="${message}"></span>
         </div>
     </div>
+
+<!--    table-->
     <div class="container-fluid">
         <table class="table table-hover">
             <thead>
@@ -87,6 +91,8 @@
             </tbody>
         </table>
     </div>
+
+<!--    pageable-->
     <div class="text-center m-3">
         <a class="text-decoration-none"
            th:href="@{'/customer'(page=${listCustomer.number - 1})}"

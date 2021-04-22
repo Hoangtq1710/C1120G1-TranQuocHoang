@@ -52,6 +52,7 @@ public class EmployeeController {
                                  @RequestParam(name = "inputUsername") String inputUsername,
                                  RedirectAttributes redirect){
         new Employee().validate(employee, bindingResult);
+        User user = this.userService.createUserByUsername(inputUsername);
         if (bindingResult.hasErrors()){
             model.addAttribute("listEducation", this.educationService.findAll());
             model.addAttribute("listDivision", this.divisionService.findAll());
@@ -60,7 +61,6 @@ public class EmployeeController {
             model.addAttribute("employee", employee);
             return "employee/create";
         } else {
-            User user = this.userService.createUserByUsername(inputUsername);
             if (user != null){
                 employee.setUser(user);
             }

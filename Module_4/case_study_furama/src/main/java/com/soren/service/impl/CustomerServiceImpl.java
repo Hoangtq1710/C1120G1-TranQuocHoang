@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 
 import java.util.List;
 
@@ -35,6 +37,16 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public void save(Customer customer) {
         repository.save(customer);
+    }
+
+    @Override
+    public void checkCustomerId(Customer customer, Errors errors) {
+        for(Customer cus : findAllList()){
+            if (cus.getCustomerId().equals(customer.getCustomerId())) {
+                errors.rejectValue("customerId", "cus.customerId.existed");
+                return;
+            }
+        }
     }
 
     @Override

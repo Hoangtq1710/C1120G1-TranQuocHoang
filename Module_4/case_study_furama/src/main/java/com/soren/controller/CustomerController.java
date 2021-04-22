@@ -11,10 +11,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -47,9 +44,11 @@ public class CustomerController {
     }
 
     @PostMapping("/create")
-    public String createCustomer(@Valid Customer customer, BindingResult bindingResult,
+    public String createCustomer(@Valid @ModelAttribute(name = "customer") Customer customer, BindingResult bindingResult,
                                  Model model, RedirectAttributes redirect){
         new Customer().validate(customer,bindingResult);
+        this.customerService.checkCustomerId(customer, bindingResult);
+
         if (bindingResult.hasErrors()){
             model.addAttribute("customer", customer);
             model.addAttribute("listCustomerType", this.customerTypeService.findAll());
@@ -80,7 +79,9 @@ public class CustomerController {
     @PostMapping("/edit")
     public String editCustomer(@Valid Customer customer,BindingResult bindingResult,
                                Model model, RedirectAttributes redirect){
+
         new Customer().validate(customer,bindingResult);
+
         if (bindingResult.hasErrors()){
             model.addAttribute("listCustomerType", this.customerTypeService.findAll());
             model.addAttribute("customer", customer);

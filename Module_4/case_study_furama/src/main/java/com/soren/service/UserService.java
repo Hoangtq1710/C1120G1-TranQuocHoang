@@ -1,6 +1,8 @@
 package com.soren.service;
 
 import com.soren.model.User;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 
 import java.util.List;
 
@@ -13,4 +15,5 @@ public interface UserService {
     User createUserByUsername(String username);
 
     void changePassword(User user, String newPassword);
+
 }

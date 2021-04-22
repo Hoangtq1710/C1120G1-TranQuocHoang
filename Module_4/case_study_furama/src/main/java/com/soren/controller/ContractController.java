@@ -57,7 +57,6 @@ public class ContractController {
         } else {
             contract.setContractTotalMoney(this.contractService.getTotalMoney(contract));
             this.contractService.save(contract);
-            System.out.println("Total : " + contract.getContractTotalMoney());
             redirect.addFlashAttribute("message", "Contract ID " + contract.getContractId() + " was added!");
             return "redirect:/contract/";
         }

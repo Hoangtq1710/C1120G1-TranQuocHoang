@@ -1,6 +1,7 @@
 package com.soren.service;
 
 import com.soren.model.Service;
+import org.springframework.validation.Errors;
 
 import java.util.List;
 
@@ -11,6 +12,8 @@ public interface ServiceService {
     Service findById(String id);
 
     void save(Service service);
+
+    void checkServiceId(Service service, Errors errors);
 
     void deleteById(String id);
 

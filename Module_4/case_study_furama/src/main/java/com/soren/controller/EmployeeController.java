@@ -1,7 +1,7 @@
 package com.soren.controller;
 
 import com.soren.model.Employee;
-import com.soren.model.User;
+
 import com.soren.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.naming.Binding;
 import javax.validation.Valid;
 
 @Controller
@@ -29,6 +28,8 @@ public class EmployeeController {
     private EducationDegreeService educationService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UserRoleService userRoleService;
 
     @GetMapping("")
     public String getEmployeeHome(@PageableDefault(value = 5) Pageable pageable,
@@ -52,8 +53,12 @@ public class EmployeeController {
                                  @RequestParam(name = "inputUsername") String inputUsername,
                                  RedirectAttributes redirect){
         new Employee().validate(employee, bindingResult);
-        User user = this.userService.createUserByUsername(inputUsername);
+        this.userService.checkUsernameExist(inputUsername, bindingResult);
+
         if (bindingResult.hasErrors()){
+            if (bindingResult.hasFieldErrors("user")) {
+                model.addAttribute("usernameMsg", "Username was existed!");
+            }
             model.addAttribute("listEducation", this.educationService.findAll());
             model.addAttribute("listDivision", this.divisionService.findAll());
             model.addAttribute("listPosition", this.positionService.findAll());
@@ -61,11 +66,13 @@ public class EmployeeController {
             model.addAttribute("employee", employee);
             return "employee/create";
         } else {
-            if (user != null){
-                employee.setUser(user);
-            }
-            //sau này sẽ else nếu validate tên username bị trùng
-            this.employeeService.save(employee);
+            //tạo user sau khi đã check trùng username ở trên
+            com.soren.model.User user = this.userService.createUserByUsername(inputUsername);
+            employee.setUser(user);
+
+            this.employeeService.save(employee); // lưu Employee
+            this.userRoleService.createUserRole(user, employee); // tạo role cho Employee dựa trên Position của Employee
+
             redirect.addFlashAttribute("message", "Employee "+employee.getEmployeeName()+" was added!");
             return "redirect:/employee/";
         }

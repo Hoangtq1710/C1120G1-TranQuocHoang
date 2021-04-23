@@ -19,6 +19,11 @@ public class ServiceServiceImpl implements ServiceService {
     }
 
     @Override
+    public List<com.soren.model.Service> getListServiceAvailable(String date) {
+        return repository.getListServiceAvailable(date);
+    }
+
+    @Override
     public com.soren.model.Service findById(String id) {
         return repository.findById(id).orElse(null);
     }

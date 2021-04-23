@@ -9,6 +9,8 @@ public interface ServiceService {
 
     List<Service> findAll();
 
+    List<Service> getListServiceAvailable(String date);
+
     Service findById(String id);
 
     void save(Service service);

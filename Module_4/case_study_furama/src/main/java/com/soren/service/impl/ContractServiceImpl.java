@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -59,6 +58,11 @@ public class ContractServiceImpl implements ContractService {
     @Override
     public Page<Contract> getListUsingCustomer(String date, Pageable pageable) {
         return repository.getListUsingCustomer(date, pageable);
+    }
+
+    @Override
+    public String getCurrentDate() {
+        return new SimpleDateFormat("yyyy-MM-dd").format(new Date());
     }
 }
 

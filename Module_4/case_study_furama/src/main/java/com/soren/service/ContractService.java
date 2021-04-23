@@ -19,4 +19,6 @@ public interface ContractService {
     String getTotalMoney(Contract contract);
 
     Page<Contract> getListUsingCustomer(String date, Pageable pageable);
+
+    String getCurrentDate(); // method de lay ve thoi gian ngay hien tai theo format yyyy-MM-dd
 }

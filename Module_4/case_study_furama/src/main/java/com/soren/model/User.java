@@ -24,7 +24,7 @@ public class User {
     @Column(name = "User_Name", columnDefinition = "VARCHAR(45) NOT NULL")
     private String username;
 
-    @Column(name = "Password", columnDefinition = "VARCHAR(45) NOT NULL")
+    @Column(name = "Password", nullable = false)
     private String password;
 
     @Column(name = "enabled", length = 1, columnDefinition = "BIT DEFAULT 1")
@@ -33,4 +33,11 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Employee employee;
 
+    public User(Integer userId, String username, String password, boolean enabled, Employee employee) {
+        this.userId = userId;
+        this.username = username;
+        this.password = password;
+        this.enabled = enabled;
+        this.employee = employee;
+    }
 }

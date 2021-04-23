@@ -115,7 +115,7 @@ public class CustomerController {
         Page<Customer> listCustomer;
         if (search.isPresent()){
             model.addAttribute("search", search.get());
-            listCustomer = this.customerService.findAllByCustomerNameContaining(search.get(), pageable);
+            listCustomer = this.customerService.searchCustomer(search.get(), pageable);
         } else {
             listCustomer = this.customerService.findAll(pageable);
         }
@@ -125,7 +125,7 @@ public class CustomerController {
 
     @GetMapping("/using")
     public String showUsingCustomer(Model model, @PageableDefault(value = 5) Pageable pageable){
-        String date = new SimpleDateFormat("yyyy-MM-dd").format(new Date());
+        String date = this.contractService.getCurrentDate();
         model.addAttribute("listUsingCustomer", this.contractService.getListUsingCustomer(date, pageable));
         return "customer/using";
     }

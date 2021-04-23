@@ -39,7 +39,8 @@ public class ContractController {
     public String showCreateForm(Model model) {
         model.addAttribute("listCustomer", this.customerService.findAllList());
         model.addAttribute("listEmployee", this.employeeService.findAllList());
-        model.addAttribute("listService", this.serviceService.findAll());
+        String date = this.contractService.getCurrentDate();
+        model.addAttribute("listService", this.serviceService.getListServiceAvailable(date));
         model.addAttribute("contract", new Contract());
         return "contract/create";
     }
@@ -51,7 +52,8 @@ public class ContractController {
         if (bindingResult.hasErrors()){
             model.addAttribute("listCustomer", this.customerService.findAllList());
             model.addAttribute("listEmployee", this.employeeService.findAllList());
-            model.addAttribute("listService", this.serviceService.findAll());
+            String date = this.contractService.getCurrentDate();
+            model.addAttribute("listService", this.serviceService.getListServiceAvailable(date));
             model.addAttribute("contract", contract);
             return "contract/create";
         } else {

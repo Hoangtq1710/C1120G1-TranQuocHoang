@@ -23,5 +23,5 @@ public interface CustomerService {
 
     void deleteById(String id);
 
-    Page<Customer> findAllByCustomerNameContaining(String search, Pageable pageable);
+    Page<Customer> searchCustomer(String search, Pageable pageable);
 }

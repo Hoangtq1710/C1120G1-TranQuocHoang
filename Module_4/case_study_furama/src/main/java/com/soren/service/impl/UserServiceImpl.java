@@ -28,12 +28,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createUserByUsername(String username) {
-        List<User> list = findAll();
-        for(User user : list){
-            if (user.getUsername().equals(username)) {
-                return null;
-            }
-        }
         User user = new User();
         user.setUsername(username);
         user.setPassword(username);
@@ -49,5 +43,15 @@ public class UserServiceImpl implements UserService {
             user.setPassword(newPassword);
         }
         save(user);
+    }
+
+    @Override
+    public void checkUsernameExist(String username, Errors errors) {
+        for(User u : findAll()){
+            if (u.getUsername().equals(username)) {
+                errors.rejectValue("user", "emp.username.existed");
+                return;
+            }
+        }
     }
 }

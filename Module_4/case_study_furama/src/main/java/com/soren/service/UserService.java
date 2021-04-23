@@ -16,4 +16,6 @@ public interface UserService {
 
     void changePassword(User user, String newPassword);
 
+    void checkUsernameExist(String username, Errors errors);
+
 }

@@ -49,10 +49,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.
-        http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+        http.authorizeRequests()
+            .antMatchers("/customer/", "/employee/","/contract/","/service/")
+            .access("hasAnyRole('manager', 'director','admin','employee')");
 
-        // Trang chỉ dành cho ADMIN
-        http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
+        // Trang chỉ dành cho DIRECTOR,MANAGER
+//        http.authorizeRequests()
+//            .antMatchers("/employee/create","/employee/edit", "/employee/delete")
+//            .access("hasAnyRole('director', 'manager')");
+//
+//        // Trang chỉ dành cho ADMIN trở lên
+//        http.authorizeRequests()
+//                .antMatchers("/customer/create","/customer/edit", "/customer/delete")
+//                .access("hasAnyRole('admin','director', 'manager')");
 
         // Khi người dùng đã login, với vai trò XX.
         // Nhưng truy cập vào trang yêu cầu vai trò YY,
@@ -64,24 +73,23 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 // Submit URL của trang login
                 .loginProcessingUrl("/j_spring_security_check") // Submit URL
                 .loginPage("/login")//
-                .defaultSuccessUrl("/userAccountInfo")//
-                .failureUrl("/login?error=true")//
+                .defaultSuccessUrl("/home")//
+                .failureUrl("/login/?error=true")//
                 .usernameParameter("username")//
                 .passwordParameter("password")
                 // Cấu hình cho Logout Page.
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/logoutSuccessful");
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/home");
 
         // Cấu hình Remember Me.
         http.authorizeRequests().and() //
                 .rememberMe().tokenRepository(this.persistentTokenRepository()) //
-                .tokenValiditySeconds(1 * 24 * 60 * 60); // 24h
+                .tokenValiditySeconds(24 * 60 * 60); // 24h
 
     }
 
     @Bean
     public PersistentTokenRepository persistentTokenRepository() {
-        InMemoryTokenRepositoryImpl memory = new InMemoryTokenRepositoryImpl();
-        return memory;
+        return new InMemoryTokenRepositoryImpl();
     }
 
 }

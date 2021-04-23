@@ -6,25 +6,25 @@
     <div class="row align-items-center" style="height: 633px">
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
         <div class="col-md-4 col-sm-4 col-xs-12">
-            <form th:action="@{/login}" method="post" th:object="${user}"
+            <form th:action="@{/j_spring_security_check}" method="post"
                   class="form-container p-3 align-items-center" style="height: 460px">
                 <div class="form-group mt-2">
                     <label for="inputEmail"><strong>Username</strong></label>
-                    <input type="text" class="form-control" th:field="*{username}"
+                    <input type="text" class="form-control" name="username"
                            id="inputEmail" placeholder="Username" required>
                 </div>
                 <div class="form-group mt-2">
                     <label for="inputPassword">
                         <strong>Password</strong>
                     </label>
-                    <input type="password" class="form-control" th:field="*{password}"
-                           name="password" id="inputPassword" placeholder="Password" required>
+                    <input type="password" class="form-control" name="password"
+                           id="inputPassword" placeholder="Password" required>
                 </div>
                 <input type="hidden" name="enabled" th:value="1">
                 <div class="row mt-5 mb-2">
                     <div class="check-box col-5">
                         <label>
-                            <input type="checkbox" name="remember"> Remember me
+                            <input type="checkbox" name="remember-me"> Remember me
                         </label>
                     </div>
                     <div class="col-3"></div>
@@ -34,12 +34,12 @@
                         </label>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success btn-block mb-5">Submit</button>
+                <button name="submit" type="submit" class="btn btn-success btn-block mb-5">Submit</button>
 
                 <div class="mt-5 text-center">
                     <label>Login Via</label>
                 </div>
-<!--                via-->
+                <!--                via-->
                 <div class="form-group row" style="color: white">
                     <button class="col-3 btn bg-transparent text-light">
                         <i class="fab fa-2x fa-facebook"></i>
@@ -55,6 +55,17 @@
                     </button>
                 </div>
             </form>
+
+<!--            <div th:if="${#request.getParameter('error') == 'true'}"-->
+<!--                 style="color:red;margin:10px 0px;">-->
+<!--                Login Failed!!!<br/>-->
+<!--                Reason :-->
+<!--                <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"-->
+<!--                      th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">-->
+<!--                Static summary-->
+<!--                </span>-->
+
+<!--            </div>-->
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
     </div>

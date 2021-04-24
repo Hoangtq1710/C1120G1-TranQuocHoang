@@ -38,7 +38,7 @@ public class Employee implements Validator {
             message = "Employee ID Card must contain 9 or 12 digits!\n Example : 205784694165")
     private String employeeIdCard;
 
-    @Column(name = "employee_salary")
+    @Column(name = "employee_salary", columnDefinition = "DOUBLE")
     @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Salary must be positive! \nExample : 750 or 750.0")
     private String employeeSalary;
 

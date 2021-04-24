@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="~{layout :: head_fragment}"></head>
 <body id="body">
 
@@ -12,7 +12,8 @@
     <div class="m-3 row text-center">
         <div class="col">
             <a th:href="@{/customer/create}" class="text-decoration-none">
-                <button class="btn btn-success" title="Create Customer">
+                <button class="btn btn-success" sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER','ROLE_ADMIN')"
+                        title="Create Customer">
                     <i class="far fa-plus-square"></i>
                 </button>
             </a>
@@ -72,16 +73,22 @@
                     <td hidden th:text="${customer.customerEmail}"></td>
                     <td th:text="${customer.customerAddress}"></td>
                     <td>
-                        <button class="viewCustomerButton btn btn-info" title="View Customer"
+                        <button class="viewCustomerButton btn btn-info"
+                                sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER','ROLE_ADMIN','ROLE_EMPLOYEE')"
+                                title="View Customer"
                                 th:value="${customer.customerId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>
                         <a th:href="@{/customer/edit(id=${customer.customerId})}" class="text-decoration-none">
-                            <button class="btn btn-warning" title="Edit Customer" type="button">
+                            <button class="btn btn-warning"
+                                    sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER')"
+                                    title="Edit Customer" type="button">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </a>
-                        <button class="deleteCustomerButton btn btn-danger" title="Delete Customer"
+                        <button class="deleteCustomerButton btn btn-danger"
+                                sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER')"
+                                title="Delete Customer"
                                 th:value="${customer.customerId}" type="button">
                             <i class="fas fa-trash-alt"></i>
                         </button>
@@ -101,7 +108,7 @@
                 <i class="fas fa-fast-backward"></i>
             </button>
         </a>
-        <button class="btn btn-outline-danger rounded-pill col-1">
+        <button th:if="${listCustomer.totalPages != 0}" class="btn btn-outline-danger rounded-pill col-1">
             <span th:text="${listCustomer.number + 1}"></span>
             /
             <span th:text="${listCustomer.totalPages}"></span>

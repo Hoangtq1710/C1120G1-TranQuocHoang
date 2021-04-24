@@ -23,7 +23,7 @@ insert into attach_service(attach_service_name,attach_service_cost,attach_servic
 			("Water",1.0,"bottles","available"),
 			("Car rental",10.0,"times","available");
 insert into `role`(role_name)
-	values	("admin"),("manager"),("director"),("employee"),("user");
+	values	("ROLE_ADMIN"),("ROLE_MANAGER"),("ROLE_DIRECTOR"),("ROLE_EMPLOYEE"),("ROLE_GUEST");
     
 insert into `user`(User_Name, `Password`,enabled)
 values 	("hoang","hoang",1),

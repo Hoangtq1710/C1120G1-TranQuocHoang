@@ -57,7 +57,6 @@ public class ContractController {
             model.addAttribute("contract", contract);
             return "contract/create";
         } else {
-            contract.setContractTotalMoney(this.contractService.getTotalMoney(contract));
             this.contractService.save(contract);
             redirect.addFlashAttribute("message", "Contract ID " + contract.getContractId() + " was added!");
             return "redirect:/contract/";
@@ -78,10 +77,11 @@ public class ContractController {
                                        RedirectAttributes redirect) {
         Contract contract = this.contractService.findById(id);
         contractDetail.setContract(contract);
-        this.contractDetailService.save(contractDetail);
+        this.contractDetailService.save(contractDetail);  // save a new Contract Detail
+        this.contractService.save(contract); // update contract : totalMoney
         redirect.addFlashAttribute("message",
                 "Contract Detail of Contract " + contract.getContractId() + " was created!");
-        return "redirect:/contract/";
+        return "redirect:/contract";
     }
 
     @GetMapping("/viewDetail")

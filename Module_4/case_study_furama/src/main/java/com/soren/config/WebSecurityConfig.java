@@ -47,21 +47,33 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Các trang không yêu cầu login
         http.authorizeRequests().antMatchers("/", "/login", "/logout").permitAll();
 
-        // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
         // Nếu chưa login, nó sẽ redirect tới trang /login.
-        http.authorizeRequests()
-            .antMatchers("/customer/", "/employee/","/contract/","/service/")
-            .access("hasAnyRole('manager', 'director','admin','employee')");
 
-        // Trang chỉ dành cho DIRECTOR,MANAGER
-//        http.authorizeRequests()
-//            .antMatchers("/employee/create","/employee/edit", "/employee/delete")
-//            .access("hasAnyRole('director', 'manager')");
-//
-//        // Trang chỉ dành cho ADMIN trở lên
-//        http.authorizeRequests()
-//                .antMatchers("/customer/create","/customer/edit", "/customer/delete")
-//                .access("hasAnyRole('admin','director', 'manager')");
+        // MANAGER hoặc DIRECTOR mới có được quyền thêm sửa xóa customer, employee, service, contract, contract details
+        http.authorizeRequests()
+            .antMatchers("/customer/edit/*","/customer/delete/*",
+                                    "/employee/edit/*","/employee/delete/*",
+                                    "/contract/edit/*","/contract/delete/*","/contract/createDetail",
+                                    "/service/edit/*" ,"/service/delete/*")
+            .access("hasAnyRole('ROLE_DIRECTOR', 'ROLE_MANAGER')");
+
+        // ADMIN chỉ có quyền thêm mới customer, employee, service, contract, contract details
+        http.authorizeRequests().antMatchers("/customer/","/customer/create",
+                                                        "/employee/","/employee/create",
+                                                        "/service/","/service/create",
+                                                        "/contract/","/contract/create",
+                                                        "/contract/createDetail")
+                .access("hasAnyRole('ROLE_ADMIN','ROLE_DIRECTOR','ROLE_MANAGER')");
+
+        // EMPLOYEE được quyền xem danh sách, search, xem chi tiết đối tượng từ bảng
+        // customer, employee, service, contract, contract details
+        http.authorizeRequests().antMatchers("/customer/","/customer/view/","/customer/view/*","/customer/search/",
+                                                        "/employee/","/employee/view/","/employee/view/*",
+                                                        "/service/","/service/view/","/service/view/*",
+                                                        "/contract/",
+                                                        "/contract/viewDetail/","/contract/viewDetail/*"
+                                                        )
+                .access("hasRole('ROLE_EMPLOYEE')");
 
         // Khi người dùng đã login, với vai trò XX.
         // Nhưng truy cập vào trang yêu cầu vai trò YY,

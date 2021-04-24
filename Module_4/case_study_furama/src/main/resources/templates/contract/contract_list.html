@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="~{layout :: head_fragment}"></head>
 <body>
 
@@ -12,7 +12,9 @@
     <div class="m-3 row text-center">
         <div class="col">
             <a th:href="@{contract/create}" class="text-decoration-none">
-                <button class="btn btn-success" title="Create Contract">
+                <button class="btn btn-success"
+                        sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER','ROLE_ADMIN')"
+                        title="Create Contract">
                     <i class="far fa-plus-square"></i>
                 </button>
             </a>
@@ -61,11 +63,15 @@
                     <td th:text="${contract.contractDeposit}"></td>
                     <td th:text="${contract.contractTotalMoney}"></td>
                     <td>
-                        <button class="createContractDetail btn btn-success" title="Create Contract Detail"
+                        <button class="createContractDetail btn btn-success"
+                                sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER','ROLE_ADMIN')"
+                                title="Create Contract Detail"
                                 th:value="${contract.contractId}">
                             <i class="fas fa-plus-circle"></i>
                         </button>
-                        <button class="viewContractDetail btn btn-info" title="View Detail"
+                        <button class="viewContractDetail btn btn-info"
+                                sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER','ROLE_ADMIN','ROLE_EMPLOYEE')"
+                                title="View Detail"
                                 th:value="${contract.contractId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>

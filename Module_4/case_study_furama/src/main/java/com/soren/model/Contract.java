@@ -30,12 +30,12 @@ public class Contract implements Validator {
     @Column(name = "contract_end_date", columnDefinition = "DATE")
     private String contractEndDate;
 
-    @Column(name = "contract_deposit", columnDefinition = "VARCHAR(10) NOT NULL")
+    @Column(name = "contract_deposit", columnDefinition = "DOUBLE NOT NULL")
     @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Contract Deposit must be a number! \nExample : 1000 or 1000.0")
     private String contractDeposit;
 
-    @Column(name = "contract_total_money", columnDefinition = "VARCHAR(10) NOT NULL")
-    private String contractTotalMoney;
+    @Column(name = "contract_total_money")
+    private double contractTotalMoney;
 
     @ManyToOne
     @JoinColumn(name = "service_id", nullable = false)

@@ -10,6 +10,7 @@
                 <th>Contract ID</th>
                 <th>Contract Detail ID</th>
                 <th>Attach Service</th>
+                <th>Cost</th>
                 <th>Quantity</th>
             </tr>
         </thead>
@@ -21,14 +22,23 @@
                 <td th:if="${!iterStat.first}"></td>
                 <td th:text="${conDetail.contractDetailId}"></td>
                 <td th:text="${conDetail.attachService.attachServiceName}"></td>
+                <td th:text="${conDetail.attachService.attachServiceCost}"></td>
                 <td th:text="${conDetail.quantity}"></td>
             </tr>
         </th:block>
-        <tr>
-            <td colspan="4"></td>
+        <tr style="border-top: 2px solid dodgerblue">
             <td>
                 <button title="Close" type="button" class="btn btn-info" data-dismiss="modal">Close</button>
             </td>
+            <td colspan="2"></td>
+            <th>Total Money</th>
+            <td></td>
+            <th>
+                <strong style="color: green">
+                    <span th:text="${contract.contractTotalMoney}"></span>
+                    <span> $</span>
+                </strong>
+            </th>
         </tr>
         </tbody>
     </table>

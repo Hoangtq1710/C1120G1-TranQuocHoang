@@ -1,6 +1,7 @@
 package com.soren.service;
 
 import com.soren.model.Employee;
+import com.soren.model.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -13,6 +14,8 @@ public interface EmployeeService {
     List<Employee> findAllList();
 
     Employee findById(Integer id);
+
+    Employee findByUser(User user);
 
     void save(Employee employee);
 

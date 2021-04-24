@@ -1,18 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="~{layout :: head_fragment}"></head>
 <body>
 
 <div class="container-fluid justify-content-center m-0 p-0">
 
-    <!--    head_navbar-->
+<!--    head_navbar-->
     <div th:replace="~{layout :: head_navbar}"></div>
 
 <!--    add new employee-->
     <div class="m-3 row text-center">
         <div class="col">
             <a th:href="@{/employee/create}" class="text-decoration-none">
-                <button class="btn btn-success" title="Create Employee">
+                <button class="btn btn-success"
+                        sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER','ROLE_ADMIN')"
+                        title="Create Employee">
                     <i class="far fa-plus-square"></i>
                 </button>
             </a>
@@ -68,16 +70,22 @@
                     <td hidden th:text="${employee.employeeAddress}"></td>
                     <td hidden th:text="${employee.user.username}"></td>
                     <td>
-                        <button class="viewEmployeeButton btn btn-info" title="View Employee"
+                        <button class="viewEmployeeButton btn btn-info"
+                                sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER','ROLE_ADMIN','ROLE_EMPLOYEE')"
+                                title="View Employee"
                                 th:value="${employee.employeeId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>
                         <a th:href="@{/employee/edit(id=${employee.employeeId})}" class="text-decoration-none">
-                            <button class="btn btn-warning" title="Edit Employee" type="button">
+                            <button class="btn btn-warning"
+                                    sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER')"
+                                    title="Edit Employee" type="button">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </a>
-                        <button class="deleteEmployeeButton btn btn-danger" title="Delete Employees"
+                        <button class="deleteEmployeeButton btn btn-danger"
+                                sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER')"
+                                title="Delete Employees"
                                 th:value="${employee.employeeId}" type="button">
                             <i class="fas fa-trash-alt"></i>
                         </button>

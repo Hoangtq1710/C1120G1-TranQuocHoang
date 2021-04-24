@@ -1,6 +1,5 @@
 package com.soren.repository;
 
-import com.soren.model.Contract;
 import com.soren.model.Customer;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,7 +12,7 @@ public interface CustomerRepository extends JpaRepository<Customer, String> {
 
     @Query(value =  "select * from customer " +
                     "where concat(customer_id, customer_name, customer_id_card, customer_address) " +
-                    "like %?1%", 
+                    "like %?1%",
             nativeQuery = true)
     Page<Customer> searchCustomer(String search, Pageable pageable);
 

@@ -18,4 +18,6 @@ public interface UserService {
 
     void checkUsernameExist(String username, Errors errors);
 
+    User findByUsername(String username);
+
 }

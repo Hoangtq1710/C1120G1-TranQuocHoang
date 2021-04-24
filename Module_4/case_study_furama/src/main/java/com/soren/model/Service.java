@@ -3,7 +3,6 @@ package com.soren.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -26,15 +25,15 @@ public class Service {
     @NotNull(message = "Service Name can not be NULL")
     private String serviceName;
 
-    @Column(name = "service_area", columnDefinition = "VARCHAR(10) NOT NULL", nullable = false)
+    @Column(name = "service_area", columnDefinition = "int NOT NULL", nullable = false)
     @Pattern(regexp = "^[\\d]+$", message = "Service Area must be a number! \nExample : 60")
     private String serviceArea;
 
-    @Column(name = "service_cost", columnDefinition = "VARCHAR(10) NOT NULL" , nullable = false)
+    @Column(name = "service_cost", columnDefinition = "DOUBLE NOT NULL" , nullable = false)
     @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Service Cost must be a number! \nExample : 350 or 350.0")
     private String serviceCost;
 
-    @Column(name = "service_max_people", columnDefinition = "VARCHAR(10) NOT NULL" , nullable = false)
+    @Column(name = "service_max_people", columnDefinition = "int NOT NULL" , nullable = false)
     @Pattern(regexp = "^[\\d]+$", message = "Max People must be a number! \nExample : 7")
     private String serviceMaxPeople;
 
@@ -44,11 +43,11 @@ public class Service {
     @Column(name = "description", columnDefinition = "VARCHAR(255)")
     private String description;
 
-    @Column(name = "pool_area", columnDefinition = "VARCHAR(10) NOT NULL")
+    @Column(name = "pool_area", columnDefinition = "DOUBLE NOT NULL")
     @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Pool Area must be a number! \nExample : 75 or 75.0")
     private String poolArea;
 
-    @Column(name = "number_of_floor", columnDefinition = "VARCHAR(10) NOT NULL")
+    @Column(name = "number_of_floor", columnDefinition = "int NOT NULL")
     @Pattern(regexp = "^[\\d]+$", message = "Number of Floor must be a number! \nExample : 8")
     private String numberOfFloor;
 

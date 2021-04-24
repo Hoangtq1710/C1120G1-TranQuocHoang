@@ -40,16 +40,21 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void save(Employee employee) {
-        if (employee.getEmployeeId() == null) {
-            String strPw = employee.getUser().getPassword();
-            String bCryptPw = BCrypt.hashpw(strPw, BCrypt.gensalt());
-            employee.getUser().setPassword(bCryptPw);
-        }
+        String strPw = employee.getUser().getPassword();
+        String bCryptPw = BCrypt.hashpw(strPw, BCrypt.gensalt());
+        employee.getUser().setPassword(bCryptPw);
+
         repository.save(employee);
     }
 
     @Override
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public boolean checkPassword(String oldPw, Employee employee) {
+        String bCryptCurrentPw = employee.getUser().getPassword(); // get password đã hash và lưu ở trên database về
+        return BCrypt.checkpw(oldPw, bCryptCurrentPw); // kiểm tra đoạn mã bcrypt của oldPw với đoạn mã bcrypt password lấy về
     }
 }

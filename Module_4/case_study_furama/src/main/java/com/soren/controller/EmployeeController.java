@@ -130,4 +130,40 @@ public class EmployeeController {
                                     "Employee "+employee.getEmployeeName()+" was deleted!");
         return "redirect:/employee/";
     }
+
+    @GetMapping("/changePw")
+    public String showChangePasswordForm(@RequestParam(name = "id") Integer id, Model model){
+        model.addAttribute("id", id);
+        model.addAttribute("employee", this.employeeService.findById(id));
+        return "employee/changePw";
+    }
+
+    @PostMapping("/changePw")
+    public String changePassword(@RequestParam(name = "id") Integer id,
+                                 @RequestParam(name = "oldPw") String oldPw,
+                                 @RequestParam(name = "newPw") String newPw,
+                                 @RequestParam(name = "confirmPw") String confirmPw,
+                                 Model model,
+                                 RedirectAttributes redirect){
+        Employee employee = this.employeeService.findById(id);
+        if (this.employeeService.checkPassword(oldPw, employee)) {
+            if (newPw.equals(confirmPw)){
+                employee.getUser().setPassword(newPw);
+                this.employeeService.save(employee); // update lại employee : user : password
+                redirect.addFlashAttribute("message",
+                        "Update password for Employee "+ employee.getEmployeeName() +" successfully!");
+                return "redirect:/employee/";
+            } else {
+                model.addAttribute("oldPw", oldPw);
+                model.addAttribute("id", id);
+                model.addAttribute("messageConfirm","The Confirm Password confirmation does not match.");
+                return "employee/changePw";
+            }
+        } else {
+            model.addAttribute("oldPw",oldPw);
+            model.addAttribute("id", id);
+            model.addAttribute("messageOldPw","Oops, That's wasn't the right password. Try again");
+            return "employee/changePw";
+        }
+    }
 }

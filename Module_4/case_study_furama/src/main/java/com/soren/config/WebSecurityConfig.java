@@ -58,19 +58,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .access("hasAnyRole('ROLE_DIRECTOR', 'ROLE_MANAGER')");
 
         // ADMIN chỉ có quyền thêm mới customer, employee, service, contract, contract details
-        http.authorizeRequests().antMatchers("/customer/","/customer/create",
-                                                        "/employee/","/employee/create",
-                                                        "/service/","/service/create",
-                                                        "/contract/","/contract/create",
+        http.authorizeRequests().antMatchers("/customer/create",
+                                                        "/employee/create",
+                                                        "/service/create",
+                                                        "/contract/create",
                                                         "/contract/createDetail")
                 .access("hasAnyRole('ROLE_ADMIN','ROLE_DIRECTOR','ROLE_MANAGER')");
 
         // EMPLOYEE được quyền xem danh sách, search, xem chi tiết đối tượng từ bảng
         // customer, employee, service, contract, contract details
-        http.authorizeRequests().antMatchers("/customer/","/customer/view/","/customer/view/*","/customer/search/",
-                                                        "/employee/","/employee/view/","/employee/view/*",
-                                                        "/service/","/service/view/","/service/view/*",
-                                                        "/contract/",
+        http.authorizeRequests().antMatchers("/customer/view/","/customer/view/*","/customer/search/",
+                                                        "/employee/view/","/employee/view/*",
+                                                        "/service/view/","/service/view/*",
                                                         "/contract/viewDetail/","/contract/viewDetail/*"
                                                         )
                 .access("hasRole('ROLE_EMPLOYEE')");

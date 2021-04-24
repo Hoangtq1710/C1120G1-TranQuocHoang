@@ -20,4 +20,6 @@ public interface EmployeeService {
     void save(Employee employee);
 
     void deleteById(Integer id);
+
+    boolean checkPassword(String oldPw, Employee employee);
 }

@@ -1,4 +1,4 @@
-<div class="container" xmlns:th="http://www.thymeleaf.org">
+<div class="container" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
     <h1 style="color: teal" class="text-center">Employee Information</h1>
     <table class="table table-hover">
         <thead></thead>
@@ -56,9 +56,15 @@
             <td th:text="${employee.user.password}"></td>
         </tr>
         <tr>
-            <td></td>
             <td>
                 <button title="Close" type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </td>
+            <td>
+                <a th:href="@{/employee/changePw(id=${employee.employeeId})}"
+                   sec:authorize="hasAuthority('ROLE_DIRECTOR')"
+                   class="text-decoration-none">
+                    <button class="btn btn-danger">Change Password</button>
+                </a>
             </td>
         </tr>
         </tbody>

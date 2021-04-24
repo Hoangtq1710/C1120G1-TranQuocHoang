@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
+@SessionAttributes("employeeSession")
 @RequestMapping("/employee")
 public class EmployeeController {
 
@@ -70,7 +71,7 @@ public class EmployeeController {
             com.soren.model.User user = this.userService.createUserByUsername(inputUsername);
             employee.setUser(user);
 
-            this.employeeService.save(employee); // lưu Employee
+            this.employeeService.saveCrypt(employee); // add a whole new Employee : hash password into a bCrypt pw
             this.userRoleService.createUserRole(user, employee); // tạo role cho Employee dựa trên Position của Employee
 
             redirect.addFlashAttribute("message", "Employee "+employee.getEmployeeName()+" was added!");
@@ -96,19 +97,17 @@ public class EmployeeController {
     @PostMapping("/edit")
     public String editEmployee(@Valid @ModelAttribute("employee") Employee employee, BindingResult bindingResult,
                                Model model,
-                               @RequestParam(name = "newPassword") String newPassword,
                                RedirectAttributes redirect){
         new Employee().validate(employee, bindingResult);
         if (bindingResult.hasErrors()){
             model.addAttribute("listEducation", this.educationService.findAll());
             model.addAttribute("listDivision", this.divisionService.findAll());
             model.addAttribute("listPosition", this.positionService.findAll());
-            model.addAttribute("newPassword",newPassword);
             model.addAttribute("employee", employee);
             return "employee/edit";
         } else {
-            this.userService.changePassword(employee.getUser(), newPassword);
-            this.employeeService.save(employee);
+            this.employeeService.save(employee); // update employee information
+            this.userRoleService.updateUserRole(employee); // update role of employee in user_role table
             redirect.addFlashAttribute( "message",
                     "Information of Employee "+employee.getEmployeeName()+" was updated!");
             return "redirect:/employee/";

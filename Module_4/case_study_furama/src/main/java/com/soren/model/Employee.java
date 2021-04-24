@@ -39,12 +39,12 @@ public class Employee implements Validator {
     private String employeeIdCard;
 
     @Column(name = "employee_salary", columnDefinition = "DOUBLE")
-    @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Salary must be positive! \nExample : 750 or 750.0")
+    @Pattern(regexp = "^[\\d]+(\\.[\\d]+)?$", message = "Salary must be positive! Example : 750 or 750.0")
     private String employeeSalary;
 
     @Column(name = "employee_phone", columnDefinition = "VARCHAR(45)")
     @Pattern(regexp = "^(091|090|\\(84\\)\\+90|\\(84\\)\\+91)[\\d]{7}$",
-            message = "Phone start with 090 or 091 or (84)+90 or (84)+91 \nExample : 0905456121 or (84)+912365478")
+            message = "Phone number must start with 090 or 091 or (84)+90 or (84)+91 \nExample : 0905456121 or (84)+912365478")
     private String employeePhone;
 
     @Column(name = "employee_email", columnDefinition = "VARCHAR(45)")

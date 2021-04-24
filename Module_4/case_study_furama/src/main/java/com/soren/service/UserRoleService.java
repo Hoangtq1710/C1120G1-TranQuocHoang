@@ -9,4 +9,6 @@ public interface UserRoleService {
     void save(UserRole userRole);
 
     void createUserRole(User user, Employee employee);
+
+    void updateUserRole(Employee employee);
 }

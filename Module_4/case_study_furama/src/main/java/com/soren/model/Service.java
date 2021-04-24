@@ -26,7 +26,7 @@ public class Service {
     private String serviceName;
 
     @Column(name = "service_area", columnDefinition = "int NOT NULL", nullable = false)
-    @Pattern(regexp = "^[\\d]+$", message = "Service Area must be a number! \nExample : 60")
+    @Pattern(regexp = "^[\\d]+$", message = "Service Area must be a Integer number! \nExample : 60")
     private String serviceArea;
 
     @Column(name = "service_cost", columnDefinition = "DOUBLE NOT NULL" , nullable = false)
@@ -34,7 +34,7 @@ public class Service {
     private String serviceCost;
 
     @Column(name = "service_max_people", columnDefinition = "int NOT NULL" , nullable = false)
-    @Pattern(regexp = "^[\\d]+$", message = "Max People must be a number! \nExample : 7")
+    @Pattern(regexp = "^[\\d]+$", message = "Max People must be a Integer number! \nExample : 7")
     private String serviceMaxPeople;
 
     @Column(name = "standard_room", columnDefinition = "VARCHAR(45)")
@@ -48,7 +48,7 @@ public class Service {
     private String poolArea;
 
     @Column(name = "number_of_floor", columnDefinition = "int NOT NULL")
-    @Pattern(regexp = "^[\\d]+$", message = "Number of Floor must be a number! \nExample : 8")
+    @Pattern(regexp = "^[\\d]+$", message = "Number of Floor must be a Integer number! \nExample : 8")
     private String numberOfFloor;
 
     @ManyToOne

@@ -17,6 +17,8 @@ public interface EmployeeService {
 
     Employee findByUser(User user);
 
+    void saveCrypt(Employee employee);
+
     void save(Employee employee);
 
     void deleteById(Integer id);

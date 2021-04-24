@@ -13,6 +13,11 @@ public class LoginController {
         return "loginPage";
     }
 
+    @GetMapping("/error")
+    public String hitError(){
+        return "404";
+    }
+
     @GetMapping("/403")
     public String hitForbiddenPage(){
         return "403";

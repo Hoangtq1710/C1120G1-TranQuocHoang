@@ -1,5 +1,6 @@
 package com.soren.controller;
 
+import com.soren.model.Employee;
 import com.soren.model.User;
 import com.soren.service.EmployeeService;
 import com.soren.service.UserService;
@@ -15,7 +16,7 @@ import java.security.Principal;
 
 @Controller
 @RequestMapping("/")
-@SessionAttributes("user")
+@SessionAttributes("employeeSession")
 public class HomeController {
 
     @Autowired
@@ -23,13 +24,14 @@ public class HomeController {
     @Autowired
     private EmployeeService employeeService;
 
-    @ModelAttribute("user")
-    public User getUser(){
-        return new User();
+    @ModelAttribute("employeeSession")
+    public Employee getEmployee(Principal principal){
+        String username = principal.getName();
+        return this.employeeService.findByUser(this.userService.findByUsername(username));
     }
 
     @GetMapping("")
-    public String redirectToLoginFirst(@ModelAttribute(name = "user") User user){
+    public String redirectToLoginFirst(){
         return "redirect:/login";
     }
 
@@ -37,7 +39,7 @@ public class HomeController {
     public String getHome(Principal principal, Model model){
         String username = principal.getName();
         User user = this.userService.findByUsername(username);
-        model.addAttribute("employee", this.employeeService.findByUser(user));
+        model.addAttribute("employeeSession", this.employeeService.findByUser(user));
         return "index";
     }
 }

@@ -4,10 +4,13 @@ import com.soren.model.Employee;
 import com.soren.model.User;
 import com.soren.model.UserRole;
 import com.soren.repository.RoleRepository;
+import com.soren.repository.UserRepository;
 import com.soren.repository.UserRoleRepository;
 import com.soren.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserRoleServiceImpl implements UserRoleService {
@@ -17,6 +20,9 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public void save(UserRole userRole) {
@@ -29,6 +35,31 @@ public class UserRoleServiceImpl implements UserRoleService {
 
         userRole.setUser(user);
         int positionId = employee.getPosition().getPositionId();
+        int roleId = getRoleIdByPositionId(positionId);
+        this.roleRepository.findById(roleId).ifPresent(userRole::setRole);
+
+        save(userRole);
+    }
+
+    @Override
+    public void updateUserRole(Employee employee) {
+        int positionId = employee.getPosition().getPositionId();
+        int roleId = getRoleIdByPositionId(positionId);
+        UserRole userRole = new UserRole();
+        this.roleRepository.findById(roleId).ifPresent(userRole::setRole);
+        userRole.setUser(employee.getUser());
+
+        List<UserRole> list = this.userRoleRepository.findByUser(employee.getUser());
+        for(UserRole ur : list) {
+            if (ur.getUser().getUserId().equals(employee.getUser().getUserId())){
+                userRole.setId(ur.getId());
+                break;
+            }
+        }
+        save(userRole);
+    }
+
+    public int getRoleIdByPositionId(int positionId){
         int roleId;
         switch (positionId){
             case 1: // Receptionist
@@ -49,8 +80,6 @@ public class UserRoleServiceImpl implements UserRoleService {
                 roleId = 5;     // guest
                 break;
         }
-        this.roleRepository.findById(roleId).ifPresent(userRole::setRole);
-
-        save(userRole);
+        return roleId;
     }
 }

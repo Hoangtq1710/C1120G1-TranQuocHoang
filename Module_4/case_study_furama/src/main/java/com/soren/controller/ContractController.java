@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.validation.Valid;
 
 @Controller
+@SessionAttributes("employeeSession")
 @RequestMapping("/contract")
 public class ContractController {
 
@@ -39,8 +40,7 @@ public class ContractController {
     public String showCreateForm(Model model) {
         model.addAttribute("listCustomer", this.customerService.findAllList());
         model.addAttribute("listEmployee", this.employeeService.findAllList());
-        String date = this.contractService.getCurrentDate();
-        model.addAttribute("listService", this.serviceService.getListServiceAvailable(date));
+        model.addAttribute("listService", this.serviceService.findAll());
         model.addAttribute("contract", new Contract());
         return "contract/create";
     }
@@ -52,8 +52,7 @@ public class ContractController {
         if (bindingResult.hasErrors()){
             model.addAttribute("listCustomer", this.customerService.findAllList());
             model.addAttribute("listEmployee", this.employeeService.findAllList());
-            String date = this.contractService.getCurrentDate();
-            model.addAttribute("listService", this.serviceService.getListServiceAvailable(date));
+            model.addAttribute("listService", this.serviceService.findAll());
             model.addAttribute("contract", contract);
             return "contract/create";
         } else {

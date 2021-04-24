@@ -61,10 +61,12 @@ public class ContractServiceImpl implements ContractService {
         double cost = Double.parseDouble(contract.getService().getServiceCost());
         totalMoney += cost * totalDay;
 
-        Set<ContractDetail> detailSet = contract.getContractDetailSet();
-        if (!detailSet.isEmpty()){
-            for(ContractDetail detail : detailSet){
-                totalMoney += detail.getAttachService().getAttachServiceCost() * detail.getQuantity();
+        if (contract.getContractId() != null){
+            Set<ContractDetail> detailSet = contract.getContractDetailSet();
+            if (!detailSet.isEmpty()){
+                for(ContractDetail detail : detailSet){
+                    totalMoney += detail.getAttachService().getAttachServiceCost() * detail.getQuantity();
+                }
             }
         }
 

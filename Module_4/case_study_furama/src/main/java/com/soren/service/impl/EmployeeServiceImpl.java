@@ -39,11 +39,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void save(Employee employee) {
+    public void saveCrypt(Employee employee) {
         String strPw = employee.getUser().getPassword();
         String bCryptPw = BCrypt.hashpw(strPw, BCrypt.gensalt());
         employee.getUser().setPassword(bCryptPw);
 
+        repository.save(employee);
+    }
+
+    @Override
+    public void save(Employee employee) {
         repository.save(employee);
     }
 

@@ -44,18 +44,18 @@
 <div th:fragment="head_navbar">
     <!--    img logo-->
     <div class="text-center">
-        <a th:href="@{/}">
+        <a th:href="@{/home}">
             <img class="m-3" src="/img/logo.png" alt="logo" style="float: left">
         </a>
         <h1 class="m-3">Furama</h1>
-<!--        <h3 th:if="${employee.employeeName}" class="float-right mr-4 text-success">Hi , <span th:text="${employee.employeeName}"></span></h3>-->
+        <h3 th:if="${employeeSession.employeeName}" class="float-right mr-4 text-success">Hi , <span th:text="${employeeSession.employeeName}"></span></h3>
     </div>
     <!--        navbar-->
     <nav class="sticky-top navbar navbar-expand-sm navbar-dark"
          style="background-color: #046056; width: 100%; margin-top: 0">
 
         <!--        home button-->
-        <a class="navbar-brand" title="Home" th:href="@{/}"><i class="fas fa-home"></i></a>
+        <a class="navbar-brand" title="Home" th:href="@{/home}"><i class="fas fa-home"></i></a>
         <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
@@ -190,7 +190,7 @@
 
             <div class="text-center rounded-pill p-3" style="background-color: #8fd19e">
                 © 2021 Copyright:
-                <a class="text-white" th:href="@{/}" style="text-decoration: none">SOREN SHAW</a>
+                <a class="text-white" th:href="@{/home}" style="text-decoration: none">SOREN SHAW</a>
             </div>
             <!-- Copyright -->
         </footer>

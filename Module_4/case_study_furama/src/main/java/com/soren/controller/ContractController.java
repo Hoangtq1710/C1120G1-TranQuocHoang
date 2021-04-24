@@ -81,7 +81,7 @@ public class ContractController {
         this.contractService.save(contract); // update contract : totalMoney
         redirect.addFlashAttribute("message",
                 "Contract Detail of Contract " + contract.getContractId() + " was created!");
-        return "redirect:/contract";
+        return "redirect:/contract/";
     }
 
     @GetMapping("/viewDetail")

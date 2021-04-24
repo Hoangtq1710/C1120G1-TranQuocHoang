@@ -11,8 +11,10 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 @Entity
 @Getter
@@ -76,8 +78,15 @@ public class Customer implements Validator {
             Date birthday = new SimpleDateFormat("yyyy-MM-dd").parse(customer.getCustomerBirthday());
             Date currentDate = new Date();
 
+            Calendar calendar = Calendar.getInstance();
+            calendar.add(Calendar.YEAR, -18);
+            Date dateOf18YearsAgo = calendar.getTime();
+
             if (birthday.after(currentDate)){
                 errors.rejectValue("customerBirthday", "cus.birthday.afterCurrent");
+            }
+            if (birthday.after(dateOf18YearsAgo)) {
+                errors.rejectValue("customerBirthday", "cus.birthday.notEnough18");
             }
         } catch (ParseException e) {
             e.printStackTrace();

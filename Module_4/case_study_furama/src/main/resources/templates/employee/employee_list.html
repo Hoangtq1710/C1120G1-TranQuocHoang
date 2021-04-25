@@ -70,25 +70,33 @@
                     <td hidden th:text="${employee.employeeAddress}"></td>
                     <td hidden th:text="${employee.user.username}"></td>
                     <td>
-                        <button class="viewEmployeeButton btn btn-info"
+                        <button class="viewEmployeeButton btn btn-info btn-sm"
                                 sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER','ROLE_ADMIN','ROLE_EMPLOYEE')"
                                 title="View Employee"
                                 th:value="${employee.employeeId}" type="button">
                             <i class="far fa-eye"></i>
                         </button>
                         <a th:href="@{/employee/edit(id=${employee.employeeId})}" class="text-decoration-none">
-                            <button class="btn btn-warning"
+                            <button class="btn btn-warning btn-sm"
                                     sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER')"
                                     title="Edit Employee" type="button">
                                 <i class="fas fa-edit"></i>
                             </button>
                         </a>
-                        <button class="deleteEmployeeButton btn btn-danger"
+                        <button class="deleteEmployeeButton btn btn-danger btn-sm"
                                 sec:authorize="hasAnyAuthority('ROLE_DIRECTOR','ROLE_MANAGER')"
                                 title="Delete Employees"
                                 th:value="${employee.employeeId}" type="button">
                             <i class="fas fa-trash-alt"></i>
                         </button>
+                        <a th:href="@{/employee/changePw(id=${employee.employeeId})}"
+                           sec:authorize="hasAuthority('ROLE_DIRECTOR')"
+                           class="text-decoration-none">
+                            <button class="btn btn-outline-danger btn-sm"
+                                    title="Change Password" type="button">
+                                <i class="fas fa-unlock-alt"></i>
+                            </button>
+                        </a>
                     </td>
                 </tr>
             </th:block>

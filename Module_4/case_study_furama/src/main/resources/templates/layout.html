@@ -48,7 +48,14 @@
             <img class="m-3" src="/img/logo.png" alt="logo" style="float: left">
         </a>
         <h1 class="m-3">Furama</h1>
-        <h3 th:if="${employeeSession.employeeName}" class="float-right mr-4 text-success">Hi , <span th:text="${employeeSession.employeeName}"></span></h3>
+        <div th:if="${employeeSession.employeeName}" class="row float-right mr-2">
+            <h3 class="text-success mr-3">
+                Hi , <span th:text="${employeeSession.employeeName}"></span>
+            </h3>
+            <a href="/logout" class="mr-2 text-decoration-none">
+                <i class="fas fa-2x fa-sign-out-alt"></i>
+            </a>
+        </div>
     </div>
     <!--        navbar-->
     <nav class="sticky-top navbar navbar-expand-sm navbar-dark"

@@ -4,7 +4,6 @@ import com.soren.model.Employee;
 import com.soren.model.User;
 import com.soren.model.UserRole;
 import com.soren.repository.RoleRepository;
-import com.soren.repository.UserRepository;
 import com.soren.repository.UserRoleRepository;
 import com.soren.service.UserRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,6 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     @Autowired
     private RoleRepository roleRepository;
-
-    @Autowired
-    private UserRepository userRepository;
 
     @Override
     public void save(UserRole userRole) {

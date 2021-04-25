@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import java.security.Principal;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 @SessionAttributes("employeeSession")
 public class HomeController {
 
@@ -25,15 +25,15 @@ public class HomeController {
     private EmployeeService employeeService;
 
     @ModelAttribute("employeeSession")
-    public Employee getEmployee(Principal principal){
-        String username = principal.getName();
-        return this.employeeService.findByUser(this.userService.findByUsername(username));
+    public Employee getEmployee(){
+        return new Employee();
     }
 
     @GetMapping("")
     public String redirectToLoginFirst(){
         return "redirect:/login";
     }
+
 
     @GetMapping("/home")
     public String getHome(Principal principal, Model model){

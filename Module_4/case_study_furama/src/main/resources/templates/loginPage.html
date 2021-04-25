@@ -8,20 +8,32 @@
         <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10">
             <form th:action="@{/j_spring_security_check}" method="post"
                   class="form-container p-3 align-items-center" style="height: 460px">
+
+<!--                username-->
                 <div class="form-group mt-2">
                     <label for="inputEmail"><strong>Username</strong></label>
                     <input type="text" class="form-control" name="username"
                            id="inputEmail" placeholder="Username" required>
                 </div>
-                <div class="form-group mt-2">
+
+<!--                password-->
+                <div class="form-group mt-2 mb-2">
                     <label for="inputPassword">
                         <strong>Password</strong>
                     </label>
                     <input type="password" class="form-control" name="password"
                            id="inputPassword" placeholder="Password" required>
                 </div>
+
+<!--&lt;!&ndash;                Error message&ndash;&gt;-->
+<!--                <div class="form-group mt-1 text-center" th:if="${message}">-->
+<!--                    <p class="errorMessage text-light" th:text="${message}"></p>-->
+<!--                </div>-->
+<!--                <div class="form-group mt-1" th:if="${!message}"></div>-->
+
+<!--                enabled-->
                 <input type="hidden" name="enabled" th:value="1">
-                <div class="row mt-5 mb-2">
+                <div class="row mt-4 mb-3">
                     <div class="col-7 check-box">
                         <label>
                             <input type="checkbox" name="remember-me"> Remember me
@@ -33,9 +45,17 @@
                         </label>
                     </div>
                 </div>
-                <button name="submit" type="submit" class="btn btn-success btn-block mb-5">Submit</button>
 
-                <div class="mt-5 text-center">
+<!--                submit button-->
+                <div class="mt-5 mb-4">
+                    <button class="btn btn-success btn-block"
+                            name="submit" type="submit">
+                        Submit
+                    </button>
+                </div>
+
+<!--                login via-->
+                <div class="mt-4 mb-1 text-center">
                     <label>Login Via</label>
                 </div>
                 <!--                via-->
@@ -54,17 +74,6 @@
                     </button>
                 </div>
             </form>
-
-<!--            <div th:if="${#request.getParameter('error') == 'true'}"-->
-<!--                 style="color:red;margin:10px 0;">-->
-<!--                Login Failed!!!<br/>-->
-<!--                Reason :-->
-<!--                <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"-->
-<!--                      th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">-->
-<!--                Static summary-->
-<!--                </span>-->
-
-<!--            </div>-->
         </div>
         <div class="col-lg-4 col-md-3 col-sm-2 col-xs-1"></div>
     </div>

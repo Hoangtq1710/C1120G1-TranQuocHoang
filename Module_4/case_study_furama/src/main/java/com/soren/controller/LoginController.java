@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
+
 @Controller
 public class LoginController {
 
@@ -25,6 +26,6 @@ public class LoginController {
 
     @GetMapping("/logout")
     public String logOut(){
-        return "redirect:/home";
+        return "redirect:/login";
     }
 }

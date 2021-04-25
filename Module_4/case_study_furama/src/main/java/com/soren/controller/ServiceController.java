@@ -48,7 +48,7 @@ public class ServiceController {
                                 @RequestParam(name = "type") Integer type,
                                 RedirectAttributes redirect){
 
-        this.serviceService.checkServiceId(service, bindingResult);
+        this.serviceService.validateServiceIdExist(service, bindingResult);
 
         if (bindingResult.hasErrors()){
             model.addAttribute("type",type);

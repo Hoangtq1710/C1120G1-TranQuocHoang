@@ -40,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void checkCustomerId(Customer customer, Errors errors) {
+    public void validateCustomerIdExist(Customer customer, Errors errors) {
         for(Customer cus : findAllList()){
             if (cus.getCustomerId().equals(customer.getCustomerId())) {
                 errors.rejectValue("customerId", "cus.customerId.existed");

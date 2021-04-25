@@ -47,7 +47,10 @@
         <a th:href="@{/home}">
             <img class="m-3" src="/img/logo.png" alt="logo" style="float: left">
         </a>
-        <h1 class="m-3">Furama</h1>
+        <h1 class="m-3 text-uppercase"
+            style="font-size: 30px; color: #0056b3">
+            Furama
+        </h1>
         <div th:if="${employeeSession.employeeName}" class="row float-right mr-2">
             <h3 class="text-success mr-3">
                 Hi , <span th:text="${employeeSession.employeeName}"></span>

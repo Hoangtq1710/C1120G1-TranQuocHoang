@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void checkUsernameExist(String username, Errors errors) {
+    public void validateUsernameExist(String username, Errors errors) {
         for(User u : findAll()){
             if (u.getUsername().equals(username)) {
                 errors.rejectValue("user", "emp.username.existed");

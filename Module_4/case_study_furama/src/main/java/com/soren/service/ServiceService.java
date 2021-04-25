@@ -15,7 +15,7 @@ public interface ServiceService {
 
     void save(Service service);
 
-    void checkServiceId(Service service, Errors errors);
+    void validateServiceIdExist(Service service, Errors errors);
 
     void deleteById(String id);
 

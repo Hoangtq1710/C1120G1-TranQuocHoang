@@ -48,7 +48,7 @@ public class CustomerController {
     public String createCustomer(@Valid @ModelAttribute(name = "customer") Customer customer, BindingResult bindingResult,
                                  Model model, RedirectAttributes redirect){
         new Customer().validate(customer,bindingResult);
-        this.customerService.checkCustomerId(customer, bindingResult);
+        this.customerService.validateCustomerIdExist(customer, bindingResult);
 
         if (bindingResult.hasErrors()){
             model.addAttribute("customer", customer);

@@ -54,7 +54,7 @@ public class EmployeeController {
                                  @RequestParam(name = "inputUsername") String inputUsername,
                                  RedirectAttributes redirect){
         new Employee().validate(employee, bindingResult);
-        this.userService.checkUsernameExist(inputUsername, bindingResult);
+        this.userService.validateUsernameExist(inputUsername, bindingResult);
 
         if (bindingResult.hasErrors()){
             if (bindingResult.hasFieldErrors("user")) {

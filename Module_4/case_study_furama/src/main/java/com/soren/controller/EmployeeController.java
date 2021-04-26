@@ -2,6 +2,8 @@ package com.soren.controller;
 
 import com.soren.model.Employee;
 
+import com.soren.model.User;
+import com.soren.model.UserRole;
 import com.soren.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @SessionAttributes("employeeSession")
@@ -131,10 +134,24 @@ public class EmployeeController {
     }
 
     @GetMapping("/changePw")
-    public String showChangePasswordForm(@RequestParam(name = "id") Integer id, Model model){
-        model.addAttribute("id", id);
-        model.addAttribute("employee", this.employeeService.findById(id));
-        return "employee/changePw";
+    public String showChangePasswordForm(@RequestParam(name = "id") Integer id,
+                                         Principal principal, Model model){
+        String username = principal.getName();
+        User user = this.userService.findByUsername(username);
+        Employee employeeSession = this.employeeService.findByUser(user);
+
+        if (this.userRoleService.isDirectorRole(user)){
+            model.addAttribute("id", id);
+            model.addAttribute("employee", this.employeeService.findById(id));
+            return "employee/changePw";
+        }
+        if (employeeSession.getEmployeeId().equals(id)){
+            model.addAttribute("id", id);
+            model.addAttribute("employee", this.employeeService.findById(id));
+            return "employee/changePw";
+        } else {
+            return "403";
+        }
     }
 
     @PostMapping("/changePw")
@@ -148,19 +165,21 @@ public class EmployeeController {
         if (this.employeeService.checkPassword(oldPw, employee)) {
             if (newPw.equals(confirmPw)){
                 employee.getUser().setPassword(newPw);
-                this.employeeService.save(employee); // update lại employee : user : password
+                this.employeeService.saveCrypt(employee); // update lại employee : user : password
                 redirect.addFlashAttribute("message",
                         "Update password for Employee "+ employee.getEmployeeName() +" successfully!");
                 return "redirect:/employee/";
             } else {
                 model.addAttribute("oldPw", oldPw);
                 model.addAttribute("id", id);
+                model.addAttribute("employee", this.employeeService.findById(id));
                 model.addAttribute("messageConfirm","The Confirm Password confirmation does not match.");
                 return "employee/changePw";
             }
         } else {
             model.addAttribute("oldPw",oldPw);
             model.addAttribute("id", id);
+            model.addAttribute("employee", this.employeeService.findById(id));
             model.addAttribute("messageOldPw","Oops, That's wasn't the right password. Try again");
             return "employee/changePw";
         }

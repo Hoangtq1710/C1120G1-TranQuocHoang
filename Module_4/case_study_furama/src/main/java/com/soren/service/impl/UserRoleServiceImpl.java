@@ -78,4 +78,15 @@ public class UserRoleServiceImpl implements UserRoleService {
         }
         return roleId;
     }
+
+
+    @Override
+    public boolean isDirectorRole(User user) {
+        for(UserRole u : userRoleRepository.findByUser(user)){
+            if (u.getRole().getRoleName().equals("ROLE_DIRECTOR")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

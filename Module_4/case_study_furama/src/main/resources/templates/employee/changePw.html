@@ -10,9 +10,14 @@
 
 <!--    Title-->
     <div class="m-3 row text-center">
-        <div class="col-12">
+        <div class="col-1">
+            <a href="/employee/">
+                <button class="btn btn-info" type="button">Back</button>
+            </a>
+        </div>
+        <div class="col-11">
             <h1 style="color: teal" class="text-center">
-                <span>Change Password for </span>
+                <span>Change Password for account : </span>
                 <span th:text="${employee.user.username}"></span>
             </h1>
         </div>
@@ -46,12 +51,7 @@
                     </td>
                 </tr>
                 <tr class="mt-3">
-                    <td>
-                        <a th:href="@{/employee/view(id=${id})}"
-                           class="text-decoration-none">
-                            <button class="btn btn-info">Cancel</button>
-                        </a>
-                    </td>
+                    <td></td>
                     <td>
                         <button class="btn btn-warning" type="submit">Change</button>
                     </td>

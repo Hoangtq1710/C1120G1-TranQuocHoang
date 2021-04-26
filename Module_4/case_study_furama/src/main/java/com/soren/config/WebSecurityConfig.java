@@ -50,9 +50,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // Nếu chưa login, nó sẽ redirect tới trang /login.
 
         // chỉ DIRECTOR mới có quyền sửa password Employee
-        http.authorizeRequests()
-                .antMatchers("/employee/changePw","/employee/changePw/*")
-                .access("hasRole('ROLE_DIRECTOR')");
+//        http.authorizeRequests()
+//                .antMatchers("/employee/changePw","/employee/changePw/*")
+//                .access("hasRole('ROLE_DIRECTOR')");
 
         // MANAGER hoặc DIRECTOR mới có được quyền thêm sửa xóa customer, employee, service, contract, contract details
         http.authorizeRequests()
@@ -72,6 +72,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         // EMPLOYEE được quyền xem danh sách, search, xem chi tiết đối tượng từ bảng
         // customer, employee, service, contract, contract details
+        // EMPLOYEE được thay đổi password của mình
         http.authorizeRequests().antMatchers("/customer/view/*",
                                                         "/employee/view/*",
                                                         "/service/view/*",

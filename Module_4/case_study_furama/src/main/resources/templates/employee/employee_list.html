@@ -90,7 +90,8 @@
                             <i class="fas fa-trash-alt"></i>
                         </button>
                         <a th:href="@{/employee/changePw(id=${employee.employeeId})}"
-                           sec:authorize="hasAuthority('ROLE_DIRECTOR')"
+                           th:if="${employee.employeeId == employeeSession.employeeId}"
+                           sec:authorize="hasAnyAuthority('ROLE_EMPLOYEE','ROLE_ADMIN','ROLE_MANAGER','ROLE_DIRECTOR')"
                            class="text-decoration-none">
                             <button class="btn btn-outline-danger btn-sm"
                                     title="Change Password" type="button">

@@ -31,7 +31,8 @@
                 <tr>
                     <td>Customer</td>
                     <td>
-                        <select class="form-control" th:field="*{customer}">
+                        <select class="form-control search-text" style="width: 100%"
+                                th:field="*{customer}">
                             <option
                                     th:each="customer : ${listCustomer}"
                                     th:value="${customer.customerId}"
@@ -43,7 +44,8 @@
                 <tr>
                     <td>Employee</td>
                     <td>
-                        <select class="form-control" th:field="*{employee}">
+                        <select class="search-text form-control" style="width: 100%"
+                                th:field="*{employee}">
                             <option th:each="employee : ${listEmployee}"
                                     th:value="${employee.employeeId}"
                                     th:text="${employee.employeeName}">
@@ -54,7 +56,8 @@
                 <tr>
                     <td>Service</td>
                     <td>
-                        <select class="form-control" th:field="*{service}">
+                        <select class="search-text form-control" style="width: 100%"
+                                th:field="*{service}">
                             <option th:each="service : ${listService}"
                                     th:value="${service.serviceId}"
                                     th:text="${service.serviceName}">

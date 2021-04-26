@@ -21,8 +21,8 @@ public class LoginController {
         return "403";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/logoutSuccessful")
     public String logOut(){
-        return "redirect:/login";
+        return "loginPage";
     }
 }

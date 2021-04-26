@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @SessionAttributes("employeeSession")
@@ -31,7 +32,10 @@ public class ContractController {
     private ContractDetailService contractDetailService;
 
     @GetMapping("")
-    public String getContractHome(Model model) {
+    public String getContractHome(Model model, Principal principal) {
+        if (principal == null) {
+            return "redirect:/home";
+        }
         model.addAttribute("listContract", this.contractService.findAll());
         return "contract/contract_list";
     }

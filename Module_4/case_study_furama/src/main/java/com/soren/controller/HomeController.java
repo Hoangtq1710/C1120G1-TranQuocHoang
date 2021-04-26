@@ -8,11 +8,10 @@ import com.soren.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.security.Principal;
 
 @Controller
@@ -26,20 +25,34 @@ public class HomeController {
     private EmployeeService employeeService;
 
     @ModelAttribute("employeeSession")
-    public Employee getEmployee(){
-        return new Employee();
+    public Employee getEmployee(@CookieValue(name = "username", defaultValue = "") String username){
+        if (username.equals("")){
+            return new Employee();
+        }
+        return this.employeeService.findByUser(this.userService.findByUsername(username));
     }
 
     @GetMapping("")
     public String redirectToLoginFirst(){
-        return "redirect:/login";
+        return "loginPage";
     }
 
 
     @GetMapping("/home")
-    public String getHome(Principal principal, Model model){
-        String username = principal.getName();
-        User user = this.userService.findByUsername(username);
+    public String getHome(@CookieValue(name = "username") String username ,Principal principal,
+                          Model model, HttpServletResponse response){
+        String uName;
+        if (principal == null){
+            uName = username;
+        } else {
+            uName = principal.getName();
+        }
+
+        User user = this.userService.findByUsername(uName);
+        Cookie cookie = new Cookie("username", uName);
+        cookie.setMaxAge(3*60*60);
+        response.addCookie(cookie);
+
         model.addAttribute("employeeSession", this.employeeService.findByUser(user));
         return "index";
     }

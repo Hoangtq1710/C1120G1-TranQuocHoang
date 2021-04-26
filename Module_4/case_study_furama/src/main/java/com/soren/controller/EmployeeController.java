@@ -37,7 +37,10 @@ public class EmployeeController {
 
     @GetMapping("")
     public String getEmployeeHome(@PageableDefault(value = 5) Pageable pageable,
-                                  Model model){
+                                  Model model, Principal principal){
+        if (principal == null) {
+            return "redirect:/home";
+        }
         model.addAttribute("listEmployee", this.employeeService.findAll(pageable));
         return "employee/employee_list";
     }

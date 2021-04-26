@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
@@ -32,7 +33,10 @@ public class CustomerController {
     private ContractService contractService;
 
     @GetMapping("")
-    public String getCustomerHome(Model model, @PageableDefault(value = 5) Pageable pageable){
+    public String getCustomerHome(Model model, @PageableDefault(value = 5) Pageable pageable, Principal principal){
+        if (principal == null){
+            return "redirect:/home";
+        }
         model.addAttribute("listCustomer", this.customerService.findAll(pageable));
         return "customer/customer_list";
     }

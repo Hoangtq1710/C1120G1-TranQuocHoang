@@ -35,10 +35,11 @@ public class ServiceServiceImpl implements ServiceService {
 
     @Override
     public void validateServiceIdExist(com.soren.model.Service service, Errors errors) {
-        for(com.soren.model.Service ser : findAll()){
+        String id = service.getServiceId();
+        com.soren.model.Service ser = findById(id);
+        if (ser != null){
             if (ser.getServiceId().equals(service.getServiceId())){
                 errors.rejectValue("serviceId", "ser.serviceId.existed");
-                return;
             }
         }
     }

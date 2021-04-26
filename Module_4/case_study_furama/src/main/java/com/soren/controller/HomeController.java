@@ -25,24 +25,23 @@ public class HomeController {
     private EmployeeService employeeService;
 
     @ModelAttribute("employeeSession")
-    public Employee getEmployee(@CookieValue(name = "username", defaultValue = "") String username){
-        if (username.equals("")){
+    public Employee getEmployee(@CookieValue(name = "username", defaultValue = "") String username) {
+        if (username.equals("")) {
             return new Employee();
         }
         return this.employeeService.findByUser(this.userService.findByUsername(username));
     }
 
     @GetMapping("")
-    public String redirectToLoginFirst(){
+    public String redirectToLoginFirst() {
         return "loginPage";
     }
 
-
     @GetMapping("/home")
-    public String getHome(@CookieValue(name = "username") String username ,Principal principal,
-                          Model model, HttpServletResponse response){
+    public String getHome(@CookieValue(name = "username", defaultValue = "") String username, Principal principal,
+                          Model model, HttpServletResponse response) {
         String uName;
-        if (principal == null){
+        if (principal == null) {
             uName = username;
         } else {
             uName = principal.getName();
@@ -50,7 +49,7 @@ public class HomeController {
 
         User user = this.userService.findByUsername(uName);
         Cookie cookie = new Cookie("username", uName);
-        cookie.setMaxAge(3*60*60);
+        cookie.setMaxAge(3 * 60 * 60);
         response.addCookie(cookie);
 
         model.addAttribute("employeeSession", this.employeeService.findByUser(user));

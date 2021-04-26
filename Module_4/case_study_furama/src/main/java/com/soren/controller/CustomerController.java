@@ -33,10 +33,7 @@ public class CustomerController {
     private ContractService contractService;
 
     @GetMapping("")
-    public String getCustomerHome(Model model, @PageableDefault(value = 5) Pageable pageable, Principal principal){
-        if (principal == null){
-            return "redirect:/home";
-        }
+    public String getCustomerHome(Model model, @PageableDefault(value = 5) Pageable pageable){
         model.addAttribute("listCustomer", this.customerService.findAll(pageable));
         return "customer/customer_list";
     }

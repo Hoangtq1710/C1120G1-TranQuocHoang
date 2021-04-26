@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
-import java.security.Principal;
 
 @Controller
 @SessionAttributes("employeeSession")
@@ -29,10 +28,7 @@ public class ServiceController {
     RentTypeService rentTypeService;
 
     @GetMapping("")
-    public String getServiceHome(Model model, Principal principal){
-        if (principal == null) {
-            return "redirect:/home";
-        }
+    public String getServiceHome(Model model){
         model.addAttribute("listService", this.serviceService.findAll());
         return "service/service_list";
     }

@@ -3,7 +3,6 @@ package com.soren.controller;
 import com.soren.model.Employee;
 
 import com.soren.model.User;
-import com.soren.model.UserRole;
 import com.soren.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -37,10 +36,7 @@ public class EmployeeController {
 
     @GetMapping("")
     public String getEmployeeHome(@PageableDefault(value = 5) Pageable pageable,
-                                  Model model, Principal principal){
-        if (principal == null) {
-            return "redirect:/home";
-        }
+                                  Model model){
         model.addAttribute("listEmployee", this.employeeService.findAll(pageable));
         return "employee/employee_list";
     }

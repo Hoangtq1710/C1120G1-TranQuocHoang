@@ -47,10 +47,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void validateUsernameExist(String username, Errors errors) {
-        for(User u : findAll()){
-            if (u.getUsername().equals(username)) {
+        User user = repository.findByUsername(username);
+        if (user != null){
+            if (user.getUsername().equals(username)) {
                 errors.rejectValue("user", "emp.username.existed");
-                return;
             }
         }
     }

@@ -32,10 +32,7 @@ public class ContractController {
     private ContractDetailService contractDetailService;
 
     @GetMapping("")
-    public String getContractHome(Model model, Principal principal) {
-        if (principal == null) {
-            return "redirect:/home";
-        }
+    public String getContractHome(Model model) {
         model.addAttribute("listContract", this.contractService.findAll());
         return "contract/contract_list";
     }

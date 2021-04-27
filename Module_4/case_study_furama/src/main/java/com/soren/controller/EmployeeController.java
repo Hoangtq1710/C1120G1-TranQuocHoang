@@ -89,10 +89,14 @@ public class EmployeeController {
 
     @GetMapping("/edit")
     public String showEditForm(@RequestParam(name = "id") Integer id, Model model){
+        Employee employee = this.employeeService.findById(id);
+        if (employee == null) {
+            return "404";
+        }
         model.addAttribute("listEducation", this.educationService.findAll());
         model.addAttribute("listDivision", this.divisionService.findAll());
         model.addAttribute("listPosition", this.positionService.findAll());
-        model.addAttribute("employee", this.employeeService.findById(id));
+        model.addAttribute("employee", employee);
         return "employee/edit";
     }
 
@@ -138,15 +142,18 @@ public class EmployeeController {
         String username = principal.getName();
         User user = this.userService.findByUsername(username);
         Employee employeeSession = this.employeeService.findByUser(user);
-
+        Employee employee = this.employeeService.findById(id);
+        if (employee == null) {
+            return "404";
+        }
         if (this.userRoleService.isDirectorRole(user)){
             model.addAttribute("id", id);
-            model.addAttribute("employee", this.employeeService.findById(id));
+            model.addAttribute("employee", employee);
             return "employee/changePw";
         }
         if (employeeSession.getEmployeeId().equals(id)){
             model.addAttribute("id", id);
-            model.addAttribute("employee", this.employeeService.findById(id));
+            model.addAttribute("employee", employee);
             return "employee/changePw";
         } else {
             return "403";

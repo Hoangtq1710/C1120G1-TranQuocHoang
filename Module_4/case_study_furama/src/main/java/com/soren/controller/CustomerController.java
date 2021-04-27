@@ -73,6 +73,9 @@ public class CustomerController {
     @GetMapping("/edit")
     public String showEditForm(@RequestParam(name = "id") String id, Model model){
         Customer customer = this.customerService.findById(id);
+        if (customer == null) {
+            return "404";
+        }
         model.addAttribute("listCustomerType", this.customerTypeService.findAll());
         model.addAttribute("customer", customer);
         return "customer/edit";

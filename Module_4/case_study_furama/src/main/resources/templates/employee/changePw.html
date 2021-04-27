@@ -25,6 +25,7 @@
 
 <!--    form-->
     <div class="container col-6 justify-content-center align-items-center">
+        
         <form th:action="@{/employee/changePw}" method="post">
             <table class="table table-hover">
                 <thead></thead>
@@ -32,21 +33,27 @@
                 <input type="hidden" name="id" th:value="${id}">
                 <tr>
                     <th>Old Password</th>
-                    <td>
-                        <input type="text" name="oldPw" th:value="${oldPw}" class="form-control" required>
-                        <p class="errorMessage" th:if="${messageOldPw}" th:text="${messageOldPw}"></p>
+                    <td class="row align-items-center justify-content-center">
+                        <input type="password" id="inputPw" name="oldPw"
+                               style="margin-right: 0"
+                               th:value="${oldPw}" class="form-control col-9" required>
+                        <i class="text-info float-right far fa-eye col-2"
+                           style="padding-left: 30px"
+                           onclick="seePassword()">
+                        </i>
                     </td>
+                    <p class="errorMessage" th:if="${messageOldPw}" th:text="${messageOldPw}"></p>
                 </tr>
                 <tr>
                     <th>New Password</th>
                     <td>
-                        <input type="password" name="newPw" class="form-control" required>
+                        <input type="password" name="newPw" class="form-control col-10" required>
                     </td>
                 </tr>
                 <tr>
                     <th>Confirm</th>
                     <td>
-                        <input type="password" name="confirmPw" class="form-control" required>
+                        <input type="password" name="confirmPw" class="form-control col-10" required>
                         <p class="errorMessage" th:if="${messageConfirm}" th:text="${messageConfirm}"></p>
                     </td>
                 </tr>

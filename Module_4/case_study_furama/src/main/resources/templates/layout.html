@@ -221,7 +221,12 @@
     <script>
         $(document).ready(function () {
             $(".search-text").select2();
-        })
+        });
+
+        function seePassword() {
+            let x = document.getElementById("inputPw");
+            x.type = (x.type === "password") ? "text" : "password";
+        }
     </script>
 
 </div>

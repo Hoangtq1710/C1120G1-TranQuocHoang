@@ -35,6 +35,9 @@ public class ServiceController {
 
     @GetMapping("/create")
     public String showCreateForm(@RequestParam("type") Integer type, Model model){
+        if ((type != 1 &&  type != 2 && type != 3)) {
+            return "404";
+        }
         model.addAttribute("type",type);
         model.addAttribute("listServiceType", this.serviceTypeService.findAll());
         model.addAttribute("listRentType", this.rentTypeService.findAll());

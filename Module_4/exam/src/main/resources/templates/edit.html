@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head_fragment}"></head>
+<body>
+
+<div class="container-fluid justify-content-center m-0 p-0">
+
+    <!--    Back-->
+    <div class="m-3 row text-center">
+        <div class="col">
+            <a th:href="@{/home}" class="text-decoration-none">
+                <button class="btn btn-info" title="Back" type="button">
+                    Back
+                </button>
+            </a>
+        </div>
+        <div class="col-11">
+            <h1 style="color: teal" class="text-center">Edit Contract for contract ID <span th:text="${contract.contractId}"></span></h1>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <form th:action="@{/contract/edit}" th:object="${contract}" method="post">
+            <table class="table table-hover">
+                <thead></thead>
+                <tbody>
+                <tr hidden>
+                    <th>ID</th>
+                    <td>
+                        <input type="text" th:field="*{contractId}">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Type</td>
+                    <td>
+                        <select name="type" class="form-control" th:value="${type}">
+                            <option th:each="productType : ${listProductType}"
+                                    th:value="${productType.productTypeId}"
+                                    th:text="${productType.productTypeName}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Product</td>
+                    <td>
+                        <select th:field="*{product}" class="form-control">
+                            <option th:each="product : ${listProduct}"
+                                    th:value="${product.productId}"
+                                    th:text="${product.productName}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date</td>
+                    <td>
+                        <input type="date" th:field="*{date}" class="form-control">
+                        <p class="errorMessage" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Quantity</td>
+                    <td>
+                        <input type="text" th:field="*{quantity}" required class="form-control">
+                        <p class="errorMessage" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="submit" class="btn btn-warning">Update</button>
+                    </td>
+                </tr>
+                <input type="hidden" th:field="*{total}">
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+
+<div th:replace="~{layout :: script_link}"></div>
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

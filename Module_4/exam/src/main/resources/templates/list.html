@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head_fragment}"></head>
+<body>
+
+<div class="container-fluid justify-content-center m-0 p-0">
+
+<!--    create-->
+    <div class="m-3 row text-center">
+        <div class="col">
+            <a th:href="@{/contract/create}" class="text-decoration-none">
+                <button class="btn btn-success"
+                        title="Create Customer">
+                    <i class="far fa-plus-square"></i>
+                </button>
+            </a>
+        </div>
+        <div class="col-10">
+            <h1 style="color: teal">LIST CONTRACT</h1>
+        </div>
+    </div>
+
+    <div class="container col-9">
+        <div class="m-3">
+            <form action="/contract/checkList" method="post" style="display: inline">
+                <label for="from">List From : </label>
+                <input type="date" class="form-control" required name="from" id="from" th:value="${from}">
+                <label for="to"> To : </label>
+                <input type="date" class="form-control" required name="to" id="to" th:value="${to}">
+
+                <button class="btn btn-info" type="submit">Filter</button>
+            </form>
+        </div>
+
+        <div class="m-3">
+            <form action="/contract/top" method="post" style="display: inline">
+                <label>Top : </label>
+                <select name="top" class="form-control col-5">
+                    <option value="10">10</option>
+                    <option value="5">5</option>
+                    <option value="3">3</option>
+                </select>
+                <label> Contract has highest total </label>
+                <button class="btn btn-danger" type="submit">Top</button>
+            </form>
+        </div>
+    </div>
+
+<!--    message-->
+    <div th:if="${message}">
+        <div id="alertContractFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
+            <button type="button" class="close float-right" data-dismiss="alert">&times;</button>
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+
+<!--    table-->
+    <div class="container-fluid">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Contract ID</th>
+                <th>Product Name</th>
+                <th>Cost</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Options</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="contract , iterStat : ${listContract}">
+                <tr>
+                    <td th:text="${iterStat.count}"></td>
+                    <td th:text="${contract.contractId}"></td>
+                    <td th:text="${contract.product.productName}"></td>
+                    <td th:text="${contract.product.cost}"></td>
+                    <td th:text="${contract.product.productType.productTypeName}"></td>
+                    <td th:text="${contract.date}"></td>
+                    <td th:text="${contract.quantity}"></td>
+                    <td th:text="${contract.total}"></td>
+                    <td>
+                        <a th:href="@{/contract/edit(id=${contract.contractId})}">
+                            <button class="btn btn-warning">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+    </div>
+
+<!--    pageable-->
+    <div class="text-center m-3">
+        <a class="text-decoration-none"
+           th:href="@{'/home'(page=${listContract.number - 1})}"
+           th:if="${listContract.hasPrevious()}">
+            <button class="btn btn-outline-danger rounded-circle" title="Previous Pages">
+                <i class="fas fa-fast-backward"></i>
+            </button>
+        </a>
+        <button th:if="${listContract.totalPages != 0}" class="btn btn-outline-danger rounded-pill col-1">
+            <span th:text="${listContract.number + 1}"></span>
+            /
+            <span th:text="${listContract.totalPages}"></span>
+        </button>
+        <a class="text-decoration-none"
+           th:href="@{'/home'(page=${listContract.number + 1})}"
+           th:if="${listContract.hasNext()}">
+            <button class="btn btn-outline-danger rounded-circle" title="Next Page">
+                <i class="fas fa-fast-forward"></i>
+            </button>
+        </a>
+    </div>
+
+</div>
+<!--    footer-->
+<div th:replace="~{layout :: modal}"></div>
+<div th:replace="~{layout :: script_link}"></div>
+<div th:replace="~{layout :: con_func_script}"></div>
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

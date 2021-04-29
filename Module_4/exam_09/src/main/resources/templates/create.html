@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head_fragment}"></head>
+<body>
+
+<div class="container-fluid justify-content-center m-0 p-0">
+
+    <!--    create-->
+    <div class="m-3 row text-center">
+        <div class="col">
+            <a th:href="@{/transaction}" class="text-decoration-none">
+                <button class="btn btn-info"
+                        title="Back">
+                    Back
+                </button>
+            </a>
+        </div>
+        <div class="col-10">
+            <h1 style="color: teal">CREATE NEW TRANSACTION</h1>
+        </div>
+    </div>
+
+    <!--    table-->
+    <div class="container">
+        <form th:action="@{/transaction/create}" th:object="${transaction}" method="post">
+            <table class="table table-hover">
+                <thead></thead>
+                <tbody>
+                <tr>
+                    <th>Transaction ID</th>
+                    <td>
+                        <input type="text" th:field="*{transactionId}" class="form-control">
+                        <p class="errorMessage" th:if="${#fields.hasErrors('transactionId')}" th:errors="*{transactionId}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Customer</th>
+                    <td>
+                        <select th:field="*{customer}" class="form-control">
+                            <option th:each="cus : ${listCustomer}"
+                                    th:text="${cus.customerName}"
+                                    th:value="${cus.customerId}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Transaction Type</th>
+                    <td>
+                        <select th:field="*{transactionType}" class="form-control">
+                            <option th:each="tranType : ${listTransactionType}"
+                                    th:text="${tranType.transactionTypeName}"
+                                    th:value="${tranType.transactionTypeId}">
+                            </option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Transaction Date</th>
+                    <td>
+                        <input type="date" th:field="*{date}" class="form-control">
+                        <p class="errorMessage" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Cost</th>
+                    <td>
+                        <input type="number" th:field="*{cost}" class="form-control">
+                        <p class="errorMessage" th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Area</th>
+                    <td>
+                        <input type="number" th:field="*{area}" class="form-control">
+                        <p class="errorMessage" th:if="${#fields.hasErrors('area')}" th:errors="*{area}"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-success" type="submit">
+                            Create
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+
+</div>
+<!--    footer-->
+<div th:replace="~{layout :: modal}"></div>
+<div th:replace="~{layout :: script_link}"></div>
+<div th:replace="~{layout :: con_func_script}"></div>
+<div th:replace="~{layout :: footer}"></div>
+
+</body>
+</html>

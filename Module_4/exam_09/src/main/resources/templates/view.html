@@ -1,0 +1,36 @@
+<div xmlns:th="http://www.thymeleaf.org">
+    <h3 class="text-center" style="color: teal">
+        TRANSACTION <span th:text="${transaction.transactionId}"></span>
+    </h3>
+    <table class="table table-hover">
+        <thead></thead>
+        <tbody>
+        <tr>
+            <th>Transaction ID</th>
+            <th th:text="${transaction.transactionId}"></th>
+        </tr>
+        <tr>
+            <th>Customer Name</th>
+            <td th:text="${transaction.customer.customerName}"></td>
+        </tr>
+        <tr>
+            <th>Date of Transaction</th>
+            <td th:text="${transaction.date}"></td>
+        </tr>
+        <tr>
+            <th>Cost</th>
+            <td th:text="${transaction.cost}"></td>
+        </tr>
+        <tr>
+            <th>Area</th>
+            <td th:text="${transaction.area}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button title="Close" type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,164 @@
+.container-fluid {
+  background-color: #27292f;
+}
+.btn-circle {
+  width: 26px;
+  height: 26px;
+  padding: 6px 0;
+  border-radius: 13px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1;
+}
+.header {
+  background-color: #27292f;
+  margin-right: 0;
+}
+.header .green {
+  font-size: 26px;
+  color: #81b441;
+}
+.header .green strong {
+  color: white;
+}
+.header .buy-now .btn {
+  color: white;
+  border-radius: 5px;
+  margin: 10px 15px;
+  background-color: #81b441;
+}
+.header .buy-now .btn:hover {
+  background-color: #366E2F;
+}
+.top-navbar {
+  background-color: #3a3c41;
+  padding: 8px 0;
+}
+.twitch:hover {
+  color: white;
+  background-color: rebeccapurple;
+}
+.youtube:hover {
+  color: white;
+  background-color: red;
+}
+.steam:hover {
+   color: white;
+   background-color: black;
+ }
+.facebook:hover {
+  color: white;
+  background-color: #3d548e;
+}
+.twitter:hover {
+  color: white;
+  background-color: #007bff;
+}
+.linkedin:hover {
+  color: white;
+  background-color: #83DE8F;
+}
+.btn-top {
+  color: white;
+  margin-left: 40px;
+}
+.btn-top:hover {
+  color: #D42518;
+}
+.main-navbar {
+  background-color: #121416;
+}
+.main-navbar .main-logo {
+  align-items: center;
+  color: white;
+  text-transform: uppercase;
+}
+.main-logo span {
+  font-family: "Arial", sans-serif;
+  margin-left: 5px;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: bolder;
+}
+.navigation {
+  text-transform: uppercase;
+  color: white;
+}
+.navigation ul {
+  list-style: none;
+}
+.navigation ul li {
+  margin-right: 35px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.navigation ul li:hover {
+  color: #D42518;
+  cursor: pointer;
+}
+.carousel-item {
+  height: 525px;
+}
+.container .pc {
+  height: 70px;
+  width: 100%;
+  margin: 15px 0;
+  font-size: 26px;
+  color: whitesmoke;
+  background-color: #4e555b;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 12px;
+}
+.pc .col-7 {
+  font-size: 20px;
+  color: #D42518;
+}
+.container hr {
+  color: gray;
+  background-color: gray;
+  height: 2px;
+}
+.container .latest-news {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+.left-news ul {
+  list-style: none;
+}
+.left-news ul li {
+  background-color: #383F4D;
+}
+.left-news ul li:first-child {
+  background-color: #dd163b;
+}
+.left-news .thumbnail img {
+  width: 110px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 10px;
+  transition: transform .5s ease;
+}
+.left-news .thumbnail > img:hover, li:hover img {
+  transform: scale(1.0625);
+  transition-delay: 0.25s;
+  transition-duration: 0.5s;
+}
+.left-news p {
+  color: white;
+  margin: 5px 5px;
+}
+.left-news .p-title {
+  margin-top: 10px;
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: left;
+}
+.left-news .p-detail {
+  font-size: 16px;
+  color: lightgray;
+}

@@ -1,0 +1,38 @@
+.top-page {
+  height: 260px;
+  font-family: "Lucida Handwriting", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  color: #BAF9FF;
+  background-image: url("src/assets/img/bg-img.png");
+}
+.top-page #adventure {
+  font-family: Arial, sans-serif;
+  color: #F8A116;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.mid-page {
+  background-color: #0a2342;
+  color: ghostwhite;
+  text-align: left;
+  font-size: 16px;
+  padding: 40px 70px;
+  height: 175px;
+}
+.bot-page {
+  background-color: #0B2E42;
+}
+.bot-page ul {
+  list-style-type: none;
+}
+.bot-page #offer, .icon {
+  text-transform: uppercase;
+  font-size: 28px;
+  color: #F8A116;
+  font-weight: bold;
+}
+.bot-page .offer-content {
+  margin-left: 80px;
+  color: white;
+}

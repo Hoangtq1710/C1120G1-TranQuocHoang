@@ -5,31 +5,37 @@
     <table class="table justify-content-center align-items-center text-center">
       <tbody>
       <tr>
-        <th style="color: red">RED</th>
+        <th style="color: red">
+          <label for="red">RED</label>
+        </th>
         <td>
-          <input type="range" min="0" max="255" value="56"
+          <input type="range" min="0" max="255" value="56" id="red"
                  #red (change) ="getColor(red.value,green.value,blue.value)"
                  class="form-control rounded-pill">
         </td>
-        <td>{{red.value}}</td>
+        <td class="number" style="color: red">{{red.value}}</td>
       </tr>
       <tr>
-        <th style="color: green">GREEN</th>
+        <th style="color: green">
+          <label for="green">GREEN</label>
+        </th>
         <td>
-          <input type="range" min="0" max="255" value="124"
+          <input type="range" min="0" max="255" value="124" id="green"
                  #green (change) ="getColor(red.value,green.value,blue.value)"
                  class="form-control rounded-pill">
         </td>
-        <td>{{green.value}}</td>
+        <td class="number" style="color: green">{{green.value}}</td>
       </tr>
       <tr>
-        <th style="color: blue">BLUE</th>
+        <th style="color: blue">
+          <label for="blue">BLUE</label>
+        </th>
         <td>
-          <input type="range" min="0" max="255" value="115"
+          <input type="range" min="0" max="255" value="115" id="blue"
                  #blue (change) ="getColor(red.value,green.value,blue.value)"
                  class="form-control rounded-pill">
         </td>
-        <td>{{blue.value}}</td>
+        <td class="number" style="color: blue">{{blue.value}}</td>
       </tr>
       </tbody>
     </table>

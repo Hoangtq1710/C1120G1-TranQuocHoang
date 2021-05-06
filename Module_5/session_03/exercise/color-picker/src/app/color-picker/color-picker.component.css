@@ -5,7 +5,7 @@
 }
 .wrapper .title {
   color: teal;
-  font-size: 60px;
+  font-size: 80px;
 }
 .circle {
   width: 200px;
@@ -22,4 +22,9 @@
 .code {
   font-family: "Courier New", sans-serif;
   font-size: 42px;
+}
+.number {
+  font-family: "Courier New", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
 }

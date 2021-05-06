@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class ColorPickerComponent implements OnInit {
   public title = 'Color Picker';
 
-  public colorCode:string;
+  public colorCode:string = "#387c73";
 
   constructor() { }
 

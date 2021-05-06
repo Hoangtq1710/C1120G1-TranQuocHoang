@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <div class="col-4"></div>
+  <div class="container justify-content-center align-items-center">
+    <h2 class="title" [style.color]="colorCode">{{title}}</h2>
+    <table class="table justify-content-center align-items-center text-center">
+      <tbody>
+      <tr>
+        <th style="color: red">RED</th>
+        <td>
+          <input type="range" min="0" max="255" value="56"
+                 #red (change) ="getColor(red.value,green.value,blue.value)"
+                 class="form-control rounded-pill">
+        </td>
+        <td>{{red.value}}</td>
+      </tr>
+      <tr>
+        <th style="color: green">GREEN</th>
+        <td>
+          <input type="range" min="0" max="255" value="124"
+                 #green (change) ="getColor(red.value,green.value,blue.value)"
+                 class="form-control rounded-pill">
+        </td>
+        <td>{{green.value}}</td>
+      </tr>
+      <tr>
+        <th style="color: blue">BLUE</th>
+        <td>
+          <input type="range" min="0" max="255" value="115"
+                 #blue (change) ="getColor(red.value,green.value,blue.value)"
+                 class="form-control rounded-pill">
+        </td>
+        <td>{{blue.value}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div>
+      <button class="circle" [style.background]="colorCode"></button>
+      <p class="code" [style.color]="colorCode">{{colorCode}}</p>
+    </div>
+  </div>
+  <div class="col-4"></div>
+</div>

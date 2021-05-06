@@ -1,0 +1,33 @@
+<div style="display: grid; grid-template-columns: 50% 50%">
+
+<!--  property binding-->
+  <div style="margin-left: 50px">
+    <h1>Pet Information</h1>
+    <h3>Pet Name : {{pet.name}}</h3>
+    <h3>Pet Height : {{pet.height}} cm</h3>
+    <h3>Pet Weight : {{pet.weight}} kg</h3>
+    <h3>Pet Color : {{pet.color}}</h3>
+    <h3>Pet Image</h3><br>
+    <img src="{{pet.image}}" alt="my-dog" width="500" style="margin-top: 37px">
+  </div>
+
+<!--  two way binding-->
+  <div>
+    <h1>Pet Information</h1>
+    <h3>Pet Name : {{pet.name}}
+      <input type="text" [(ngModel)]="pet.name">
+    </h3>
+    <h3>Pet Height : {{pet.height}} cm
+      <input type="number" [(ngModel)]="pet.height">
+    </h3>
+    <h3>Pet Weight : {{pet.weight}} kg
+      <input type="number" [(ngModel)]="pet.weight">
+    </h3>
+    <h3>Pet Color : {{pet.color}}
+      <input type="text" [(ngModel)]="pet.color">
+    </h3>
+    <h3>Pet Image : <input type="url" [(ngModel)]="pet.image" style="margin-bottom: 50px" width="400"></h3>
+    <img src="{{pet.image}}" alt="my-dog" width="500">
+  </div>
+</div>
+

@@ -1,0 +1,30 @@
+<div style="display: grid; grid-template-columns: 50% 50%">
+
+<!--  Change event-->
+  <div style="margin-left: 50px">
+    <h2>Font size editor on Change event</h2>
+
+    <div>
+      <label>Enter font size (px):</label>
+      <input #font type="range" min="9" max="72" value="18" (change)="changeFontSize(font.value)">
+    </div>
+
+    <p class="output" [style.fontSize.px]="fontSize">
+      This is a paragraph.
+    </p>
+  </div>
+
+<!--  two way binding-->
+  <div>
+    <h2>Font size editor by Two way Binding</h2>
+
+    <div>
+      <label>Enter font size (px):</label>
+      <input type="range" min="9" max="72" value="18" [(ngModel)]="fontSize">
+    </div>
+
+    <p class="output" [style.fontSize.px]="fontSize">
+      This is a paragraph.
+    </p>
+  </div>
+</div>

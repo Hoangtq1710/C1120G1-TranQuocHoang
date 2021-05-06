@@ -1,0 +1,48 @@
+<div class="wrapper">
+  <h1 class="title">{{title}}</h1>
+  <div class="container justify-content-center align-items-center">
+    <table class="table">
+      <thead>
+      <tr style="text-align: right">
+        <td>
+          <label>First</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" #first required>
+        </td>
+        <td>
+          <label>Second</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" #second required>
+        </td>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td class="col-2">
+          <button class="btn btn-block btn-success" #add value="+"
+                  (click)="calculate(first.value, second.value, add.value)">Addition</button>
+        </td>
+        <td class="col-2">
+          <button class="btn btn-block btn-success" #minus value="-"
+                  (click)="calculate(first.value, second.value, minus.value)">Subtraction</button>
+        </td>
+        <td class="col-2">
+          <button class="btn btn-block btn-success" #multi value="*"
+                  (click)="calculate(first.value, second.value, multi.value)">Multiple</button>
+        </td>
+        <td class="col-2">
+          <button class="btn btn-block btn-success" #divide value="/"
+                  (click)="calculate(first.value, second.value, divide.value)">Divide</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="4">
+          <p>{{result}}</p>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

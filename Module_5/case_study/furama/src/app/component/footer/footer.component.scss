@@ -1,0 +1,151 @@
+$fontOpenSans: 'Open Sans', sans-serif;
+$fontPlayFair: 'Playfair Display', serif;
+
+@media (max-width: 1168px) {
+  .left-footer {
+    flex: 0 0 auto;
+    width: 80%;
+  }
+  .mid-right {
+    text-align: center;
+    flex: 0 0 auto;
+    width: 80%;
+  }
+}
+@media (max-width: 650px) {
+  .mid-right {
+    text-align: center;
+    flex: 0 0 auto;
+    width: 70%;
+  }
+  .footer-copyright p {
+    height: 100px;
+    margin-top: 5px;
+  }
+}
+
+.footer {
+  z-index: 0;
+  position: relative;
+  margin-top: 500px;
+}
+.left-footer {
+  z-index: 100;
+  height: 100%;
+  margin-top: 0;
+  margin-left: 60px;
+  margin-right: 60px;
+  text-align: left;
+  padding-left: 40px;
+  padding-right: 50px;
+  background-color: #f3f3f3;
+  box-shadow: 8px 8px 4px 0 rgba(0,0,0,0.4);
+}
+.btnMap {
+  width: 200px;
+  height: 50px;
+  color: gray;
+  font-size: 20px;
+  margin-top: 10px;
+  border-radius: 3px;
+  background-color: #046056;
+}
+.btnMap:hover {
+  color: white;
+}
+.yellow-PlayFair {
+  color: #cbbe73;
+  font-family: $fontPlayFair;
+}
+.text-about {
+  font-size: 15px;
+  font-family: $fontOpenSans;
+}
+.text-about hr {
+  margin-top: 8px;
+}
+.distance-hour {
+  float: right;
+  color: gray;
+  font-size: 14px;
+}
+.mid-footer {
+  padding-left: 40px;
+  text-align: left;
+}
+.mid-footer ul {
+  list-style: none;
+  padding-top: 50px;
+}
+.mid-footer ul li {
+  font-size: 16px;
+  line-height: 32px;
+}
+.mid-footer ul li a {
+  color: dimgray;
+  text-decoration: none;
+  transition: all 0.3s ease-in;
+}
+.mid-footer ul li a:hover {
+  color: white;
+  text-decoration: underline;
+  transition: all 0.3s ease-out;
+}
+.footer-copyright {
+  position: fixed;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  align-items: center;
+  height: 36px;
+  z-index: 100;
+  background-color: #0f574b;
+}
+.footer-copyright p, button {
+  line-height: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+}
+.footer-copyright .btnLearnMore {
+  align-items: center;
+  margin: 6px 10px;
+  font-size: 13px;
+  height: 26px;
+  color: #0f574b;
+  font-weight: 600;
+  background-color: #abdecf;
+  border-radius: 3px;
+}
+.right-footer {
+  text-align: left;
+}
+.right-footer .fa-map-marker-alt {
+  transition: 0.75s;
+}
+.right-footer .fa-map-marker-alt:hover {
+  transform: translateY(-10px);
+}
+.right-footer .rf-content {
+  padding-right: 0;
+  padding-left: 20px;
+  margin-right: 0;
+  font-size: 13px;
+  color: dimgray;
+}
+.right-footer .email {
+  display: inline;
+  font-size: 11px;
+}
+.right-footer .email a {
+  color: dimgray;
+  text-decoration: none;
+}
+.right-footer .email a:hover {
+  color: dimgray;
+  text-decoration: underline;
+}
+#copyright {
+  color: dimgray;
+  padding-bottom: 30px;
+  display: inline;
+}

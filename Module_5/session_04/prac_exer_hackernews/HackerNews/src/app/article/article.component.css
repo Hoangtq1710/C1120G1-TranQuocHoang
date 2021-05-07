@@ -1,0 +1,18 @@
+.wrapper table th {
+  font-size: 26px;
+  color: darkgreen;
+}
+.wrapper table {
+  font-size: 18px;
+}
+.like-above10 {
+  color: deeppink;
+  font-weight: 800;
+}
+.like-under10 {
+  color: teal;
+  font-weight: 700;
+}
+.fa-heart {
+  color: deeppink;
+}

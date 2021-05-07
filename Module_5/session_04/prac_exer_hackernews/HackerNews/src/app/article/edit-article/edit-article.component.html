@@ -1,0 +1,65 @@
+<div class="justify-content-center align-items-center" id="closeDiv">
+  <div *ngIf="editArticle; else elseBlock" style="text-align: left; padding-left: 50px">
+    <div>
+      <h1 class="text-success text-center">Edit Article</h1>
+      <table class="table table-hover">
+        <tbody>
+        <tr>
+          <td>ID</td>
+          <td>
+            <p>{{editArticle.id}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="title">Title</label>
+          </td>
+          <td>
+            <input type="text" #title id="title"
+                   class="form-control" [ngModel]="editArticle.title">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="postTime">Post Time</label>
+          </td>
+          <td>
+            <input type="date" #postTime id="postTime"
+                   class="form-control" [ngModel]="editArticle.postTime | date:'yyyy-MM-dd'">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="content">Content</label>
+          </td>
+          <td>
+            <textarea type="text" #content id="content" cols="20" rows="5"
+                      class="form-control" [ngModel]="editArticle.content">
+            </textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>Likes</td>
+          <td>{{editArticle.like.like}}</td>
+        </tr>
+        <tr class="text-center">
+          <td>
+            <button class="btn btn-danger">Close</button>
+          </td>
+          <td>
+            <button class="btn btn-warning"
+                    (click)="editArticleMethod(editArticle.id, title.value, postTime.value, content.value, editArticle.like)">
+              Update
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div #elseBlock>
+    <p style="color: red; font-size: 25px">No Data</p>
+  </div>
+
+</div>

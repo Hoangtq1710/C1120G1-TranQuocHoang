@@ -1,0 +1,84 @@
+header {
+  background-color: white;
+}
+.temperature {
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  border-bottom: 3px solid #f6f6f6;
+}
+.temperature div {
+  padding: 0.3rem 0.5rem 0.3rem 4rem;
+  justify-content: center;
+}
+.temperature span {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+.i18n ul {
+  display: inline-block;
+  padding-top: 10px;
+  align-items: center;
+}
+.i18n li {
+  display: inline;
+}
+.logo-info {
+  margin: 0;
+  z-index: 0;
+  padding: 0 3rem;
+  align-items: center;
+}
+.logo-info img:hover {
+  cursor: pointer;
+}
+.fa-tripadvisor {
+  color: #cbbe73;
+}
+#advisor {
+  z-index: 100;
+  height: 100px;
+  width: 230px;
+  margin-left: 70px;
+  border-top: 4px solid #0f574b;
+  background-color: white;
+  box-shadow: 1px 2px 2px 3px #f4f4f4;
+}
+#advisor:hover {
+  background-color: #fbfbfb;
+  cursor: pointer;
+}
+#advisor-content {
+  padding: 0.5rem 0.5rem 1rem 2rem;
+  transition: all 0.15s ease-in-out;
+}
+#advisor-content:hover {
+  transform: translateX(10px);
+}
+#advisor-content span {
+  font-size: 22px;
+  font-weight: 600;
+}
+.color-advisor {
+  color: #01a680;
+  margin-top: -0.4rem;
+  margin-bottom: -0.3rem;
+  text-shadow: teal;
+}
+#reviews {
+  font-weight: 500;
+}
+.address {
+  margin-top: 20px;
+  padding: 0.2rem 1rem 0.8rem 4rem;
+  align-items: normal;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+}
+.contact {
+  margin-top: -3.8rem;
+  padding-left: 2rem;
+  font-size: 14px;
+  font-weight: 500;
+}

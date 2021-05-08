@@ -17,7 +17,10 @@
         </p>
         <button class="btn btn-block btnMap">
           <i class="fas fa-map-marker-alt"></i>
-          <span>&nbsp;&nbsp;View on Map ></span>
+          <span>&nbsp;&nbsp;View on Map </span>
+          <span>
+            &nbsp;<i class="fas fa-chevron-right"></i>
+          </span>
         </button>
         <h4 class="mt-4 yellow-PlayFair"
             style="font-size: 20px">
@@ -43,7 +46,7 @@
       </div>
 
       <!--      mid + right-->
-      <div class="row col-lg-7 col-md-0 col-sm-0 mb-4 mid-right" >
+      <div class="row col-lg-7 col-md-0 col-sm-0 mb-4 mid-right">
 
         <!--      mid-footer-->
         <div class="col-lg-5 col-md-5 col-sm-5 mx-2 mb-4 mid-footer">
@@ -62,7 +65,7 @@
              style="font-size: 19px">Contact US
           </p>
           <div class="row">
-            <div class="col-1">
+            <div class="col-1 faMapDiv">
               <i class="fas fa-2x fa-map-marker-alt" style="color: #0f574b"></i>
             </div>
             <div class="col-10 rf-content">
@@ -79,14 +82,22 @@
                 <img src="../../../assets/style/img/banner.png" alt="footer-banner"
                      style="width: 333px; height: 80px">
               </div>
-              <p style="margin-top: 10px">GDS-Codes: Amadeus-WWDADFUR, Apollo/Galileo-WW16236, SabreWW32771, Worldspan-WWDADFU</p>
+              <p style="margin-top: 10px">GDS-Codes: Amadeus-WWDADFUR, Apollo/Galileo-WW16236, SabreWW32771,
+                Worldspan-WWDADFU</p>
             </div>
           </div>
         </div>
 
+        <!--        copyright-->
         <div style="margin-top: 5px" id="copyright">
-          <img src="../../../assets/style/img/banner-app.png" alt="footer-banner-app">
-          <p>&copy; 2021 Furama Resort Danang - Soren.</p>
+          <div>
+            <img src="../../../assets/style/img/banner-app.png" alt="footer-banner-app">
+            <p>&copy; 2021 Furama Resort Danang - Soren.</p>
+          </div>
+          <button id="backToTopBtn" title="Back To Top" onclick="backTop()"
+               class="align-items-center justify-content-center text-center">
+            <i class="fas fa-2x fa-arrow-up text-white mt-2"></i>
+          </button>
         </div>
       </div>
 

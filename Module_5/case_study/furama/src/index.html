@@ -10,8 +10,68 @@
         href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
         integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
+
 </head>
-<body>
+<!--add getWeatherToShow() to show : <body onload = startToGetTime(),getWeatherToShow()>-->
+<body onload = startToGetTime()>
   <app-root></app-root>
+
+
+  <script>
+
+    function startToGetTime() {
+      setInterval(x => getTimeToShow(), 0);
+    }
+    function getTimeToShow() {
+      let date = new Date();
+      let hours = date.getHours();
+      let minutes = date.getMinutes();
+      let seconds = date.getSeconds();
+
+      let hourStr = (hours < 10) ? '0'+hours : hours;
+      let minuteStr = (minutes < 10) ? '0'+minutes : minutes;
+      let secondStr = (seconds < 10) ? '0'+seconds : seconds;
+
+      document.getElementById("time").innerHTML = hourStr+':'+minuteStr+':'+secondStr;
+    }
+
+    let cityId = 1583992; //Da nang
+    let myApiKey = "44445c874a87561a030cacf255900d10"; // my api key
+
+    function getWeatherToShow() {
+      var request = new XMLHttpRequest();
+      request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id='+cityId+'&appid='+myApiKey, true);
+      request.send();
+
+      request.onload = function () {
+        var data = JSON.parse(this.response);
+        getCTemp(data["main"]["temp"]);
+        document.getElementById("weatherDetail").innerHTML = data["weather"][0]["main"]+' ';
+      }
+    }
+    function getCTemp(temp) {
+      let tempC = parseInt(temp) - 273;
+      let tempF = Math.round(parseInt(temp) * 1.8 - 459) - 1;
+      document.getElementById("tempC").innerHTML = tempC.toString();
+      document.getElementById("tempF").innerHTML = tempF.toString();
+    }
+
+
+
+    function backTop() {
+      document.documentElement.scrollTop = 0
+    }
+    window.onscroll = function () {
+      showBtnOnscroll()
+    };
+    function showBtnOnscroll() {
+      let backToTopBtn = document.getElementById('backToTopBtn')
+      if (document.documentElement.scrollTop > 300) {
+        backToTopBtn.style.display = 'block'
+      } else {
+        backToTopBtn.style.display = 'none'
+      }
+    }
+  </script>
 </body>
 </html>

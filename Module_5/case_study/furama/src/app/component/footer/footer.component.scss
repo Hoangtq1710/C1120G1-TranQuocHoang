@@ -1,5 +1,6 @@
 $fontOpenSans: 'Open Sans', sans-serif;
 $fontPlayFair: 'Playfair Display', serif;
+$colorCommon: #0f574b;
 
 @media (max-width: 1168px) {
   .left-footer {
@@ -23,7 +24,6 @@ $fontPlayFair: 'Playfair Display', serif;
     margin-top: 5px;
   }
 }
-
 .footer {
   z-index: 0;
   position: relative;
@@ -98,7 +98,7 @@ $fontPlayFair: 'Playfair Display', serif;
   align-items: center;
   height: 36px;
   z-index: 100;
-  background-color: #0f574b;
+  background-color: $colorCommon;
 }
 .footer-copyright p, button {
   line-height: 8px;
@@ -111,7 +111,7 @@ $fontPlayFair: 'Playfair Display', serif;
   margin: 6px 10px;
   font-size: 13px;
   height: 26px;
-  color: #0f574b;
+  color: $colorCommon;
   font-weight: 600;
   background-color: #abdecf;
   border-radius: 3px;
@@ -120,10 +120,14 @@ $fontPlayFair: 'Playfair Display', serif;
   text-align: left;
 }
 .right-footer .fa-map-marker-alt {
+  box-shadow: none;
   transition: 0.75s;
 }
 .right-footer .fa-map-marker-alt:hover {
   transform: translateY(-10px);
+}
+.right-footer .fa-map-marker-alt:hover {
+  box-shadow: 0 1px 0 0 rgba(0,0,0,0.4);
 }
 .right-footer .rf-content {
   padding-right: 0;
@@ -148,4 +152,23 @@ $fontPlayFair: 'Playfair Display', serif;
   color: dimgray;
   padding-bottom: 30px;
   display: inline;
+}
+#backToTopBtn {
+  position: fixed;
+  display: none;
+  bottom: 50px; right: 20px;
+  float: right;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 0;
+  background-color: $colorCommon;
+  transition: all 0.5s ease;
+  z-index: 100;
+  box-shadow: 4px 4px 4px 0 rgba(0,0,0,0.4);
+}
+#backToTopBtn:hover {
+  cursor: pointer;
+  transform: translateY(-7px);
+  box-shadow: 4px 2px 2px 0 rgba(0,0,0,0.4);
 }

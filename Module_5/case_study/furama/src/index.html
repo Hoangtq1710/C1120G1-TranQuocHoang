@@ -12,7 +12,8 @@
         crossorigin="anonymous">
 
 </head>
-<!--add getWeatherToShow() to show : <body onload = startToGetTime(),getWeatherToShow()>-->
+<!--add getWeatherToShow() to show : -->
+<!--<body onload = startToGetTime(),startToGetWeather()>-->
 <body onload = startToGetTime()>
   <app-root></app-root>
 
@@ -20,7 +21,8 @@
   <script>
 
     function startToGetTime() {
-      setInterval(x => getTimeToShow(), 0);
+      getTimeToShow();
+      setInterval(x => getTimeToShow(), 1000); //1 second
     }
     function getTimeToShow() {
       let date = new Date();
@@ -35,10 +37,17 @@
       document.getElementById("time").innerHTML = hourStr+':'+minuteStr+':'+secondStr;
     }
 
+    function startToGetWeather(){
+      console.log("function startToGetWeather is run for the first times");
+      getWeatherToShow();
+      setInterval(x => getWeatherToShow(), 600000); // update Weather every 10 minutes
+    }
+
     let cityId = 1583992; //Da nang
     let myApiKey = "44445c874a87561a030cacf255900d10"; // my api key
 
     function getWeatherToShow() {
+      console.log("function getWeatherToShow is running!")
       var request = new XMLHttpRequest();
       request.open('GET', 'http://api.openweathermap.org/data/2.5/weather?id='+cityId+'&appid='+myApiKey, true);
       request.send();
@@ -51,7 +60,7 @@
     }
     function getCTemp(temp) {
       let tempC = parseInt(temp) - 273;
-      let tempF = Math.round(parseInt(temp) * 1.8 - 459) - 1;
+      let tempF = Math.round(parseInt(temp) * 1.8 - 459);
       document.getElementById("tempC").innerHTML = tempC.toString();
       document.getElementById("tempF").innerHTML = tempF.toString();
     }

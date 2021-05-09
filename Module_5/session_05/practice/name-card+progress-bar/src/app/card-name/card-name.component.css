@@ -1,0 +1,23 @@
+.name-card {
+  display: flex;
+  width: 75%;
+  background-color: white;
+  border-radius: 1px;
+  box-shadow: 3px 3px 2px 3px rgba(0,0,0,0.4);
+  transition: all 0.25s ease;
+}
+.name-card:hover {
+  box-shadow: 2px 2px 0 1px rgba(0,0,0,0.4);
+  border: none;
+  background-color: whitesmoke;
+}
+.name-card-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: black;
+}
+.name-card-content {
+  font-size: 20px;
+  font-weight: 400;
+  color: #0f0e00;
+}

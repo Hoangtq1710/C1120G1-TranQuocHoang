@@ -1,0 +1,18 @@
+<div class="container text-center justify-content-center mt-5">
+  <h1 class="text-uppercase" style="color: teal">count down</h1>
+  <div class="fs-1 text-danger fw-bold mb-3">
+    <span>{{minuteStr}}</span>
+    <span> : </span>
+    <span>{{secondStr}}</span>
+  </div>
+  <div style="display: inline-flex">
+    <button class="btn btn-success" (click)="start()" [disabled]="min == 0 && sec == 0">Start</button>
+    <button class="btn btn-danger" (click)="stop()">Stop</button>
+    <button class="btn btn-warning" (click)="reset()">Reset</button>
+  </div>
+  <div class="mt-3">
+    <span *ngIf="message"
+          style="color: deeppink; font-size: 20px">{{message}}
+    </span>
+  </div>
+</div>

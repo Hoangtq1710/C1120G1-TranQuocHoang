@@ -1,0 +1,27 @@
+<div class="container text-center justify-content-center">
+  <h1 class="text-info">Please choose your satisfaction</h1>
+  <h4 style="color: green">{{star}} stars</h4>
+  <div class="liBtn">
+    <ul class="list-unstyled">
+      <li><button class="btn btnRating mr-2" (click)="getStar(10)" value="10">10</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(9)" value="9">9</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(8)" value="8">8</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(7)" value="7">7</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(6)" value="6">6</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(5)" value="5">5</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(4)" value="4">4</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(3)" value="3">3</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(2)" value="2">2</button></li>
+      <li><button class="btn btnRating mr-2" (click)="getStar(1)" value="1">1</button></li>
+    </ul>
+  </div>
+  <div>
+    <p>
+      <label for="comment" style="float: left; font-style: italic">Comment : </label>
+    </p>
+    <input type="text" id="comment" class="form-control" #comment>
+  </div>
+  <div>
+    <button class="btn btn-success mt-2" (click)="showRateInfo(comment.value)">Send</button>
+  </div>
+</div>

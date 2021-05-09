@@ -1,0 +1,13 @@
+.info {
+  color: green;
+  font-size: 20px;
+}
+#message {
+  float: right;
+}
+.btnDiv {
+  display: inline-block;
+}
+.btnDiv button {
+  margin-left: 15px;
+}

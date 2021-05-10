@@ -1,0 +1,56 @@
+<div *ngIf="viewProduct" style="margin-left: 30px" id="viewForm">
+  <h1 style="color: teal" class="text-uppercase mb-5">view product</h1>
+
+  <p style="color: green; font-weight: 500">{{listVisitedProduct}}</p>
+  <table class="table table-hover">
+    <tbody>
+    <tr>
+      <th>ID</th>
+      <td>{{viewProduct.id}}</td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>{{viewProduct.name | titlecase}}</td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td>{{viewProduct.price | currency:'đ'}}</td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td>{{viewProduct.date | date: 'dd/MM/yyyy'}}</td>
+    </tr>
+    <tr>
+      <th>Quantity</th>
+      <td>{{viewProduct.quantity}}</td>
+    </tr>
+    <tr>
+      <th>Origin</th>
+      <td>{{viewProduct.origin}}</td>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+      <td *ngIf="viewProduct.quantity == 0">
+        <button class="btn btn-warning" (click)="showUpQtyInput()">Update Quantity</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <table id="tbNewQty" style="display: none; margin-top: 50px; margin-bottom: 100px">
+    <tbody>
+    <tr>
+      <td>New Quantity</td>
+      <td>
+        <input type="number" class="form-control" #newQty>
+      </td>
+      <td>
+        <button class="btn btn-warning" (click)="updateQty(viewProduct, newQty.value)">Update</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

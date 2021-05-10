@@ -1,0 +1,67 @@
+<div class="container justify-content-center align-items-center">
+  <button class="btn btn-success mt-3" (click)="showCreateForm()">
+    Create
+  </button>
+  <!--table-->
+  <div class="justify-content-center align-items-center frame-shadow"
+       *ngIf="listProduct.length != 0; else elseDiv">
+    <h1 style="color: teal" class="text-uppercase text-center">list product</h1>
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>No</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Origin</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of listProduct, let i = index">
+        <td>{{i + 1}}</td>
+        <td>{{product.id}}</td>
+        <td>{{product.name | titlecase}}</td>
+        <td>{{product.price | currency: 'VND' }}</td>
+        <td>{{product.date | date:'dd/MM/yyyy'}}</td>
+        <td>
+          <span *ngIf="product.quantity == 0" [ngClass]="'sold-out'">Sold out</span>
+          <span *ngIf="product.quantity > 0 && product.quantity < 10" [ngClass]="'few-left'">Few left</span>
+          <span *ngIf="product.quantity >= 10" [ngClass]="'full-stock'">Full of stock </span>
+        </td>
+        <td>{{product.origin}}</td>
+        <td>
+        <span>
+          <button class="btn btn-warning" (click)="viewCustomer(product.id)">View</button>
+        </span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--elseDiv-->
+  <ng-template #elseDiv>
+    <h3 class="text-center" style="color: red">No Product. Add some more!</h3>
+  </ng-template>
+
+  <!--create +view-->
+  <div class="row mb-3">
+
+    <!--  create-->
+    <div class="col-md-6 col-sm-6 frame-shadow">
+      <app-add-product [listOrigin]="origin" (product)="createProduct($event)"></app-add-product>
+    </div>
+
+    <!--  view-->
+    <div class="col-md-6 col-sm-6 frame-shadow">
+      <app-view-product [product]="viewProduct"
+                        [listVisitedProduct]="listVisitedProduct"
+                        (updatedProduct)="getUpdatedProduct($event)"></app-view-product>
+    </div>
+  </div>
+</div>
+

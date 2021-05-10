@@ -1,0 +1,14 @@
+.sold-out {
+  color: red;
+  font-style: italic;
+}
+.few-left {
+  color: royalblue;
+}
+.full-stock {
+  color: teal;
+  font-weight: 500;
+}
+.frame-shadow {
+  box-shadow: 8px 8px 4px 0 rgba(0,0,0,0.4);
+}

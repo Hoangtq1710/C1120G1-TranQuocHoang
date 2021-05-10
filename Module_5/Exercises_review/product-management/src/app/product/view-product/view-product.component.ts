@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Product} from '../../../model/Product';
+import {Product} from '../../model/Product';
 
 @Component({
   selector: 'app-view-product',
@@ -8,11 +8,12 @@ import {Product} from '../../../model/Product';
 })
 export class ViewProductComponent implements OnInit {
 
-  @Input('product') viewProduct:Product;
+  @Input('product') viewProduct: Product;
   @Output('updatedProduct') product = new EventEmitter<Product>();
-  @Input('listVisitedProduct') listVisitedProduct:string;
+  @Input('listVisitedProduct') listVisitedProduct: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
@@ -24,6 +25,6 @@ export class ViewProductComponent implements OnInit {
   updateQty(viewProduct: Product, value: string) {
     viewProduct.quantity = parseInt(value);
     this.product.emit(viewProduct);
-
+    document.getElementById('tbNewQty').style.display = 'none';
   }
 }

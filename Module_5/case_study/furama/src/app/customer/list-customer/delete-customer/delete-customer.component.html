@@ -1,0 +1,19 @@
+<h3 style="color: red">ARE YOU SURE?</h3>
+<table class="table table-hover" style="text-align: left">
+  <tbody>
+  <tr>
+    <th>ID</th>
+    <td>{{deleteCustomer.idCustomer}}</td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td>{{deleteCustomer.name}}</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button class="btn btn-danger" (click)="deleteCustomerMethod(deleteCustomer.idCustomer)">Delete</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

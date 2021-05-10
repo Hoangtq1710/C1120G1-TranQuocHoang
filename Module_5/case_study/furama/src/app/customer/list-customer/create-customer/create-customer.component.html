@@ -1,0 +1,70 @@
+<table class="table table-hover" style="text-align: left">
+  <tbody>
+  <tr>
+    <th>ID</th>
+    <td>
+      <input type="text" class="form-control" #id>
+    </td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td>
+      <input type="text" class="form-control" #name>
+    </td>
+  </tr>
+  <tr>
+    <th>Type</th>
+    <td>
+      <select #type class="form-control">
+        <option value="1">Diamond</option>
+        <option value="2">Platinum</option>
+        <option value="3">Gold</option>
+        <option value="4">Silver</option>
+        <option value="5">Member</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <th>Birthday</th>
+    <td>
+      <input type="date" class="form-control" #birthday>
+    </td>
+  </tr>
+  <tr>
+    <th>ID Card</th>
+    <td>
+      <input type="number" class="form-control" #idCard>
+    </td>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <td>
+      <input type="text" class="form-control" #phone>
+    </td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>
+      <input type="text" class="form-control" #email>
+    </td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td>
+      <input type="text" class="form-control" #address>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button class="btn btn-success"
+              (click)="addCustomer(id.value,name.value, type.value,birthday.value,
+              idCard.value,phone.value, email.value, address.value)">
+        Create
+      </button>
+    </td>
+  </tr>
+
+
+  </tbody>
+</table>

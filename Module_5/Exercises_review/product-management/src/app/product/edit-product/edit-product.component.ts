@@ -21,8 +21,8 @@ export class EditProductComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (this.editProduct != null){
-      console.log("Date : "+this.editProduct._date) //full time Date style
-      console.log("Date toISOString : "+this.editProduct._date.toISOString().slice(0,10)) // yyyy-MM-dd
+      // console.log("Date : "+this.editProduct._date) //full time Date style
+      // console.log("Date toISOString : "+this.editProduct._date.toISOString().slice(0,10)) // yyyy-MM-dd
 
       this.editForm = this._formBuilder.group({
         productId: [this.editProduct._id, [Validators.required, Validators.pattern('^[\\d]+$')]],
@@ -36,7 +36,6 @@ export class EditProductComponent implements OnInit, OnChanges {
   }
 
   submitEditForm(editForm: FormGroup) {
-    console.log("called submitEditForm");
     let product: Product = {
       _id: editForm.value['productId'],
       _name: editForm.value['productName'],
@@ -46,7 +45,5 @@ export class EditProductComponent implements OnInit, OnChanges {
       _origin: editForm.value['productOrigin']
     };
     this.updatedProduct.emit(product);
-    console.log(product._date)
   }
-
 }

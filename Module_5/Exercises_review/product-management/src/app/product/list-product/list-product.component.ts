@@ -54,7 +54,7 @@ export class ListProductComponent implements OnInit {
           _quantity: value._quantity,
           _origin: value._origin
         };
-        return;
+        return; //update exactly one product if get the right one
       }
     }
   }
@@ -64,14 +64,18 @@ export class ListProductComponent implements OnInit {
   }
 
   getUpdatedProduct(value: Product) {
-    for (let product of this.listProduct) {
-      if (product._id == value._id) {
-        console.log("Correct ID : "+value._id)
-        this.listAfterUpdate.push(value);
+    for (let i = 0; i < this.listProduct.length; i++) { // list is a Array<Product>[] now
+      if (this.listProduct[i]._id == value._id) {
+        this.listAfterUpdate[i] = value;
       } else {
-        this.listAfterUpdate.push(product);
+        this.listAfterUpdate[i] = this.listProduct[i];
       }
     }
+    this.listProduct = []; // !important
+    // this statement is required cuz when for loop is done, you have the full list updated in this.listAfterUpdate
+    // if you wanna assign whole list of this.listAfterUpdate to this.listProduct then you have to clear this.listProduct first
+    // if not, the web page is failed to load the new list (the list after updated information)
+    // (Infinity Loop => STACK OVER FLOW error : CPU is immediately hit to 100% from ~20%!)
     this.listProduct = this.listAfterUpdate;
   }
 

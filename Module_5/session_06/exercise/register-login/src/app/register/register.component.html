@@ -1,0 +1,126 @@
+<div class="container justify-content-center">
+  <h1 class="text-uppercase text-center my-4" style="color: teal">Register Form</h1>
+  <form [formGroup]="rfUser" (ngSubmit)="submitForm()">
+    <table class="table table-hover">
+      <tbody>
+      <tr>
+        <td>
+          <label for="name">Name</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="userName" id="name">
+          <p *ngIf="rfUser.controls.userName.touched && rfUser.controls.userName.errors?.required"
+             class="msgError">Name is required</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label>Gender</label>
+        </td>
+        <td>
+          <template class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" formControlName="userGender" name="userGender"
+                     value="0" class="form-check-input"> Female
+            </label>
+          </template>
+          <template class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" formControlName="userGender" name="userGender"
+                     value="1" class="form-check-input"> Male
+            </label>
+          </template>
+          <template class="form-check-inline">
+            <label class="form-check-label">
+              <input type="radio" formControlName="userGender" name="userGender"
+                     value="2" class="form-check-input"> LGBT
+            </label>
+          </template>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="age">Age</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" formControlName="userAge" id="age">
+          <p *ngIf="rfUser.controls.userAge.touched" class="msgError">
+            <span *ngIf="rfUser.controls.userAge.errors?.required">Age must be greater than 18 or under 100!</span>
+            <span *ngIf="rfUser.controls.userAge.errors?.min">Age must be greater than 18!</span>
+            <span *ngIf="rfUser.controls.userAge.errors?.max">Age must be under 100!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="phone">Phone</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="userPhone" id="phone" >
+          <p *ngIf="rfUser.controls.userPhone.touched" class="msgError">
+            <span *ngIf="rfUser.controls.userPhone.errors?.pattern">Phone must start with +84 and follow has 9 or 10 digits</span>
+            <span *ngIf="rfUser.controls.userPhone.errors?.required">Phone is required</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="country">Country</label>
+        </td>
+        <td>
+          <select id="country" class="form-select" formControlName="userCountry">
+            <option value="" selected disabled>Select a country</option>
+            <option *ngFor="let country of listCountry" value="{{country}}">{{country}}</option>
+          </select>
+          <p *ngIf="rfUser.controls.userCountry.touched && rfUser.controls.userCountry.errors?.required"
+             class="msgError">Please pick a country</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="email">Email</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="userEmail" id="email">
+          <p *ngIf="rfUser.controls.userEmail.touched" class="msgError">
+            <span *ngIf="rfUser.controls.userEmail.errors?.required">Email is required</span>
+            <span *ngIf="rfUser.controls.userEmail.errors?.email">Email invalid. Format : abc@abc.abc</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="password">Password</label>
+        </td>
+        <td>
+          <input type="password" class="form-control"
+                 formControlName="userPassword" id="password">
+          <p *ngIf="rfUser.controls.userPassword.touched"
+             class="msgError">
+            <span *ngIf="rfUser.controls.userPassword.errors?.required">Password is required</span>
+            <span *ngIf="rfUser.controls.userPassword.errors?.minlength">Password at least 6 characters</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="confirmPw">Confirm Password</label>
+        </td>
+        <td>
+          <input type="password" class="form-control" id="confirmPw" #confirmPw>
+          <p *ngIf="rfUser.controls.userPassword.untouched"
+             class="msgError">
+            <span *ngIf="rfUser.controls.userPassword.value != confirmPw.value">Password is not match</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="submit" class="btn btn-success" [disabled]="rfUser.invalid">Register</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

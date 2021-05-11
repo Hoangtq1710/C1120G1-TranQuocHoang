@@ -1,0 +1,41 @@
+<div class="container justify-content-center">
+  <h1 class="text-uppercase text-center my-4" style="color: teal">Login</h1>
+  <form [formGroup]="rfUserLogin" (ngSubmit)="submitLoginForm(rfUserLogin)">
+    <table class="table table-hover">
+      <tbody>
+      <tr>
+        <td>
+          <label for="userLoginEmail">Email</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="userLoginEmail" id="userLoginEmail">
+          <p *ngIf="rfUserLogin.controls.userLoginEmail.touched" class="msgError">
+            <span *ngIf="rfUserLogin.controls.userLoginEmail.errors?.required">Email is required</span>
+            <span *ngIf="rfUserLogin.controls.userLoginEmail.errors?.email">Email invalid. Format : abc@abc.abc</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="userLoginPw">Password</label>
+        </td>
+        <td>
+          <input type="password" class="form-control"
+                 formControlName="userLoginPw" id="userLoginPw">
+          <p *ngIf="rfUserLogin.controls.userLoginPw.touched"
+             class="msgError">
+            <span *ngIf="rfUserLogin.controls.userLoginPw.errors?.required">Password is required</span>
+            <span *ngIf="rfUserLogin.controls.userLoginPw.errors?.minlength">Password at least 6 characters</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="text-center">
+          <button class="btn btn-info" type="submit" [disabled]="rfUserLogin.invalid">Login</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

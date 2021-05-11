@@ -1,0 +1,11 @@
+<div class="container justify-content-center">
+  <h1 style="color: teal" class="text-uppercase">todo list</h1>
+  <input type="text" class="form-control" [formControl]="content" (change)="change()">
+  <ul>
+    <li (click)="toggleTodo(i)"
+        [class.complete]="todo.complete"
+        *ngFor="let todo of listTodo; let i = index">
+      {{todo.content}}
+    </li>
+  </ul>
+</div>

@@ -1,58 +1,91 @@
-<div id="createForm" style="display: none">
+<div id="createForm" style="display: none; padding-left: 20px" class="frame-shadow">
   <h1 style="color: teal" class="text-uppercase">add new product</h1>
-  <table class="table table-hover">
-    <tbody>
-    <tr>
-      <th>ID</th>
-      <td>
-        <input type="number" class="form-control" #id required>
-      </td>
-    </tr>
-    <tr>
-      <th>Name</th>
-      <td>
-        <input type="text" class="form-control" #name required>
-      </td>
-    </tr>
-    <tr>
-      <th>Price</th>
-      <td>
-        <input type="number" class="form-control" #price required>
-      </td>
-    </tr>
-    <tr>
-      <th>Date</th>
-      <td>
-        <input type="date" class="form-control" #date required>
-      </td>
-    </tr>
-    <tr>
-      <th>Quantity</th>
-      <td>
-        <input type="number" class="form-control" #quantity required>
-      </td>
-    </tr>
-    <tr>
-      <th>Origin</th>
-      <td>
-        <select class="form-control" #origin>
-          <option value="" selected disabled>Select a Origin</option>
-          <option *ngFor="let ori of listOrigin" value="{{ori}}" >{{ori}}</option>
-        </select>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <button class="btn btn-danger" (click)="closeCreateForm()">Close</button>
-      </td>
-      <td>
-        <button class="btn btn-success"
-                (click)="createProduct(id.value,name.value, price.value, date.value,quantity.value,origin.value)">
-          Create
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <form [formGroup]="createForm" (ngSubmit)="submitCreateForm(createForm)">
+    <table class="table table-hover">
+      <tbody>
+      <tr>
+        <th>
+          <label for="id">ID</label>
+        </th>
+        <td>
+          <input type="number" class="form-control" formControlName="productId" id="id">
+          <p *ngIf="createForm.controls.productId.touched" class="msgError">
+            <span *ngIf="createForm.controls.productId.errors?.required">ID is required</span>
+            <span *ngIf="createForm.controls.productId.errors?.pattern">ID must be a number</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="name">Name</label>
+        </th>
+        <td>
+          <input type="text" class="form-control" formControlName="productName" id="name">
+          <p *ngIf="createForm.controls.productName.touched" class="msgError">
+            <span *ngIf="createForm.controls.productName.errors?.required">Name is required</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="price">Price</label>
+        </th>
+        <td>
+          <input type="number" class="form-control" formControlName="productPrice" id="price">
+          <p *ngIf="createForm.controls.productPrice.touched" class="msgError">
+            <span *ngIf="createForm.controls.productPrice.errors?.required">Price is required</span>
+            <span *ngIf="createForm.controls.productPrice.errors?.min">Price must be greater than 10000 đ!</span>
+            <span *ngIf="createForm.controls.productPrice.errors?.max">Price should be under 50000000 đ</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="date">Date</label>
+        </th>
+        <td>
+          <input type="date" class="form-control" formControlName="productDate" id="date">
+          <p *ngIf="createForm.controls.productDate.touched" class="msgError">
+            <span *ngIf="createForm.controls.productDate.errors?.required">Pick a Date!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="qty">Quantity</label>
+        </th>
+        <td>
+          <input type="number" class="form-control" formControlName="productQuantity" id="qty">
+          <p *ngIf="createForm.controls.productQuantity.touched" class="msgError">
+            <span *ngIf="createForm.controls.productQuantity.errors?.required">Quantity is required</span>
+            <span *ngIf="createForm.controls.productQuantity.errors?.pattern">Quantity must be a number!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="origin">Origin</label>
+        </th>
+        <td>
+          <select class="form-control" formControlName="productOrigin" id="origin">
+            <option value="" selected disabled>Select a Origin</option>
+            <option *ngFor="let ori of listOrigin" value="{{ori}}" >{{ori}}</option>
+          </select>
+          <p *ngIf="createForm.controls.productOrigin.touched" class="msgError">
+            <span *ngIf="createForm.controls.productOrigin.errors?.required">Pick a Origin!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-danger" type="button" (click)="closeCreateForm()">Close</button>
+        </td>
+        <td>
+          <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">Create</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
 </div>
 

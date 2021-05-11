@@ -1,1 +1,91 @@
-<p>edit-product works!</p>
+<div *ngIf="editProduct" style="padding-left: 30px" class="frame-shadow">
+  <h1 style="color: teal" class="text-uppercase mb-5">edit product</h1>
+
+  <form [formGroup]="editForm" (ngSubmit)="submitEditForm(editForm)">
+    <table class="table table-hover">
+      <tbody>
+      <tr>
+        <th>
+          <label for="id">ID</label>
+        </th>
+        <td>
+          <input type="number" class="form-control" formControlName="productId" id="id">
+          <p *ngIf="editForm.controls.productId.touched" class="msgError">
+            <span *ngIf="editForm.controls.productId.errors?.required">ID is required</span>
+            <span *ngIf="editForm.controls.productId.errors?.pattern">ID must be a number</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="name">Name</label>
+        </th>
+        <td>
+          <input type="text" class="form-control" formControlName="productName" id="name">
+          <p *ngIf="editForm.controls.productName.touched" class="msgError">
+            <span *ngIf="editForm.controls.productName.errors?.required">Name is required</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="price">Price</label>
+        </th>
+        <td>
+          <input type="number" class="form-control" formControlName="productPrice" id="price">
+          <p *ngIf="editForm.controls.productPrice.touched" class="msgError">
+            <span *ngIf="editForm.controls.productPrice.errors?.required">Price is required</span>
+            <span *ngIf="editForm.controls.productPrice.errors?.min">Price must be greater than 10000 đ!</span>
+            <span *ngIf="editForm.controls.productPrice.errors?.max">Price should be under 50000000 đ</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="date">Date</label>
+        </th>
+        <td>
+          <input type="date" class="form-control" formControlName="productDate" id="date" >
+          <p *ngIf="editForm.controls.productDate.touched" class="msgError">
+            <span *ngIf="editForm.controls.productDate.errors?.required">Pick a Date!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="qty">Quantity</label>
+        </th>
+        <td>
+          <input type="number" class="form-control" formControlName="productQuantity" id="qty">
+          <p *ngIf="editForm.controls.productQuantity.touched" class="msgError">
+            <span *ngIf="editForm.controls.productQuantity.errors?.required">Quantity is required</span>
+            <span *ngIf="editForm.controls.productQuantity.errors?.pattern">Quantity must be a number!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <label for="origin">Origin</label>
+        </th>
+        <td>
+          <select class="form-control" formControlName="productOrigin" id="origin">
+            <option value="" disabled>Select a Origin</option>
+            <option *ngFor="let ori of listOrigin" value="{{ori}}" [selected]="editProduct._origin == ori" >{{ori}}</option>
+          </select>
+          <p *ngIf="editForm.controls.productOrigin.touched" class="msgError">
+            <span *ngIf="editForm.controls.productOrigin.errors?.required">Pick a Origin!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-danger" type="button">Close</button>
+        </td>
+        <td>
+          <button class="btn btn-success" type="submit" [disabled]="editForm.invalid">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

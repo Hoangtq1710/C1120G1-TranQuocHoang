@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 .frame-shadow {
   font-family: 'Open Sans', sans-serif;
@@ -20,4 +21,11 @@
   color: red;
   font-style: italic;
   font-size: 15px;
+}
+#myName {
+  font-family: 'Satisfy', cursive;
+  margin-top: 15px;
+  font-size: 36px;
+  color: palevioletred;
+  float: right;
 }

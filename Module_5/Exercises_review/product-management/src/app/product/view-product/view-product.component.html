@@ -1,4 +1,5 @@
 <div *ngIf="viewProduct" style="padding-left: 30px" class="frame-shadow">
+  <button class="btn btnBack" (click)="backToList()">Back</button>
   <h1 style="color: teal" class="text-uppercase mb-5">view product</h1>
 
   <p style="color: green; font-weight: 500">{{listVisitedProduct}}</p>
@@ -33,14 +34,15 @@
 <!--        <button id="btnCloseView" class="btn btn-danger">Close</button>-->
       </td>
       <td *ngIf="viewProduct._quantity == 0">
-        <button class="btn btn-warning" (click)="showUpQtyInput()">Update Quantity</button>
+        <button class="btn btn-warning mb-2" (click)="toggleUpQtyInput()">Update Quantity</button>
       </td>
     </tr>
     </tbody>
   </table>
 
 <!--  table new Quantity-->
-  <form [formGroup]="newQtyForm" (ngSubmit)="submitNewQty(newQtyForm)" id="tbNewQty" style="display: none">
+  <form [formGroup]="newQtyForm" (ngSubmit)="submitNewQty(newQtyForm)"
+        class="justify-content-center text-center col-8" id="tbNewQty" style="display: none">
     <table style="margin: 50px auto; padding-bottom: 30px"
            class="table table-borderless">
       <tbody>
@@ -53,14 +55,14 @@
           <p *ngIf="newQtyForm.controls.newQty.touched" class="msgError">
             <span *ngIf="newQtyForm.controls.newQty.errors?.required">New Quantity is required</span>
             <span *ngIf="newQtyForm.controls.newQty.errors?.min">New Quantity must be greater than 0</span>
-            <span *ngIf="newQtyForm.controls.newQty.errors?.max">New Quantity must be under 100</span>
+            <span *ngIf="newQtyForm.controls.newQty.errors?.max">New Quantity must be under or equals 100</span>
           </p>
           <p *ngIf="newQtyForm.controls.newQty.untouched">
             <span></span>
           </p>
         </td>
         <td>
-          <button class="btn btn-warning" type="submit" [disabled]="newQtyForm.invalid">Update</button>
+          <button class="btn btn-warning mb-2" type="submit" [disabled]="newQtyForm.invalid">Update</button>
         </td>
       </tr>
       </tbody>

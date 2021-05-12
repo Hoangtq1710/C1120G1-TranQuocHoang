@@ -24,8 +24,16 @@
 }
 #myName {
   font-family: 'Satisfy', cursive;
-  margin-top: 15px;
+  margin-right: 15px;
   font-size: 36px;
   color: palevioletred;
   float: right;
+}
+.btnBack {
+  background-color: #3D3BFF;
+  color: whitesmoke;
+}
+.btnBack:hover {
+  background-color: #0F4570;
+  color: white;
 }

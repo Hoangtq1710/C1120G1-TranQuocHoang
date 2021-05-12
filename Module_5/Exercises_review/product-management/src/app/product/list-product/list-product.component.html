@@ -1,11 +1,11 @@
 <div class="container justify-content-center align-items-center">
-  <button class="btn btn-success my-3" (click)="showCreateForm()">
-    Create
-  </button>
-  <p id="myName">Hoàng</p> //show myName
+
   <!--table-->
   <div class="justify-content-center align-items-center frame-shadow" style="padding-left: 20px"
        *ngIf="listProduct.length != 0; else elseDiv">
+    <button routerLink="add" class="btn btn-success">
+      <i class="far fa-plus-square"></i>
+    </button>
     <h1 style="color: teal" class="text-uppercase text-center">list product</h1>
 
     <table class="table table-hover">
@@ -31,16 +31,20 @@
         <td>
           <span *ngIf="product._quantity == 0" [ngClass]="'sold-out'">Sold out</span>
           <span *ngIf="product._quantity > 0 && product._quantity < 10" [ngClass]="'few-left'">Few left</span>
-          <span *ngIf="product._quantity >= 10" [ngClass]="'full-stock'">Full of stock </span>
+          <span *ngIf="product._quantity >= 10" [ngClass]="'full-stock'">Full of stock</span>
         </td>
         <td>{{product._origin}}</td>
         <td>
-          <button class="btn btn-primary" (click)="viewProductMethod(product)" style="margin-right: 15px">
-            View
-          </button>
-          <button class="btn btn-warning" (click)="editProductMethod(product)">
-            Edit
-          </button>
+          <a [routerLink]="['view', product._id]">
+            <button class="btn btn-primary" style="margin-right: 15px">
+              <i class="far fa-eye"></i>
+            </button>
+          </a>
+          <a [routerLink]="['edit', product._id]">
+            <button class="btn btn-warning" >
+              <i class="fas fa-edit text-dark"></i>
+            </button>
+          </a>
         </td>
       </tr>
       </tbody>
@@ -50,33 +54,9 @@
   <!--elseDiv-->
   <ng-template #elseDiv>
     <h3 class="text-center" style="color: red">No Product. Add some more!</h3>
+    <button routerLink="add" class="btn btn-success">
+      <i class="far fa-plus-square"></i>
+    </button>
   </ng-template>
-
-  <!--create +view-->
-  <div class="row mb-3">
-
-    <!--  create-->
-    <div class="col-md-5 col-sm-5">
-      <app-add-product [listOrigin]="origin"
-                       (product)="createProduct($event)">
-      </app-add-product>
-    </div>
-
-    <div class="col-md-2 col-sm-2"></div>
-
-    <!--  view-->
-    <div class="col-md-5 col-sm-5">
-      <app-view-product [product]="viewProduct"
-                        [listVisitedProduct]="listVisitedProduct"
-                        (updatedProduct)="getQtyUpdatedProduct($event)">
-      </app-view-product>
-    </div>
-  </div>
-  <div>
-    <app-edit-product [listOrigin]="origin"
-                      [product]="editProduct"
-                      (product)="getUpdatedProduct($event)">
-    </app-edit-product>
-  </div>
 </div>
 

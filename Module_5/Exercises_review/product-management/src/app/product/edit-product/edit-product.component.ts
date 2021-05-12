@@ -1,38 +1,39 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Product} from '../../model/Product';
+import {ProductService} from '../product.service';
+import {ActivatedRoute, Route, Router} from '@angular/router';
 
 @Component({
   selector: 'app-edit-product',
   templateUrl: './edit-product.component.html',
   styleUrls: ['./edit-product.component.css']
 })
-export class EditProductComponent implements OnInit, OnChanges {
+export class EditProductComponent implements OnInit {
 
-  @Input('product') editProduct: Product| undefined;
-  @Output('product') updatedProduct = new EventEmitter<Product>();
-  @Input('listOrigin') listOrigin: string[];
-
+  listOrigin:string[] = []
+  editProduct:Product;
   editForm: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder,
+              private productService:ProductService,
+              private activatedRoute:ActivatedRoute,
+              private router:Router)
+  { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.listOrigin = this.productService.listOrigin;
+    let id:number = this.activatedRoute.snapshot.params['id'];
+    this.editProduct = this.productService.getProductById(id);
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (this.editProduct != null){
-      // console.log("Date : "+this.editProduct._date) //full time Date style
-      // console.log("Date toISOString : "+this.editProduct._date.toISOString().slice(0,10)) // yyyy-MM-dd
-
-      this.editForm = this._formBuilder.group({
-        productId: [this.editProduct._id, [Validators.required, Validators.pattern('^[\\d]+$')]],
-        productName: [this.editProduct._name, [Validators.required]],
-        productPrice: [this.editProduct._price, [Validators.required, Validators.min(10000), Validators.max(50000000)]],
-        productDate: [new Date(this.editProduct._date).toISOString().slice(0,10), [Validators.required]],
-        productQuantity: [this.editProduct._quantity, [Validators.required, Validators.pattern('^[\\d]+$')]],
-        productOrigin: [this.editProduct._origin, [Validators.required]]
-      });
-    }
+    this.editForm = this._formBuilder.group({
+      productId: [this.editProduct._id, [Validators.required, Validators.pattern('^[\\d]+$')]],
+      productName: [this.editProduct._name, [Validators.required]],
+      productPrice: [this.editProduct._price, [Validators.required, Validators.min(10000), Validators.max(50000000)]],
+      productDate: [new Date(this.editProduct._date).toISOString().slice(0,10), [Validators.required]],
+      productQuantity: [this.editProduct._quantity, [Validators.required, Validators.pattern('^[\\d]+$')]],
+      productOrigin: [this.editProduct._origin, [Validators.required]]
+    });
   }
 
   submitEditForm(editForm: FormGroup) {
@@ -44,6 +45,11 @@ export class EditProductComponent implements OnInit, OnChanges {
       _quantity: editForm.value['productQuantity'],
       _origin: editForm.value['productOrigin']
     };
-    this.updatedProduct.emit(product);
+    this.productService.updatedProduct(product);
+    this.backToList();
+  }
+
+  backToList() {
+    this.router.navigateByUrl("list");
   }
 }

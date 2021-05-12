@@ -1,6 +1,8 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../../model/Product';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ProductService} from '../product.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -9,28 +11,26 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class AddProductComponent implements OnInit {
 
-  @Input('listOrigin') listOrigin: string[];
-  @Output('product') addProduct = new EventEmitter<Product>();
+  public listOrigin: string[] = [];
 
   createForm: FormGroup;
 
-  constructor(private _formBuilder: FormBuilder) {
-  }
+  constructor(private _formBuilder: FormBuilder,
+              private productService:ProductService,
+              private router:Router)
+  { }
 
   ngOnInit(): void {
+    this.listOrigin = this.productService.listOrigin;
+
     this.createForm = this._formBuilder.group({
       productId: [0, [Validators.required, Validators.pattern('^[\\d]+$')]],
       productName: ['', Validators.required],
       productPrice: [0, [Validators.required, Validators.min(10000), Validators.max(50000000)]],
       productDate: ['', [Validators.required]],
-      productQuantity: ['', [Validators.required, Validators.pattern('^[\\d]+$')]],
+      productQuantity: [0, [Validators.required, Validators.pattern('^[\\d]+$')]],
       productOrigin: ['', [Validators.required]]
     });
-  }
-
-
-  closeCreateForm() {
-    document.getElementById('createForm').style.display = 'none';
   }
 
   submitCreateForm(createForm: FormGroup) {
@@ -42,6 +42,11 @@ export class AddProductComponent implements OnInit {
       _quantity: createForm.value['productQuantity'],
       _origin: createForm.value['productOrigin']
     };
-    this.addProduct.emit(product);
+    this.productService.createProduct(product);
+    this.backToList();
+  }
+
+  backToList() {
+    this.router.navigateByUrl("list");
   }
 }

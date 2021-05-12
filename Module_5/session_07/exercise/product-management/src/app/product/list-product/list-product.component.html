@@ -1,1 +1,62 @@
-<p>list-product works!</p>
+<div class="container justify-content-center align-items-center my-3">
+  <h3 class="text-center text-uppercase" style="color: teal">list product</h3>
+
+  <a routerLink="add">
+    <button class="btn btn-success my-3">
+      <i class="far fa-plus-square"></i>
+    </button>
+  </a>
+
+<!--  message-->
+  <div *ngIf="message" id="alertFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
+    <button class="btn btn-close" (click)="closeAlert()"></button>
+    <span>{{message}}</span>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th>No</th>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Manufacture Date</th>
+      <th>Status</th>
+      <th>Description</th>
+      <th>Options</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let product of listProduct; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{product.id}}</td>
+      <td>{{product.name | uppercase}}</td>
+      <td>{{product.price | currency:'USD'}}</td>
+      <td>{{product.manuDate | date:'dd/MM/yyyy'}}</td>
+      <td>
+        <span *ngIf="product.quantity == 0" [ngClass]="'out-of-stock'">Out of stock</span>
+        <span *ngIf="product.quantity < 10 && product.quantity > 0" [ngClass]="'few-left'">Few left</span>
+        <span *ngIf="product.quantity >= 10" [ngClass]="'full-stock'">Full of stock</span>
+      </td>
+      <td>{{product.description}}</td>
+      <td>
+        <a [routerLink]="['view', product.id]">
+          <button class="btn btn-primary">
+            <i class="far fa-eye"></i>
+          </button>
+        </a>
+        <a [routerLink]="['edit', product.id]">
+          <button class="btn btn-warning">
+            <i class="fas fa-edit"></i>
+          </button>
+        </a>
+        <a [routerLink]="['delete', product.id]">
+          <button class="btn btn-danger">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

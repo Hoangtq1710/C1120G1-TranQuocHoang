@@ -1,1 +1,48 @@
-<p>view-product works!</p>
+<div class="container justify-content-center align-items-center">
+  <h3 class="text-center text-uppercase" style="color: teal">product information</h3>
+  <table class="table table-hover">
+    <tbody>
+    <tr>
+      <th>ID</th>
+      <th>
+        <p>{{product.id}}</p>
+      </th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td>
+        <p>{{product.name | titlecase}}</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Price</th>
+      <td>
+        <p>{{product.price | currency:'USD'}}</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Manufacture Date</th>
+      <td>
+        <p>{{product.manuDate | date:'dd-MM-yyyy'}}</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Quantity</th>
+      <td>
+        <p>{{product.quantity}}</p>
+      </td>
+    </tr>
+    <tr>
+      <th>Description</th>
+      <td>
+        <p>{{product.description}}</p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button class="btn btn-primary" type="button" (click)="backToList()">Back</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

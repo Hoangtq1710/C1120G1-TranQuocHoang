@@ -1,1 +1,89 @@
-<p>add-product works!</p>
+<div class="container justify-content-center align-items-center">
+  <h3 class="text-center text-uppercase" style="color: teal">add new product</h3>
+  <form [formGroup]="addForm" (ngSubmit)="submitAddForm(addForm)">
+    <table class="table table-hover">
+      <thead></thead>
+      <tbody>
+      <tr>
+        <td>
+          <label for="id">ID</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="id" id="id">
+          <p *ngIf="addForm.controls.id.touched" class="msgError">
+            <span *ngIf="addForm.controls.id.errors?.required">ID is required</span>
+            <span *ngIf="addForm.controls.id.errors?.pattern">ID must be in the correct format! OTO-XXXX</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="name">Name</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="name" id="name">
+          <p *ngIf="addForm.controls.name.touched" class="msgError">
+            <span *ngIf="addForm.controls.name.errors?.required">Name is required</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="price">Price</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" formControlName="price" id="price">
+          <p *ngIf="addForm.controls.price.touched" class="msgError">
+            <span *ngIf="addForm.controls.price.errors?.required">Price is required</span>
+            <span *ngIf="addForm.controls.price.errors?.min">Price must be greater than 4000 $</span>
+            <span *ngIf="addForm.controls.price.errors?.max">Price must be under 500000 $</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="manuDate">Manufacture Date</label>
+        </td>
+        <td>
+          <input type="date" class="form-control" formControlName="manuDate" id="manuDate">
+          <p *ngIf="addForm.controls.manuDate.touched">
+            <span *ngIf="addForm.controls.manuDate.errors?.required">Please pick a date</span>
+            <span *ngIf="addForm.controls.manuDate.errors?.dateValid">You pick a Future day!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="quantity">Quantity</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" formControlName="quantity" id="quantity">
+          <p *ngIf="addForm.controls.quantity.touched">
+            <span *ngIf="addForm.controls.quantity.errors?.required">Quantity is required</span>
+            <span *ngIf="addForm.controls.quantity.errors?.pattern">Quantity must be a number</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="description">Description</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="description" id="description">
+          <p *ngIf="addForm.controls.description.touched">
+            <span *ngIf="addForm.controls.description.errors?.required">Description is required</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-primary" type="button" (click)="backToList()">Back</button>
+        </td>
+        <td>
+          <button class="btn btn-success" type="submit" [disabled]="addForm.invalid">Create</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

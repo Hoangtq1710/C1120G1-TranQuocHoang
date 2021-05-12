@@ -1,0 +1,17 @@
+.out-of-stock {
+  color: red;
+  font-style: italic;
+  font-size: 16px;
+}
+.few-left {
+  color: royalblue;
+  font-size: 16px;
+}
+.full-stock {
+  color: teal;
+  font-weight: bold;
+  font-size: 16px;
+}
+.btn {
+  margin-left: 15px;
+}

@@ -1,7 +1,4 @@
 <div *ngIf="detailWord" class="container">
-  <a routerLink="dictionary">
-    <button class="btn btn-info">Back</button>
-  </a>
   <table class="table table-hover">
     <tbody>
     <tr>
@@ -19,6 +16,12 @@
     <tr>
       <td>Usages</td>
       <td>{{detailWord.usages}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <button class="btn btn-outline-success" (click)="backToList()">Back</button>
+      </td>
     </tr>
     </tbody>
   </table>

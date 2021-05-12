@@ -1,1 +1,85 @@
-<p>edit-product works!</p>
+<div class="container justify-content-center align-items-center">
+  <h3 class="text-center text-uppercase" style="color: teal">edit product</h3>
+  <form [formGroup]="editForm" (ngSubmit)="submitEditForm(editForm)">
+    <table class="table table-hover">
+      <thead></thead>
+      <tbody>
+      <tr>
+        <td>
+          <label for="id">ID</label>
+        </td>
+        <td>
+          <p id="id">{{product.id}}</p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="name">Name</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="name" id="name">
+          <p *ngIf="editForm.controls.name.touched" class="msgError">
+            <span *ngIf="editForm.controls.name.errors?.required">Name is required</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="price">Price</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" formControlName="price" id="price">
+          <p *ngIf="editForm.controls.price.touched" class="msgError">
+            <span *ngIf="editForm.controls.price.errors?.required">Price is required</span>
+            <span *ngIf="editForm.controls.price.errors?.min">Price must be greater than 4000 $</span>
+            <span *ngIf="editForm.controls.price.errors?.max">Price must be under 500000 $</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="manuDate">Manufacture Date</label>
+        </td>
+        <td>
+          <input type="date" class="form-control" formControlName="manuDate" id="manuDate">
+          <p *ngIf="editForm.controls.manuDate.touched">
+            <span *ngIf="editForm.controls.manuDate.errors?.required">Please pick a date</span>
+            <span *ngIf="editForm.controls.manuDate.errors?.dateValid">You pick a Future day!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="quantity">Quantity</label>
+        </td>
+        <td>
+          <input type="number" class="form-control" formControlName="quantity" id="quantity">
+          <p *ngIf="editForm.controls.quantity.touched">
+            <span *ngIf="editForm.controls.quantity.errors?.required">Quantity is required</span>
+            <span *ngIf="editForm.controls.quantity.errors?.pattern">Quantity must be a number</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="description">Description</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="description" id="description">
+          <p *ngIf="editForm.controls.description.touched">
+            <span *ngIf="editForm.controls.description.errors?.required">Description is required</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-primary" type="button" (click)="backToList()">Back</button>
+        </td>
+        <td>
+          <button class="btn btn-warning" type="submit" [disabled]="editForm.invalid">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

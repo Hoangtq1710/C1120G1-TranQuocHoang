@@ -1,0 +1,25 @@
+<div *ngIf="detailWord" class="container">
+  <a routerLink="dictionary">
+    <button class="btn btn-info">Back</button>
+  </a>
+  <table class="table table-hover">
+    <tbody>
+    <tr>
+      <td>ID</td>
+      <td>{{detailWord.id}}</td>
+    </tr>
+    <tr>
+      <td>Keyword</td>
+      <td>{{detailWord.keyword}}</td>
+    </tr>
+    <tr>
+      <td>Means</td>
+      <td>{{detailWord.means}}</td>
+    </tr>
+    <tr>
+      <td>Usages</td>
+      <td>{{detailWord.usages}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

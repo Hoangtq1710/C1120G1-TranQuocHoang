@@ -1,0 +1,29 @@
+<div class="justify-content-center align-items-center my-4">
+  <form [formGroup]="lifeTimeForm" (ngSubmit)="submitLifeTime(lifeTimeForm)">
+    <table class="table table-hover">
+      <tbody>
+      <tr>
+        <td>
+          <label for="date">Pick a Date</label>
+        </td>
+        <td>
+          <input type="date" id="date" formControlName="birthday" class="form-control">
+          <p *ngIf="lifeTimeForm.controls.birthday.touched">
+            <span *ngIf="lifeTimeForm.controls.birthday.errors?.required">Please pick a date to check your life time</span>
+            <span *ngIf="lifeTimeForm.controls.birthday.errors?.birthdayValid">You pick a Future day!</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <button type="submit" class="btn btn-success" [disabled]="lifeTimeForm.invalid">Check</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+  <div class="text-center text-success fw-bold">
+    <p>Days of your life : {{lifeDay}}</p>
+  </div>
+</div>

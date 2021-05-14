@@ -1,0 +1,70 @@
+{
+  "listOrigin": [
+    {
+      "id": 1,
+      "country": "China"
+    },
+    {
+      "id": 2,
+      "country": "England"
+    },
+    {
+      "id": 3,
+      "country": "USA"
+    },
+    {
+      "id": 4,
+      "country": "VietNam"
+    }
+  ],
+  "listProduct": [
+    {
+      "code": "PR-9474",
+      "name": "Cao",
+      "price": 94010,
+      "date": "2021-04-26",
+      "quantity": 3,
+      "origin": {
+        "id": 1,
+        "country": "China"
+      },
+      "id": 1
+    },
+    {
+      "code": "PR-1006",
+      "name": "Iphone 15",
+      "price": 31000,
+      "date": "2021-04-27",
+      "quantity": 0,
+      "origin": {
+        "id": 4,
+        "country": "VietNam"
+      },
+      "id": 3
+    },
+    {
+      "code": "PR-2405",
+      "name": "Quang7",
+      "price": 31000,
+      "date": "2021-04-29",
+      "quantity": 0,
+      "origin": {
+        "id": 2,
+        "country": "England"
+      },
+      "id": 5
+    },
+    {
+      "code": "PR-2400",
+      "name": "Oppo RR",
+      "price": 64000,
+      "date": "2021-05-02",
+      "quantity": 10,
+      "origin": {
+        "id": 4,
+        "country": "VietNam"
+      },
+      "id": 6
+    }
+  ]
+}

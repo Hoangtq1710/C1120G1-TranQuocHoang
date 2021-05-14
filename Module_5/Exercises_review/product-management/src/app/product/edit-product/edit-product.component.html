@@ -1,5 +1,7 @@
-<div *ngIf="editProduct" style="padding-left: 30px" class="frame-shadow">
-  <button class="btn btnBack" (click)="backToList()">Back</button>
+<div *ngIf="editProduct"
+     style="padding-left: 30px"
+     class="frame-shadow container justify-content-center col-6">
+
   <h1 style="color: teal" class="text-uppercase mb-5">edit product</h1>
 
   <form [formGroup]="editForm" (ngSubmit)="submitEditForm(editForm)">
@@ -7,24 +9,20 @@
       <tbody>
       <tr>
         <th>
-          <label for="id">ID</label>
+          <label for="code">Code</label>
         </th>
-        <td>
-          <input type="number" class="form-control" formControlName="productId" id="id">
-          <p *ngIf="editForm.controls.productId.touched" class="msgError">
-            <span *ngIf="editForm.controls.productId.errors?.required">ID is required</span>
-            <span *ngIf="editForm.controls.productId.errors?.pattern">ID must be a number</span>
-          </p>
-        </td>
+        <th>
+          <p id="code">{{editProduct.code}}</p>
+        </th>
       </tr>
       <tr>
         <th>
           <label for="name">Name</label>
         </th>
         <td>
-          <input type="text" class="form-control" formControlName="productName" id="name">
-          <p *ngIf="editForm.controls.productName.touched" class="msgError">
-            <span *ngIf="editForm.controls.productName.errors?.required">Name is required</span>
+          <input type="text" class="form-control" formControlName="name" id="name">
+          <p *ngIf="editForm.controls.name.touched" class="msgError">
+            <span *ngIf="editForm.controls.name.errors?.required">Name is required</span>
           </p>
         </td>
       </tr>
@@ -33,11 +31,11 @@
           <label for="price">Price</label>
         </th>
         <td>
-          <input type="number" class="form-control" formControlName="productPrice" id="price">
-          <p *ngIf="editForm.controls.productPrice.touched" class="msgError">
-            <span *ngIf="editForm.controls.productPrice.errors?.required">Price is required</span>
-            <span *ngIf="editForm.controls.productPrice.errors?.min">Price must be greater than 10000 đ!</span>
-            <span *ngIf="editForm.controls.productPrice.errors?.max">Price should be under 50000000 đ</span>
+          <input type="number" class="form-control" formControlName="price" id="price">
+          <p *ngIf="editForm.controls.price.dirty" class="msgError">
+            <span *ngIf="editForm.controls.price.errors?.required">Price is required</span>
+            <span *ngIf="editForm.controls.price.errors?.min">Price must be greater than 10000 đ!</span>
+            <span *ngIf="editForm.controls.price.errors?.max">Price should be under 50000000 đ</span>
           </p>
         </td>
       </tr>
@@ -46,9 +44,10 @@
           <label for="date">Date</label>
         </th>
         <td>
-          <input type="date" class="form-control" formControlName="productDate" id="date" >
-          <p *ngIf="editForm.controls.productDate.touched" class="msgError">
-            <span *ngIf="editForm.controls.productDate.errors?.required">Pick a Date!</span>
+          <input type="date" class="form-control" formControlName="date" id="date" >
+          <p *ngIf="editForm.controls.date.dirty" class="msgError">
+            <span *ngIf="editForm.controls.date.errors?.required">Please pick a Date!</span>
+            <span *ngIf="editForm.controls.date.errors?.dateValid">You pick a Future day!</span>
           </p>
         </td>
       </tr>
@@ -57,10 +56,10 @@
           <label for="qty">Quantity</label>
         </th>
         <td>
-          <input type="number" class="form-control" formControlName="productQuantity" id="qty">
-          <p *ngIf="editForm.controls.productQuantity.touched" class="msgError">
-            <span *ngIf="editForm.controls.productQuantity.errors?.required">Quantity is required</span>
-            <span *ngIf="editForm.controls.productQuantity.errors?.pattern">Quantity must be a number!</span>
+          <input type="number" class="form-control" formControlName="quantity" id="qty">
+          <p *ngIf="editForm.controls.quantity.touched" class="msgError">
+            <span *ngIf="editForm.controls.quantity.errors?.required">Quantity is required</span>
+            <span *ngIf="editForm.controls.quantity.errors?.pattern">Quantity must be a number!</span>
           </p>
         </td>
       </tr>
@@ -69,18 +68,20 @@
           <label for="origin">Origin</label>
         </th>
         <td>
-          <select class="form-control" formControlName="productOrigin" id="origin">
-            <option value="" disabled>Select a Origin</option>
-            <option *ngFor="let ori of listOrigin" value="{{ori}}" [selected]="editProduct._origin == ori" >{{ori}}</option>
+          <select class="form-control" formControlName="origin" id="origin">
+            <option value="" disabled selected>Select a Origin</option>
+            <option *ngFor="let ori of listOrigin" [selected]="ori == editProduct.origin">
+              {{ori['country']}}
+            </option>
           </select>
-          <p *ngIf="editForm.controls.productOrigin.touched" class="msgError">
-            <span *ngIf="editForm.controls.productOrigin.errors?.required">Pick a Origin!</span>
+          <p *ngIf="editForm.controls.origin.touched" class="msgError">
+            <span *ngIf="editForm.controls.origin.errors?.required">Pick a Origin!</span>
           </p>
         </td>
       </tr>
-      <tr>
+      <tr class="text-center">
         <td>
-<!--          <button class="btn btn-danger" type="button">Close</button>-->
+          <button class="btn btnBack" (click)="backToList()" type="button">Back</button>
         </td>
         <td>
           <button class="btn btn-warning mb-2" type="submit" [disabled]="editForm.invalid">Update</button>

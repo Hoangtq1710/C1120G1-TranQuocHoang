@@ -1,11 +1,3 @@
 .btn {
   margin-right: 15px;
 }
-#btnList {
-  background-color: #717CF5;
-  color: whitesmoke;
-}
-#btnList:hover {
-  background-color: #7D3DF5;
-}
-

@@ -1,8 +1,9 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Product} from '../../model/Product';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ProductService} from '../product.service';
+import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
+import {validateDate} from '../../validators/DateValidators';
+import {Product} from '../../model/Product';
 
 @Component({
   selector: 'app-add-product',
@@ -21,29 +22,30 @@ export class AddProductComponent implements OnInit {
   { }
 
   ngOnInit(): void {
-    this.listOrigin = this.productService.listOrigin;
+    this.productService.getListOrigin().subscribe(data => {
+      this.listOrigin = data;
+    }, error => {
+      console.log("get error on add-product.component.ts")
+    })
 
     this.createForm = this._formBuilder.group({
-      productId: [0, [Validators.required, Validators.pattern('^[\\d]+$')]],
-      productName: ['', Validators.required],
-      productPrice: [0, [Validators.required, Validators.min(10000), Validators.max(50000000)]],
-      productDate: ['', [Validators.required]],
-      productQuantity: [0, [Validators.required, Validators.pattern('^[\\d]+$')]],
-      productOrigin: ['', [Validators.required]]
+      code: ['PR-', [Validators.required, Validators.pattern('^PR-[\\d]{4}$')]],
+      name: ['', Validators.required],
+      price: [0, [Validators.required, Validators.min(10000), Validators.max(50000000)]],
+      date: ['', [Validators.required, validateDate]],
+      quantity: [0, [Validators.required, Validators.pattern('^[\\d]+$')]],
+      origin: ['', [Validators.required]]
     });
   }
 
   submitCreateForm(createForm: FormGroup) {
-    let product: Product = {
-      _id: createForm.value['productId'],
-      _name: createForm.value['productName'],
-      _price: createForm.value['productPrice'],
-      _date: createForm.value['productDate'],
-      _quantity: createForm.value['productQuantity'],
-      _origin: createForm.value['productOrigin']
-    };
-    this.productService.createProduct(product);
-    this.backToList();
+    let product:Product = createForm.value;
+    console.log(this.createForm.value)
+    this.productService.save(product).subscribe(data => {
+      this.backToList();
+    }, error => {
+      console.log("Get error on submitCreateForm()");
+    })
   }
 
   backToList() {

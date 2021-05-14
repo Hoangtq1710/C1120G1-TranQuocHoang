@@ -9,6 +9,8 @@ import {ViewProductComponent} from './product/view-product/view-product.componen
 import {ReactiveFormsModule} from '@angular/forms';
 import {EditProductComponent} from './product/edit-product/edit-product.component';
 import {AppRoutingModule} from './app-routing.module';
+import {DeleteProductComponent } from './product/delete-product/delete-product.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,12 +19,14 @@ import {AppRoutingModule} from './app-routing.module';
     ListProductComponent,
     AddProductComponent,
     ViewProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    DeleteProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

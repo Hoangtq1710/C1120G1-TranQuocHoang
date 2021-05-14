@@ -1,72 +1,81 @@
-<div *ngIf="viewProduct" style="padding-left: 30px" class="frame-shadow">
-  <button class="btn btnBack" (click)="backToList()">Back</button>
+<div *ngIf="viewProduct"
+     style="padding-left: 30px"
+     class="frame-shadow container justify-content-center col-6">
+
   <h1 style="color: teal" class="text-uppercase mb-5">view product</h1>
 
   <p style="color: green; font-weight: 500">{{listVisitedProduct}}</p>
   <table class="table table-hover">
     <tbody>
     <tr>
-      <th>ID</th>
-      <td>{{viewProduct._id}}</td>
+      <th>Code</th>
+      <td>{{viewProduct.code}}</td>
     </tr>
     <tr>
       <th>Name</th>
-      <td>{{viewProduct._name | titlecase}}</td>
+      <td>{{viewProduct.name | titlecase}}</td>
     </tr>
     <tr>
       <th>Price</th>
-      <td>{{viewProduct._price | currency: 'VND'}}</td>
+      <td>{{viewProduct.price | currency: 'VND'}}</td>
     </tr>
     <tr>
       <th>Date</th>
-      <td>{{viewProduct._date | date: 'dd/MM/yyyy'}}</td>
+      <td>{{viewProduct.date | date: 'dd/MM/yyyy'}}</td>
     </tr>
     <tr>
       <th>Quantity</th>
-      <td>{{viewProduct._quantity}}</td>
+      <td>{{viewProduct.quantity}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="m-0">
+        <!--  table new Quantity-->
+        <form [formGroup]="newQtyForm" (ngSubmit)="submitNewQty(newQtyForm)"
+              class="justify-content-center w-100 text-center col-8" id="tbNewQty" style="display: none">
+          <table class="table">
+            <tbody>
+            <tr style="padding-left: 5px">
+              <td>
+                <label for="newQty" style="color: rebeccapurple">New Quantity</label>
+              </td>
+              <td>
+                <input type="number" class="form-control" formControlName="newQty" id="newQty">
+                <p *ngIf="newQtyForm.controls.newQty.touched" class="msgError">
+                  <span *ngIf="newQtyForm.controls.newQty.errors?.required">New Quantity is required</span>
+                  <span *ngIf="newQtyForm.controls.newQty.errors?.min">New Quantity must be greater than 0</span>
+                  <span *ngIf="newQtyForm.controls.newQty.errors?.max">New Quantity must be under or equals 100</span>
+                </p>
+                <p *ngIf="newQtyForm.controls.newQty.untouched">
+                  <span></span>
+                </p>
+              </td>
+              <td>
+                <button class="btn btn-warning" type="submit" [disabled]="newQtyForm.invalid">Update</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </form>
+      </td>
     </tr>
     <tr>
       <th>Origin</th>
-      <td>{{viewProduct._origin}}</td>
+      <td>{{viewProduct.origin['country']}}</td>
     </tr>
     <tr>
       <td>
-<!--        <button id="btnCloseView" class="btn btn-danger">Close</button>-->
+        <!--        <button id="btnCloseView" class="btn btn-danger">Close</button>-->
       </td>
-      <td *ngIf="viewProduct._quantity == 0">
+      <td *ngIf="viewProduct.quantity == 0">
         <button class="btn btn-warning mb-2" (click)="toggleUpQtyInput()">Update Quantity</button>
+      </td>
+    </tr>
+    <tr class="text-center">
+      <td colspan="2">
+        <button class="btn btnBack" (click)="backToList()">Back</button>
       </td>
     </tr>
     </tbody>
   </table>
-
-<!--  table new Quantity-->
-  <form [formGroup]="newQtyForm" (ngSubmit)="submitNewQty(newQtyForm)"
-        class="justify-content-center text-center col-8" id="tbNewQty" style="display: none">
-    <table style="margin: 50px auto; padding-bottom: 30px"
-           class="table table-borderless">
-      <tbody>
-      <tr style="padding-left: 5px">
-        <td>
-          <label for="newQty">New Quantity</label>
-        </td>
-        <td>
-          <input type="number" class="form-control" formControlName="newQty" id="newQty">
-          <p *ngIf="newQtyForm.controls.newQty.touched" class="msgError">
-            <span *ngIf="newQtyForm.controls.newQty.errors?.required">New Quantity is required</span>
-            <span *ngIf="newQtyForm.controls.newQty.errors?.min">New Quantity must be greater than 0</span>
-            <span *ngIf="newQtyForm.controls.newQty.errors?.max">New Quantity must be under or equals 100</span>
-          </p>
-          <p *ngIf="newQtyForm.controls.newQty.untouched">
-            <span></span>
-          </p>
-        </td>
-        <td>
-          <button class="btn btn-warning mb-2" type="submit" [disabled]="newQtyForm.invalid">Update</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-  </form>
-
 </div>

@@ -8,14 +8,15 @@
   </a>
 
 <!--  message-->
-  <div *ngIf="message" id="alertFade" class="alert alert-success alert-dismissible fade show font-weight-bold">
+  <div *ngIf="message" id="alertFade"
+       class="alert alert-success alert-dismissible font-weight-bold">
     <button class="btn btn-close" (click)="closeAlert()"></button>
     <span>{{message}}</span>
   </div>
 
   <table class="table table-hover">
     <thead>
-    <tr>
+    <tr style="border-bottom: 2px solid teal">
       <th>No</th>
       <th>ID</th>
       <th>Name</th>
@@ -29,7 +30,7 @@
     <tbody>
     <tr *ngFor="let product of listProduct; let i = index">
       <td>{{i + 1}}</td>
-      <td>{{product.id}}</td>
+      <th>{{product.id}}</th>
       <td>{{product.name | uppercase}}</td>
       <td>{{product.price | currency:'USD'}}</td>
       <td>{{product.manuDate | date:'dd/MM/yyyy'}}</td>

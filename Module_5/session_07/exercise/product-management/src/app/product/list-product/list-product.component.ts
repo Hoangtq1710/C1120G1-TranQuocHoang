@@ -22,7 +22,11 @@ export class ListProductComponent implements OnInit {
 
   closeAlert() {
     let alert = document.getElementById('alertFade').style;
-    alert.cssText = ''
+    // @ts-ignore
+    alert.opacity = 1;
+    (function fade(){
+      // @ts-ignore
+      (alert.opacity-=.1)<0?alert.display="none":setTimeout(fade,60)})();
   }
 
 }

@@ -28,7 +28,7 @@ export class EditProductComponent implements OnInit {
       id: [this.product.id, [Validators.required,Validators.pattern('^OTO-[\\d]{4}$')]],
       name: [this.product.name, [Validators.required]],
       price: [this.product.price, [Validators.required, Validators.min(4000), Validators.max(500000)]],
-      manuDate: [new Date(this.product.manuDate).toISOString().slice(0,10), [Validators.required]],
+      manuDate: [new Date(this.product.manuDate).toISOString().slice(0,10), [Validators.required, validateManuDate]],
       quantity:[this.product.quantity, [Validators.required, Validators.pattern('^[\\d]+$')]],
       description: [this.product.description, [Validators.required]]
     })

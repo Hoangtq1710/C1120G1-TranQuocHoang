@@ -58,7 +58,7 @@
         </td>
         <td>
           <input type="number" class="form-control" formControlName="quantity" id="quantity">
-          <p *ngIf="addForm.controls.quantity.touched">
+          <p *ngIf="addForm.controls.quantity.touched && addForm.controls.quantity.errors?.required">
             <span *ngIf="addForm.controls.quantity.errors?.required">Quantity is required</span>
             <span *ngIf="addForm.controls.quantity.errors?.pattern">Quantity must be a number</span>
           </p>

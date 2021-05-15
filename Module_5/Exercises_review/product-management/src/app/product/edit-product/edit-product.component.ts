@@ -2,7 +2,7 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Product} from '../../model/Product';
 import {ProductService} from '../../service/product.service';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {validateDate} from '../../validators/DateValidators';
 
 @Component({
@@ -27,7 +27,7 @@ export class EditProductComponent implements OnInit {
     this.productService.getListOrigin().subscribe(data => {
       this.listOrigin = data;
     }, error => {
-      console.log("get error on getListOrigin() in edit-product.component.ts")
+      console.log("get "+error+" on getListOrigin() in edit-product.component.ts")
     });
 
     let id:number = this.activatedRoute.snapshot.params['id'];
@@ -39,7 +39,7 @@ export class EditProductComponent implements OnInit {
         code: [product.code, [Validators.required, Validators.pattern('^PR-[\\d]{4}$')]],
         name: [product.name, [Validators.required]],
         price: [product.price, [Validators.required, Validators.min(10000), Validators.max(50000000)]],
-        date: [new Date(product.date).toISOString().slice(0,10), [Validators.required, validateDate]],
+        date: [product.date, [Validators.required, validateDate]],
         quantity: [product.quantity, [Validators.required, Validators.pattern('^[\\d]+$')]],
         origin: [product.origin, [Validators.required]]
       });

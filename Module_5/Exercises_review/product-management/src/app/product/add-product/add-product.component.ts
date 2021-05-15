@@ -25,7 +25,7 @@ export class AddProductComponent implements OnInit {
     this.productService.getListOrigin().subscribe(data => {
       this.listOrigin = data;
     }, error => {
-      console.log("get error on add-product.component.ts")
+      console.log("get "+error+" on add-product.component.ts")
     })
 
     this.createForm = this._formBuilder.group({

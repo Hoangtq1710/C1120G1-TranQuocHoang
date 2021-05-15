@@ -19,7 +19,7 @@ export class ListProductComponent implements OnInit {
     this._productService.getListProduct().subscribe(data => {
       this.listProduct = data;
     }, error => {
-      console.log("Get error on getListProduct()");
+      console.log("Get "+error+" on getListProduct()");
     });
     this.message = this._productService.getMessage();
   }

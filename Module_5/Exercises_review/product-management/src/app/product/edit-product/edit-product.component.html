@@ -69,8 +69,9 @@
         </th>
         <td>
           <select class="form-control" formControlName="origin" id="origin">
-            <option value="" disabled selected>Select a Origin</option>
-            <option *ngFor="let ori of listOrigin" [selected]="ori == editProduct.origin">
+            <option value="" disabled>Select a Origin</option>
+            <option *ngFor="let ori of listOrigin"
+                    [selected]="ori['country'] == editProduct.origin['country']">
               {{ori['country']}}
             </option>
           </select>

@@ -2,10 +2,13 @@
   color: teal;
   text-transform: uppercase;
   text-align: center;
-}
-.btn {
-  margin-right: 15px;
+  margin: 15px auto;
 }
 .table thead {
   border-bottom: 2px solid teal;
+}
+.msgError {
+  color: red;
+  font-style: italic;
+  font-size: 16px;
 }

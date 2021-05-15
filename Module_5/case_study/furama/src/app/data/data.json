@@ -1,0 +1,82 @@
+{
+  "listTypeCustomer": [
+    {
+      "id": 1,
+      "rank": "Diamond"
+    },
+    {
+      "id": 2,
+      "rank": "Platinum"
+    },
+    {
+      "id": 3,
+      "rank": "Gold"
+    },
+    {
+      "id": 4,
+      "rank": "Silver"
+    },
+    {
+      "id": 5,
+      "rank": "Member"
+    }
+  ],
+  "listCustomer": [
+    {
+      "code": "KH-1710",
+      "name": "Tran Quoc Hoang",
+      "type": {
+        "id": 5,
+        "rank": "Member"
+      },
+      "birthday": "1995-10-17",
+      "idCard": "205478130",
+      "phone": "0905303669",
+      "email": "hoang@gmail.com",
+      "address": "Quang Nam",
+      "id": 1
+    },
+    {
+      "code": "KH-2405",
+      "name": "Tran Thi Nhan",
+      "type": {
+        "id": 2,
+        "rank": "Platinum"
+      },
+      "birthday": "1995-05-24",
+      "idCard": "205312068",
+      "phone": "0905863591",
+      "email": "nhan@gmail.com",
+      "address": "Quang Nam",
+      "id": 2
+    },
+    {
+      "code": "KH-0306",
+      "name": "Nguyen Thi Tuong Vi",
+      "type": {
+        "id": 3,
+        "rank": "Gold"
+      },
+      "birthday": "1992-06-03",
+      "idCard": "207941470",
+      "phone": "0902366844",
+      "email": "vi.36@gmail.com",
+      "address": "Da Nang",
+      "id": 3
+    },
+    {
+      "code": "KH-2117",
+      "name": "TuanSang",
+      "type": {
+        "id": 5,
+        "rank": "Member"
+      },
+      "birthday": "2021-02-28",
+      "idCard": "205998741",
+      "phone": "0905444363",
+      "email": "sang@gmail.com",
+      "address": "Da Nang",
+      "id": 4
+    }
+  ]
+}

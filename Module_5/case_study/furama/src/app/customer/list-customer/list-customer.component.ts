@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CustomerService} from "../../service/customer.service";
 import {Customer} from "../../model/Customer";
 
 @Component({
@@ -8,44 +9,33 @@ import {Customer} from "../../model/Customer";
 })
 export class ListCustomerComponent implements OnInit {
 
-  @Input('listCustomer') listCustomer:Customer[]
-  public customer:Customer;
+  listCustomer: Customer[] = [];
+  listType: string[] = [];
+  fullSearch: string = '';
+  selectSearch: string;
 
-  constructor() { }
+  constructor(private customerService: CustomerService) {
+  }
 
   ngOnInit(): void {
+    this.customerService.getListType().subscribe(data => {
+      this.listType = data;
+    }, error => {
+      console.log("get " + error + " at getListType on ListCustomerComponent");
+    })
+    
+    this.customerService.getListCustomer().subscribe(data => {
+      this.listCustomer = data;
+    }, error => {
+      console.log("get " + error + " at getListCustomer on ListCustomerComponent");
+    })
   }
 
-  viewCustomer(customer: Customer) {
-    this.customer = customer;
-  }
-
-  showEditForm(customer: Customer) {
-    this.customer = customer;
-  }
-
-  showDeleteForm(customer: Customer) {
-    this.customer = customer;
-  }
-
-  addCustomer(customer: Customer) {
-    this.listCustomer.push(customer);
-  }
-
-  editCustomer(value: Customer) {
-    for(let customer of this.listCustomer) {
-      if (customer.idCustomer == value.idCustomer){
-        customer = value;
-        return;
-      }
-    }
-  }
-
-  deleteCustomer(idCustomer: string) {
-    for(let cus of this.listCustomer) {
-      if (cus.idCustomer == idCustomer) {
-        this.listCustomer.slice(this.listCustomer.indexOf(cus), 1);
-      }
-    }
+  search() {
+    this.customerService.searchFull(this.fullSearch).subscribe(data => {
+      this.listCustomer = data;
+    }, error => {
+      console.log(error)
+    })
   }
 }

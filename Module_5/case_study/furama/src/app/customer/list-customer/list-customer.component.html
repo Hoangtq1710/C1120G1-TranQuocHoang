@@ -1,71 +1,77 @@
-<div class="frame-shadow">
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <th>No</th>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Birthday</th>
-      <th>ID Card</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Address</th>
-      <th>Options</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let customer of listCustomer, let i = index">
-      <td>{{i + 1}}</td>
-      <th>{{customer.idCustomer}}</th>
-      <td>{{customer.name}}</td>
-      <td>{{customer.typeCustomer}}</td>
-      <td>{{customer.birthday}}</td>
-      <td>{{customer.idCard}}</td>
-      <td>{{customer.phone}}</td>
-      <td>{{customer.email}}</td>
-      <td>{{customer.address}}</td>
-      <td>
-        <button class="btn btn-success mr-2" (click)="viewCustomer(customer)">
-          <i class="far fa-eye"></i>
-        </button>
-        <button class="btn btn-warning mr-2" (click)="showEditForm(customer)">
-          <i class="fas fa-edit"></i>
-        </button>
-        <button class="btn btn-danger" (click)="showDeleteForm(customer)">
-          <i class="fas fa-trash-alt"></i>
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-</div>
-
-<div class="frame-shadow">
-  <div class="col-md-12 col-sm-12">
-    <div class="row">
-      <div id="addCus" class="col-md-6 col-sm-6 frame-shadow">
-        <h1 style="color: #046056" class="text-uppercase">add new customer</h1>
-        <app-create-customer (customer)="addCustomer($event)"></app-create-customer>
-      </div>
-      <div id="viewCus" class="col-md-6 col-sm-6 frame-shadow">
-        <h1 style="color: #046056" class="text-uppercase">view customer</h1>
-        <app-view-customer [customer]="customer"></app-view-customer>
-      </div>
-    </div>
+<div class="container-fluid justify-content-center align-items-center my-2">
+  <div class="w-100">
+    <h1 class="title">list customer</h1>
+    <a routerLink="add" class="m-3">
+      <button class="btn btn-outline-success">
+        <i class="far fa-plus-square"></i>
+      </button>
+    </a>
   </div>
-  <div class="col-md-12 col-sm-12">
-    <div class="row">
-      <div id="editCus" class="col-md-6 col-sm-6 frame-shadow">
-        <h1 style="color: #046056" class="text-uppercase">edit customer</h1>
-        <app-edit-customer [customer]="customer"
-                           (customer)="editCustomer($event)"></app-edit-customer>
-      </div>
-      <div id="deleteCus" class="col-md-6 col-sm-6 frame-shadow">
-        <h1 style="color: #046056" class="text-uppercase">delete customer</h1>
-        <app-delete-customer [customer]="customer"
-                             (idCustomer)="deleteCustomer($event)" ></app-delete-customer>
-      </div>
+<!--  search-->
+  <div class="row">
+<!--    fulltext search-->
+    <div class="col-4">
+      <p>Full Text Search</p>
+      <input type="text" [(ngModel)]="fullSearch" class="form-control">
+      <button class="btn btn-outline-warning" (click)="search()">Search</button>
     </div>
+    <div class="col-4">
+      <p>Select Search</p>
+      <select [(ngModel)]="selectSearch">
+        <option *ngFor="let type of listType" value="{{type}}">
+          {{type['rank']}}
+        </option>
+      </select>
+      <button class="btn btn-outline-warning" (click)="search()">Search</button>
+    </div>
+
+  </div>
+  <div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>No</th>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Birthday</th>
+        <th>Id Card</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Options</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let customer of listCustomer; let i = index">
+        <td>{{i + 1}}</td>
+        <th>{{customer.code}}</th>
+        <td>{{customer.name}}</td>
+        <td>{{customer.type['rank']}}</td>
+        <td>{{customer.birthday | date:'dd-MM-yyyy'}}</td>
+        <td>{{customer.idCard}}</td>
+        <td>{{customer.phone}}</td>
+        <td>{{customer.email}}</td>
+        <td>{{customer.address}}</td>
+        <td>
+          <a [routerLink]="['view', customer['id']]">
+            <button class="btn btn-outline-primary">
+              <i class="far fa-eye"></i>
+            </button>
+          </a>
+          <a [routerLink]="['edit', customer['id']]">
+            <button class="btn btn-outline-warning">
+              <i class="fas fa-edit"></i>
+            </button>
+          </a>
+          <a [routerLink]="['delete', customer['id']]">
+            <button class="btn btn-outline-danger">
+              <i class="fas fa-trash-alt"></i>
+            </button>
+          </a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>

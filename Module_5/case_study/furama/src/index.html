@@ -20,6 +20,8 @@
 
   <script>
 
+    // script get current time
+
     function startToGetTime() {
       getTimeToShow();
       setInterval(x => getTimeToShow(), 1000); //1 second
@@ -36,6 +38,8 @@
 
       document.getElementById("time").innerHTML = hourStr+':'+minuteStr+':'+secondStr;
     }
+
+    // script get weather
 
     function startToGetWeather(){
       console.log("function startToGetWeather is run for the first times");
@@ -65,7 +69,7 @@
       document.getElementById("tempF").innerHTML = tempF.toString();
     }
 
-
+    // script scroll bak to top
 
     function backTop() {
       document.documentElement.scrollTop = 0

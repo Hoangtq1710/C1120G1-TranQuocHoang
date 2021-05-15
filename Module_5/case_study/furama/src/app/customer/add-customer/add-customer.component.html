@@ -1,0 +1,134 @@
+<div class="container col-9 justify-content-center align-items-center my-2">
+  <h1 class="title">add new customer</h1>
+  <form [formGroup]="createForm" (ngSubmit)="submitCreateForm(createForm)">
+    <table class="table table-hover">
+      <thead></thead>
+      <tbody>
+      <tr>
+        <td class="col-2">
+          <label for="code">Code</label>
+        </td>
+        <td class="col-5">
+          <input type="text" class="form-control" formControlName="code" id="code">
+        </td>
+        <td class="col-5">
+          <p *ngIf="createForm.controls.code.touched" class="msgError">
+            <span *ngIf="createForm.controls.code.errors?.required">Code is required</span>
+            <span *ngIf="createForm.controls.code.errors?.pattern">Code must be in the correct format : KH-XXXX</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="name">Name</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="name" id="name">
+        </td>
+        <td>
+          <p *ngIf="createForm.controls.name.touched" class="msgError">
+            <span *ngIf="createForm.controls.name.errors?.required">Name is required</span>
+            <span *ngIf="createForm.controls.name.errors?.minlength">Name must have at least 5 characters</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="type">Type Customer</label>
+        </td>
+        <td>
+          <select class="form-control" formControlName="type" id="type">
+            <option value="" selected disabled>Select a Type</option>
+            <option *ngFor="let type of listType" [ngValue]="type">
+              {{type['rank']}}
+            </option>
+          </select>
+        </td>
+        <td>
+          <p *ngIf="createForm.controls.type.touched" class="msgError">
+            <span *ngIf="createForm.controls.type.errors?.required">Pick a type of Customer</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="birthday">Birthday</label>
+        </td>
+        <td>
+          <input type="date" class="form-control" formControlName="birthday" id="birthday">
+        </td>
+        <td>
+          <p *ngIf="createForm.controls.birthday.touched" class="msgError">
+            <span *ngIf="createForm.controls.birthday.errors?.required">Please pick a Date</span>
+            <span *ngIf="createForm.controls.birthday.errors?.dateValid">You pick a Future day</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="idCard">ID Card</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="idCard" id="idCard">
+        </td>
+        <td>
+          <p *ngIf="createForm.controls.idCard.touched" class="msgError">
+            <span *ngIf="createForm.controls.idCard.errors?.required">ID Card is required</span>
+            <span *ngIf="createForm.controls.idCard.errors?.pattern">ID Card must have 9 digits</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="phone">Phone</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="phone" id="phone">
+        </td>
+        <td>
+          <p *ngIf="createForm.controls.phone.touched" class="msgError">
+            <span *ngIf="createForm.controls.phone.errors?.required">Phone is required</span>
+            <span *ngIf="createForm.controls.phone.errors?.pattern">Phone must start with 090 and 7 digits is follow</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="email">Email</label>
+        </td>
+        <td>
+          <input type="email" class="form-control" formControlName="email" id="email">
+        </td>
+        <td>
+          <p *ngIf="createForm.controls.email.touched" class="msgError">
+            <span *ngIf="createForm.controls.email.errors?.required">Email is required</span>
+            <span *ngIf="createForm.controls.email.errors?.email">Email must in the correct format : abc@abc.abc</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="address">Address</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="address" id="address">
+        </td>
+        <td>
+          <p *ngIf="createForm.controls.address.touched" class="msgError">
+            <span *ngIf="createForm.controls.address.errors?.required">Address is required</span>
+            <span *ngIf="createForm.controls.address.errors?.minlength">Address must have at least 3 characters</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-outline-primary" (click)="backToList()">Back</button>
+        </td>
+        <td>
+          <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">Create</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

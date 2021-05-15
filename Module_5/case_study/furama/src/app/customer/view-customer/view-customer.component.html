@@ -1,0 +1,47 @@
+<div class="container col-5 justify-content-center align-items-center my-2">
+  <h1 class="title">customer information</h1>
+  <div>
+    <table class="table table-hover">
+      <thead></thead>
+      <tbody>
+      <tr>
+        <th>Code</th>
+        <th>{{customer.code}}</th>
+      </tr>
+      <tr>
+        <td>Name</td>
+        <td>{{customer.name | titlecase}}</td>
+      </tr>
+      <tr>
+        <td>Type</td>
+        <td>{{customer.type['rank']}}</td>
+      </tr>
+      <tr>
+        <td>Birthday</td>
+        <td>{{customer.birthday | date: 'dd/MM/yyyy'}}</td>
+      </tr>
+      <tr>
+        <td>ID Card</td>
+        <td>{{customer.idCard}}</td>
+      </tr>
+      <tr>
+        <td>Phone</td>
+        <td>{{customer.phone}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{customer.email}}</td>
+      </tr>
+      <tr>
+        <td>Address</td>
+        <td>{{customer.address}}</td>
+      </tr>
+      <tr class="text-center">
+        <td colspan="2">
+          <button class="btn btn-primary" (click)="close()">Back</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

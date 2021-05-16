@@ -11,8 +11,15 @@ export class ListCustomerComponent implements OnInit {
 
   listCustomer: Customer[] = [];
   listType: string[] = [];
+
   fullSearch: string = '';
-  selectSearch: string;
+
+  selectSearch: string = '';
+  nameSelect: string = '';
+
+  nameSearch: string = '';
+  idCardSearch: string = '';
+
 
   constructor(private customerService: CustomerService) {
   }
@@ -23,7 +30,7 @@ export class ListCustomerComponent implements OnInit {
     }, error => {
       console.log("get " + error + " at getListType on ListCustomerComponent");
     })
-    
+
     this.customerService.getListCustomer().subscribe(data => {
       this.listCustomer = data;
     }, error => {
@@ -31,11 +38,27 @@ export class ListCustomerComponent implements OnInit {
     })
   }
 
-  search() {
+  fullSearchMethod() {
     this.customerService.searchFull(this.fullSearch).subscribe(data => {
       this.listCustomer = data;
     }, error => {
-      console.log(error)
+      console.log("get "+error+" at fullSearchMethod on ListCustomerComponent");
+    })
+  }
+
+  selectSearchMethod() {
+    this.customerService.searchSelect(this.selectSearch, this.nameSelect).subscribe(data => {
+      this.listCustomer = data;
+    }, error => {
+      console.log("get "+error+" at selectSearchMethod on ListCustomerComponent");
+    })
+  }
+
+  searchByNameAndIdCard() {
+    this.customerService.searchByNameAndIdCard(this.nameSearch, this.idCardSearch).subscribe(data => {
+      this.listCustomer = data;
+    }, error => {
+      console.log("get "+error+" at searchByNameAndIdCard on ListCustomerComponent");
     })
   }
 }

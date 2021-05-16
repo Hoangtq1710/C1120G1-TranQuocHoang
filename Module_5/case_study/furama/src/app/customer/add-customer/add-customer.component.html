@@ -1,6 +1,6 @@
 <div class="container col-9 justify-content-center align-items-center my-2">
   <h1 class="title">add new customer</h1>
-  <form [formGroup]="createForm" (ngSubmit)="submitCreateForm(createForm)">
+  <form [formGroup]="form" (ngSubmit)="submitForm(form)">
     <table class="table table-hover">
       <thead></thead>
       <tbody>
@@ -12,9 +12,9 @@
           <input type="text" class="form-control" formControlName="code" id="code">
         </td>
         <td class="col-5">
-          <p *ngIf="createForm.controls.code.touched" class="msgError">
-            <span *ngIf="createForm.controls.code.errors?.required">Code is required</span>
-            <span *ngIf="createForm.controls.code.errors?.pattern">Code must be in the correct format : KH-XXXX</span>
+          <p *ngIf="form.controls.code.touched" class="msgError">
+            <span *ngIf="form.controls.code.errors?.required">Code is required</span>
+            <span *ngIf="form.controls.code.errors?.pattern">Code must be in the correct format : KH-XXXX</span>
           </p>
         </td>
       </tr>
@@ -26,9 +26,9 @@
           <input type="text" class="form-control" formControlName="name" id="name">
         </td>
         <td>
-          <p *ngIf="createForm.controls.name.touched" class="msgError">
-            <span *ngIf="createForm.controls.name.errors?.required">Name is required</span>
-            <span *ngIf="createForm.controls.name.errors?.minlength">Name must have at least 5 characters</span>
+          <p *ngIf="form.controls.name.touched" class="msgError">
+            <span *ngIf="form.controls.name.errors?.required">Name is required</span>
+            <span *ngIf="form.controls.name.errors?.minlength">Name must have at least 5 characters</span>
           </p>
         </td>
       </tr>
@@ -45,8 +45,8 @@
           </select>
         </td>
         <td>
-          <p *ngIf="createForm.controls.type.touched" class="msgError">
-            <span *ngIf="createForm.controls.type.errors?.required">Pick a type of Customer</span>
+          <p *ngIf="form.controls.type.touched" class="msgError">
+            <span *ngIf="form.controls.type.errors?.required">Pick a type of Customer</span>
           </p>
         </td>
       </tr>
@@ -58,9 +58,9 @@
           <input type="date" class="form-control" formControlName="birthday" id="birthday">
         </td>
         <td>
-          <p *ngIf="createForm.controls.birthday.touched" class="msgError">
-            <span *ngIf="createForm.controls.birthday.errors?.required">Please pick a Date</span>
-            <span *ngIf="createForm.controls.birthday.errors?.dateValid">You pick a Future day</span>
+          <p *ngIf="form.controls.birthday.touched" class="msgError">
+            <span *ngIf="form.controls.birthday.errors?.required">Please pick a Date</span>
+            <span *ngIf="form.controls.birthday.errors?.dateValid">You pick a Future day</span>
           </p>
         </td>
       </tr>
@@ -72,9 +72,9 @@
           <input type="text" class="form-control" formControlName="idCard" id="idCard">
         </td>
         <td>
-          <p *ngIf="createForm.controls.idCard.touched" class="msgError">
-            <span *ngIf="createForm.controls.idCard.errors?.required">ID Card is required</span>
-            <span *ngIf="createForm.controls.idCard.errors?.pattern">ID Card must have 9 digits</span>
+          <p *ngIf="form.controls.idCard.touched" class="msgError">
+            <span *ngIf="form.controls.idCard.errors?.required">ID Card is required</span>
+            <span *ngIf="form.controls.idCard.errors?.pattern">ID Card must have 9 digits</span>
           </p>
         </td>
       </tr>
@@ -86,9 +86,9 @@
           <input type="text" class="form-control" formControlName="phone" id="phone">
         </td>
         <td>
-          <p *ngIf="createForm.controls.phone.touched" class="msgError">
-            <span *ngIf="createForm.controls.phone.errors?.required">Phone is required</span>
-            <span *ngIf="createForm.controls.phone.errors?.pattern">Phone must start with 090 and 7 digits is follow</span>
+          <p *ngIf="form.controls.phone.touched" class="msgError">
+            <span *ngIf="form.controls.phone.errors?.required">Phone is required</span>
+            <span *ngIf="form.controls.phone.errors?.pattern">Phone must start with 090 and 7 digits is follow</span>
           </p>
         </td>
       </tr>
@@ -100,9 +100,9 @@
           <input type="email" class="form-control" formControlName="email" id="email">
         </td>
         <td>
-          <p *ngIf="createForm.controls.email.touched" class="msgError">
-            <span *ngIf="createForm.controls.email.errors?.required">Email is required</span>
-            <span *ngIf="createForm.controls.email.errors?.email">Email must in the correct format : abc@abc.abc</span>
+          <p *ngIf="form.controls.email.touched" class="msgError">
+            <span *ngIf="form.controls.email.errors?.required">Email is required</span>
+            <span *ngIf="form.controls.email.errors?.email">Email must in the correct format : abc@abc.abc</span>
           </p>
         </td>
       </tr>
@@ -114,9 +114,9 @@
           <input type="text" class="form-control" formControlName="address" id="address">
         </td>
         <td>
-          <p *ngIf="createForm.controls.address.touched" class="msgError">
-            <span *ngIf="createForm.controls.address.errors?.required">Address is required</span>
-            <span *ngIf="createForm.controls.address.errors?.minlength">Address must have at least 3 characters</span>
+          <p *ngIf="form.controls.address.touched" class="msgError">
+            <span *ngIf="form.controls.address.errors?.required">Address is required</span>
+            <span *ngIf="form.controls.address.errors?.minlength">Address must have at least 3 characters</span>
           </p>
         </td>
       </tr>
@@ -125,7 +125,7 @@
           <button class="btn btn-outline-primary" (click)="backToList()">Back</button>
         </td>
         <td>
-          <button class="btn btn-success" type="submit" [disabled]="createForm.invalid">Create</button>
+          <button class="btn btn-success" type="submit" [disabled]="form.invalid">Create</button>
         </td>
       </tr>
       </tbody>

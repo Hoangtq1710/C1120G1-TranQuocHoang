@@ -12,7 +12,7 @@ import {Customer} from "../../model/Customer";
 })
 export class AddCustomerComponent implements OnInit {
 
-  createForm:FormGroup;
+  form:FormGroup;
   listType: string[] = [];
 
   constructor(private formBuilder:FormBuilder,
@@ -25,9 +25,13 @@ export class AddCustomerComponent implements OnInit {
     }, error => {
       console.log("get "+error+" at getListType on AddCustomerComponent");
     });
+    this.initForm();
 
-    this.createForm = this.formBuilder.group({
-      code: ['KH-', [Validators.required, Validators.pattern('^KH-[\\d]{4}$')]],
+  }
+
+  initForm(){
+    this.form = this.formBuilder.group({
+      code: ['', [Validators.required, Validators.pattern('^KH-[\\d]{4}$')]],
       name: ['', [Validators.required, Validators.minLength(5)]],
       type: ['', [Validators.required]],
       birthday: ['', [Validators.required, validateDate]],
@@ -38,12 +42,12 @@ export class AddCustomerComponent implements OnInit {
     });
   }
 
-  submitCreateForm(createForm: FormGroup) {
-    let customer: Customer = createForm.value;
+  submitForm(form: FormGroup) {
+    let customer: Customer = form.value;
     this.customerService.save(customer).subscribe(data => {
       this.backToList();
     }, error => {
-      console.log("get "+error+" at submitCreateForm on AddCustomerComponent");
+      console.log("get "+error+" at submitForm on AddCustomerComponent");
     })
   }
 

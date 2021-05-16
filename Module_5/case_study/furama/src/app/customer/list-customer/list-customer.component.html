@@ -12,17 +12,33 @@
 <!--    fulltext search-->
     <div class="col-4">
       <p>Full Text Search</p>
+      <span>Search : </span>
       <input type="text" [(ngModel)]="fullSearch" class="form-control">
-      <button class="btn btn-outline-warning" (click)="search()">Search</button>
+      <button class="btn btn-primary" (click)="fullSearchMethod()">Search</button>
     </div>
+
+<!--    select search-->
     <div class="col-4">
       <p>Select Search</p>
-      <select [(ngModel)]="selectSearch">
-        <option *ngFor="let type of listType" value="{{type}}">
+      <span>Name : </span>
+      <input type="text" class="form-control" [(ngModel)]="nameSelect">
+      <span>Type : </span>
+      <select [(ngModel)]="selectSearch" class="form-control">
+        <option value="" selected disabled>Select a Type</option>
+        <option value="">All</option>
+        <option *ngFor="let type of listType" value="{{type['rank']}}">
           {{type['rank']}}
         </option>
       </select>
-      <button class="btn btn-outline-warning" (click)="search()">Search</button>
+      <button class="btn btn-primary" (click)="selectSearchMethod()">Search</button>
+    </div>
+
+<!--    like search from 2 fields-->
+    <div class="col-4">
+      <p>Search like</p>
+      <span>Name : </span><input type="text" class="form-control" [(ngModel)]="nameSearch">
+      <span>ID Card : </span><input type="text" class="form-control" [(ngModel)]="idCardSearch">
+      <button class="btn btn-primary" (click)="searchByNameAndIdCard()">Search</button>
     </div>
 
   </div>

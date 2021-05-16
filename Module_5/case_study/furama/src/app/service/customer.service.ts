@@ -40,4 +40,12 @@ export class CustomerService {
   searchFull(fullSearch: string):Observable<Customer[]> {
     return this.httpClient.get<Customer[]>(this.API_URL_CUSTOMER+"?q="+fullSearch);
   }
+
+  searchSelect(selectSearch: string, nameSelect: string):Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_URL_CUSTOMER+"?type.rank_like="+selectSearch+"&name_like="+nameSelect);
+  }
+
+  searchByNameAndIdCard(nameSearch: string, idCardSearch: string):Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>(this.API_URL_CUSTOMER+"?name_like="+nameSearch+"&idCard_like="+idCardSearch);
+  }
 }

@@ -12,7 +12,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class EditCustomerComponent implements OnInit {
 
-  editForm:FormGroup;
+  form:FormGroup;
   editCustomer:Customer;
   listType: string[] = [];
   id:number;
@@ -35,18 +35,8 @@ export class EditCustomerComponent implements OnInit {
     this.id = id;
 
     this.customerService.getCustomerById(id).subscribe(data => {
-      let customer:Customer = data;
-
-      this.editForm = this.formBuilder.group({
-        code: [customer.code, [Validators.required, Validators.pattern('^KH-[\\d]{4}$')]],
-        name: [customer.name, [Validators.required, Validators.minLength(5)]],
-        type: [customer.type, [Validators.required]],
-        birthday: [customer.birthday, [Validators.required, validateDate]],
-        idCard: [customer.idCard,[Validators.required, Validators.pattern('^[\\d]{9}$')]],
-        phone: [customer.phone,[Validators.required, Validators.pattern('^090[\\d]{7}$')]],
-        email: [customer.email, [Validators.required,Validators.email]],
-        address: [customer.address, [Validators.required, Validators.minLength(3)]]
-      });
+      this.initForm();
+      this.form.patchValue(data);
 
       return this.editCustomer = data;
     }, error => {
@@ -54,8 +44,21 @@ export class EditCustomerComponent implements OnInit {
     })
   }
 
-  submitEditForm(editForm: FormGroup) {
-    let customer: Customer = editForm.value;
+  initForm(){
+    this.form = this.formBuilder.group({
+      code: ['', [Validators.required, Validators.pattern('^KH-[\\d]{4}$')]],
+      name: ['', [Validators.required, Validators.minLength(5)]],
+      type: ['', [Validators.required]],
+      birthday: ['', [Validators.required, validateDate]],
+      idCard: ['',[Validators.required, Validators.pattern('^[\\d]{9}$')]],
+      phone: ['',[Validators.required, Validators.pattern('^090[\\d]{7}$')]],
+      email: ['', [Validators.required,Validators.email]],
+      address: ['', [Validators.required, Validators.minLength(3)]]
+    });
+  }
+
+  submitForm(form: FormGroup) {
+    let customer: Customer = form.value;
 
     this.customerService.updateCustomerById(customer, this.id).subscribe(data => {
       console.log("Success");

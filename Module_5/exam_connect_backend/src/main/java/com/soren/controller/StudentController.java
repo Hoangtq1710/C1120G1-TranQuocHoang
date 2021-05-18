@@ -48,7 +48,8 @@ public class StudentController {
     }
 
     @PutMapping("/student/edit/{studentId}")
-    public void updateStudent(@RequestBody Student student){
+    public void updateStudent(@RequestBody Student student, @PathVariable(name = "studentId") Integer id){
+        student.setStudentId(id);
         studentService.save(student);
     }
 

@@ -1,0 +1,80 @@
+{
+  "listGroup": [
+    {
+      "id": 1,
+      "name": "Group 1"
+    },
+    {
+      "id": 2,
+      "name": "Group 2"
+    },
+    {
+      "id": 3,
+      "name": "Group 3"
+    }
+  ],
+  "listTeacher": [
+    {
+      "id": 1,
+      "name": "Teacher A"
+    },
+    {
+      "id": 2,
+      "name": "Teacher B"
+    },
+    {
+      "id": 3,
+      "name": "Teacher C"
+    }
+  ],
+  "listStudent": [
+    {
+      "code": "102105101",
+      "name": "Nghia",
+      "group": {
+        "id": 2,
+        "name": "Group 2"
+      },
+      "subject": "123",
+      "teacher": {
+        "id": 2,
+        "name": "Teacher B"
+      },
+      "email": "admin@admin.com",
+      "phone": "0905666333",
+      "id": 1
+    },
+    {
+      "code": "102105102",
+      "name": "Tran Van Hoang",
+      "group": {
+        "id": 2,
+        "name": "Group 2"
+      },
+      "subject": "Subject Brqrqr",
+      "teacher": {
+        "id": 1,
+        "name": "Teacher A"
+      },
+      "email": "a@gmail.com",
+      "phone": "0905333666",
+      "id": 2
+    },
+    {
+      "code": "102105103",
+      "name": "Tran Van Quang",
+      "group": {
+        "id": 3,
+        "name": "Group 3"
+      },
+      "subject": "Subject Calskd",
+      "teacher": {
+        "id": 2,
+        "name": "Teacher B"
+      },
+      "email": "a@gmail.com",
+      "phone": "0905377486",
+      "id": 3
+    }
+  ]
+}

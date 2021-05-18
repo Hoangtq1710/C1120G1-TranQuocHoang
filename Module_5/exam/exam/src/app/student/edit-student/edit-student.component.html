@@ -1,0 +1,124 @@
+<div *ngIf="student" class="container col-9 justify-content-center align-items-center my-2">
+  <h3 class="title">edit student</h3>
+  <form [formGroup]="form" (ngSubmit)="submitForm(form)">
+    <table class="table table-hover">
+      <thead></thead>
+      <tbody>
+      <tr>
+        <td class="col-2">
+          <label for="code">Code</label>
+        </td>
+        <th class="col-5">
+          <p id="code">{{student.code}}</p>
+        </th>
+        <td class="col-5"></td>
+      </tr>
+      <tr>
+        <td>
+          <label for="name">Name</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="name" id="name">
+        </td>
+        <td>
+          <p *ngIf="form.controls.name.touched" class="msgError">
+            <span *ngIf="form.controls.name.errors?.required">Name is required</span>
+            <span *ngIf="form.controls.name.errors?.pattern">Name must not contain special characters</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="group">Group</label>
+        </td>
+        <td>
+          <select class="form-control" formControlName="group" id="group">
+            <option value="" disabled>Select a Group</option>
+            <option *ngFor="let group of listGroup"
+                    [ngValue]="group"
+                    [selected]="group.groupId == form.controls.group.value['groupId']"
+                    style="color: blue">
+              {{group.groupName}}
+            </option>
+          </select>
+        </td>
+        <td>
+          <p *ngIf="form.controls.group.touched" class="msgError">
+            <span *ngIf="form.controls.group.errors?.required">Pick a Group</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="subject">Subject</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="subject" id="subject">
+        </td>
+        <td>
+          <p *ngIf="form.controls.subject.touched" class="msgError">
+            <span *ngIf="form.controls.subject.errors?.required">Subject is required</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="teacher">Teacher</label>
+        </td>
+        <td>
+          <select class="form-control" formControlName="teacher" id="teacher">
+            <option value="" disabled>Select a Teacher</option>
+            <option *ngFor="let teacher of listTeacher"
+                    style="color: blue"
+                    [ngValue]="teacher"
+                    [selected]="form.controls.teacher.value['teacherId'] == teacher.teacherId">
+              {{teacher.teacherName}}
+            </option>
+          </select>
+        </td>
+        <td>
+          <p *ngIf="form.controls.teacher.touched" class="msgError">
+            <span *ngIf="form.controls.teacher.errors?.required">Please choose a teacher</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="email">Email</label>
+        </td>
+        <td>
+          <input type="email" class="form-control" formControlName="email" id="email">
+        </td>
+        <td>
+          <p *ngIf="form.controls.email.touched" class="msgError">
+            <span *ngIf="form.controls.email.errors?.required">Email is required</span>
+            <span *ngIf="form.controls.email.errors?.email">Email must in the correct format : abc@abc.abc</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <label for="phone">Phone</label>
+        </td>
+        <td>
+          <input type="text" class="form-control" formControlName="phone" id="phone">
+        </td>
+        <td>
+          <p *ngIf="form.controls.phone.touched" class="msgError">
+            <span *ngIf="form.controls.phone.errors?.required">Phone is required</span>
+            <span *ngIf="form.controls.phone.errors?.pattern">Phone must have 10-12 digits</span>
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button class="btn btn-outline-primary" (click)="backToList()">Back</button>
+        </td>
+        <td>
+          <button class="btn btn-warning" type="submit" [disabled]="form.invalid">Update</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

@@ -1,0 +1,11 @@
+.msgError {
+  color: red;
+  font-style: italic;
+  font-size: 16px;
+}
+.title {
+  color: teal;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 30px auto;
+}

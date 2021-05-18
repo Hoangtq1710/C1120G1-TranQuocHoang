@@ -1,14 +1,15 @@
-package com.soren.service;
+package com.soren.service.impl;
 
 import com.soren.model.Student;
 import com.soren.repository.StudentRepository;
+import com.soren.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentRepository repository;
@@ -31,5 +32,10 @@ public class StudentServiceImpl implements StudentService{
     @Override
     public void deleteById(Integer id) {
         repository.deleteById(id);
+    }
+
+    @Override
+    public List<Student> fullSearch(String q) {
+        return repository.fullSearch(q);
     }
 }

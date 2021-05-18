@@ -70,7 +70,7 @@ export class EditStudentComponent implements OnInit {
 
   submitForm(form: FormGroup) {
     let student: Student = form.value;
-    console.log(form.value['group'].toString())
+    console.log(form.value)
     this.studentService.updateStudentById(student, this.id).subscribe(data => {
       console.log("Success "+data);
       this.backToList();
